@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">A Students Life</string>
+
+    <!-- Buttons -->
+    <string name="start_btn">Start</string>
+    <string name="load_btn">Laden</string>
+    <string name="options_btn">Optionen</string>
+    <string name="credits_btn">Credits</string>
+    <string name="next_btn">Weiter</string>
+    <string name="save_btn">Speichern</string>
+    <string name="cancel_btn">Abbrechen</string>
+
+    <!-- Placeholder -->
+    <string name="name_ph">Name</string>
+    <string name="gender_ph">Geschlecht</string>
+    <string name="studies_ph">Studienrichtung</string>
+
+
+    <!-- ListItems -->
+    <string name="gender_female_li">weiblich</string>
+    <string name="gender_male_li">männlich</string>
+    <string name="studies_inf_li">Informatik</string>
+    <string name="studies_bwl_li">Betriebswirtschaftslehre</string>
+
+    <!-- Text Content -->
+    <string name="introduction_tv">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+        vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+        kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+
+    <string name="story_line_tv">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+    vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+    takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+    erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+
+
+</resources>
