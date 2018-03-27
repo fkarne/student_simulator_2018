@@ -1,0 +1,94 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="at.tugraz.morning08.a_students_life.SetupActivity">
+
+    <FrameLayout
+        android:id="@+id/framelayout01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="102dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="30dp"
+                android:fillViewport="true"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/introduction_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/introduction_tv" />
+            </ScrollView>
+
+
+            <EditText
+                android:id="@+id/user_name_tf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="@string/name_ph"
+                android:inputType="text"
+                android:textSize="7pt" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/gender_ph" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/gender_male_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="60dp"
+                    android:text="@string/gender_male_li" />
+
+                <RadioButton
+                    android:id="@+id/gender_female_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="60dp"
+                    android:text="@string/gender_female_li" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/next01_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginTop="100dp"
+                android:onClick="setup01_next"
+                android:text="@string/next_btn" />
+
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

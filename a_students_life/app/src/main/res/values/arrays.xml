@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="studies_arr">
+        <item>@string/studies_inf_li</item>
+        <item>@string/studies_bwl_li</item>
+    </string-array>
+</resources>
