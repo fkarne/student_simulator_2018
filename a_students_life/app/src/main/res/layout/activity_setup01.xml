@@ -58,7 +58,8 @@
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/gender_male_radio">
 
                 <RadioButton
                     android:id="@+id/gender_male_radio"
