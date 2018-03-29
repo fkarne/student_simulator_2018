@@ -40,5 +40,6 @@ public class SetupActivity extends AppCompatActivity {
     public void setup02_next(View view) {
         Student student = Student.getInstance();
         student.setStudie(((Spinner)findViewById(R.id.studies_sp)).getSelectedItem().toString());
+        setContentView(R.layout.activity_main_page);
     }
 }
