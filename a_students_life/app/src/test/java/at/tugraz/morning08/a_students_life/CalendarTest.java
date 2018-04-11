@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import at.tugraz.morning08.a_students_life.data.Calendar;
+import at.tugraz.morning08.a_students_life.data.Event;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,47 +19,38 @@ public class CalendarTest {
     @Before
     public void beforeTest() throws Exception {
         calendar = Calendar.getInstance();
-        calendar.createEvent("SA-Prüfung", 1, 32, "Prüfung");
-        calendar.createEvent("SW-Deadline", 5, 16, "Deadline");
+        calendar.clear();
     }
 
     @Test
-    public void getFirstEventNameTest() throws Exception {
-        assertEquals("SA-Prüfung", calendar.getNextEvent().getName());
+    public void getNextEventTest() throws Exception {
+
+        assertEquals(null, calendar.getNextEvent());
+
+        Event event = new Event("SA-Prüfung", 1, 32, "Prüfung");
+        calendar.addEvent(event);
+        assertEquals(event, calendar.getNextEvent());
+
+        Event event2 = new Event("SW-Deadline", 5, 16, "Deadline");
+        calendar.addEvent(event2);
+        assertEquals(event, calendar.getNextEvent());
     }
 
     @Test
-    public void getFirstEventDayTest() throws Exception {
-        assertEquals(1, calendar.getNextEvent().getDay());
+    public void getEventAtTest() throws Exception {
+
+        assertEquals(null, calendar.getEventAt(0));
+
+        Event event = new Event("SA-Prüfung", 1, 32, "Prüfung");
+        calendar.addEvent(event);
+
+        assertEquals(event, calendar.getEventAt(0));
+
+        Event event2 = new Event("SA-Vorlesung", 1, 32, "Vorlesung");
+        calendar.addEvent(event2);
+
+        assertEquals(event2, calendar.getEventAt(1));
+        assertEquals(event, calendar.getEventAt(0));
     }
 
-    @Test
-    public void getFirstEventTimeUnitTest() throws Exception {
-        assertEquals(32, calendar.getNextEvent().getTimeUnit());
-    }
-
-    @Test
-    public void getFirstEventTypeTest() throws Exception {
-        assertEquals("Prüfung", calendar.getNextEvent().getType());
-    }
-
-    @Test
-    public void getSecondEventNameTest() throws Exception {
-        assertEquals("SW-Deadline", calendar.getEventAt(1).getName());
-    }
-
-    @Test
-    public void getSecondEventDayTest() throws Exception {
-        assertEquals(5, calendar.getEventAt(1).getDay());
-    }
-
-    @Test
-    public void getSecondEventTimeUnitTest() throws Exception {
-        assertEquals(16, calendar.getEventAt(1).getTimeUnit());
-    }
-
-    @Test
-    public void getSecondEventTypeTest() throws Exception {
-        assertEquals("Deadline", calendar.getEventAt(1).getType());
-    }
 }
