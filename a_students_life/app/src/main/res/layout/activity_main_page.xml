@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/stats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="3"
+            android:layout_weight = "4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="€"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/ects_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="right"
+                    android:inputType="textPersonName"
+                    android:text="0/180"
+                    android:textSize="25dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight = "1">
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:max="100"
+                        android:secondaryProgress="50"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/progress_bar_circular"/>
+                    <TextView
+                        android:id="@+id/Progresstext_energy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="E"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight = "1">
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:max="100"
+                        android:secondaryProgress="50"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/progress_bar_circular"/>
+                    <TextView
+                        android:id="@+id/Progresstext_hunger"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="H"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight = "1">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:secondaryProgress="50"
+                    android:progress="100"
+                    android:progressDrawable="@drawable/progress_bar_circular"/>
+                    <TextView
+                        android:id="@+id/Progresstext_stress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="S"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/student" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight = "4.5">
+
+
+            <FrameLayout
+                android:id="@+id/calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/C"
+                    style="@android:style/Widget.Material.Button.Inset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C" />
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/Energy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="E" />
+
+            <Button
+                android:id="@+id/stress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="S" />
+
+            <Button
+                android:id="@+id/hunger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="H" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="So" />
+
+            <Button
+                android:id="@+id/sozial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="So" />
+
+            <Button
+                android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="€" />
+
+            <Button
+                android:id="@+id/study"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="St" />
+        </LinearLayout>
+
+</LinearLayout>
