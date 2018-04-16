@@ -1,5 +1,6 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,5 +42,6 @@ public class SetupActivity extends AppCompatActivity {
         Student student = Student.getInstance();
         student.setStudie(((Spinner)findViewById(R.id.studies_sp)).getSelectedItem().toString());
         setContentView(R.layout.activity_main_page);
+        startActivity(new Intent(SetupActivity.this, MainPageActivity.class));
     }
 }
