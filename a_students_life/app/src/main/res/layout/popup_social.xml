@@ -6,12 +6,12 @@
     android:baselineAligned="false"
     android:orientation="vertical"
     android:weightSum="10"
-    android:id="@+id/popUp_ll"
+    android:id="@+id/popUp_social_ll"
     tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
 
-
+    <!-- TODO: add static buttons -->
     <GridLayout
-        android:id="@+id/gv01"
+        android:id="@+id/gv_social_01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="4"
@@ -24,28 +24,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ESSEN"
-            android:gravity="center"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FUTTER"
-            android:gravity="center"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MEH"
-            android:gravity="center"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MI"
-            android:gravity="center"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MUH"
+            android:text="Freunde treffen"
             android:gravity="center"/>
     </GridLayout>
 
