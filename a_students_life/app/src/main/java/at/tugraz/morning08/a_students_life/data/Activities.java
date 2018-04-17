@@ -64,6 +64,14 @@ public final class Activities
         checkBorder(student);
     }
 
+    //Sub Social
+    public static void partying(Student student) {
+        student.addTimeUnits(12);
+        student.getStats().increaseSocial(62);
+        student.getStats().decreaseEnergy(18);
+        checkBorder(student);
+    }
+
     private static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
         student.getStats().setHunger(checkBorderStat(student.getStats().getHunger()));
@@ -74,5 +82,4 @@ public final class Activities
     private static int checkBorderStat(int stat) {
         return stat > MAX ? MAX : (stat < MIN ? MIN : stat);
     }
-
 }
