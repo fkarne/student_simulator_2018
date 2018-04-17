@@ -12,8 +12,15 @@ public final class Activities
 
     //Main Stress
     public static void watchTV(Student student) {
-        student.addTimeUnits(2); // !!! Has to be made first at every Activities!!!
+        student.addTimeUnits(2);
 
         student.getStats().increaseStress(12);
+    }
+
+    //Main Social
+    public static void phoneCall(Student student) {
+        student.addTimeUnits(2);
+
+        student.getStats().increaseSocial(12);
     }
 }
