@@ -2,7 +2,6 @@ package at.tugraz.morning08.a_students_life.data;
 
 public class Stats {
     private static int MAX = 100;
-    private static int MIN = 0;
 
     private int energy = MAX;
     private int stress = MAX;
@@ -19,12 +18,10 @@ public class Stats {
 
     public void increaseEnergy(int energyChange) {
         energy += energyChange;
-        energy = checkBorder(energy);
     }
 
     public void decreaseEnergy(int energyChange) {
         energy -= energyChange;
-        energy = checkBorder(energy);
     }
 
     public int getStress() {
@@ -37,12 +34,10 @@ public class Stats {
 
     public void increaseStress(int stressChange) {
         stress += stressChange;
-        stress = checkBorder(stress);
     }
 
     public void decreaseStress(int stressChange) {
         stress -= stressChange;
-        stress = checkBorder(stress);
     }
 
     public int getHunger() {
@@ -55,12 +50,10 @@ public class Stats {
 
     public void increaseHunger(int hungerChange) {
         hunger += hungerChange;
-        hunger = checkBorder(hunger);
     }
 
     public void decreaseHunger(int hungerChange) {
         hunger -= hungerChange;
-        hunger = checkBorder(hunger);
     }
 
     public int getSocial() {
@@ -73,15 +66,9 @@ public class Stats {
 
     public void increaseSocial(int socialChange) {
         social += socialChange;
-        social = checkBorder(social);
     }
 
     public void decreaseSocial(int socialChange) {
         social -= socialChange;
-        social = checkBorder(social);
-    }
-
-    private int checkBorder(int stat) {
-       return stat > MAX ? MAX : (stat < MIN ? MIN : stat);
     }
 }
