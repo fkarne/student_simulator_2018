@@ -214,4 +214,44 @@ public class ActivitiesTest {
         assertEquals(40, student.getStats().getEnergy());
         assertEquals(40, student.getTime().getTimeUnit());
     }
+
+    @Test
+    public void meetFriendsTest() throws Exception {
+        student.getStats().setStress(50);
+        student.getStats().setSocial(50);
+
+        Activities.meetFriends(student);
+        assertEquals(70, student.getStats().getSocial());
+        assertEquals(96, student.getStats().getHunger());
+        assertEquals(55, student.getStats().getStress());
+        assertEquals(96, student.getStats().getEnergy());
+        assertEquals(20, student.getTime().getTimeUnit());
+
+        Activities.meetFriends(student);
+        assertEquals(90, student.getStats().getSocial());
+        assertEquals(92, student.getStats().getHunger());
+        assertEquals(60, student.getStats().getStress());
+        assertEquals(92, student.getStats().getEnergy());
+        assertEquals(24, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void sportsTest() throws Exception {
+        student.getStats().setEnergy(100);
+        student.getStats().setStress(50);
+
+        Activities.sports(student);
+        assertEquals(97, student.getStats().getSocial());
+        assertEquals(97, student.getStats().getHunger());
+        assertEquals(65, student.getStats().getStress());
+        assertEquals(90, student.getStats().getEnergy());
+        assertEquals(19, student.getTime().getTimeUnit());
+
+        Activities.sports(student);
+        assertEquals(94, student.getStats().getSocial());
+        assertEquals(94, student.getStats().getHunger());
+        assertEquals(80, student.getStats().getStress());
+        assertEquals(80, student.getStats().getEnergy());
+        assertEquals(22, student.getTime().getTimeUnit());
+    }
 }
