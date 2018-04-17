@@ -114,4 +114,23 @@ public class ActivitiesTest {
         assertEquals(20, student.getTime().getTimeUnit());
     }
 
+    @Test
+    public void sleepTest() throws Exception {
+        student.getStats().setEnergy(50);
+
+        Activities.sleep(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(98, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(60, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+
+        Activities.sleep(student);
+        assertEquals(96, student.getStats().getSocial());
+        assertEquals(96, student.getStats().getHunger());
+        assertEquals(96, student.getStats().getStress());
+        assertEquals(70, student.getStats().getEnergy());
+        assertEquals(20, student.getTime().getTimeUnit());
+    }
+
 }

@@ -26,4 +26,10 @@ public final class Activities
         student.addTimeUnits(2);
         student.getStats().increaseHunger(12);
     }
+
+    //Main Energy
+    public static void sleep(Student student) {
+        student.addTimeUnits(2);
+        student.getStats().increaseEnergy(12);
+    }
 }
