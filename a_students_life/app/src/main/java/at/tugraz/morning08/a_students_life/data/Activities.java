@@ -57,6 +57,13 @@ public final class Activities
         checkBorder(student);
     }
 
+    //Sub Stress
+    public static void readingBook(Student student) {
+        student.addTimeUnits(1);
+        student.getStats().increaseStress(6);
+        checkBorder(student);
+    }
+
     private static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
         student.getStats().setHunger(checkBorderStat(student.getStats().getHunger()));
@@ -67,4 +74,5 @@ public final class Activities
     private static int checkBorderStat(int stat) {
         return stat > MAX ? MAX : (stat < MIN ? MIN : stat);
     }
+
 }
