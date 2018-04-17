@@ -72,6 +72,22 @@ public final class Activities
         checkBorder(student);
     }
 
+    //Sub Social
+    public static void meetFriends(Student student) {
+        student.addTimeUnits(4);
+        student.getStats().increaseSocial(24);
+        student.getStats().increaseStress(9);
+        checkBorder(student);
+    }
+
+    //Sub Stress
+    public static void sports(Student student) {
+        student.addTimeUnits(3);
+        student.getStats().increaseStress(18);
+        student.getStats().decreaseEnergy(7);
+        checkBorder(student);
+    }
+
     private static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
         student.getStats().setHunger(checkBorderStat(student.getStats().getHunger()));
