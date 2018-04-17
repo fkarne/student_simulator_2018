@@ -48,6 +48,15 @@ public final class Activities
         checkBorder(student);
     }
 
+    //Sub Hunger
+    public static void goingOutToEat(Student student) {
+        student.addTimeUnits(4);
+        student.getStats().increaseHunger(19);
+        student.getStats().increaseSocial(9);
+        student.addCash(-50);
+        checkBorder(student);
+    }
+
     private static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
         student.getStats().setHunger(checkBorderStat(student.getStats().getHunger()));
