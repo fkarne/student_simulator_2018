@@ -1,5 +1,6 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import at.tugraz.morning08.a_students_life.data.Event;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>{
 
+    private LayoutInflater inflater;
     private ArrayList<Event> calendarList;
 
     public CalendarAdapter(ArrayList<Event> calendarList) {
@@ -30,7 +32,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
     @Override
     public void onBindViewHolder(CalendarViewHolder holder, int position) {
         holder.title.setText(calendarList.get(position).getName());
-        String time = String.valueOf(calendarList.get(position).getTimeUnit());
         holder.time.setText(String.valueOf(calendarList.get(position).getTimeUnit()));
     }
 
