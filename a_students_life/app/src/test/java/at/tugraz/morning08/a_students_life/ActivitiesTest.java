@@ -176,5 +176,26 @@ public class ActivitiesTest {
         assertEquals(100, student.getCash());
     }
 
+    @Test
+    public void readingBookTest() throws Exception {
+        student.getStats().setStress(50);
+
+        Activities.readingBook(student);
+        assertEquals(99, student.getStats().getSocial());
+        assertEquals(99, student.getStats().getHunger());
+        assertEquals(55, student.getStats().getStress());
+        assertEquals(99, student.getStats().getEnergy());
+        assertEquals(17, student.getTime().getTimeUnit());
+
+        Activities.readingBook(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(98, student.getStats().getHunger());
+        assertEquals(60, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+    }
+
+
+
 
 }
