@@ -13,7 +13,7 @@ public class Calendar
         return instance;
     }
 
-    private ArrayList<Event> event_list = new ArrayList<>();
+    public ArrayList<Event> event_list = new ArrayList<>();
 
 
     public Event getNextEvent()
