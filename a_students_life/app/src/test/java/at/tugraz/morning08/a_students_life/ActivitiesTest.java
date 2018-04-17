@@ -254,4 +254,25 @@ public class ActivitiesTest {
         assertEquals(80, student.getStats().getEnergy());
         assertEquals(22, student.getTime().getTimeUnit());
     }
+
+    @Test
+    public void snackTest() throws Exception {
+        student.getStats().setHunger(50);
+
+        Activities.snack(student);
+        assertEquals(99, student.getStats().getSocial());
+        assertEquals(57, student.getStats().getHunger());
+        assertEquals(99, student.getStats().getStress());
+        assertEquals(99, student.getStats().getEnergy());
+        assertEquals(17, student.getTime().getTimeUnit());
+        assertEquals(180, student.getCash());
+
+        Activities.snack(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(64, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+        assertEquals(160, student.getCash());
+    }
 }
