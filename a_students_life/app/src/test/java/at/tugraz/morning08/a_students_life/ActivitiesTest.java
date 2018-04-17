@@ -116,16 +116,37 @@ public class ActivitiesTest {
 
     @Test
     public void sleepTest() throws Exception {
-        student.getStats().setEnergy(50);
+        student.getStats().setEnergy(10);
 
         Activities.sleep(student);
+        assertEquals(84, student.getStats().getSocial());
+        assertEquals(84, student.getStats().getHunger());
+        assertEquals(84, student.getStats().getStress());
+        assertEquals(60, student.getStats().getEnergy());
+        assertEquals(32, student.getTime().getTimeUnit());
+        assertEquals(1, student.getTime().getDay());
+
+        Activities.sleep(student);
+        assertEquals(68, student.getStats().getSocial());
+        assertEquals(68, student.getStats().getHunger());
+        assertEquals(68, student.getStats().getStress());
+        assertEquals(100, student.getStats().getEnergy());
+        assertEquals(0, student.getTime().getTimeUnit());
+        assertEquals(2, student.getTime().getDay());
+    }
+
+    @Test
+    public void napTest() throws Exception {
+        student.getStats().setEnergy(50);
+
+        Activities.nap(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(98, student.getStats().getHunger());
         assertEquals(98, student.getStats().getStress());
         assertEquals(60, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
 
-        Activities.sleep(student);
+        Activities.nap(student);
         assertEquals(96, student.getStats().getSocial());
         assertEquals(96, student.getStats().getHunger());
         assertEquals(96, student.getStats().getStress());
