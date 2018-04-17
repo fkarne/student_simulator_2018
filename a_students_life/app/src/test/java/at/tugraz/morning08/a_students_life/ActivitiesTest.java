@@ -95,4 +95,23 @@ public class ActivitiesTest {
         assertEquals(20, student.getTime().getTimeUnit());
     }
 
+    @Test
+    public void eatTest() throws Exception {
+        student.getStats().setHunger(50);
+
+        Activities.eat(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(60, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+
+        Activities.eat(student);
+        assertEquals(96, student.getStats().getSocial());
+        assertEquals(70, student.getStats().getHunger());
+        assertEquals(96, student.getStats().getStress());
+        assertEquals(96, student.getStats().getEnergy());
+        assertEquals(20, student.getTime().getTimeUnit());
+    }
+
 }
