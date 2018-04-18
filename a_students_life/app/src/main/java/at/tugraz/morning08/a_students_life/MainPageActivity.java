@@ -1,7 +1,6 @@
 package at.tugraz.morning08.a_students_life;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,12 +8,12 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import at.tugraz.morning08.a_students_life.data.Student;
 
 /**
  * Created by Jeremias and Laura on 11.04.18.
@@ -79,6 +78,11 @@ public class MainPageActivity extends AppCompatActivity
                 true
 
         );
+
+        if(Build.VERSION.SDK_INT>=21){
+            mPopupWindow.setElevation(5.0f);
+        }
+
         mPopupWindow.setHeight(bot);
         mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
@@ -95,6 +99,11 @@ public class MainPageActivity extends AppCompatActivity
                 true
 
         );
+
+        if(Build.VERSION.SDK_INT>=21){
+            mPopupWindow.setElevation(5.0f);
+        }
+
         mPopupWindow.setHeight(bot);
         mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
@@ -111,6 +120,11 @@ public class MainPageActivity extends AppCompatActivity
                 true
 
         );
+
+        if(Build.VERSION.SDK_INT>=21){
+            mPopupWindow.setElevation(5.0f);
+        }
+
         mPopupWindow.setHeight(bot);
         mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
@@ -127,6 +141,11 @@ public class MainPageActivity extends AppCompatActivity
                 true
 
         );
+
+        if(Build.VERSION.SDK_INT>=21){
+            mPopupWindow.setElevation(5.0f);
+        }
+
         mPopupWindow.setHeight(bot);
         mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
@@ -143,6 +162,11 @@ public class MainPageActivity extends AppCompatActivity
                 true
 
         );
+
+        if(Build.VERSION.SDK_INT>=21){
+            mPopupWindow.setElevation(5.0f);
+        }
+
         mPopupWindow.setHeight(bot);
         mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
@@ -161,7 +185,7 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.progressBarEnergyMainPage)).setSecondaryProgress(Student.getInstance().getStats().getEnergy());
         ((ProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
-        ((TextView) findViewById(R.id.text_money)).setText("  "+Student.getInstance().getCash()+",00 €");
+        ((TextView) findViewById(R.id.text_money)).setText("  "+Student.getInstance().getCash());
     }
 
     public void updateStatsPage(){
@@ -169,6 +193,6 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.stressProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getStress());
         ((ProgressBar) findViewById(R.id.hungerProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
-        ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash()+",00 €");
+        ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash()+" €");
     }
 }
