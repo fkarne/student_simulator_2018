@@ -44,4 +44,5 @@ public class SetupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
         startActivity(new Intent(SetupActivity.this, MainPageActivity.class));
     }
+
 }

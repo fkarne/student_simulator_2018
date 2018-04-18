@@ -13,34 +13,25 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
-
-public class MainPageActivity extends AppCompatActivity{
+/**
+ * Created by Jeremias and Laura on 11.04.18.
+ */
+public class MainPageActivity extends AppCompatActivity
+{
     private LinearLayout student_graphic;
     private int top;
     private int bot;
-    //Button[] energy_activites_btn = new Button[2];
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        student_graphic = findViewById(R.id.student_graphic);
-
-        // region: energy_activites
-        // TODO: get activites & set size of array
-        // TODO: Button -> ImageButton
-
-        /*for (int i = 0; i < 2; i++) {
-            energy_activites_btn[i] = new Button(this);
-            energy_activites_btn[i].setBackgroundColor(Color.TRANSPARENT);
-            energy_activites_btn[i].setText("Hallo: " + i);
-            energy_activites_btn[i].setId(i);
-        }*/
-        // end region
-
-
+        student_graphic = findViewById(R.id.student_graphic);        
+        updateMainPage();
     }
 
     public void setHeight(PopupWindow pop){
@@ -66,13 +57,6 @@ public class MainPageActivity extends AppCompatActivity{
                 true
 
         );
-
-        // TODO: make buttons dynamics ???
-        /*
-        for(int i=0; i<2; i++){
-            grid.addView(energy_activites_btn[i]);
-        }
-        */
 
         // Set an elevation value for popup window
         // Call requires API level 21
@@ -161,5 +145,30 @@ public class MainPageActivity extends AppCompatActivity{
         );
         mPopupWindow.setHeight(bot);
         mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
+    }
+
+    public void showStatsPage(View view)    {
+        setContentView(R.layout.activity_stats_menu);
+        updateStatsPage();
+    }
+
+    public void backToMainPage(View view) {
+        setContentView(R.layout.activity_main_page);
+        updateMainPage();
+    }
+
+    public void updateMainPage() {
+        ((ProgressBar) findViewById(R.id.progressBarEnergyMainPage)).setSecondaryProgress(Student.getInstance().getStats().getEnergy());
+        ((ProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
+        ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
+        ((TextView) findViewById(R.id.text_money)).setText("  "+Student.getInstance().getCash()+",00 €");
+    }
+
+    public void updateStatsPage(){
+        ((ProgressBar) findViewById(R.id.energyProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getEnergy());
+        ((ProgressBar) findViewById(R.id.stressProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getStress());
+        ((ProgressBar) findViewById(R.id.hungerProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
+        ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
+        ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash()+",00 €");
     }
 }

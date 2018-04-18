@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout"
+    android:id="@+id/mainPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="10"
@@ -15,7 +15,9 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="3"
-            android:layout_weight = "4">
+            android:layout_weight = "4"
+            android:clickable="true"
+            android:onClick="showStatsPage">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,11 +62,11 @@
 
                     <ProgressBar
                         style="?android:attr/progressBarStyleHorizontal"
+                        android:id="@+id/progressBarEnergyMainPage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:max="100"
-                        android:secondaryProgress="50"
                         android:progress="100"
                         android:progressDrawable="@drawable/progress_bar_circular"/>
                     <TextView
@@ -86,11 +88,11 @@
 
                     <ProgressBar
                         style="?android:attr/progressBarStyleHorizontal"
+                        android:id="@+id/progressBarHungerMainPage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:max="100"
-                        android:secondaryProgress="50"
                         android:progress="100"
                         android:progressDrawable="@drawable/progress_bar_circular"/>
                     <TextView
@@ -112,11 +114,11 @@
 
                 <ProgressBar
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:id="@+id/progressBarStressMainPage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:max="100"
-                    android:secondaryProgress="50"
                     android:progress="100"
                     android:progressDrawable="@drawable/progress_bar_circular"/>
                     <TextView

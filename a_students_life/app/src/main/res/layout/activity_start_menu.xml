@@ -5,9 +5,7 @@
     android:background="#0099cc"
     tools:context="at.tugraz.morning08.a_students_life.StartMenuActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
+
     <TextView
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"

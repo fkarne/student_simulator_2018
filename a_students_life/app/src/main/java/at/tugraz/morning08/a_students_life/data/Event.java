@@ -10,10 +10,10 @@ public class Event
         this.type = type;
     }
 
-    String name;
-    int day;
-    int timeUnit;
-    String type;
+    private String name;
+    private int day;
+    private int timeUnit;
+    private String type;
 
     public String getName() {
         return name;

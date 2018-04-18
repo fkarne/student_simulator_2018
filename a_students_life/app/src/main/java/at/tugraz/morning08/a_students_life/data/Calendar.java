@@ -18,20 +18,29 @@ public class Calendar
 
     public Event getNextEvent()
     {
-        return event_list.get(0);
+        Event event = null;
+        if(!event_list.isEmpty()){
+            event = event_list.get(0);
+        }
+        return event;
     }
 
     public Event getEventAt(int event_position)
     {
-        return event_list.get(event_position);
+        Event event = null;
+        if(event_list.size() > event_position){
+            event = event_list.get(event_position);
+        }
+        return event;
     }
 
-    public void createEvent(String name, int day, int timeUnit, String type)
+    public void addEvent(Event event)
     {
-        event_list.add(new Event(name, day, timeUnit, type));
+        event_list.add(event);
     }
 
-
-
-
+    public void clear()
+    {
+        event_list.clear();
+    }
 }
