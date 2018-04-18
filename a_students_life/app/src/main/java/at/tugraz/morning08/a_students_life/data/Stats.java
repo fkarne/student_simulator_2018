@@ -8,6 +8,11 @@ public class Stats {
     private int hunger = MAX;
     private int social = MAX;
 
+    private double energy_multiplicator = 1.0;
+    private double stress_multiplicator = 1.0;
+    private double hunger_multiplicator = 1.0;
+    private double social_multiplicator = 1.0;
+
     public int getEnergy() {
         return energy;
     }
@@ -70,5 +75,37 @@ public class Stats {
 
     public void decreaseSocial(int socialChange) {
         social -= socialChange;
+    }
+
+    public double getEnergy_multiplicator() {
+        return energy_multiplicator;
+    }
+
+    public void setEnergy_multiplicator(double energy_multiplicator) {
+        this.energy_multiplicator = energy_multiplicator;
+    }
+
+    public double getStress_multiplicator() {
+        return stress_multiplicator;
+    }
+
+    public void setStress_multiplicator(double stress_multiplicator) {
+        this.stress_multiplicator = stress_multiplicator;
+    }
+
+    public double getHunger_multiplicator() {
+        return hunger_multiplicator;
+    }
+
+    public void setHunger_multiplicator(double hunger_multiplicator) {
+        this.hunger_multiplicator = hunger_multiplicator;
+    }
+
+    public double getSocial_multiplicator() {
+        return social_multiplicator;
+    }
+
+    public void setSocial_multiplicator(double social_multiplicator) {
+        this.social_multiplicator = social_multiplicator;
     }
 }

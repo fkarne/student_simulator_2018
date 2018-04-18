@@ -5,6 +5,8 @@ public final class Activities
 {
     private static int MAX = 100;
     private static int MIN = 0;
+    private static double MAX_MULT = 2.0;
+    private static double MIN_MULT = 0.5;
 
     //Main Money
     public static void askForMoney(Student student) {
@@ -16,43 +18,69 @@ public final class Activities
     //Main Stress
     public static void watchTV(Student student) {
         student.addTimeUnits(2);
-        student.getStats().increaseStress(12);
+        checkBorderMultiplicators(student);
+
+        // TODO: round?
+        double stress = 12.0 *student.getStats().getStress_multiplicator();
+
+        student.getStats().increaseStress((int) stress);
         checkBorder(student);
     }
 
     //Main Social
     public static void phoneCall(Student student) {
         student.addTimeUnits(2);
-        student.getStats().increaseSocial(12);
+        checkBorderMultiplicators(student);
+
+        double social = 12.0 *student.getStats().getSocial_multiplicator();
+
+        student.getStats().increaseSocial((int) social);
         checkBorder(student);
     }
 
     //Main Hunger
     public static void eat(Student student) {
         student.addTimeUnits(2);
-        student.getStats().increaseHunger(12);
+        checkBorderMultiplicators(student);
+
+        double hunger = 12.0 *student.getStats().getHunger_multiplicator();
+
+        student.getStats().increaseHunger((int) hunger);
         checkBorder(student);
     }
 
     //Main Energy
     public static void sleep(Student student) {
         student.addTimeUnits(16);
-        student.getStats().increaseEnergy(66);
+        checkBorderMultiplicators(student);
+
+        double energy = 66.0 *student.getStats().getEnergy_multiplicator();
+
+        student.getStats().increaseEnergy((int) energy);
         checkBorder(student);
     }
 
     //Sub Energy
     public static void nap(Student student) {
         student.addTimeUnits(2);
-        student.getStats().increaseEnergy(12);
+        checkBorderMultiplicators(student);
+
+        double energy = 12.0 *student.getStats().getEnergy_multiplicator();
+
+        student.getStats().increaseEnergy((int) energy);
         checkBorder(student);
     }
 
     //Sub Hunger
     public static void goingOutToEat(Student student) {
         student.addTimeUnits(4);
-        student.getStats().increaseHunger(19);
-        student.getStats().increaseSocial(9);
+        checkBorderMultiplicators(student);
+
+        double social = 9.0 *student.getStats().getSocial_multiplicator();
+        double hunger = 19.0 *student.getStats().getHunger_multiplicator();
+
+        student.getStats().increaseHunger((int) hunger);
+        student.getStats().increaseSocial((int)social);
         student.addCash(-50);
         checkBorder(student);
     }
@@ -60,13 +88,19 @@ public final class Activities
     //Sub Stress
     public static void readingBook(Student student) {
         student.addTimeUnits(1);
-        student.getStats().increaseStress(6);
+        checkBorderMultiplicators(student);
+
+        double stress = 6.0 *student.getStats().getStress_multiplicator();
+
+        student.getStats().increaseStress((int)stress);
         checkBorder(student);
     }
 
     //Sub Social
     public static void partying(Student student) {
         student.addTimeUnits(12);
+        checkBorderMultiplicators(student);
+
         student.getStats().increaseSocial(62);
         student.getStats().decreaseEnergy(18);
         checkBorder(student);
@@ -75,6 +109,8 @@ public final class Activities
     //Sub Social
     public static void meetFriends(Student student) {
         student.addTimeUnits(4);
+        checkBorderMultiplicators(student);
+
         student.getStats().increaseSocial(24);
         student.getStats().increaseStress(9);
         checkBorder(student);
@@ -83,6 +119,8 @@ public final class Activities
     //Sub Stress
     public static void sports(Student student) {
         student.addTimeUnits(3);
+        checkBorderMultiplicators(student);
+
         student.getStats().increaseStress(18);
         student.getStats().decreaseEnergy(7);
         checkBorder(student);
@@ -91,6 +129,8 @@ public final class Activities
     //Sub Hunger
     public static void snack(Student student) {
         student.addTimeUnits(1);
+        checkBorderMultiplicators(student);
+
         student.getStats().increaseHunger(8);
         student.addCash(-20);
         checkBorder(student);
@@ -105,5 +145,16 @@ public final class Activities
 
     private static int checkBorderStat(int stat) {
         return stat > MAX ? MAX : (stat < MIN ? MIN : stat);
+    }
+
+    private static void checkBorderMultiplicators(Student student) {
+        student.getStats().setEnergy_multiplicator(checkBorderMults(student.getStats().getEnergy_multiplicator()));
+        student.getStats().setHunger_multiplicator(checkBorderMults(student.getStats().getHunger_multiplicator()));
+        student.getStats().setStress_multiplicator(checkBorderMults(student.getStats().getStress_multiplicator()));
+        student.getStats().setSocial_multiplicator(checkBorderMults(student.getStats().getSocial_multiplicator()));
+    }
+
+    private static double checkBorderMults(double multiplicator) {
+        return multiplicator > MAX_MULT ? MAX_MULT : (multiplicator < MIN_MULT ? MIN_MULT : multiplicator);
     }
 }
