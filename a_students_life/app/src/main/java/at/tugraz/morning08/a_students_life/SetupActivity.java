@@ -43,6 +43,7 @@ public class SetupActivity extends AppCompatActivity {
         student.setStudie(((Spinner)findViewById(R.id.studies_sp)).getSelectedItem().toString());
         setContentView(R.layout.activity_main_page);
         startActivity(new Intent(SetupActivity.this, MainPageActivity.class));
+        SetupActivity.this.finish();
     }
 
 }
