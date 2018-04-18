@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:id="@+id/popUp_stress_ll"
+    tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
+
+<!-- TODO: add static buttons -->
+    <GridLayout
+        android:id="@+id/gv_stress_01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:columnCount="4"
+        android:rowCount="2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="5dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zocken"
+            android:gravity="center"/>
+    </GridLayout>
+
+</LinearLayout>

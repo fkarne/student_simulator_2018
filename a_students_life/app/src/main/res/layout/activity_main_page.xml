@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
+                android:id="@+id/ll_money"
                 android:orientation="horizontal">
 
                 <TextView
@@ -51,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:id="@+id/ll_stats"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -135,7 +137,8 @@
 
         </LinearLayout>
 
-        <FrameLayout
+        <LinearLayout
+            android:id="@+id/student_graphic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5">
@@ -144,8 +147,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/student" />
-
-        </FrameLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/buttons"
@@ -171,6 +173,7 @@
 
             <Button
                 android:id="@+id/Energy"
+                android:onClick="energy_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -178,6 +181,7 @@
 
             <Button
                 android:id="@+id/stress"
+                android:onClick="stress_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -185,14 +189,15 @@
 
             <Button
                 android:id="@+id/hunger"
+                android:onClick="hunger_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="H" />
 
-
             <Button
                 android:id="@+id/sozial"
+                android:onClick="social_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -200,6 +205,7 @@
 
             <Button
                 android:id="@+id/money"
+                android:onClick="money_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -207,6 +213,7 @@
 
             <Button
                 android:id="@+id/study"
+                android:onClick="study_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
