@@ -3,8 +3,9 @@ package at.tugraz.morning08.a_students_life;
 import org.junit.Before;
 import org.junit.Test;
 
-import at.tugraz.morning08.a_students_life.data.Calendar;
+
 import at.tugraz.morning08.a_students_life.data.Event;
+import at.tugraz.morning08.a_students_life.data.Time;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,7 +19,7 @@ public class EventTest {
 
     @Before
     public void beforeTest() throws Exception {
-        event = new Event("SA-Prüfung", 1, 32, "Prüfung");
+        event = new Event("SA-Prüfung", new Time(1, 32), "Prüfung");
     }
 
     @Test
@@ -27,13 +28,14 @@ public class EventTest {
     }
 
     @Test
-    public void getDayTest() throws Exception {
-        assertEquals(1, event.getDay());
-    }
+    public void getTimeTest() throws Exception {
+        Time time2 = new Time();
+        Event event2 = new Event("3. Prüfung", time2, "Prüfung");
+        assertEquals(time2, event2.getTime());
 
-    @Test
-    public void getTimeUnitTest() throws Exception {
-        assertEquals(32, event.getTimeUnit());
+        Time time3 = new Time(1, 1);
+        Event event3 = new Event("3. Prüfung", time3, "Prüfung");
+        assertEquals(time3, event3.getTime());
     }
 
     @Test
@@ -45,18 +47,6 @@ public class EventTest {
     public void setNameTest() throws Exception {
         event.setName("SA-Vorlesung");
         assertEquals("SA-Vorlesung", event.getName());
-    }
-
-    @Test
-    public void setDayTest() throws Exception {
-        event.setDay(2);
-        assertEquals(2, event.getDay());
-    }
-
-    @Test
-    public void setTimeUnitTest() throws Exception {
-        event.setTimeUnit(64);
-        assertEquals(64, event.getTimeUnit());
     }
 
     @Test

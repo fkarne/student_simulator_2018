@@ -62,4 +62,10 @@ public class TimeTest {
         assertEquals(24, time.getTimeUnit());
         assertEquals(4, time.getDay());
     }
+
+    @Test
+    public void getTimeStringTest()
+    {
+        assertEquals("08:00", time.getTimeString());
+    }
 }
