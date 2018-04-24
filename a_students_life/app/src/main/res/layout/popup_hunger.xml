@@ -22,10 +22,29 @@
         android:padding="5dp">
 
         <Button
+            android:id="@+id/eat_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Essen"
+            android:onClick="eat_button_onClick"
             android:gravity="center"/>
+
+        <Button
+            android:id="@+id/goingOutToEat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Essen gehen"
+            android:onClick="goingOutToEat_button_onClick"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/snack_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Snack"
+            android:onClick="snack_button_onClick"
+            android:gravity="center"/>
+
     </GridLayout>
 
 </LinearLayout>

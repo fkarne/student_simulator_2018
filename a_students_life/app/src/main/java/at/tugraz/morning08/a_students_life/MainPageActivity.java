@@ -13,6 +13,7 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import at.tugraz.morning08.a_students_life.data.Activities;
 import at.tugraz.morning08.a_students_life.data.Student;
 
 /**
@@ -22,7 +23,6 @@ public class MainPageActivity extends AppCompatActivity
 {
     private LinearLayout student_graphic;
     private int top;
-    private int bot;
   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,8 @@ public class MainPageActivity extends AppCompatActivity
     public void setHeight(PopupWindow pop){
         // get top edge of Student graphic
         top = findViewById(R.id.stats).getHeight() + findViewById(R.id.ll_stats).getHeight();
-        // get bottom of student graphic
-        bot = student_graphic.getHeight();
 
-        pop.setHeight(bot);
+        pop.setHeight(student_graphic.getHeight());
         pop.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
 
@@ -64,6 +62,7 @@ public class MainPageActivity extends AppCompatActivity
         }
 
         setHeight(mPopupWindow);
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
 
     public void stress_popup(View view) {
@@ -84,6 +83,7 @@ public class MainPageActivity extends AppCompatActivity
         }
 
         setHeight(mPopupWindow);
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
 
     public void hunger_popup(View view) {
@@ -104,6 +104,7 @@ public class MainPageActivity extends AppCompatActivity
         }
 
         setHeight(mPopupWindow);
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
 
     public void social_popup(View view) {
@@ -124,6 +125,7 @@ public class MainPageActivity extends AppCompatActivity
         }
 
         setHeight(mPopupWindow);
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
 
     public void money_popup(View view) {
@@ -144,6 +146,7 @@ public class MainPageActivity extends AppCompatActivity
         }
 
         setHeight(mPopupWindow);
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
 
     public void study_popup(View view) {
@@ -164,6 +167,7 @@ public class MainPageActivity extends AppCompatActivity
         }
 
         setHeight(mPopupWindow);
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
 
     public void showStatsPage(View view)    {
@@ -180,7 +184,7 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.progressBarEnergyMainPage)).setSecondaryProgress(Student.getInstance().getStats().getEnergy());
         ((ProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
-        ((TextView) findViewById(R.id.text_money)).setText("  "+Student.getInstance().getCash());
+        ((TextView) findViewById(R.id.text_money)).setText("€ " + Student.getInstance().getCash());
     }
 
     public void updateStatsPage(){
@@ -188,6 +192,67 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.stressProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getStress());
         ((ProgressBar) findViewById(R.id.hungerProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
-        ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash()+" €");
+        ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash() + " €");
+    }
+
+    //Activities
+    public void sleep_button_onClick(View view) {
+        Activities.sleep(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void nap_button_onClick(View view) {
+        Activities.nap(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void eat_button_onClick(View view) {
+        Activities.eat(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void goingOutToEat_button_onClick(View view) {
+        Activities.goingOutToEat(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void snack_button_onClick(View view) {
+        Activities.snack(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void phoneCall_button_onClick(View view) {
+        Activities.phoneCall(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void meetFriends_button_onClick(View view) {
+        Activities.meetFriends(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void partying_button_onClick(View view) {
+        Activities.partying(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void watchTV_button_onClick(View view) {
+        Activities.watchTV(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void readingBook_button_onClick(View view) {
+        Activities.readingBook(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void sports_button_onClick(View view) {
+        Activities.sports(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void askForMoney_button_onClick(View view) {
+        Activities.askForMoney(Student.getInstance());
+        updateMainPage();
     }
 }

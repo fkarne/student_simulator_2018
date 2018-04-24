@@ -22,9 +22,27 @@
         android:padding="5dp">
 
         <Button
+            android:id="@+id/watchTV_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zocken"
+            android:text="Fernsehen"
+            android:onClick="watchTV_button_onClick"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/readingBook_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buch lesen"
+            android:onClick="readingBook_button_onClick"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/sports_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sport machen"
+            android:onClick="sports_button_onClick"
             android:gravity="center"/>
     </GridLayout>
 

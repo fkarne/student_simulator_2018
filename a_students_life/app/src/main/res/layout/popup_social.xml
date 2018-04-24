@@ -22,9 +22,27 @@
         android:padding="5dp">
 
         <Button
+            android:id="@+id/phoneCall_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Freunde anrufen"
+            android:onClick="phoneCall_button_onClick"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/meetFriends_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Freunde treffen"
+            android:onClick="meetFriends_button_onClick"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/partying_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Party!"
+            android:onClick="partying_button_onClick"
             android:gravity="center"/>
     </GridLayout>
 
