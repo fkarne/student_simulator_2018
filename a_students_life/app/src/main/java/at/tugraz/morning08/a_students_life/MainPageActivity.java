@@ -25,6 +25,7 @@ public class MainPageActivity extends AppCompatActivity
     private LinearLayout student_graphic;
     private int top;
     private int bot;
+    private AlertDialog backPressedAlert;
   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +42,20 @@ public class MainPageActivity extends AppCompatActivity
         View view = findViewById(R.id.mainPage);
         if(view != null)
         {
-            new AlertDialog.Builder(this)
+            backPressedAlert = new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Spiel beenden").setMessage("Sicher, dass du das Spiel beenden willst?")
+                    .setTitle("Spiel beenden")
+                    .setMessage("Sicher, dass du das Spiel beenden willst?")
                     .setPositiveButton("Ja", new DialogInterface.OnClickListener()
                     {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
                         {
-                            finish();
+                            MainPageActivity.this.finish();
                             System.exit(0);
                         }
-                    }).setNegativeButton("Nein", null)
+                    })
+                    .setNegativeButton("Nein", null)
                     .show();
         }
         else
@@ -60,6 +63,11 @@ public class MainPageActivity extends AppCompatActivity
             setContentView(R.layout.activity_main_page);
             updateMainPage();
         }
+    }
+
+    public AlertDialog getBackPressedAlert()
+    {
+        return backPressedAlert;
     }
 
     public void setHeight(PopupWindow pop){
