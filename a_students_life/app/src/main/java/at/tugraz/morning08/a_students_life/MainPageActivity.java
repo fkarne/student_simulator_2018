@@ -1,7 +1,10 @@
 package at.tugraz.morning08.a_students_life;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -23,6 +26,8 @@ public class MainPageActivity extends AppCompatActivity
 {
     private LinearLayout student_graphic;
     private int top;
+    private int bot;
+    private AlertDialog backPressedAlert;
   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,40 @@ public class MainPageActivity extends AppCompatActivity
 
         student_graphic = findViewById(R.id.student_graphic);        
         updateMainPage();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //View currView = getWindow().getDecorView().getRootView();
+        View view = findViewById(R.id.mainPage);
+        if(view != null)
+        {
+            backPressedAlert = new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Spiel beenden")
+                    .setMessage("Sicher, dass du das Spiel beenden willst?")
+                    .setPositiveButton("Ja", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i)
+                        {
+                            MainPageActivity.this.finish();
+                            System.exit(0);
+                        }
+                    })
+                    .setNegativeButton("Nein", null)
+                    .show();
+        }
+        else
+        {
+            setContentView(R.layout.activity_main_page);
+            updateMainPage();
+        }
+    }
+
+    public AlertDialog getBackPressedAlert()
+    {
+        return backPressedAlert;
     }
 
     public void setHeight(PopupWindow pop){
@@ -200,7 +239,9 @@ public class MainPageActivity extends AppCompatActivity
         ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash() + " €");
     }
 
-
+    public void calendar_button_onClick(View view) {
+        startActivity(new Intent(MainPageActivity.this, CalendarActivity.class));
+    }
 
     //Activities
     public void sleep_button_onClick(View view) {

@@ -1,7 +1,9 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -19,14 +21,14 @@ public class StartMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_menu);
     }
 
-
     /**
      * When start button is clicked ->Start game
      * changes to SetupActivity
      * @param view  current View
      */
     public void start_game(View view) {
-        startActivity(new Intent(StartMenuActivity.this, CalendarActivity.class));
+        startActivity(new Intent(StartMenuActivity.this, SetupActivity.class));
+        StartMenuActivity.this.finish();
     }
 
 }
