@@ -1,6 +1,7 @@
 package at.tugraz.morning08.a_students_life;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
@@ -231,6 +232,10 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.hungerProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
         ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash() + " €");
+    }
+
+    public void calendar_button_onClick(View view) {
+        startActivity(new Intent(MainPageActivity.this, CalendarActivity.class));
     }
 
     //Activities
