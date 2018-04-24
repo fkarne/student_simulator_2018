@@ -1,6 +1,10 @@
 package at.tugraz.morning08.a_students_life.data;
 
 
+import android.app.AlertDialog;
+
+import at.tugraz.morning08.a_students_life.MainPageActivity;
+
 public final class Activities
 {
     private static int MAX = 100;
@@ -155,6 +159,8 @@ public final class Activities
         student.getStats().setStress(checkBorderStat(student.getStats().getStress()));
         student.getStats().setSocial(checkBorderStat(student.getStats().getSocial()));
     }
+
+
 
     private static int checkBorderStat(int stat) {
         return stat > MAX ? MAX : (stat < MIN ? MIN : stat);

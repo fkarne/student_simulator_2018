@@ -1,6 +1,9 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +16,7 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import at.tugraz.morning08.a_students_life.data.Activities;
 import at.tugraz.morning08.a_students_life.data.Student;
 
 /**
@@ -181,6 +185,8 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
         ((TextView) findViewById(R.id.text_money)).setText("  "+Student.getInstance().getCash());
+
+        checkLoseConditions();
     }
 
     public void updateStatsPage(){
@@ -189,5 +195,40 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.hungerProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
         ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash()+" €");
+    }
+
+
+    private void checkLoseConditions() {
+        int energy = Student.getInstance().getStats().getEnergy();
+        int stress = Student.getInstance().getStats().getStress();
+        int social = Student.getInstance().getStats().getSocial();
+        int hunger = Student.getInstance().getStats().getHunger();
+
+
+        if(energy == 0 || stress == 0 || social == 0 || hunger == 0){
+            AlertDialog.Builder builder;
+
+            builder = new AlertDialog.Builder(this);
+            builder.setTitle("Game over!");
+
+            if(hunger == 0)
+                builder.setMessage("You starved to death.");
+            else if(energy == 0)
+                builder.setMessage("No more running!");
+            else if(stress == 0)
+                builder.setMessage("Calm down!");
+            else
+                builder.setMessage("Nobody loves you ....");
+
+            builder.setPositiveButton("Zug zug", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Student.getInstance().getStats().initializeStudent();
+                    setContentView(R.layout.activity_start_menu);
+                    startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
+                }
+            });
+            builder.show();
+        }
     }
 }
