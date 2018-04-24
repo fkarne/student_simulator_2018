@@ -6,6 +6,14 @@ public class Time {
     private int day = 1;
     private int timeUnit = 16;
 
+    public Time() {
+    }
+
+    public Time(int day, int timeUnit) {
+        this.day = day;
+        this.timeUnit = timeUnit;
+    }
+
     public int getDay() {
         return day;
     }
@@ -26,5 +34,20 @@ public class Time {
         timeUnit += timeUnitsToAdd;
         day += timeUnit / MAX_TIMEUNITS;
         timeUnit = timeUnit % MAX_TIMEUNITS;
+    }
+
+    public String getTimeString()
+    {
+        String hour = String.valueOf(timeUnit/(MAX_TIMEUNITS/24));
+        String minutes = "00";
+
+        if (timeUnit%(MAX_TIMEUNITS/24) != 0)
+        {
+
+            minutes = String.valueOf(timeUnit%(MAX_TIMEUNITS/24)*((24*60)/MAX_TIMEUNITS));
+        }
+        hour = ("0" + hour).substring(hour.length() - 1);
+        return hour + ":" + minutes;
+
     }
 }

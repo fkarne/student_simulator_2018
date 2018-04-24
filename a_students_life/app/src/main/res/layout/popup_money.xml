@@ -22,9 +22,11 @@
         android:padding="5dp">
 
         <Button
+            android:id="@+id/askForMoney_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mama anbetteln"
+            android:onClick="askForMoney_button_onClick"
             android:gravity="center"/>
     </GridLayout>
 
