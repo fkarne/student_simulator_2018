@@ -46,25 +46,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     private void initBookData() {
 
-        //TODO Remove the dummyValues as soon as u have real data
-        Event event = new Event("SW-Prüfung", new Time(1, 1), "Prüfung");
-        event_list.add(event);
-
-        event = new Event("2.SW-Prüfung", new Time(2, 2), "Prüfung");
-        event_list.add(event);
-
-        event = new Event("OAD", new Time(1, 1), "Prüfung");
-        event_list.add(event);
-
-        event = new Event("2.SW Abgabe", new Time(2, 2), "Prüfung");
-        event_list.add(event);
-
-        event = new Event("3. SW-Prüfung", new Time(1, 1), "Prüfung");
-        event_list.add(event);
-
-        event = new Event("HCI", new Time(2, 2), "Prüfung");
-        event_list.add(event);
-
+        //TODO add Events
 
         calendar_adapter.notifyDataSetChanged();
     }

@@ -164,7 +164,8 @@
                 android:layout_weight="1">
 
                 <Button
-                    android:id="@+id/C"
+                    android:id="@+id/btnCalendar"
+                    android:onClick="calendar_button_onClick"
                     style="@android:style/Widget.Material.Button.Inset"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

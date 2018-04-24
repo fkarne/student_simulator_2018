@@ -6,6 +6,7 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import android.support.test.espresso.Espresso;
 
 import at.tugraz.morning08.a_students_life.data.Student;
@@ -80,5 +81,18 @@ public class MainPageTest {
         Espresso.onView(withId(R.id.askForMoney_button)).perform(click());
         Espresso.onView(withId(R.id.popUp_money_ll)).check(matches(isDisplayed()));
         assertEquals(300, Student.getInstance().getCash());
+    }
+
+    @Test
+    public void calendarButtonTest() throws Exception {
+        Espresso.onView(withId(R.id.btnCalendar)).perform(click());
+        Espresso.onView(withId(R.id.calendarPage)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void calendarBackButtonTest() throws Exception {
+        Espresso.onView(withId(R.id.btnCalendar)).perform(click());
+        Espresso.pressBack();
+        Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
     }
 }
