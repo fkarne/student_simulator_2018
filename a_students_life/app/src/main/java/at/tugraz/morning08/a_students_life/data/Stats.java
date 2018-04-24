@@ -1,5 +1,9 @@
 package at.tugraz.morning08.a_students_life.data;
 
+import java.text.DecimalFormat;
+
+import static java.lang.Double.parseDouble;
+
 public class Stats {
     private static int MAX = 100;
 
@@ -8,6 +12,7 @@ public class Stats {
     private int hunger = MAX;
     private int social = MAX;
 
+    // [0.5 ; 2.0]
     private double energy_multiplicator = 1.0;
     private double stress_multiplicator = 1.0;
     private double hunger_multiplicator = 1.0;
@@ -108,4 +113,12 @@ public class Stats {
     public void setSocial_multiplicator(double social_multiplicator) {
         this.social_multiplicator = social_multiplicator;
     }
+
+
+    // ---changes ---
+    public double getConjugatedMultiplicator(double multiplicator){
+        double result = 1/multiplicator;
+        return Math.round(result*1e2)/1e2;
+    }
+
 }

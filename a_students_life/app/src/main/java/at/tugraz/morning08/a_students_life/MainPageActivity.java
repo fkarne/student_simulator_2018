@@ -83,8 +83,7 @@ public class MainPageActivity extends AppCompatActivity
             mPopupWindow.setElevation(5.0f);
         }
 
-        mPopupWindow.setHeight(bot);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
+        setHeight(mPopupWindow);
     }
 
     public void hunger_popup(View view) {
@@ -104,8 +103,7 @@ public class MainPageActivity extends AppCompatActivity
             mPopupWindow.setElevation(5.0f);
         }
 
-        mPopupWindow.setHeight(bot);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
+        setHeight(mPopupWindow);
     }
 
     public void social_popup(View view) {
@@ -125,8 +123,7 @@ public class MainPageActivity extends AppCompatActivity
             mPopupWindow.setElevation(5.0f);
         }
 
-        mPopupWindow.setHeight(bot);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
+        setHeight(mPopupWindow);
     }
 
     public void money_popup(View view) {
@@ -146,8 +143,7 @@ public class MainPageActivity extends AppCompatActivity
             mPopupWindow.setElevation(5.0f);
         }
 
-        mPopupWindow.setHeight(bot);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
+        setHeight(mPopupWindow);
     }
 
     public void study_popup(View view) {
@@ -167,8 +163,7 @@ public class MainPageActivity extends AppCompatActivity
             mPopupWindow.setElevation(5.0f);
         }
 
-        mPopupWindow.setHeight(bot);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
+        setHeight(mPopupWindow);
     }
 
     public void showStatsPage(View view)    {

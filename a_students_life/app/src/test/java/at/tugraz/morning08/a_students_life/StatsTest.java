@@ -131,4 +131,17 @@ public class StatsTest {
         stats.decreaseSocial(80);
         assertEquals(-20, stats.getSocial());
     }
+
+    @Test
+    public void getConjucatedMultiplicatorTest() throws Exception {
+        double result = stats.getConjugatedMultiplicator(0.5);
+        assertEquals(2.00, result, 0.00);
+
+
+        result = stats.getConjugatedMultiplicator(0.7);
+        assertEquals(1.43, result, 0.00);
+
+        result = stats.getConjugatedMultiplicator(1.5);
+        assertEquals(0.67, result, 0.00);
+    }
 }

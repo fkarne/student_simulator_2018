@@ -101,8 +101,12 @@ public final class Activities
         student.addTimeUnits(12);
         checkBorderMultiplicators(student);
 
-        student.getStats().increaseSocial(62);
-        student.getStats().decreaseEnergy(18);
+        double social = 62.0 *student.getStats().getSocial_multiplicator();
+        double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+        double energy = 18.0 * energy_conjugated;
+
+        student.getStats().increaseSocial((int)social);
+        student.getStats().decreaseEnergy((int)energy);
         checkBorder(student);
     }
 
@@ -111,8 +115,11 @@ public final class Activities
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
-        student.getStats().increaseSocial(24);
-        student.getStats().increaseStress(9);
+        double social = 24.0 *student.getStats().getSocial_multiplicator();
+        double stress = 9.0 *student.getStats().getStress_multiplicator();
+
+        student.getStats().increaseSocial((int) social);
+        student.getStats().increaseStress((int)stress);
         checkBorder(student);
     }
 
@@ -121,8 +128,12 @@ public final class Activities
         student.addTimeUnits(3);
         checkBorderMultiplicators(student);
 
-        student.getStats().increaseStress(18);
-        student.getStats().decreaseEnergy(7);
+        double stress = 18.0 *student.getStats().getStress_multiplicator();
+        double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+        double energy = 7.0 * energy_conjugated;
+
+        student.getStats().increaseStress((int)stress);
+        student.getStats().decreaseEnergy((int)energy);
         checkBorder(student);
     }
 
@@ -131,7 +142,9 @@ public final class Activities
         student.addTimeUnits(1);
         checkBorderMultiplicators(student);
 
-        student.getStats().increaseHunger(8);
+        double hunger = 8.0 *student.getStats().getHunger_multiplicator();
+
+        student.getStats().increaseHunger((int) hunger);
         student.addCash(-20);
         checkBorder(student);
     }
