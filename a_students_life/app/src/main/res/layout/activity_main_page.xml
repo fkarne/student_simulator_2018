@@ -31,20 +31,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="€"
                     android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/tvDayMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/tvTimeMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/ects_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
                     android:gravity="right"
                     android:inputType="textPersonName"
-                    android:text="0/180"
+                    android:text="180"
                     android:textSize="25dp" />
             </LinearLayout>
 

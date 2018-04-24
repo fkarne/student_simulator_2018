@@ -185,6 +185,11 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
         ((TextView) findViewById(R.id.text_money)).setText("€ " + Student.getInstance().getCash());
+
+        TextView day_view = findViewById(R.id.tvDayMain);
+        day_view.setText("Day: " + String.valueOf(Student.getInstance().getTime().getDay()));
+        TextView time_view = findViewById(R.id.tvTimeMain);
+        time_view.setText(Student.getInstance().getTime().getTimeString());
     }
 
     public void updateStatsPage(){
@@ -194,6 +199,8 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
         ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash() + " €");
     }
+
+
 
     //Activities
     public void sleep_button_onClick(View view) {
