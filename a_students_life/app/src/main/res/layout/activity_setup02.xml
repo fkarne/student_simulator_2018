@@ -30,7 +30,7 @@
                     android:id="@+id/introduction_tv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/introduction_tv" />
+                    android:text="@string/story_line_tv" />
 
             </ScrollView>
 
