@@ -275,4 +275,71 @@ public class ActivitiesTest {
         assertEquals(18, student.getTime().getTimeUnit());
         assertEquals(160, student.getCash());
     }
+
+    @Test
+    public void multiplicator1Test() throws Exception {
+        student.getStats().setHunger(50);
+        student.getStats().setHunger_multiplicator(2.0);
+
+        Activities.snack(student);
+        assertEquals(99, student.getStats().getSocial());
+        assertEquals(65, student.getStats().getHunger());
+        assertEquals(99, student.getStats().getStress());
+        assertEquals(99, student.getStats().getEnergy());
+        assertEquals(17, student.getTime().getTimeUnit());
+        assertEquals(180, student.getCash());
+
+        Activities.snack(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(80, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+        assertEquals(160, student.getCash());
+    }
+
+    @Test
+    public void multiplicator2Test() throws Exception {
+        student.getStats().setEnergy(100);
+        student.getStats().setSocial(10);
+        student.getStats().setEnergy_multiplicator(2.0);
+        student.getStats().setSocial_multiplicator(0.7);
+
+        Activities.partying(student);
+        assertEquals(41, student.getStats().getSocial());
+        assertEquals(88, student.getStats().getHunger());
+        assertEquals(88, student.getStats().getStress());
+        assertEquals(79, student.getStats().getEnergy());
+        assertEquals(28, student.getTime().getTimeUnit());
+
+
+        student.getStats().setEnergy_multiplicator(0.5);
+
+        Activities.partying(student);
+        assertEquals(72, student.getStats().getSocial());
+        assertEquals(76, student.getStats().getHunger());
+        assertEquals(76, student.getStats().getStress());
+        assertEquals(31, student.getStats().getEnergy());
+        assertEquals(40, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void multiplicator3Test() throws Exception {
+        student.getStats().setStress(50);
+        student.getStats().setStress_multiplicator(1.5);
+
+        Activities.readingBook(student);
+        assertEquals(99, student.getStats().getSocial());
+        assertEquals(99, student.getStats().getHunger());
+        assertEquals(58, student.getStats().getStress());
+        assertEquals(99, student.getStats().getEnergy());
+        assertEquals(17, student.getTime().getTimeUnit());
+
+        Activities.readingBook(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(98, student.getStats().getHunger());
+        assertEquals(66, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+    }
 }
