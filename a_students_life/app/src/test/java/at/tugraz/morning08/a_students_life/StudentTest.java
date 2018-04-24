@@ -119,4 +119,14 @@ public class StudentTest {
         student.spendCash(150);
         assertEquals(50, student.getCash());
     }
+
+    @Test
+    public void addTimeUnitsTest() {
+        student.addTimeUnits(2);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(98, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+    }
 }

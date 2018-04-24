@@ -28,4 +28,5 @@ public class StartMenuActivity extends AppCompatActivity {
     public void start_game(View view) {
         startActivity(new Intent(StartMenuActivity.this, CalendarActivity.class));
     }
+
 }

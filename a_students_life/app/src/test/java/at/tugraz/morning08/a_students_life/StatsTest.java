@@ -40,7 +40,7 @@ public class StatsTest {
         stats.increaseEnergy(10);
         assertEquals(80, stats.getEnergy());
         stats.increaseEnergy(30);
-        assertEquals(100, stats.getEnergy());
+        assertEquals(110, stats.getEnergy());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class StatsTest {
         stats.decreaseEnergy(10);
         assertEquals(60, stats.getEnergy());
         stats.decreaseEnergy(80);
-        assertEquals(0, stats.getEnergy());
+        assertEquals(-20, stats.getEnergy());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class StatsTest {
         stats.increaseStress(10);
         assertEquals(80, stats.getStress());
         stats.increaseStress(30);
-        assertEquals(100, stats.getStress());
+        assertEquals(110, stats.getStress());
     }
 
     @Test
@@ -75,7 +75,7 @@ public class StatsTest {
         stats.decreaseStress(10);
         assertEquals(60, stats.getStress());
         stats.decreaseStress(80);
-        assertEquals(0, stats.getStress());
+        assertEquals(-20, stats.getStress());
     }
 
     @Test
@@ -94,7 +94,7 @@ public class StatsTest {
         stats.increaseHunger(10);
         assertEquals(80, stats.getHunger());
         stats.increaseHunger(30);
-        assertEquals(100, stats.getHunger());
+        assertEquals(110, stats.getHunger());
     }
 
     @Test
@@ -102,7 +102,7 @@ public class StatsTest {
         stats.decreaseHunger(10);
         assertEquals(60, stats.getHunger());
         stats.decreaseHunger(80);
-        assertEquals(0, stats.getHunger());
+        assertEquals(-20, stats.getHunger());
     }
 
     @Test
@@ -121,7 +121,7 @@ public class StatsTest {
         stats.increaseSocial(10);
         assertEquals(80, stats.getSocial());
         stats.increaseSocial(30);
-        assertEquals(100, stats.getSocial());
+        assertEquals(110, stats.getSocial());
     }
 
     @Test
@@ -129,6 +129,19 @@ public class StatsTest {
         stats.decreaseSocial(10);
         assertEquals(60, stats.getSocial());
         stats.decreaseSocial(80);
-        assertEquals(0, stats.getSocial());
+        assertEquals(-20, stats.getSocial());
+    }
+
+    @Test
+    public void getConjucatedMultiplicatorTest() throws Exception {
+        double result = stats.getConjugatedMultiplicator(0.5);
+        assertEquals(2.00, result, 0.00);
+
+
+        result = stats.getConjugatedMultiplicator(0.7);
+        assertEquals(1.43, result, 0.00);
+
+        result = stats.getConjugatedMultiplicator(1.5);
+        assertEquals(0.67, result, 0.00);
     }
 }

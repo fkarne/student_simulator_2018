@@ -77,4 +77,13 @@ public class Student {
     public void spendCash(int cashToSpend) {
         this.cash -= cashToSpend;
     }
+
+    public void addTimeUnits(int timeUnitsToAdd) {
+        time.addTimeUnits(timeUnitsToAdd);
+
+        stats.decreaseStress(timeUnitsToAdd);
+        stats.decreaseEnergy(timeUnitsToAdd);
+        stats.decreaseSocial(timeUnitsToAdd);
+        stats.decreaseHunger(timeUnitsToAdd);
+    }
 }
