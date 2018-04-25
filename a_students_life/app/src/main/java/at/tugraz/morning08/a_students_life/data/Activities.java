@@ -64,6 +64,23 @@ public final class Activities
         checkBorder(student);
     }
 
+    //Main Study
+    public static void learn(Student student, Event event) {
+        student.addTimeUnits(4);
+        checkBorderMultiplicators(student);
+
+        //TODO increase probability for event!!!
+
+        double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+        double energy = 4.0 * energy_conjugated;
+
+        double stress = 7.0 * student.getStats().getStress_multiplicator();
+
+        student.getStats().decreaseEnergy((int) energy);
+        student.getStats().increaseStress((int) stress);
+        checkBorder(student);
+    }
+
     //Sub Energy
     public static void nap(Student student) {
         student.addTimeUnits(2);

@@ -4,11 +4,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.Intent;
-import android.content.DialogInterface;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +17,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import at.tugraz.morning08.a_students_life.data.Activities;
+import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
+import at.tugraz.morning08.a_students_life.data.Time;
 
 /**
  * Created by Jeremias and Laura on 11.04.18.
@@ -158,7 +158,6 @@ public class MainPageActivity extends AppCompatActivity
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 true
-
         );
 
         if(Build.VERSION.SDK_INT>=21){
@@ -179,7 +178,6 @@ public class MainPageActivity extends AppCompatActivity
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 true
-
         );
 
         if(Build.VERSION.SDK_INT>=21){
@@ -225,6 +223,7 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.progressBarEnergyMainPage)).setSecondaryProgress(Student.getInstance().getStats().getEnergy());
         ((ProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
+        ((ProgressBar) findViewById(R.id.progressBarSocialMainPage)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
         ((TextView) findViewById(R.id.text_money)).setText(getText(R.string.sign_money) + " " + Student.getInstance().getCash());
 
         TextView day_view = findViewById(R.id.tvDayMain);
@@ -304,6 +303,12 @@ public class MainPageActivity extends AppCompatActivity
 
     public void askForMoney_button_onClick(View view) {
         Activities.askForMoney(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void learning_button_onClick(View view) {
+        //TODO replace dummy event with calendar event
+        Activities.learn(Student.getInstance(), new Event("dummyEvent01", new Time(1, 1),"dummyEvent"));
         updateMainPage();
     }
 

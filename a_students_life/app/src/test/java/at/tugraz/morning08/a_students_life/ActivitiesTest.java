@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import at.tugraz.morning08.a_students_life.data.Activities;
+import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Stats;
 import at.tugraz.morning08.a_students_life.data.Student;
 import at.tugraz.morning08.a_students_life.data.Time;
@@ -17,6 +18,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class ActivitiesTest {
     Student student;
+    Event event;
 
     @Before
     public void beforeTest() throws Exception {
@@ -133,6 +135,29 @@ public class ActivitiesTest {
         assertEquals(100, student.getStats().getEnergy());
         assertEquals(0, student.getTime().getTimeUnit());
         assertEquals(2, student.getTime().getDay());
+    }
+
+    @Test
+    public void learnTest() throws Exception
+    {
+        event = new Event("exam 01", new Time(10, 16), "exam");
+        student.getStats().setStress(10);
+
+        Activities.learn(student, event);
+        assertEquals(96, student.getStats().getSocial());
+        assertEquals(96, student.getStats().getHunger());
+        assertEquals(13, student.getStats().getStress());
+        assertEquals(92, student.getStats().getEnergy());
+        assertEquals(20, student.getTime().getTimeUnit());
+        assertEquals(1, student.getTime().getDay());
+
+        Activities.learn(student, event);
+        assertEquals(92, student.getStats().getSocial());
+        assertEquals(92, student.getStats().getHunger());
+        assertEquals(16, student.getStats().getStress());
+        assertEquals(84, student.getStats().getEnergy());
+        assertEquals(24, student.getTime().getTimeUnit());
+        assertEquals(1, student.getTime().getDay());
     }
 
     @Test
