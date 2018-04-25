@@ -144,4 +144,19 @@ public class StatsTest {
         result = stats.getConjugatedMultiplicator(1.5);
         assertEquals(0.67, result, 0.00);
     }
+
+    @Test
+    public void initializeStudentTest() throws Exception {
+        stats.setEnergy(20);
+        stats.setStress(0);
+        stats.setHunger(100);
+        stats.setSocial(15);
+
+        stats.initializeStudent();
+
+        assertEquals(100, stats.getEnergy());
+        assertEquals(100, stats.getStress());
+        assertEquals(100, stats.getHunger());
+        assertEquals(100, stats.getSocial());
+    }
 }

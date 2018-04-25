@@ -18,6 +18,13 @@ public class Stats {
     private double hunger_multiplicator = 1.0;
     private double social_multiplicator = 1.0;
 
+    public void initializeStudent(){
+        energy = MAX;
+        stress = MAX;
+        hunger = MAX;
+        social = MAX;
+    }
+
     public int getEnergy() {
         return energy;
     }
@@ -115,7 +122,6 @@ public class Stats {
     }
 
 
-    // ---changes ---
     public double getConjugatedMultiplicator(double multiplicator){
         double result = 1/multiplicator;
         return Math.round(result*1e2)/1e2;

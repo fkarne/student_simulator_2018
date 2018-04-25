@@ -1,6 +1,9 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.Intent;
 import android.content.DialogInterface;
 import android.os.Build;
@@ -229,6 +232,7 @@ public class MainPageActivity extends AppCompatActivity
         day_view.setText("Day: " + String.valueOf(Student.getInstance().getTime().getDay()));
         TextView time_view = findViewById(R.id.tvTimeMain);
         time_view.setText(Student.getInstance().getTime().getTimeString());
+        checkLoseConditions();
     }
 
     public void updateStatsPage(){
@@ -302,5 +306,40 @@ public class MainPageActivity extends AppCompatActivity
     public void askForMoney_button_onClick(View view) {
         Activities.askForMoney(Student.getInstance());
         updateMainPage();
+    }
+
+
+    private void checkLoseConditions() {
+        int energy = Student.getInstance().getStats().getEnergy();
+        int stress = Student.getInstance().getStats().getStress();
+        int social = Student.getInstance().getStats().getSocial();
+        int hunger = Student.getInstance().getStats().getHunger();
+
+
+        if(energy == 0 || stress == 0 || social == 0 || hunger == 0){
+            AlertDialog.Builder builder;
+
+            builder = new AlertDialog.Builder(this);
+            builder.setTitle("Game over!");
+
+            if(hunger == 0)
+                builder.setMessage("You starved to death.");
+            else if(energy == 0)
+                builder.setMessage("No more running!");
+            else if(stress == 0)
+                builder.setMessage("Calm down!");
+            else
+                builder.setMessage("Nobody loves you ....");
+
+            builder.setPositiveButton("Zug zug", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Student.getInstance().getStats().initializeStudent();
+                    setContentView(R.layout.activity_start_menu);
+                    startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
+                }
+            });
+            builder.show();
+        }
     }
 }
