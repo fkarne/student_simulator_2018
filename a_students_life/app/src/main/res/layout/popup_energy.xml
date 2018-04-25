@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="sleep_button_onClick"
-            android:text="Schlafen" />
+            android:text="@string/activity_sleep" />
 
         <Button
             android:id="@+id/powernap_button"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="nap_button_onClick"
-            android:text="Powernap" />
+            android:text="@string/activity_powerNap" />
     </LinearLayout>
 
 </LinearLayout>
