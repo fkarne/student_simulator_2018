@@ -157,6 +157,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1.5">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -169,71 +170,86 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight = "4.5">
+            android:layout_weight = "4.5"
+            android:background="#FFFF">
 
-
-            <FrameLayout
-                android:id="@+id/calendar"
+            <ImageButton
+                android:id="@+id/btnCalendar"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:onClick="calendar_button_onClick"
+                android:src="@drawable/calendar_btn"
+                android:scaleType="fitCenter"
+                android:background="@drawable/layout_border"/>
 
-                <Button
-                    android:id="@+id/btnCalendar"
-                    android:onClick="calendar_button_onClick"
-                    style="@android:style/Widget.Material.Button.Inset"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="C" />
-            </FrameLayout>
-
-            <Button
+            <ImageButton
                 android:id="@+id/energy"
                 android:onClick="energy_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:layout_weight="1"
-                android:text="E" />
+                android:src="@drawable/energy_btn"
+                android:scaleType="fitCenter"
+                android:background="@drawable/layout_border"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/stress"
                 android:onClick="stress_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:layout_weight="1"
-                android:text="S" />
+                android:src="@drawable/stress_btn"
+                android:scaleType="fitCenter"
+                android:background="@drawable/layout_border"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/hunger"
-                android:onClick="hunger_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="3dp"
                 android:layout_weight="1"
-                android:text="H" />
+                android:onClick="hunger_popup"
+                android:src="@drawable/hunger_btn"
+                android:scaleType="fitCenter"
+                android:background="@drawable/layout_border"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/social"
                 android:onClick="social_popup"
+                android:padding="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="So" />
+                android:src="@drawable/social_btn"
+                android:scaleType="fitCenter"
+                android:background="@drawable/layout_border"
+                />
 
-            <Button
+            <ImageButton
                 android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/layout_border"
                 android:onClick="money_popup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="€" />
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/money_btn" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/study"
-                android:onClick="study_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="St" />
+                android:src="@drawable/study_btn"
+                android:onClick="study_popup"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:background="@drawable/layout_border"/>
         </LinearLayout>
 
 </LinearLayout>
