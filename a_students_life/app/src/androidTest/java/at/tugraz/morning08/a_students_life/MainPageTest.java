@@ -55,12 +55,6 @@ public class MainPageTest {
     }
 
     @Test
-    public void calendarBackButtonTest() throws Exception {
-        Espresso.onView(withId(R.id.btnCalendar)).perform(click());
-        Espresso.pressBack();
-        Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
-
-    @Test
     public void activityHungerButtonTest() throws Exception {
         Student.getInstance().getStats().setHunger(50);
         Espresso.onView(withId(R.id.hunger)).perform(click());
