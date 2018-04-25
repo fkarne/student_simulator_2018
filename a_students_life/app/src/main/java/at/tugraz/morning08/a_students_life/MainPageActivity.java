@@ -19,7 +19,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import at.tugraz.morning08.a_students_life.data.Activities;
+import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
+import at.tugraz.morning08.a_students_life.data.Time;
 
 /**
  * Created by Jeremias and Laura on 11.04.18.
@@ -304,6 +306,12 @@ public class MainPageActivity extends AppCompatActivity
 
     public void askForMoney_button_onClick(View view) {
         Activities.askForMoney(Student.getInstance());
+        updateMainPage();
+    }
+
+    public void learning_button_onClick(View view) {
+        //TODO replace dummy event with calendar event
+        Activities.learn(Student.getInstance(), new Event("dummyEvent01", new Time(1, 1),"dummyEvent"));
         updateMainPage();
     }
 

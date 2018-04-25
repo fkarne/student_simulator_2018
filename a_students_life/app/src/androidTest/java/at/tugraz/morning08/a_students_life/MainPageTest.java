@@ -100,6 +100,17 @@ public class MainPageTest {
     }
 
     @Test
+    public void activityStudyButtonTest() throws Exception {
+        //TODO set probability for exam
+
+        Espresso.onView(withId(R.id.study)).perform(click());
+        Espresso.onView(withId(R.id.learning_button)).perform(click());
+        Espresso.onView(withId(R.id.popUp_study_ll)).check(matches(isDisplayed()));
+
+        //TODO check if probability increased
+    }
+
+    @Test
     public void calendarButtonTest() throws Exception {
         Espresso.onView(withId(R.id.btnCalendar)).perform(click());
         Espresso.onView(withId(R.id.calendarPage)).check(matches(isDisplayed()));
