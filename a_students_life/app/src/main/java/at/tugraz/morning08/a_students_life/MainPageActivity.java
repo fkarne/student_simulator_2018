@@ -319,6 +319,7 @@ public class MainPageActivity extends AppCompatActivity
             AlertDialog.Builder builder;
 
             builder = new AlertDialog.Builder(this);
+            builder.setCancelable(false);
             builder.setTitle("Game over!");
 
             if(hunger == 0)
@@ -329,13 +330,15 @@ public class MainPageActivity extends AppCompatActivity
                 builder.setMessage("Calm down!");
             else
                 builder.setMessage("Nobody loves you ....");
-
+            
             builder.setPositiveButton("Zug zug", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Student.getInstance().getStats().initializeStudent();
-                    setContentView(R.layout.activity_start_menu);
-                    startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
+                    //Student.getInstance().getStats().initializeStudent();
+                    //setContentView(R.layout.activity_start_menu);
+                    //startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
+                    MainPageActivity.this.finish();
+                    System.exit(0);
                 }
             });
             builder.show();
