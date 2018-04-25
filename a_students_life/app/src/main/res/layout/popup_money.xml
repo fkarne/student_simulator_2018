@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="askForMoney_button_onClick"
-            android:text="Mama anbetteln" />
+            android:text="@string/activity_askForMoney" />
     </LinearLayout>
 
 </LinearLayout>

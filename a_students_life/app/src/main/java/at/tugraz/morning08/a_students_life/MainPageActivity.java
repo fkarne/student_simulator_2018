@@ -48,9 +48,9 @@ public class MainPageActivity extends AppCompatActivity
         {
             backPressedAlert = new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Spiel beenden")
-                    .setMessage("Sicher, dass du das Spiel beenden willst?")
-                    .setPositiveButton("Ja", new DialogInterface.OnClickListener()
+                    .setTitle(getText(R.string.exit_game))
+                    .setMessage(getText(R.string.exit_game_question))
+                    .setPositiveButton(getText(R.string.yes_btn), new DialogInterface.OnClickListener()
                     {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
@@ -59,7 +59,7 @@ public class MainPageActivity extends AppCompatActivity
                             System.exit(0);
                         }
                     })
-                    .setNegativeButton("Nein", null)
+                    .setNegativeButton(getText(R.string.no_btn), null)
                     .show();
         }
         else
@@ -223,11 +223,11 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.progressBarEnergyMainPage)).setSecondaryProgress(Student.getInstance().getStats().getEnergy());
         ((ProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
-        ((ProgressBar) findViewById(R.id.progressBarSocialMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
-        ((TextView) findViewById(R.id.text_money)).setText("€ " + Student.getInstance().getCash());
+        ((ProgressBar) findViewById(R.id.progressBarSocialMainPage)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
+        ((TextView) findViewById(R.id.text_money)).setText(getText(R.string.sign_money) + " " + Student.getInstance().getCash());
 
         TextView day_view = findViewById(R.id.tvDayMain);
-        day_view.setText("Day: " + String.valueOf(Student.getInstance().getTime().getDay()));
+        day_view.setText(getText(R.string.sign_day) + " " + String.valueOf(Student.getInstance().getTime().getDay()));
         TextView time_view = findViewById(R.id.tvTimeMain);
         time_view.setText(Student.getInstance().getTime().getTimeString());
         checkLoseConditions();
@@ -238,8 +238,7 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.stressProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getStress());
         ((ProgressBar) findViewById(R.id.hungerProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
         ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
-        ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
-        ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash() + " €");
+        ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash() + " " + getText(R.string.sign_money));
     }
 
     public void calendar_button_onClick(View view) {
@@ -326,18 +325,18 @@ public class MainPageActivity extends AppCompatActivity
 
             builder = new AlertDialog.Builder(this);
             builder.setCancelable(false);
-            builder.setTitle("Game over!");
+            builder.setTitle(getText(R.string.lose_gameOver));
 
             if(hunger == 0)
-                builder.setMessage("You starved to death.");
+                builder.setMessage(getText(R.string.lose_hunger));
             else if(energy == 0)
-                builder.setMessage("No more running!");
+                builder.setMessage(getText(R.string.lose_energy));
             else if(stress == 0)
-                builder.setMessage("Calm down!");
+                builder.setMessage(getText(R.string.lose_stress));
             else
-                builder.setMessage("Nobody loves you ....");
+                builder.setMessage(getText(R.string.lose_social));
             
-            builder.setPositiveButton("Zug zug", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(getText(R.string.lose_btnOk), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     //Student.getInstance().getStats().initializeStudent();
