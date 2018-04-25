@@ -31,20 +31,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="€"
                     android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/tvDayMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/tvTimeMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/ects_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
                     android:gravity="right"
                     android:inputType="textPersonName"
-                    android:text="0/180"
+                    android:text="180"
                     android:textSize="25dp" />
             </LinearLayout>
 
@@ -164,7 +179,8 @@
                 android:layout_weight="1">
 
                 <Button
-                    android:id="@+id/C"
+                    android:id="@+id/btnCalendar"
+                    android:onClick="calendar_button_onClick"
                     style="@android:style/Widget.Material.Button.Inset"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -172,7 +188,7 @@
             </FrameLayout>
 
             <Button
-                android:id="@+id/Energy"
+                android:id="@+id/energy"
                 android:onClick="energy_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -196,7 +212,7 @@
                 android:text="H" />
 
             <Button
-                android:id="@+id/sozial"
+                android:id="@+id/social"
                 android:onClick="social_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

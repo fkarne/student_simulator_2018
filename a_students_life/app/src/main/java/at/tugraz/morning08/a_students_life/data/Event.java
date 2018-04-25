@@ -3,29 +3,21 @@ package at.tugraz.morning08.a_students_life.data;
 
 public class Event
 {
-    public Event(String name, int day, int timeUnit, String type) {
+    public Event(String name, Time time, String type) {
         this.name = name;
-        this.day = day;
-        this.timeUnit = timeUnit;
+        this.time = time;
         this.type = type;
     }
 
     private String name;
-    private int day;
-    private int timeUnit;
+    private Time time;
     private String type;
 
     public String getName() {
         return name;
     }
 
-    public int getDay() {
-        return day;
-    }
-
-    public int getTimeUnit() {
-        return timeUnit;
-    }
+    public Time getTime() { return time; }
 
     public String getType() {
         return type;
@@ -35,13 +27,7 @@ public class Event
         this.name = name;
     }
 
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public void setTimeUnit(int timeUnit) {
-        this.timeUnit = timeUnit;
-    }
+    public void setTime(Time time) { this.time = time; }
 
     public void setType(String type) {
         this.type = type;

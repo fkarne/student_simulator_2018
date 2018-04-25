@@ -23,21 +23,14 @@
     <string name="studies_bwl_li">Betriebswirtschaftslehre</string>
 
     <!-- Text Content -->
-    <string name="introduction_tv">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-        vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-        takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-        erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-        kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+    <string name="introduction_tv">Du hast gerade deine Matura geschafft und bist nun auf dem Weg
+    zur Inskriptionsstelle. Fülle die Formulare aus:</string>
 
-    <string name="story_line_tv">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-    vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-    takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-    erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+
+    <string name="story_line_tv">Jetzt ist es an der Zeit, deinen Studiengang zu wählen. Wähle weise,
+    um dies später zu ändern müsstest du zum Dekanat. Es scheint dir demnach unmöglich!
+    Du solltest auch wissen, dass verschiedene Studiengänge unterschiedlich schwer sind
+    (ist zumindest geplant).</string>
 
 
 </resources>
