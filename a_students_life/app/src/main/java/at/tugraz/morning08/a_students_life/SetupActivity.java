@@ -17,7 +17,6 @@ public class SetupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setup01);
     }
 
-
     /**
      * When Next button is clicked -> shows second "setup-Site"
      * @param view  current View
@@ -41,7 +40,6 @@ public class SetupActivity extends AppCompatActivity {
     public void setup02_next(View view) {
         Student student = Student.getInstance();
         student.setStudie(((Spinner)findViewById(R.id.studies_sp)).getSelectedItem().toString());
-        setContentView(R.layout.activity_main_page);
         startActivity(new Intent(SetupActivity.this, MainPageActivity.class));
         SetupActivity.this.finish();
     }
