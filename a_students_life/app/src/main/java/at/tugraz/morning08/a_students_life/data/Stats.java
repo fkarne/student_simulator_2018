@@ -23,6 +23,11 @@ public class Stats {
         stress = MAX;
         hunger = MAX;
         social = MAX;
+
+        energy_multiplicator = 1.0;
+        stress_multiplicator = 1.0;
+        hunger_multiplicator = 1.0;
+        social_multiplicator = 1.0;
     }
 
     public int getEnergy() {
