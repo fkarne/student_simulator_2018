@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="eat_button_onClick"
-            android:text="Essen" />
+            android:text="@string/activity_eat" />
 
         <Button
             android:id="@+id/goingOutToEat_button"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="goingOutToEat_button_onClick"
-            android:text="Essen gehen" />
+            android:text="@string/activity_eatOutside" />
 
         <Button
             android:id="@+id/snack_button"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="snack_button_onClick"
-            android:text="Snack" />
+            android:text="@string/activity_snack" />
     </LinearLayout>
 
 </LinearLayout>

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="watchTV_button_onClick"
-            android:text="Fernsehen" />
+            android:text="@string/activity_watchTv" />
 
         <Button
             android:id="@+id/readingBook_button"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="readingBook_button_onClick"
-            android:text="Buch lesen" />
+            android:text="@string/activity_readBook" />
 
         <Button
             android:id="@+id/sports_button"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="sports_button_onClick"
-            android:text="Sport machen" />
+            android:text="@string/activity_doSports" />
     </LinearLayout>
 
 </LinearLayout>

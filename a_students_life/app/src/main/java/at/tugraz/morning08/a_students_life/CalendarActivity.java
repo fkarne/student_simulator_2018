@@ -37,7 +37,7 @@ public class CalendarActivity extends AppCompatActivity {
         recycler_view.setAdapter(calendar_adapter);
 
         TextView day_view = findViewById(R.id.tvDay);
-        day_view.setText("Day: " + String.valueOf(Student.getInstance().getTime().getDay()));
+        day_view.setText(getText(R.string.sign_day) + " " + String.valueOf(Student.getInstance().getTime().getDay()));
         TextView time_view = findViewById(R.id.tvTime);
         time_view.setText(Student.getInstance().getTime().getTimeString());
 

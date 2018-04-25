@@ -26,7 +26,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="24dp"
         android:autoText="false"
-        android:text="Energie:"
+        android:text="@string/stats_energy"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studyLabel" />
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="24dp"
-        android:text="Stress:"
+        android:text="@string/stats_stress"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/energyProgressBar" />
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="24dp"
-        android:text="Hunger:"
+        android:text="@string/stats_hunger"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stressProgressBar" />
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="24dp"
-        android:text="Sozial:"
+        android:text="@string/stats_social"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hungerProgressBar" />
@@ -81,7 +81,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Studiumfortschritt"
+        android:text="@string/stats_study_progress"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
-        android:text="Geld:"
+        android:text="@string/stats_money"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/socialProgressBar" />
@@ -138,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="50dp"
-        android:text="dummy"
+        android:text="@string/stats_dummy_text"
         android:textColor="@android:color/holo_green_light"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/moneyLabel"
@@ -149,7 +149,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:text="Zurück"
+        android:text="@string/back_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="backToMainPage"/>

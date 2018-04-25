@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="phoneCall_button_onClick"
-            android:text="Freunde anrufen" />
+            android:text="@string/activity_callFriends" />
 
         <Button
             android:id="@+id/meetFriends_button"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="meetFriends_button_onClick"
-            android:text="Freunde treffen" />
+            android:text="@string/activity_meetFriends" />
 
         <Button
             android:id="@+id/partying_button"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="partying_button_onClick"
-            android:text="Party!" />
+            android:text="@string/activity_party" />
     </LinearLayout>
 
 </LinearLayout>
