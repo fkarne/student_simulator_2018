@@ -10,40 +10,35 @@
     tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
 
 <!-- TODO: add static buttons -->
-    <GridLayout
-        android:id="@+id/gv_stress_01"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="4"
-        android:columnCount="4"
-        android:rowCount="2"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="5dp">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/watchTV_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fernsehen"
+            android:gravity="center"
             android:onClick="watchTV_button_onClick"
-            android:gravity="center"/>
+            android:text="Fernsehen" />
 
         <Button
             android:id="@+id/readingBook_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Buch lesen"
+            android:gravity="center"
             android:onClick="readingBook_button_onClick"
-            android:gravity="center"/>
+            android:text="Buch lesen" />
 
         <Button
             android:id="@+id/sports_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sport machen"
+            android:gravity="center"
             android:onClick="sports_button_onClick"
-            android:gravity="center"/>
-    </GridLayout>
+            android:text="Sport machen" />
+    </LinearLayout>
 
 </LinearLayout>

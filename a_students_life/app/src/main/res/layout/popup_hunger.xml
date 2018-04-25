@@ -10,41 +10,35 @@
     tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
 
     <!-- TODO: add static buttons -->
-    <GridLayout
-        android:id="@+id/gv_hunger_01"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="4"
-        android:columnCount="4"
-        android:rowCount="2"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="5dp">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/eat_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Essen"
+            android:gravity="center"
             android:onClick="eat_button_onClick"
-            android:gravity="center"/>
+            android:text="Essen" />
 
         <Button
             android:id="@+id/goingOutToEat_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Essen gehen"
+            android:gravity="center"
             android:onClick="goingOutToEat_button_onClick"
-            android:gravity="center"/>
+            android:text="Essen gehen" />
 
         <Button
             android:id="@+id/snack_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Snack"
+            android:gravity="center"
             android:onClick="snack_button_onClick"
-            android:gravity="center"/>
-
-    </GridLayout>
+            android:text="Snack" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -10,40 +10,35 @@
     tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
 
     <!-- TODO: add static buttons -->
-    <GridLayout
-        android:id="@+id/gv_social_01"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="4"
-        android:columnCount="4"
-        android:rowCount="2"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="5dp">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/phoneCall_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Freunde anrufen"
+            android:gravity="center"
             android:onClick="phoneCall_button_onClick"
-            android:gravity="center"/>
+            android:text="Freunde anrufen" />
 
         <Button
             android:id="@+id/meetFriends_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Freunde treffen"
+            android:gravity="center"
             android:onClick="meetFriends_button_onClick"
-            android:gravity="center"/>
+            android:text="Freunde treffen" />
 
         <Button
             android:id="@+id/partying_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Party!"
+            android:gravity="center"
             android:onClick="partying_button_onClick"
-            android:gravity="center"/>
-    </GridLayout>
+            android:text="Party!" />
+    </LinearLayout>
 
 </LinearLayout>
