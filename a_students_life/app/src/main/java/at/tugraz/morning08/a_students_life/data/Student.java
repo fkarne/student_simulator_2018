@@ -12,6 +12,7 @@ public class Student {
     private Time time = new Time();
 
     private int cash = 0;
+    private int ects = 0;
 
     private Student() {}
 
@@ -66,9 +67,12 @@ public class Student {
         this.cash = cash;
     }
 
-    public int getCash() {
-        return cash;
-    }
+    public int getCash() { return cash; }
+
+    public int getEcts() {return ects; }
+
+    public void setEcts(int ects) { this.ects = ects; }
+
 
     public void addCash(int cashToAdd) {
         this.cash += cashToAdd;
@@ -77,6 +81,8 @@ public class Student {
     public void spendCash(int cashToSpend) {
         this.cash -= cashToSpend;
     }
+
+    public void addEcts(int ectsToAdd) { this.ects += ectsToAdd; }
 
     public void addTimeUnits(int timeUnitsToAdd) {
         time.addTimeUnits(timeUnitsToAdd);

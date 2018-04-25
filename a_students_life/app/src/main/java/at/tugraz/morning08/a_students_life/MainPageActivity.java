@@ -225,6 +225,7 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
         ((ProgressBar) findViewById(R.id.progressBarSocialMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
         ((TextView) findViewById(R.id.text_money)).setText("€ " + Student.getInstance().getCash());
+        ((TextView) findViewById(R.id.ects_text)).setText(Student.getInstance().getEcts()+" / 180");
 
         TextView day_view = findViewById(R.id.tvDayMain);
         day_view.setText("Day: " + String.valueOf(Student.getInstance().getTime().getDay()));
@@ -240,6 +241,12 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
         ((ProgressBar) findViewById(R.id.socialProgressBar)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
         ((TextView) findViewById(R.id.moneyAmountLabel)).setText(Student.getInstance().getCash() + " €");
+        int ects = Student.getInstance().getEcts();
+        if(ects>=180)
+        {
+            ects = 180;
+        }
+        ((ProgressBar)findViewById(R.id.studyProgressBar)).setProgress(ects);
     }
 
     public void calendar_button_onClick(View view) {

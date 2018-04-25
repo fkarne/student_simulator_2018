@@ -26,6 +26,7 @@ public class StudentTest {
         student.setGender("male");
         student.setStudie("Informatik");
         student.setCash(200);
+        student.setEcts(50);
 
         stats = new Stats();
         stats.setEnergy(100);
@@ -109,6 +110,17 @@ public class StudentTest {
     }
 
     @Test
+    public void getEctsTest() throws Exception {
+        assertEquals(50, student.getEcts());
+    }
+
+    @Test
+    public void setEctsTest() throws Exception {
+        student.setEcts(160);
+        assertEquals(160, student.getEcts());
+    }
+
+    @Test
     public void addCashTest() throws Exception {
         student.addCash(150);
         assertEquals(350, student.getCash());
@@ -118,6 +130,16 @@ public class StudentTest {
     public void spendCashTest() throws Exception {
         student.spendCash(150);
         assertEquals(50, student.getCash());
+    }
+
+    @Test
+    public void addEctsTest() throws Exception {
+
+        student.addEcts(5);
+        assertEquals(55, student.getEcts());
+
+        student.addEcts(190);
+        assertEquals(245, student.getEcts());
     }
 
     @Test
