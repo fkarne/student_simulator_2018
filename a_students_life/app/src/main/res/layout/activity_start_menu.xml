@@ -54,7 +54,8 @@
 
             <Button
                 android:id="@+id/options_btn"
-                android:enabled="false"
+                android:enabled="true"
+                android:onClick="show_options"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"

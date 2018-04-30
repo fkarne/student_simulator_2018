@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">A Students Life</string>
+
+    <!-- Buttons -->
+    <string name="start_btn">Start</string>
+    <string name="load_btn">Laden</string>
+    <string name="options_btn">Optionen</string>
+    <string name="credits_btn">Credits</string>
+    <string name="next_btn">Weiter</string>
+    <string name="save_btn">Speichern</string>
+    <string name="cancel_btn">Abbrechen</string>
+    <string name="back_btn">Zurück</string>
+    <string name="no_btn">Nein</string>
+    <string name="yes_btn">Ja</string>
+
+
+    <!-- Placeholder -->
+    <string name="name_ph">Name</string>
+    <string name="gender_ph">Geschlecht</string>
+    <string name="studies_ph">Studienrichtung</string>
+
+
+    <!-- ListItems -->
+    <string name="gender_female_li">weiblich</string>
+    <string name="gender_male_li">männlich</string>
+    <string name="studies_inf_li">Informatik</string>
+    <string name="studies_bwl_li">Betriebswirtschaftslehre</string>
+
+    <!-- Text Content -->
+    <string name="introduction_tv">
+        Du hast gerade deine Matura geschafft und bist nun auf dem Weg
+        zur Inskriptionsstelle. Fülle die Formulare aus:
+    </string>
+
+    <string name="story_line_tv">
+        Jetzt ist es an der Zeit, deinen Studiengang zu wählen. Wähle weise, um dies
+        später zu ändern müsstest du zum Dekanat. Es scheint dir demnach unmöglich!
+        Du solltest auch wissen, dass verschiedene Studiengänge unterschiedlich schwer sind
+        (ist zumindest geplant).
+    </string>
+
+
+    <!-- stats page -->
+    <string name="stats_energy">Energie:</string>
+    <string name="stats_stress">Stress:</string>
+    <string name="stats_hunger">Hunger:</string>
+    <string name="stats_social">Sozial:</string>
+    <string name="stats_study_progress">Studiumsfortschritt</string>
+    <string name="stats_money">Geld:</string>
+    <string name="stats_dummy_text">dummy</string>
+
+
+    <!-- activities -->
+    <string name="activity_sleep">Schlafen</string>
+    <string name="activity_powerNap">Nickerchen</string>
+    <string name="activity_eat">Essen</string>
+    <string name="activity_eatOutside">Essen gehen</string>
+    <string name="activity_snack">Snack</string>
+    <string name="activity_askForMoney">Eltern nach Geld fragen</string>
+    <string name="activity_callFriends">Freunde anrufen</string>
+    <string name="activity_meetFriends">Freunde treffen</string>
+    <string name="activity_party">Party!</string>
+    <string name="activity_watchTv">Fernsehen</string>
+    <string name="activity_readBook">Buch lesen</string>
+    <string name="activity_doSports">Sport machen</string>
+    <string name="activity_study">Lernen</string>
+
+
+    <!-- Lose Conditions -->
+    <string name="lose_gameOver">Game over!</string>
+    <string name="lose_hunger">Du bist verhungert.</string>
+    <string name="lose_energy">Du hast keine Energie mehr.</string>
+    <string name="lose_stress">Beruhig dich!</string>
+    <string name="lose_social">Keiner mag dich....</string>
+    <string name="lose_btnOk">Zug zug</string>
+
+    <!-- Back btn pressed -->
+    <string name="exit_game">Spiel verlassen</string>
+    <string name="exit_game_question">Sicher, dass du das Spiel verlassen möchtest?</string>
+
+    <!-- Symbols -->
+    <string name="sign_money">€</string>
+    <string name="sign_day">Tag</string>
+
+    <!-- options -->
+    <string name="choose_lang_text">Wählen Sie Ihre Sprache.</string>
+    <string name="lang_en">Englisch</string>
+    <string name="lang_en_short">en</string>
+    <string name="lang_de">Deutsch</string>
+    <string name="lang_de_short">de</string>
+
+</resources>
