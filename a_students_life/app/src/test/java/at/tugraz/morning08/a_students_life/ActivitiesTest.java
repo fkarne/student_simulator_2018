@@ -140,7 +140,7 @@ public class ActivitiesTest {
     @Test
     public void learnTest() throws Exception
     {
-        event = new Event("exam 01", new Time(10, 16), "exam");
+        event = new Event("exam 01", new Time(10, 16), "exam", 20);
         student.getStats().setStress(10);
 
         Activities.learn(student, event);

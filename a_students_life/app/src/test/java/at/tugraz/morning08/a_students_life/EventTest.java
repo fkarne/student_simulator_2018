@@ -19,7 +19,7 @@ public class EventTest {
 
     @Before
     public void beforeTest() throws Exception {
-        event = new Event("SA-Prüfung", new Time(1, 32), "Prüfung");
+        event = new Event("SA-Prüfung", new Time(1, 32), "Prüfung", 20);
     }
 
     @Test
@@ -30,11 +30,11 @@ public class EventTest {
     @Test
     public void getTimeTest() throws Exception {
         Time time2 = new Time();
-        Event event2 = new Event("3. Prüfung", time2, "Prüfung");
+        Event event2 = new Event("3. Prüfung", time2, "Prüfung", 20);
         assertEquals(time2, event2.getTime());
 
         Time time3 = new Time(1, 1);
-        Event event3 = new Event("3. Prüfung", time3, "Prüfung");
+        Event event3 = new Event("3. Prüfung", time3, "Prüfung", 20);
         assertEquals(time3, event3.getTime());
     }
 
@@ -53,5 +53,33 @@ public class EventTest {
     public void setTypeTest() throws Exception {
         event.setType("Vorlesung");
         assertEquals("Vorlesung", event.getType());
+    }
+
+    @Test
+    public void getProbabilityPercentageTest() throws Exception {
+        assertEquals(20, event.getProbabilityPercentage());
+    }
+
+    @Test
+    public void setProbabilityPercentageTest() throws Exception {
+        event.setProbabilityPercentage(50);
+        assertEquals(50, event.getProbabilityPercentage());
+    }
+
+    @Test
+    public void increaseProbabilityTest() throws Exception {
+        event.increaseProbability(10);
+        assertEquals(30, event.getProbabilityPercentage());
+    }
+
+    @Test
+    public void checkBorderProbabilityTest() throws Exception {
+        event.setProbabilityPercentage(150);
+        event.checkBorderProbability();
+        assertEquals(100, event.getProbabilityPercentage());
+
+        event.increaseProbability(10);
+        event.checkBorderProbability();
+        assertEquals(100, event.getProbabilityPercentage());
     }
 }

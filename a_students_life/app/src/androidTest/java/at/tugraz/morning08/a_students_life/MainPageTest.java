@@ -101,7 +101,7 @@ public class MainPageTest {
 
     @Test
     public void activityStudyButtonTest() throws Exception {
-        //TODO set probability for exam
+        //TODO set probability for event
 
         Espresso.onView(withId(R.id.study)).perform(click());
         Espresso.onView(withId(R.id.learning_button)).perform(click());
