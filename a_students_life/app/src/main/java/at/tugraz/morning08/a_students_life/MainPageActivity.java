@@ -315,7 +315,9 @@ public class MainPageActivity extends AppCompatActivity
 
     public void learning_button_onClick(View view) {
         //TODO replace dummy event with calendar event
-        Activities.learn(Student.getInstance(), new Event("dummyEvent01", new Time(1, 1),"dummyEvent"));
+        //search for event which we want to study for
+
+        Activities.learn(Student.getInstance(), new Event("dummyEvent01", new Time(1, 1),"dummyEvent", 20));
         updateMainPage();
     }
 
