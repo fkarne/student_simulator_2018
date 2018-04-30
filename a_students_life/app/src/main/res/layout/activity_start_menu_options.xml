@@ -58,7 +58,7 @@
 
         <RadioButton
             android:id="@+id/lang_de_rb"
-            android:onClick="onRadioButtonClicke d"
+            android:onClick="onRadioButtonClicked"
             android:button="@null"
             android:background="@android:color/transparent"
             android:drawableTop="@drawable/flag_de_au"
