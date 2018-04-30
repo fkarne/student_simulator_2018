@@ -27,8 +27,6 @@
     <string name="studies_bwl_li">Business Studies</string>
 
     <!-- Text Content -->
-    <!-- <string name="introduction_tv">Du hast gerade deine Matura geschafft und bist nun auf dem Weg
-    zur Inskriptionsstelle. Fülle die Formulare aus:</string> -->
     <string name="introduction_tv">
         You passed your Matura and you are about to enroll.
         Please complete your registation by filling out the form.
@@ -38,14 +36,10 @@
         Now it is time to choose your field of study. Choose wisely!
         You should know, that the fields of study have different difficulties and perks.
     </string>
-    <!--<string name="story_line_tv">Jetzt ist es an der Zeit, deinen Studiengang zu wählen. Wähle weise,
-    um dies später zu ändern müsstest du zum Dekanat. Es scheint dir demnach unmöglich!
-    Du solltest auch wissen, dass verschiedene Studiengänge unterschiedlich schwer sind
-    (ist zumindest geplant).</string> -->
 
 
     <!-- stats page -->
-    <string name="stats_energy">Energie:</string>
+    <string name="stats_energy">Energy:</string>
     <string name="stats_stress">Stress:</string>
     <string name="stats_hunger">Hunger:</string>
     <string name="stats_social">Social:</string>
@@ -85,5 +79,12 @@
     <!-- Symbols -->
     <string name="sign_money">€</string>
     <string name="sign_day">Day</string>
+
+    <!-- options -->
+    <string name="choose_lang_text">Choose your language.</string>
+    <string name="lang_en">English</string>
+    <string name="lang_en_short">en</string>
+    <string name="lang_de">German</string>
+    <string name="lang_de_short">de</string>
 
 </resources>
