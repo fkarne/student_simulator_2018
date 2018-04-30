@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="24dp"
-        android:autoText="false"
         android:text="@string/stats_energy"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -143,15 +142,5 @@
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/moneyLabel"
         app:layout_constraintTop_toBottomOf="@+id/socialProgressBar" />
-
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="@string/back_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="backToMainPage"/>
 
 </android.support.constraint.ConstraintLayout>
