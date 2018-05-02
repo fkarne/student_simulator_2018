@@ -225,7 +225,7 @@ public class MainPageActivity extends AppCompatActivity
         ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
         ((ProgressBar) findViewById(R.id.progressBarSocialMainPage)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
         ((TextView) findViewById(R.id.text_money)).setText(getText(R.string.sign_money) + " " + Student.getInstance().getCash());
-        ((TextView) findViewById(R.id.ects_text)).setText(Student.getInstance().getEcts()+" / 180");
+        ((TextView) findViewById(R.id.ects_text)).setText(Student.getInstance().getEcts()+" / 180 ECTS");
 
         TextView day_view = findViewById(R.id.tvDayMain);
         day_view.setText(getText(R.string.sign_day) + " " + String.valueOf(Student.getInstance().getTime().getDay()));
