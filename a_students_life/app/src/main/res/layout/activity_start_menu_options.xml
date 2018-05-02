@@ -38,40 +38,39 @@
             android:text="@string/choose_lang_text"
             android:layout_marginBottom="10dp"/>
 
-        <RadioButton
-            android:id="@+id/lang_en_rb"
-            android:onClick="onRadioButtonClicked"
-            android:padding="10dp"
-            android:textSize="15dp"
-            android:button="@null"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/flag_en_us"
-            android:gravity="center"
-            android:textIsSelectable="true"
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/lang_en"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            />
+            android:layout_height="match_parent">
 
-        <RadioButton
-            android:id="@+id/lang_de_rb"
-            android:onClick="onRadioButtonClicked"
-            android:button="@null"
-            android:background="@android:color/transparent"
-            android:drawableTop="@drawable/flag_de_au"
-            android:gravity="center"
-            android:textIsSelectable="true"
-            android:padding="10dp"
-            android:textSize="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/lang_de"
-            android:layout_marginLeft="10dp"
-            />
+            <RadioButton
+                android:id="@+id/lang_en_rb"
+                android:onClick="onRadioButtonClicked"
+                android:padding="10dp"
+                android:textSize="15dp"
+                android:background="@android:color/transparent"
+                android:textIsSelectable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lang_en"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                />
+
+            <RadioButton
+                android:id="@+id/lang_de_rb"
+                android:onClick="onRadioButtonClicked"
+                android:background="@android:color/transparent"
+                android:textIsSelectable="true"
+                android:padding="10dp"
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lang_de"
+                android:layout_marginLeft="10dp"
+                />
+        </RadioGroup>
 
         <Button
             android:id="@+id/save_lang_btn"
