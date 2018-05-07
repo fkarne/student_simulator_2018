@@ -3,33 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context="at.tugraz.morning08.a_students_life.SetupActivity">
+    tools:context="at.tugraz.morning08.a_students_life.SetupActivity"
+    android:onClick="hideVirtualKeyboard">
 
     <FrameLayout
         android:id="@+id/framelayout01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="102dp">
+        tools:layout_editor_absoluteY="102dp"
+        android:onClick="hideVirtualKeyboard">
 
         <LinearLayout
+            android:id="@+id/linearLayout_setup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:onClick="hideVirtualKeyboard">
 
             <ScrollView
+                android:id="@+id/scrollView_setup"
                 android:layout_width="wrap_content"
                 android:layout_height="130dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:layout_marginTop="30dp"
                 android:fillViewport="true"
-                android:scrollbars="vertical">
+                android:scrollbars="vertical"
+                android:onClick="hideVirtualKeyboard">
 
                 <TextView
                     android:id="@+id/introduction_tv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:onClick="hideVirtualKeyboard"
                     android:text="@string/introduction_tv" />
             </ScrollView>
 
@@ -54,11 +61,13 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:layout_marginTop="10dp"
+                android:onClick="hideVirtualKeyboard"
                 android:text="@string/gender_ph" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="hideVirtualKeyboard"
                 android:checkedButton="@+id/gender_male_radio">
 
                 <RadioButton
@@ -67,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="60dp"
+                    android:onClick="hideVirtualKeyboard"
                     android:text="@string/gender_male_li" />
 
                 <RadioButton
@@ -75,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="60dp"
+                    android:onClick="hideVirtualKeyboard"
                     android:text="@string/gender_female_li" />
             </RadioGroup>
 
