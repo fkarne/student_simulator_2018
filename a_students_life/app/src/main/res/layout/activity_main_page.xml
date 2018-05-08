@@ -76,7 +76,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <ProgressBar
+                <at.tugraz.morning08.a_students_life.components.MyProgressBar
                     android:id="@+id/progressBarStressMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
@@ -101,7 +101,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <ProgressBar
+                <at.tugraz.morning08.a_students_life.components.MyProgressBar
                     android:id="@+id/progressBarEnergyMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
@@ -126,7 +126,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <ProgressBar
+                <at.tugraz.morning08.a_students_life.components.MyProgressBar
                     android:id="@+id/progressBarHungerMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
@@ -151,7 +151,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <ProgressBar
+                <at.tugraz.morning08.a_students_life.components.MyProgressBar
                     android:id="@+id/progressBarSocialMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
@@ -210,14 +210,14 @@
 
             <ImageButton
                 android:id="@+id/energy"
-                android:onClick="energy_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="3dp"
                 android:layout_weight="1"
-                android:src="@drawable/energy_btn"
+                android:background="@drawable/layout_border"
+                android:onClick="energy_popup"
+                android:padding="3dp"
                 android:scaleType="fitCenter"
-                android:background="@drawable/layout_border"/>
+                android:src="@drawable/energy_btn" />
 
             <ImageButton
                 android:id="@+id/stress"

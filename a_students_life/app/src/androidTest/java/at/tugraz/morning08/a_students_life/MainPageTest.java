@@ -1,5 +1,7 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -8,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import android.support.test.espresso.Espresso;
+import android.widget.ProgressBar;
 
 import at.tugraz.morning08.a_students_life.data.Student;
 
@@ -122,4 +125,17 @@ public class MainPageTest {
         Espresso.pressBack();
         Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
     }
+
+    //TODO TEST?!
+    /*
+    @Test
+    public void myProgressBarTest() throws Exception {
+        Espresso.onView(withId(R.id.social)).perform(click());
+        Espresso.onView(withId(R.id.partying_button)).perform(click());
+        Espresso.onView(withId(R.id.partying_button)).perform(click());
+        Espresso.onView(withId(R.id.partying_button)).perform(click());
+        Espresso.onView(((ProgressBar)withId(R.id.progressBarStressMainPage))
+                .getSecondaryProgressTintList()..check(matches(Color.RED);
+    }
+    */
 }

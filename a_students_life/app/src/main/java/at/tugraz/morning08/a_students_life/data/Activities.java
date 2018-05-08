@@ -1,10 +1,6 @@
 package at.tugraz.morning08.a_students_life.data;
 
 
-import android.app.AlertDialog;
-
-import at.tugraz.morning08.a_students_life.MainPageActivity;
-
 public final class Activities
 {
     private static int MAX = 100;
