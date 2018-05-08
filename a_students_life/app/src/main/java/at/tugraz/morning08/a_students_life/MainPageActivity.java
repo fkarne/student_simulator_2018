@@ -55,8 +55,11 @@ public class MainPageActivity extends AppCompatActivity
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
                         {
+                            Student.getInstance().getStats().initializeStudent();
+                            setContentView(R.layout.activity_start_menu);
+                            startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
                             MainPageActivity.this.finish();
-                            System.exit(0);
+                            //System.exit(0);
                         }
                     })
                     .setNegativeButton(getText(R.string.no_btn), null)
