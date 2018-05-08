@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,11 +21,29 @@ import java.util.Locale;
  * status bar and navigation/system bar) with user interaction.
  */
 public class StartMenuActivity extends AppCompatActivity {
-    //TODO: options-Button & load-button
+    //TODO: load-button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //set local language
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        Locale phone_locale = conf.locale;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+            conf.setLocale(phone_locale);
+        } else{
+            conf.locale=phone_locale;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            getApplicationContext().createConfigurationContext(conf);
+        } else {
+            res.updateConfiguration(conf,dm);
+        }
+
 
         setContentView(R.layout.activity_start_menu);
     }
