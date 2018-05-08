@@ -72,6 +72,12 @@
     <string name="lose_social">Nobody loves you ....</string>
     <string name="lose_btnOk">Zug zug</string>
 
+    <!-- Win Condition -->
+    <string name = "win_congrats">Congratulations!</string>
+    <string name = "win_text">You have earned your bachelor\'s degree in</string>
+    <string name = "win_btnOk">Hurrray!</string>
+
+
     <!-- Back btn pressed -->
     <string name="exit_game">Exit game</string>
     <string name="exit_game_question">Are you sure you want to exit?</string>

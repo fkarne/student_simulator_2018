@@ -23,6 +23,10 @@ public class Stats {
         stress = MAX;
         hunger = MAX;
         social = MAX;
+        Student.getInstance().setEcts(0);
+        Student.getInstance().setCash(0);
+        Student.getInstance().getTime().setDay(1);
+        Student.getInstance().getTime().setTimeUnit(16);
 
         energy_multiplicator = 1.0;
         stress_multiplicator = 1.0;
