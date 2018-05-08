@@ -2,6 +2,7 @@ package at.tugraz.morning08.a_students_life;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Typeface;
@@ -27,23 +28,8 @@ public class StartMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //set local language
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        Locale phone_locale = conf.locale;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
-            conf.setLocale(phone_locale);
-        } else{
-            conf.locale=phone_locale;
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-            getApplicationContext().createConfigurationContext(conf);
-        } else {
-            res.updateConfiguration(conf,dm);
-        }
-
+        // load local or last saved language
+        loadLocale();
 
         setContentView(R.layout.activity_start_menu);
     }
@@ -63,12 +49,9 @@ public class StartMenuActivity extends AppCompatActivity {
      * needs String -> 'en', 'de'
      */
     public void setLocale(String lang) {
-        Locale myLocale = new Locale(lang);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
+        // change Prefs to new language
+        changeLang(lang);
+
         Intent refresh = new Intent(this, StartMenuActivity.class);
         startActivity(refresh);
         finish();
@@ -118,5 +101,34 @@ public class StartMenuActivity extends AppCompatActivity {
                     rb_en.setTypeface(null, Typeface.NORMAL);
                 break;
         }
+    }
+
+    
+    public void loadLocale() {
+        String lang = "Language";
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
+        String language = prefs.getString(lang, "");
+        changeLang(language);
+    }
+
+    public void changeLang(String language) {
+        if (language.equalsIgnoreCase(""))
+            return;
+
+        Locale myLocale = new Locale(language);
+        saveLocale(language);
+        Locale.setDefault(myLocale);
+        android.content.res.Configuration config = new android.content.res.Configuration();
+        config.locale = myLocale;
+        getBaseContext().getResources().updateConfiguration(config,getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    public void saveLocale(String language) {
+        String lang = "Language";
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs",
+                Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(lang, language);
+        editor.commit();
     }
 }
