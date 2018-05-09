@@ -76,7 +76,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <at.tugraz.morning08.a_students_life.components.MyProgressBar
+                <at.tugraz.morning08.a_students_life.MyProgressBar
                     android:id="@+id/progressBarStressMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
@@ -101,7 +101,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <at.tugraz.morning08.a_students_life.components.MyProgressBar
+                <at.tugraz.morning08.a_students_life.MyProgressBar
                     android:id="@+id/progressBarEnergyMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
@@ -126,7 +126,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <at.tugraz.morning08.a_students_life.components.MyProgressBar
+                <at.tugraz.morning08.a_students_life.MyProgressBar
                     android:id="@+id/progressBarHungerMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
@@ -151,12 +151,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <at.tugraz.morning08.a_students_life.components.MyProgressBar
+                <at.tugraz.morning08.a_students_life.MyProgressBar
                     android:id="@+id/progressBarSocialMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:max="100"
                     android:progress="100"
                     android:progressDrawable="@drawable/progress_bar_circular" />
