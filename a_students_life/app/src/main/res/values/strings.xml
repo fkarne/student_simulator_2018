@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">A Students Life</string>
+    <string name="app_name">A Student\'s Life</string>
 
     <!-- Buttons -->
     <string name="start_btn">Start</string>
@@ -8,7 +8,7 @@
     <string name="credits_btn">Credits</string>
     <string name="next_btn">Next</string>
     <string name="save_btn">Save</string>
-    <string name="cancel_btn">Cancle</string>
+    <string name="cancel_btn">Cancel</string>
     <string name="back_btn">Back</string>
     <string name="no_btn">No</string>
     <string name="yes_btn">Yes</string>
@@ -27,8 +27,6 @@
     <string name="studies_bwl_li">Business Studies</string>
 
     <!-- Text Content -->
-    <!-- <string name="introduction_tv">Du hast gerade deine Matura geschafft und bist nun auf dem Weg
-    zur Inskriptionsstelle. Fülle die Formulare aus:</string> -->
     <string name="introduction_tv">
         You passed your Matura and you are about to enroll.
         Please complete your registation by filling out the form.
@@ -38,14 +36,10 @@
         Now it is time to choose your field of study. Choose wisely!
         You should know, that the fields of study have different difficulties and perks.
     </string>
-    <!--<string name="story_line_tv">Jetzt ist es an der Zeit, deinen Studiengang zu wählen. Wähle weise,
-    um dies später zu ändern müsstest du zum Dekanat. Es scheint dir demnach unmöglich!
-    Du solltest auch wissen, dass verschiedene Studiengänge unterschiedlich schwer sind
-    (ist zumindest geplant).</string> -->
 
 
     <!-- stats page -->
-    <string name="stats_energy">Energie:</string>
+    <string name="stats_energy">Energy:</string>
     <string name="stats_stress">Stress:</string>
     <string name="stats_hunger">Hunger:</string>
     <string name="stats_social">Social:</string>
@@ -78,12 +72,25 @@
     <string name="lose_social">Nobody loves you ....</string>
     <string name="lose_btnOk">Zug zug</string>
 
+    <!-- Win Condition -->
+    <string name = "win_congrats">Congratulations!</string>
+    <string name = "win_text">You have earned your bachelor\'s degree in</string>
+    <string name = "win_btnOk">Hurrray!</string>
+
+
     <!-- Back btn pressed -->
-    <string name="exit_game">Exit game</string>
-    <string name="exit_game_question">Are you sure you want to exit?</string>
+    <string name="exit_game">Reset game</string>
+    <string name="exit_game_question">Are you sure you want to reset the game?</string>
 
     <!-- Symbols -->
     <string name="sign_money">€</string>
     <string name="sign_day">Day</string>
+
+    <!-- options -->
+    <string name="choose_lang_text">Choose your language.</string>
+    <string name="lang_en">English</string>
+    <string name="lang_en_short">en</string>
+    <string name="lang_de">German</string>
+    <string name="lang_de_short">de</string>
 
 </resources>

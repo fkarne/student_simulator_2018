@@ -65,7 +65,10 @@ public final class Activities
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
-        //TODO increase probability for event!!!
+        //TODO probability depends on event difficulty
+
+        event.increaseProbability(20);
+        event.checkBorderProbability();
 
         double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
         double energy = 4.0 * energy_conjugated;

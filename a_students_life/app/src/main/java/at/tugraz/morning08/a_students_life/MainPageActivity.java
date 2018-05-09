@@ -56,8 +56,11 @@ public class MainPageActivity extends AppCompatActivity
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
                         {
+                            Student.getInstance().getStats().initializeStudent();
+                            setContentView(R.layout.activity_start_menu);
+                            startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
                             MainPageActivity.this.finish();
-                            System.exit(0);
+                            //System.exit(0);
                         }
                     })
                     .setNegativeButton(getText(R.string.no_btn), null)
@@ -235,13 +238,14 @@ public class MainPageActivity extends AppCompatActivity
         ((MyProgressBar) findViewById(R.id.progressBarSocialMainPage)).updateProgress();
 
         ((TextView) findViewById(R.id.text_money)).setText(getText(R.string.sign_money) + " " + Student.getInstance().getCash());
-        ((TextView) findViewById(R.id.ects_text)).setText(Student.getInstance().getEcts()+" / 180");
+        ((TextView) findViewById(R.id.ects_text)).setText(Student.getInstance().getEcts()+" / 180 ECTS");
 
         TextView day_view = findViewById(R.id.tvDayMain);
         day_view.setText(getText(R.string.sign_day) + " " + String.valueOf(Student.getInstance().getTime().getDay()));
         TextView time_view = findViewById(R.id.tvTimeMain);
         time_view.setText(Student.getInstance().getTime().getTimeString());
         checkLoseConditions();
+        checkWinCondition();
     }
 
     public void updateStatsPage(){
@@ -325,10 +329,39 @@ public class MainPageActivity extends AppCompatActivity
 
     public void learning_button_onClick(View view) {
         //TODO replace dummy event with calendar event
-        Activities.learn(Student.getInstance(), new Event("dummyEvent01", new Time(1, 1),"dummyEvent"));
+        //search for event which we want to study for
+
+        Activities.learn(Student.getInstance(), new Event("dummyEvent01", new Time(1, 1),"dummyEvent", 20));
         updateMainPage();
     }
 
+    private void checkWinCondition() {
+        if(Student.getInstance().getEcts() >= 180) {
+            AlertDialog.Builder builder;
+
+            builder = new AlertDialog.Builder(this);
+            builder.setCancelable(false);
+            builder.setTitle(getText(R.string.win_congrats));
+            if(Student.getInstance().getStudie().equals(getText(R.string.studies_inf_li))) {
+                builder.setMessage(getText(R.string.win_text)+" "+getText(R.string.studies_inf_li)+".");
+            }
+            else if(Student.getInstance().getStudie().equals(getText(R.string.studies_bwl_li))) {
+                builder.setMessage(getText(R.string.win_text)+" "+getText(R.string.studies_bwl_li)+".");
+            }
+
+            builder.setPositiveButton(getText(R.string.win_btnOk), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Student.getInstance().getStats().initializeStudent();
+                    setContentView(R.layout.activity_start_menu);
+                    startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
+                    MainPageActivity.this.finish();
+                    //System.exit(0);
+                }
+            });
+            builder.show();
+        }
+    }
 
     private void checkLoseConditions() {
         int energy = Student.getInstance().getStats().getEnergy();
@@ -356,11 +389,11 @@ public class MainPageActivity extends AppCompatActivity
             builder.setPositiveButton(getText(R.string.lose_btnOk), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    //Student.getInstance().getStats().initializeStudent();
-                    //setContentView(R.layout.activity_start_menu);
-                    //startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
+                    Student.getInstance().getStats().initializeStudent();
+                    setContentView(R.layout.activity_start_menu);
+                    startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
                     MainPageActivity.this.finish();
-                    System.exit(0);
+                    //System.exit(0);
                 }
             });
             builder.show();

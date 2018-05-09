@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 
 import android.support.test.espresso.Espresso;
 import android.widget.ProgressBar;
-
 import at.tugraz.morning08.a_students_life.data.Student;
 
 import static android.support.test.espresso.action.ViewActions.click;
@@ -19,10 +18,6 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.assertEquals;
-
-import at.tugraz.morning08.a_students_life.data.Student;
-
 import static org.junit.Assert.assertEquals;
 
 
@@ -39,22 +34,26 @@ public class MainPageTest {
     }
 
     @Test
-    public void goBackToMainPageTest() throws Exception {
-        Espresso.onView(withId(R.id.stats)).perform(click());
-        Espresso.onView(withId(R.id.backButton)).perform(click());
-        Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
-    }
-
-    @Test
     public void openLoseConditionDialogTest()
     {
         Student.getInstance().getStats().setHunger(5);
         Espresso.onView(withId(R.id.energy)).perform(click());
         Espresso.onView(withId(R.id.sleep_button)).perform(click());
-        Espresso.onView(withId(R.id.popUp_eneregy_ll)).check(matches(isDisplayed()));
-        Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
+        //Espresso.onView(withId(R.id.popUp_eneregy_ll)).check(matches(isDisplayed()));
+        //Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
         assertEquals(0, Student.getInstance().getStats().getHunger());
-        Espresso.onView(withText("Game over!")).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.lose_gameOver)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void openWinConditionDialogTest()
+    {
+        Espresso.onView(withId(R.id.energy)).perform(click());
+        Student.getInstance().setEcts(180);
+        Student.getInstance().setStudie("Informatics");
+        Espresso.onView(withId(R.id.sleep_button)).perform(click());
+        //assertEquals(180, Student.getInstance().getEcts());
+        Espresso.onView(withText(R.string.win_congrats)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -104,7 +103,7 @@ public class MainPageTest {
 
     @Test
     public void activityStudyButtonTest() throws Exception {
-        //TODO set probability for exam
+        //TODO set probability for event
 
         Espresso.onView(withId(R.id.study)).perform(click());
         Espresso.onView(withId(R.id.learning_button)).perform(click());

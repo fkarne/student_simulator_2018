@@ -82,7 +82,9 @@ public class Student {
         this.cash -= cashToSpend;
     }
 
-    public void addEcts(int ectsToAdd) { this.ects += ectsToAdd; }
+    public void addEcts(int ectsToAdd) {
+        this.ects += ectsToAdd;
+    }
 
     public void addTimeUnits(int timeUnitsToAdd) {
         time.addTimeUnits(timeUnitsToAdd);

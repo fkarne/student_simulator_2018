@@ -42,7 +42,7 @@ public class BackButtonTest {
     public void goBackInMainPagePressNo() throws Exception
     {
         Espresso.pressBack();
-        Espresso.onView(withText("Spiel beenden")).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.exit_game)).check(matches(isDisplayed()));
         mRule.getActivity().getBackPressedAlert().getButton(AlertDialog.BUTTON_NEGATIVE).callOnClick();
         Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
     }
@@ -51,8 +51,16 @@ public class BackButtonTest {
     public void goBackInAlert()
     {
         Espresso.pressBack();
-        Espresso.onView(withText("Spiel beenden")).check(matches(isDisplayed()));
+        Espresso.onView(withText(R.string.exit_game)).check(matches(isDisplayed()));
         Espresso.pressBack();
         Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void goBackStartMenu()
+    {
+        Espresso.pressBack();
+        mRule.getActivity().getBackPressedAlert().getButton(AlertDialog.BUTTON_POSITIVE).callOnClick();
+        Espresso.onView(withId(R.id.startPage)).check(matches(isDisplayed()));
     }
 }
