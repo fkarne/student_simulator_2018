@@ -12,9 +12,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:useLevel="true"
-                android:innerRadiusRatio="9"
+                android:innerRadiusRatio="5"
                 android:shape="ring"
-                android:thickness="8sp"
+                android:thickness="10sp"
                 >
                 <solid android:color="#686867" />
 
@@ -34,9 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:useLevel="true"
-                android:innerRadiusRatio="9"
+                android:innerRadiusRatio="5"
                 android:shape="ring"
-                android:thickness="8sp"
+                android:thickness="10sp"
                 >
                 <solid android:color="#ff0300" />
 
