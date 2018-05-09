@@ -42,15 +42,16 @@ public class MainPageTest {
         Espresso.onView(withText(R.string.lose_gameOver)).check(matches(isDisplayed()));
     }
 
-    /*@Test
+    @Test
     public void openWinConditionDialogTest()
     {
-        Student.getInstance().setEcts(180);
         Espresso.onView(withId(R.id.energy)).perform(click());
+        Student.getInstance().setEcts(180);
+        Student.getInstance().setStudie("Informatics");
         Espresso.onView(withId(R.id.sleep_button)).perform(click());
-        assertEquals(180, Student.getInstance().getEcts());
+        //assertEquals(180, Student.getInstance().getEcts());
         Espresso.onView(withText(R.string.win_congrats)).check(matches(isDisplayed()));
-    }*/
+    }
 
     @Test
     public void activityHungerButtonTest() throws Exception {
