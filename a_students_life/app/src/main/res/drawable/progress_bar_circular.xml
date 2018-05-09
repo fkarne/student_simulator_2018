@@ -14,8 +14,8 @@
                 android:useLevel="true"
                 android:innerRadiusRatio="9"
                 android:shape="ring"
-                android:thickness="8sp"
-                >
+                android:thickness="8sp">
+
                 <solid android:color="#686867" />
 
             </shape>
@@ -36,9 +36,7 @@
                 android:useLevel="true"
                 android:innerRadiusRatio="9"
                 android:shape="ring"
-                android:thickness="8sp"
-                >
-                <solid android:color="#ff0300" />
+                android:thickness="8sp">
 
             </shape>
 
