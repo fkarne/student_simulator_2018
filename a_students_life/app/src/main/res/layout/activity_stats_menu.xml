@@ -30,6 +30,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studyLabel" />
 
+    <ImageView
+        android:id="@+id/imageViewEnergy"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/energy_btn"
+        app:layout_constraintLeft_toRightOf="@+id/energyLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studyLabel" />
+
     <TextView
         android:id="@+id/stressLabel"
         android:layout_width="wrap_content"
@@ -38,6 +49,17 @@
         android:layout_marginTop="24dp"
         android:text="@string/stats_stress"
         android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/energyProgressBar" />
+
+    <ImageView
+        android:id="@+id/imageViewStress"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/stress_btn"
+        app:layout_constraintLeft_toRightOf="@+id/stressLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/energyProgressBar" />
 
@@ -62,6 +84,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stressProgressBar" />
 
+    <ImageView
+        android:id="@+id/imageViewHunger"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/hunger_btn"
+        app:layout_constraintLeft_toRightOf="@+id/hungerLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stressProgressBar" />
+
     <TextView
         android:id="@+id/socialLabel"
         android:layout_width="wrap_content"
@@ -70,6 +103,17 @@
         android:layout_marginTop="24dp"
         android:text="@string/stats_social"
         android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hungerProgressBar" />
+
+    <ImageView
+        android:id="@+id/imageViewSocial"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/social_btn"
+        app:layout_constraintLeft_toRightOf="@+id/socialLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hungerProgressBar" />
 

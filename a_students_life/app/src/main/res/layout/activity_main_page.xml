@@ -76,6 +76,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/stress_btn"/>
+
                 <at.tugraz.morning08.a_students_life.MyProgressBar
                     android:id="@+id/progressBarStressMainPage"
                     style="?android:attr/progressBarStyleHorizontal"
@@ -85,21 +91,18 @@
                     android:progress="100"
                     android:progressDrawable="@drawable/progress_bar_circular" />
 
-                <TextView
-                    android:id="@+id/Progresstext_stress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="St" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/energy_btn"/>
 
                 <at.tugraz.morning08.a_students_life.MyProgressBar
                     android:id="@+id/progressBarEnergyMainPage"
@@ -110,21 +113,18 @@
                     android:progress="100"
                     android:progressDrawable="@drawable/progress_bar_circular" />
 
-                <TextView
-                    android:id="@+id/Progresstext_energy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="En" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/hunger_btn"/>
 
                 <at.tugraz.morning08.a_students_life.MyProgressBar
                     android:id="@+id/progressBarHungerMainPage"
@@ -134,22 +134,18 @@
                     android:max="100"
                     android:progress="100"
                     android:progressDrawable="@drawable/progress_bar_circular" />
-
-                <TextView
-                    android:id="@+id/Progresstext_hunger"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="Hu" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/social_btn"/>
 
                 <at.tugraz.morning08.a_students_life.MyProgressBar
                     android:id="@+id/progressBarSocialMainPage"
@@ -159,16 +155,6 @@
                     android:max="100"
                     android:progress="100"
                     android:progressDrawable="@drawable/progress_bar_circular" />
-
-                <TextView
-                    android:id="@+id/Progresstext_social"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="So" />
             </RelativeLayout>
 
         </LinearLayout>
