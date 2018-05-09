@@ -223,10 +223,19 @@ public class MainPageActivity extends AppCompatActivity
     }
 
     public void updateMainPage() {
-        ((ProgressBar) findViewById(R.id.progressBarEnergyMainPage)).setSecondaryProgress(Student.getInstance().getStats().getEnergy());
-        ((ProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
-        ((ProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
-        ((ProgressBar) findViewById(R.id.progressBarSocialMainPage)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
+
+        ((MyProgressBar) findViewById(R.id.progressBarEnergyMainPage)).setSecondaryProgress(Student.getInstance().getStats().getEnergy());
+        ((MyProgressBar) findViewById(R.id.progressBarEnergyMainPage)).updateProgress();
+
+        ((MyProgressBar) findViewById(R.id.progressBarHungerMainPage)).setSecondaryProgress(Student.getInstance().getStats().getHunger());
+        ((MyProgressBar) findViewById(R.id.progressBarHungerMainPage)).updateProgress();
+
+        ((MyProgressBar) findViewById(R.id.progressBarStressMainPage)).setSecondaryProgress(Student.getInstance().getStats().getStress());
+        ((MyProgressBar) findViewById(R.id.progressBarStressMainPage)).updateProgress();
+
+        ((MyProgressBar) findViewById(R.id.progressBarSocialMainPage)).setSecondaryProgress(Student.getInstance().getStats().getSocial());
+        ((MyProgressBar) findViewById(R.id.progressBarSocialMainPage)).updateProgress();
+
         ((TextView) findViewById(R.id.text_money)).setText(getText(R.string.sign_money) + " " + Student.getInstance().getCash());
         ((TextView) findViewById(R.id.ects_text)).setText(Student.getInstance().getEcts()+" / 180 ECTS");
 

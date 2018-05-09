@@ -17,7 +17,6 @@
                 android:thickness="10sp"
                 >
                 <solid android:color="#686867" />
-
             </shape>
 
         </rotate>
@@ -39,7 +38,6 @@
                 android:thickness="10sp"
                 >
                 <solid android:color="#ff0300" />
-
             </shape>
 
         </rotate>

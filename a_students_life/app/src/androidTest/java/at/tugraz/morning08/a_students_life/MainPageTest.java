@@ -1,6 +1,7 @@
 package at.tugraz.morning08.a_students_life;
 
-import android.support.test.espresso.Espresso;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -8,6 +9,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import android.support.test.espresso.Espresso;
+import android.widget.ProgressBar;
 import at.tugraz.morning08.a_students_life.data.Student;
 
 import static android.support.test.espresso.action.ViewActions.click;
@@ -42,15 +45,16 @@ public class MainPageTest {
         Espresso.onView(withText(R.string.lose_gameOver)).check(matches(isDisplayed()));
     }
 
-    /*@Test
+    @Test
     public void openWinConditionDialogTest()
     {
-        Student.getInstance().setEcts(180);
         Espresso.onView(withId(R.id.energy)).perform(click());
+        Student.getInstance().setEcts(180);
+        Student.getInstance().setStudie("Informatics");
         Espresso.onView(withId(R.id.sleep_button)).perform(click());
-        assertEquals(180, Student.getInstance().getEcts());
+        //assertEquals(180, Student.getInstance().getEcts());
         Espresso.onView(withText(R.string.win_congrats)).check(matches(isDisplayed()));
-    }*/
+    }
 
     @Test
     public void activityHungerButtonTest() throws Exception {
@@ -120,4 +124,17 @@ public class MainPageTest {
         Espresso.pressBack();
         Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
     }
+
+    //TODO TEST?!
+    /*
+    @Test
+    public void myProgressBarTest() throws Exception {
+        Espresso.onView(withId(R.id.social)).perform(click());
+        Espresso.onView(withId(R.id.partying_button)).perform(click());
+        Espresso.onView(withId(R.id.partying_button)).perform(click());
+        Espresso.onView(withId(R.id.partying_button)).perform(click());
+        Espresso.onView(((ProgressBar)withId(R.id.progressBarStressMainPage))
+                .getSecondaryProgressTintList()..check(matches(Color.RED);
+    }
+    */
 }
