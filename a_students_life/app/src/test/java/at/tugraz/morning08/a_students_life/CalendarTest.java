@@ -1,4 +1,4 @@
-package at.tugraz.morning08.a_students_life.data;
+package at.tugraz.morning08.a_students_life;
 
 import org.junit.Before;
 import org.junit.Test;
