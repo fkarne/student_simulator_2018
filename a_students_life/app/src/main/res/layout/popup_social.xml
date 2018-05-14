@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/phoneCall_button"
+            android:id="@id/phoneCall_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -25,7 +25,7 @@
             android:text="@string/activity_callFriends" />
 
         <Button
-            android:id="@+id/meetFriends_button"
+            android:id="@id/meetFriends_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -33,7 +33,7 @@
             android:text="@string/activity_meetFriends" />
 
         <Button
-            android:id="@+id/partying_button"
+            android:id="@id/partying_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

@@ -71,7 +71,7 @@
                 android:checkedButton="@+id/gender_male_radio">
 
                 <RadioButton
-                    android:id="@+id/gender_male_radio"
+                    android:id="@id/gender_male_radio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
@@ -80,7 +80,7 @@
                     android:text="@string/gender_male_li" />
 
                 <RadioButton
-                    android:id="@+id/gender_female_radio"
+                    android:id="@id/gender_female_radio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
@@ -90,7 +90,7 @@
             </RadioGroup>
 
             <Button
-                android:id="@+id/next01_btn"
+                android:id="@id/next01_btn"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="bottom"

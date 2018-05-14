@@ -183,7 +183,7 @@
             android:background="#FFFF">
 
             <ImageButton
-                android:id="@+id/btnCalendar"
+                android:id="@id/calender_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
@@ -194,7 +194,7 @@
                 android:background="@drawable/layout_border"/>
 
             <ImageButton
-                android:id="@+id/energy"
+                android:id="@id/energy_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -205,7 +205,7 @@
                 android:src="@drawable/energy_btn" />
 
             <ImageButton
-                android:id="@+id/stress"
+                android:id="@id/stress_img_btn"
                 android:onClick="stress_popup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
                 android:background="@drawable/layout_border"/>
 
             <ImageButton
-                android:id="@+id/hunger"
+                android:id="@id/hunger_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
@@ -227,7 +227,7 @@
                 android:background="@drawable/layout_border"/>
 
             <ImageButton
-                android:id="@+id/social"
+                android:id="@id/social_img_btn"
                 android:onClick="social_popup"
                 android:padding="3dp"
                 android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
                 />
 
             <ImageButton
-                android:id="@+id/money"
+                android:id="@id/money_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -250,7 +250,7 @@
                 android:src="@drawable/money_btn" />
 
             <ImageButton
-                android:id="@+id/study"
+                android:id="@id/study_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

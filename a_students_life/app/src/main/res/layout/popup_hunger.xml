@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/eat_button"
+            android:id="@id/eat_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -25,7 +25,7 @@
             android:text="@string/activity_eat" />
 
         <Button
-            android:id="@+id/goingOutToEat_button"
+            android:id="@id/goingOutToEat_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -33,7 +33,7 @@
             android:text="@string/activity_eatOutside" />
 
         <Button
-            android:id="@+id/snack_button"
+            android:id="@id/snack_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
