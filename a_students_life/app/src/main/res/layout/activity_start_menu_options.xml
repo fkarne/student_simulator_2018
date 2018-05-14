@@ -43,7 +43,7 @@
             android:layout_height="match_parent">
 
             <RadioButton
-                android:id="@+id/lang_en_rb"
+                android:id="@id/lang_en_radio"
                 android:onClick="onRadioButtonClicked"
                 android:padding="10dp"
                 android:textSize="15dp"
@@ -58,7 +58,7 @@
                 />
 
             <RadioButton
-                android:id="@+id/lang_de_rb"
+                android:id="@id/lang_de_radio"
                 android:onClick="onRadioButtonClicked"
                 android:background="@android:color/transparent"
                 android:textIsSelectable="true"
@@ -73,7 +73,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/save_lang_btn"
+            android:id="@id/save_lang_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
@@ -85,7 +85,7 @@
             android:text="@string/save_btn" />
 
         <Button
-            android:id="@+id/cancel_lang_btn"
+            android:id="@id/cancel_lang_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"

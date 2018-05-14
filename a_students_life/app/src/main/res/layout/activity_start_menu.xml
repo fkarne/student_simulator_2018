@@ -1,6 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/startPage"
+    android:id="@id/startPage_fl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0099cc"
@@ -30,7 +30,7 @@
             tools:ignore="UselessParent">
 
             <Button
-                android:id="@+id/start_btn"
+                android:id="@id/start_btn"
                 android:onClick="start_game"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
                 android:text="@string/start_btn" />
 
             <Button
-                android:id="@+id/load_btn"
+                android:id="@id/load_btn"
                 android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 android:text="@string/load_btn" />
 
             <Button
-                android:id="@+id/options_btn"
+                android:id="@id/options_btn"
                 android:enabled="true"
                 android:onClick="show_options"
                 android:layout_width="match_parent"

@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/watchTV_button"
+            android:id="@id/watchTV_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -25,7 +25,7 @@
             android:text="@string/activity_watchTv" />
 
         <Button
-            android:id="@+id/readingBook_button"
+            android:id="@id/readingBook_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -33,7 +33,7 @@
             android:text="@string/activity_readBook" />
 
         <Button
-            android:id="@+id/sports_button"
+            android:id="@id/sports_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

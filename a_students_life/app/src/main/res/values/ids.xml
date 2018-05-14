@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Start Menu -->
+    <item type="id" name="startPage_fl" />
+    <item type="id" name="start_btn" />
+    <item type="id" name="load_btn" />
+    <item type="id" name="options_btn" />
+
+    <!-- Options Menu -->
+    <item type="id" name="lang_en_radio" />
+    <item type="id" name="lang_de_radio" />
+    <item type="id" name="save_lang_btn" />
+    <item type="id" name="cancel_lang_btn" />
+
+
+    <!-- Main Page Image Buttons -->
+    <item type="id" name="calender_img_btn" />
+    <item type="id" name="energy_img_btn" />
+    <item type="id" name="stress_img_btn" />
+    <item type="id" name="hunger_img_btn" />
+    <item type="id" name="social_img_btn" />
+    <item type="id" name="money_img_btn" />
+    <item type="id" name="study_img_btn" />
+
+
+
+    <!-- Setup Buttons -->
+    <item type="id" name="gender_male_radio" />
+    <item type="id" name="gender_female_radio" />
+    <item type="id" name="next01_btn" />
+    <item type="id" name="next02_btn" />
+
+    <!-- Pop up: Activities-->
+    <item type="id" name="sleep_btn" />
+    <item type="id" name="powernap_btn" />
+
+    <item type="id" name="eat_btn" />
+    <item type="id" name="goingOutToEat_btn" />
+    <item type="id" name="snack_btn" />
+
+    <item type="id" name="askForMoney_btn" />
+
+    <item type="id" name="phoneCall_btn" />
+    <item type="id" name="meetFriends_btn" />
+    <item type="id" name="partying_btn" />
+
+    <item type="id" name="watchTV_btn" />
+    <item type="id" name="readingBook_btn" />
+    <item type="id" name="sports_btn" />
+
+    <item type="id" name="learning_btn" />
+
+
+</resources>

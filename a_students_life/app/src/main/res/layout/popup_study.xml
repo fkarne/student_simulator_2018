@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/learning_button"
+            android:id="@id/learning_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

@@ -64,8 +64,8 @@ public class StartMenuActivity extends AppCompatActivity {
 
 
     public void save_options_language(View view) {
-        RadioButton rdb_en = findViewById(R.id.lang_en_rb);
-        RadioButton rdb_de = findViewById(R.id.lang_de_rb);
+        RadioButton rdb_en = findViewById(R.id.lang_en_radio);
+        RadioButton rdb_de = findViewById(R.id.lang_de_radio);
 
         if(rdb_en.isChecked()){
             setLocale((String) getText(R.string.lang_en_short));
@@ -81,20 +81,20 @@ public class StartMenuActivity extends AppCompatActivity {
     }
 
     public void onRadioButtonClicked(View view) {
-        RadioButton rb_en = findViewById(R.id.lang_en_rb);
-        RadioButton rb_de = findViewById(R.id.lang_de_rb);
+        RadioButton rb_en = findViewById(R.id.lang_en_radio);
+        RadioButton rb_de = findViewById(R.id.lang_de_radio);
 
         boolean  checked = ((RadioButton) view).isChecked();
 
         switch(view.getId()) {
-            case R.id.lang_en_rb:
+            case R.id.lang_en_radio:
                 if (checked)
                     rb_en.setTypeface(null, Typeface.BOLD_ITALIC);
                     //set the other two radio buttons text style to default
                     rb_de.setTypeface(null, Typeface.NORMAL);
                 break;
 
-            case R.id.lang_de_rb:
+            case R.id.lang_de_radio:
                 if (checked)
                     rb_de.setTypeface(null, Typeface.BOLD_ITALIC);
                     //set the other two radio buttons text style to default
