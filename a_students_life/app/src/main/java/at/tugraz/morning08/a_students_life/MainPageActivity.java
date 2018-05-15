@@ -1,9 +1,11 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -55,7 +57,7 @@ public class MainPageActivity extends AppCompatActivity
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
                         {
-                            Student.getInstance().getStats().initializeStudent();
+                            saveStats();
                             setContentView(R.layout.activity_start_menu);
                             startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
                             MainPageActivity.this.finish();
@@ -245,6 +247,8 @@ public class MainPageActivity extends AppCompatActivity
         time_view.setText(Student.getInstance().getTime().getTimeString());
         checkLoseConditions();
         checkWinCondition();
+
+        saveStats();
     }
 
     public void updateStatsPage(){
@@ -397,5 +401,29 @@ public class MainPageActivity extends AppCompatActivity
             });
             builder.show();
         }
+    }
+    public void saveStats() {
+        Student student = Student.getInstance();
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs",
+                Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("energy", student.getStats().getEnergy());
+        //editor.putFloat("energy_mul", student.getStats().getEnergy_multiplicator());
+        editor.putInt("stress", student.getStats().getStress());
+        //editor.putInt("stress_mul", student.getStats().getStress_multiplicator());
+        editor.putInt("hunger", student.getStats().getHunger());
+        //editor.putInt("hunger_mul", student.getStats().getHunger_multiplicator());
+        editor.putInt("social", student.getStats().getSocial());
+        //editor.putInt("social_mul", student.getStats().getSocial_multiplicator());
+        editor.putInt("money",student.getCash());
+        editor.putInt("ects",student.getEcts());
+        editor.putInt("time", student.getTime().getTimeUnit());
+        editor.putInt("day",student.getTime().getDay());
+        editor.commit();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        saveStats();
     }
 }

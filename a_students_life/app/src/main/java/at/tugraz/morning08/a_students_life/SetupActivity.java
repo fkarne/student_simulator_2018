@@ -1,7 +1,9 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,8 +44,23 @@ public class SetupActivity extends AppCompatActivity {
     public void setup02_next(View view) {
         Student student = Student.getInstance();
         student.setStudie(((Spinner)findViewById(R.id.studies_sp)).getSelectedItem().toString());
+        saveCharacter(student.getName(),student.getGender(),student.getStudie());
+        student.getStats().initializeStudent();
         startActivity(new Intent(SetupActivity.this, MainPageActivity.class));
         SetupActivity.this.finish();
+    }
+
+    public void saveCharacter(String name, String gender, String study) {
+        String name_name = "name";
+        String gender_name = "gender";
+        String study_name = "study";
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs",
+                Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(name_name, name);
+        editor.putString(gender_name, gender);
+        editor.putString(study_name, study);
+        editor.commit();
     }
 
     public void hideVirtualKeyboard(View view) {

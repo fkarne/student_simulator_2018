@@ -17,6 +17,8 @@ import android.widget.RadioButton;
 
 import java.util.Locale;
 
+import at.tugraz.morning08.a_students_life.data.Student;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
@@ -130,5 +132,24 @@ public class StartMenuActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(lang, language);
         editor.commit();
+    }
+
+    public void load_game(View view) {
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
+        Student student = Student.getInstance();
+        student.setName(prefs.getString("name", ""));
+        student.setGender(prefs.getString("gender", ""));
+        student.setStudie(prefs.getString("study", ""));
+        student.setEcts(prefs.getInt("ects",0));
+        student.setCash(prefs.getInt("money",0));
+        student.getTime().setTimeUnit(prefs.getInt("time",16));
+        student.getTime().setDay(prefs.getInt("day",1));
+        student.getStats().setEnergy(prefs.getInt("energy",100));
+        student.getStats().setStress(prefs.getInt("stress",100));
+        student.getStats().setHunger(prefs.getInt("hunger",100));
+        student.getStats().setSocial(prefs.getInt("social",100));
+
+        startActivity(new Intent(StartMenuActivity.this, MainPageActivity.class));
+        StartMenuActivity.this.finish();
     }
 }

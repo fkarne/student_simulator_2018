@@ -79,8 +79,8 @@
 
 
     <!-- Back btn pressed -->
-    <string name="exit_game">Reset game</string>
-    <string name="exit_game_question">Are you sure you want to reset the game?</string>
+    <string name="exit_game">End game</string>
+    <string name="exit_game_question">Are you sure you want to end the game?</string>
 
     <!-- Symbols -->
     <string name="sign_money">€</string>
