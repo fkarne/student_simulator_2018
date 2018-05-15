@@ -19,7 +19,7 @@ public class EventTest {
 
     @Before
     public void beforeTest() throws Exception {
-        event = new Event("SA-Prüfung", new Time(1, 32), "Prüfung", 20);
+        event = new Event("SA-Prüfung", new Time(1, 32), Event.Type.Exam, 20);
     }
 
     @Test
@@ -30,17 +30,17 @@ public class EventTest {
     @Test
     public void getTimeTest() throws Exception {
         Time time2 = new Time();
-        Event event2 = new Event("3. Prüfung", time2, "Prüfung", 20);
+        Event event2 = new Event("3. Prüfung", time2, Event.Type.Exam, 20);
         assertEquals(time2, event2.getTime());
 
         Time time3 = new Time(1, 1);
-        Event event3 = new Event("3. Prüfung", time3, "Prüfung", 20);
+        Event event3 = new Event("3. Prüfung", time3, Event.Type.Exam, 20);
         assertEquals(time3, event3.getTime());
     }
 
     @Test
     public void getTypeTest() throws Exception {
-        assertEquals("Prüfung", event.getType());
+        assertEquals(Event.Type.Exam, event.getType());
     }
 
     @Test
@@ -51,8 +51,8 @@ public class EventTest {
 
     @Test
     public void setTypeTest() throws Exception {
-        event.setType("Vorlesung");
-        assertEquals("Vorlesung", event.getType());
+        event.setType(Event.Type.Lecture);
+        assertEquals(Event.Type.Lecture, event.getType());
     }
 
     @Test
