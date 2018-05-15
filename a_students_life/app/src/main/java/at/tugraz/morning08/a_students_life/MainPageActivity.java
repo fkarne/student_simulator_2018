@@ -20,9 +20,7 @@ import android.widget.TextView;
 
 import at.tugraz.morning08.a_students_life.components.MyProgressBar;
 import at.tugraz.morning08.a_students_life.data.Activities;
-import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
-import at.tugraz.morning08.a_students_life.data.Time;
 
 /**
  * Created by Jeremias and Laura on 11.04.18.
@@ -31,7 +29,6 @@ public class MainPageActivity extends AppCompatActivity
 {
     private LinearLayout student_graphic;
     private int top;
-    private int bot;
     private AlertDialog backPressedAlert;
   
     @Override
@@ -82,139 +79,56 @@ public class MainPageActivity extends AppCompatActivity
         return backPressedAlert;
     }
 
+    public void energy_popup(View view) {
+        popup(R.layout.popup_energy);
+    }
+
+    public void stress_popup(View view) {
+        popup(R.layout.popup_stress);
+    }
+
+    public void hunger_popup(View view) {
+        popup(R.layout.popup_hunger);
+    }
+
+    public void social_popup(View view) {
+        popup(R.layout.popup_social);
+    }
+
+    public void money_popup(View view) {
+        popup(R.layout.popup_money);
+    }
+
+    public void study_popup(View view) {
+        popup(R.layout.popup_study);
+    }
+
+    private void popup(int res) {
+        LayoutInflater inflater = (LayoutInflater) getBaseContext()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View popupView = inflater.inflate(res,null);
+        PopupWindow mPopupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                true
+        );
+
+        if(Build.VERSION.SDK_INT>=21){
+            mPopupWindow.setElevation(5.0f);
+        }
+
+        setHeight(mPopupWindow);
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
+    }
+
     public void setHeight(PopupWindow pop){
         // get top edge of Student graphic
         top = findViewById(R.id.stats).getHeight() + findViewById(R.id.ll_stats).getHeight();
 
         pop.setHeight(student_graphic.getHeight());
         pop.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
-    }
-
-    public void energy_popup(View view) {
-        LayoutInflater inflater = (LayoutInflater) getBaseContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //grid = findViewById(R.id.gv01);
-
-        View popupView = inflater.inflate(R.layout.popup_energy,null);
-        PopupWindow mPopupWindow = new PopupWindow(
-                popupView,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                true
-
-        );
-
-        // Set an elevation value for popup window
-        // Call requires API level 21
-        if(Build.VERSION.SDK_INT>=21){
-            mPopupWindow.setElevation(5.0f);
-        }
-
-        setHeight(mPopupWindow);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
-    }
-
-    public void stress_popup(View view) {
-        LayoutInflater inflater = (LayoutInflater) getBaseContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View popupView = inflater.inflate(R.layout.popup_stress,null);
-        PopupWindow mPopupWindow = new PopupWindow(
-                popupView,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                true
-
-        );
-
-        if(Build.VERSION.SDK_INT>=21){
-            mPopupWindow.setElevation(5.0f);
-        }
-
-        setHeight(mPopupWindow);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
-    }
-
-    public void hunger_popup(View view) {
-        LayoutInflater inflater = (LayoutInflater) getBaseContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View popupView = inflater.inflate(R.layout.popup_hunger,null);
-        PopupWindow mPopupWindow = new PopupWindow(
-                popupView,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                true
-
-        );
-
-        if(Build.VERSION.SDK_INT>=21){
-            mPopupWindow.setElevation(5.0f);
-        }
-
-        setHeight(mPopupWindow);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
-    }
-
-    public void social_popup(View view) {
-        LayoutInflater inflater = (LayoutInflater) getBaseContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View popupView = inflater.inflate(R.layout.popup_social,null);
-        PopupWindow mPopupWindow = new PopupWindow(
-                popupView,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                true
-        );
-
-        if(Build.VERSION.SDK_INT>=21){
-            mPopupWindow.setElevation(5.0f);
-        }
-
-        setHeight(mPopupWindow);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
-    }
-
-    public void money_popup(View view) {
-        LayoutInflater inflater = (LayoutInflater) getBaseContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View popupView = inflater.inflate(R.layout.popup_money,null);
-        PopupWindow mPopupWindow = new PopupWindow(
-                popupView,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                true
-        );
-
-        if(Build.VERSION.SDK_INT>=21){
-            mPopupWindow.setElevation(5.0f);
-        }
-
-        setHeight(mPopupWindow);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
-    }
-
-    public void study_popup(View view) {
-        LayoutInflater inflater = (LayoutInflater) getBaseContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View popupView = inflater.inflate(R.layout.popup_study,null);
-        PopupWindow mPopupWindow = new PopupWindow(
-                popupView,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                true
-
-        );
-
-        if(Build.VERSION.SDK_INT>=21){
-            mPopupWindow.setElevation(5.0f);
-        }
-
-        setHeight(mPopupWindow);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
     }
 
     public void showStatsPage(View view)    {
