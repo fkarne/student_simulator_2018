@@ -16,6 +16,8 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import at.tugraz.morning08.a_students_life.components.MyButton;
+import at.tugraz.morning08.a_students_life.components.MyProgressBar;
 import at.tugraz.morning08.a_students_life.data.Activities;
 import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
@@ -35,6 +37,8 @@ public class MainPageActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
+        Activities.createButtons(this);
 
         student_graphic = findViewById(R.id.student_graphic);        
         updateMainPage();
@@ -267,57 +271,57 @@ public class MainPageActivity extends AppCompatActivity
 
     //Activities
     public void sleep_button_onClick(View view) {
-        Activities.sleep(Student.getInstance());
+        Activities.sleep(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void nap_button_onClick(View view) {
-        Activities.nap(Student.getInstance());
+        Activities.nap(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void eat_button_onClick(View view) {
-        Activities.eat(Student.getInstance());
+        Activities.eat(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void goingOutToEat_button_onClick(View view) {
-        Activities.goingOutToEat(Student.getInstance());
+        Activities.goingOutToEat(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void snack_button_onClick(View view) {
-        Activities.snack(Student.getInstance());
+        Activities.snack(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void phoneCall_button_onClick(View view) {
-        Activities.phoneCall(Student.getInstance());
+        Activities.phoneCall(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void meetFriends_button_onClick(View view) {
-        Activities.meetFriends(Student.getInstance());
+        Activities.meetFriends(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void partying_button_onClick(View view) {
-        Activities.partying(Student.getInstance());
+        Activities.partying(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void watchTV_button_onClick(View view) {
-        Activities.watchTV(Student.getInstance());
+        Activities.watchTV(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void readingBook_button_onClick(View view) {
-        Activities.readingBook(Student.getInstance());
+        Activities.readingBook(Student.getInstance(), new Event());
         updateMainPage();
     }
 
     public void sports_button_onClick(View view) {
-        Activities.sports(Student.getInstance());
+        Activities.sports(Student.getInstance(), new Event());
         updateMainPage();
     }
 
