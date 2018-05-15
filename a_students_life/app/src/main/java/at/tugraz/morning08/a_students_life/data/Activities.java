@@ -78,23 +78,24 @@ public final class Activities
 
     //Main Study
     public static void learn(Student student) {
-        student.addTimeUnits(4);
-        checkBorderMultiplicators(student);
-
-        //TODO probability depends on event difficulty
-
         Event event = student.getNextExam();
-        event.increaseProbability(20);
-        event.checkBorderProbability();
+        if(event != null) {
+            student.addTimeUnits(4);
+            checkBorderMultiplicators(student);
 
-        double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
-        double energy = 4.0 * energy_conjugated;
+            //TODO probability depends on event difficulty
+            event.increaseProbability(20);
+            event.checkBorderProbability();
 
-        double stress = 7.0 * student.getStats().getStress_multiplicator();
+            double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+            double energy = 4.0 * energy_conjugated;
 
-        student.getStats().decreaseEnergy((int) energy);
-        student.getStats().increaseStress((int) stress);
-        checkBorder(student);
+            double stress = 7.0 * student.getStats().getStress_multiplicator();
+
+            student.getStats().decreaseEnergy((int) energy);
+            student.getStats().increaseStress((int) stress);
+            checkBorder(student);
+        }
     }
 
     //Sub Energy
