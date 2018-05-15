@@ -10,6 +10,8 @@ public class Event
         this.probability_percentage = probability_percentage;
     }
 
+    public Event(){}
+
     private String name;
     private Time time;
     private String type;

@@ -1,12 +1,28 @@
 package at.tugraz.morning08.a_students_life.data;
 
 
+import android.content.Context;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import at.tugraz.morning08.a_students_life.components.MyButton;
+
 public final class Activities
 {
     private static int MAX = 100;
     private static int MIN = 0;
     private static double MAX_MULT = 2.0;
     private static double MIN_MULT = 0.5;
+
+    public static List<MyButton> energy = new ArrayList<>();
+    public static List<MyButton> stress = new ArrayList<>();
+    public static List<MyButton> hunger = new ArrayList<>();
+    public static List<MyButton> money = new ArrayList<>();
+    public static List<MyButton> social = new ArrayList<>();
+    public static List<MyButton> study = new ArrayList<>();
+
+    private static boolean init = false;
 
     //Main Money
     public static void askForMoney(Student student) {
@@ -16,7 +32,7 @@ public final class Activities
     }
 
     //Main Stress
-    public static void watchTV(Student student) {
+    public static void watchTV(Student student, Event event) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -28,7 +44,7 @@ public final class Activities
     }
 
     //Main Social
-    public static void phoneCall(Student student) {
+    public static void phoneCall(Student student, Event event) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -39,7 +55,7 @@ public final class Activities
     }
 
     //Main Hunger
-    public static void eat(Student student) {
+    public static void eat(Student student, Event event) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -50,7 +66,7 @@ public final class Activities
     }
 
     //Main Energy
-    public static void sleep(Student student) {
+    public static void sleep(Student student, Event event) {
         student.addTimeUnits(16);
         checkBorderMultiplicators(student);
 
@@ -81,7 +97,7 @@ public final class Activities
     }
 
     //Sub Energy
-    public static void nap(Student student) {
+    public static void nap(Student student, Event event) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -92,7 +108,7 @@ public final class Activities
     }
 
     //Sub Hunger
-    public static void goingOutToEat(Student student) {
+    public static void goingOutToEat(Student student, Event event) {
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
@@ -106,7 +122,7 @@ public final class Activities
     }
 
     //Sub Stress
-    public static void readingBook(Student student) {
+    public static void readingBook(Student student, Event event) {
         student.addTimeUnits(1);
         checkBorderMultiplicators(student);
 
@@ -117,7 +133,7 @@ public final class Activities
     }
 
     //Sub Social
-    public static void partying(Student student) {
+    public static void partying(Student student, Event event) {
         student.addTimeUnits(12);
         checkBorderMultiplicators(student);
 
@@ -131,7 +147,7 @@ public final class Activities
     }
 
     //Sub Social
-    public static void meetFriends(Student student) {
+    public static void meetFriends(Student student, Event event) {
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
@@ -144,7 +160,7 @@ public final class Activities
     }
 
     //Sub Stress
-    public static void sports(Student student) {
+    public static void sports(Student student, Event event) {
         student.addTimeUnits(3);
         checkBorderMultiplicators(student);
 
@@ -158,7 +174,7 @@ public final class Activities
     }
 
     //Sub Hunger
-    public static void snack(Student student) {
+    public static void snack(Student student, Event event) {
         student.addTimeUnits(1);
         checkBorderMultiplicators(student);
 
@@ -191,5 +207,24 @@ public final class Activities
 
     private static double checkBorderMults(double multiplicator) {
         return multiplicator > MAX_MULT ? MAX_MULT : (multiplicator < MIN_MULT ? MIN_MULT : multiplicator);
+    }
+
+    public static void createButtons(Context context) {
+        if(!init) {
+            energy.add(new MyButton(context, "sleep", "@string/activity_sleep"));
+            energy.add(new MyButton(context, "nap", "@string/activity_powerNap"));
+            hunger.add(new MyButton(context, "eat", "@string/activity_eat"));
+            hunger.add(new MyButton(context, "goingOutToEat", "@string/activity_eatOutside"));
+            hunger.add(new MyButton(context, "snack", "@string/activity_snack"));
+            money.add(new MyButton(context, "askForMoney", "@string/activity_askForMoney"));
+            social.add(new MyButton(context, "phoneCall", "@string/activity_callFriends"));
+            social.add(new MyButton(context, "partying", "@string/activity_party"));
+            social.add(new MyButton(context, "meetFriends", "@string/activity_meetFriends"));
+            stress.add(new MyButton(context, "watchTV", "@string/activity_watchTv"));
+            stress.add(new MyButton(context, "readingBook", "@string/activity_readBook"));
+            stress.add(new MyButton(context, "sports", "@string/activity_doSports"));
+            study.add(new MyButton(context, "learn", "@string/activity_study"));
+            init = true;
+        }
     }
 }

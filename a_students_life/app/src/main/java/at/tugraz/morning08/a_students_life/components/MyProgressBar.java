@@ -1,4 +1,4 @@
-package at.tugraz.morning08.a_students_life;
+package at.tugraz.morning08.a_students_life.components;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
