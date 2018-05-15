@@ -63,14 +63,14 @@ public class ActivitiesTest {
     public void watchTVTest() throws Exception {
         student.getStats().setStress(50);
 
-        Activities.watchTV(student, event);
+        Activities.watchTV(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(98, student.getStats().getHunger());
         assertEquals(60, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
 
-        Activities.watchTV(student, event);
+        Activities.watchTV(student);
         assertEquals(96, student.getStats().getSocial());
         assertEquals(96, student.getStats().getHunger());
         assertEquals(70, student.getStats().getStress());
@@ -82,14 +82,14 @@ public class ActivitiesTest {
     public void phoneCallTest() throws Exception {
         student.getStats().setSocial(50);
 
-        Activities.phoneCall(student, event);
+        Activities.phoneCall(student);
         assertEquals(60, student.getStats().getSocial());
         assertEquals(98, student.getStats().getHunger());
         assertEquals(98, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
 
-        Activities.phoneCall(student, event);
+        Activities.phoneCall(student);
         assertEquals(70, student.getStats().getSocial());
         assertEquals(96, student.getStats().getHunger());
         assertEquals(96, student.getStats().getStress());
@@ -101,14 +101,14 @@ public class ActivitiesTest {
     public void eatTest() throws Exception {
         student.getStats().setHunger(50);
 
-        Activities.eat(student, event);
+        Activities.eat(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(60, student.getStats().getHunger());
         assertEquals(98, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
 
-        Activities.eat(student, event);
+        Activities.eat(student);
         assertEquals(96, student.getStats().getSocial());
         assertEquals(70, student.getStats().getHunger());
         assertEquals(96, student.getStats().getStress());
@@ -120,7 +120,7 @@ public class ActivitiesTest {
     public void sleepTest() throws Exception {
         student.getStats().setEnergy(10);
 
-        Activities.sleep(student, event);
+        Activities.sleep(student);
         assertEquals(84, student.getStats().getSocial());
         assertEquals(84, student.getStats().getHunger());
         assertEquals(84, student.getStats().getStress());
@@ -128,7 +128,7 @@ public class ActivitiesTest {
         assertEquals(32, student.getTime().getTimeUnit());
         assertEquals(1, student.getTime().getDay());
 
-        Activities.sleep(student, event);
+        Activities.sleep(student);
         assertEquals(68, student.getStats().getSocial());
         assertEquals(68, student.getStats().getHunger());
         assertEquals(68, student.getStats().getStress());
@@ -140,10 +140,10 @@ public class ActivitiesTest {
     @Test
     public void learnTest() throws Exception
     {
-        event = new Event("exam 01", new Time(10, 16), "exam", 20);
+        student.addEvent(new Event("exam 01", new Time(10, 16), Event.Type.Exam, 20));
         student.getStats().setStress(10);
 
-        Activities.learn(student, event);
+        Activities.learn(student);
         assertEquals(96, student.getStats().getSocial());
         assertEquals(96, student.getStats().getHunger());
         assertEquals(13, student.getStats().getStress());
@@ -151,7 +151,7 @@ public class ActivitiesTest {
         assertEquals(20, student.getTime().getTimeUnit());
         assertEquals(1, student.getTime().getDay());
 
-        Activities.learn(student, event);
+        Activities.learn(student);
         assertEquals(92, student.getStats().getSocial());
         assertEquals(92, student.getStats().getHunger());
         assertEquals(16, student.getStats().getStress());
@@ -164,14 +164,14 @@ public class ActivitiesTest {
     public void napTest() throws Exception {
         student.getStats().setEnergy(50);
 
-        Activities.nap(student, event);
+        Activities.nap(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(98, student.getStats().getHunger());
         assertEquals(98, student.getStats().getStress());
         assertEquals(60, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
 
-        Activities.nap(student, event);
+        Activities.nap(student);
         assertEquals(96, student.getStats().getSocial());
         assertEquals(96, student.getStats().getHunger());
         assertEquals(96, student.getStats().getStress());
@@ -184,7 +184,7 @@ public class ActivitiesTest {
         student.getStats().setHunger(50);
         student.getStats().setSocial(50);
 
-        Activities.goingOutToEat(student, event);
+        Activities.goingOutToEat(student);
         assertEquals(55, student.getStats().getSocial());
         assertEquals(65, student.getStats().getHunger());
         assertEquals(96, student.getStats().getStress());
@@ -192,7 +192,7 @@ public class ActivitiesTest {
         assertEquals(20, student.getTime().getTimeUnit());
         assertEquals(150, student.getCash());
 
-        Activities.goingOutToEat(student, event);
+        Activities.goingOutToEat(student);
         assertEquals(60, student.getStats().getSocial());
         assertEquals(80, student.getStats().getHunger());
         assertEquals(92, student.getStats().getStress());
@@ -205,14 +205,14 @@ public class ActivitiesTest {
     public void readingBookTest() throws Exception {
         student.getStats().setStress(50);
 
-        Activities.readingBook(student, event);
+        Activities.readingBook(student);
         assertEquals(99, student.getStats().getSocial());
         assertEquals(99, student.getStats().getHunger());
         assertEquals(55, student.getStats().getStress());
         assertEquals(99, student.getStats().getEnergy());
         assertEquals(17, student.getTime().getTimeUnit());
 
-        Activities.readingBook(student, event);
+        Activities.readingBook(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(98, student.getStats().getHunger());
         assertEquals(60, student.getStats().getStress());
@@ -225,14 +225,14 @@ public class ActivitiesTest {
         student.getStats().setEnergy(100);
         student.getStats().setSocial(10);
 
-        Activities.partying(student, event);
+        Activities.partying(student);
         assertEquals(60, student.getStats().getSocial());
         assertEquals(88, student.getStats().getHunger());
         assertEquals(88, student.getStats().getStress());
         assertEquals(70, student.getStats().getEnergy());
         assertEquals(28, student.getTime().getTimeUnit());
 
-        Activities.partying(student, event);
+        Activities.partying(student);
         assertEquals(100, student.getStats().getSocial());
         assertEquals(76, student.getStats().getHunger());
         assertEquals(76, student.getStats().getStress());
@@ -245,14 +245,14 @@ public class ActivitiesTest {
         student.getStats().setStress(50);
         student.getStats().setSocial(50);
 
-        Activities.meetFriends(student, event);
+        Activities.meetFriends(student);
         assertEquals(70, student.getStats().getSocial());
         assertEquals(96, student.getStats().getHunger());
         assertEquals(55, student.getStats().getStress());
         assertEquals(96, student.getStats().getEnergy());
         assertEquals(20, student.getTime().getTimeUnit());
 
-        Activities.meetFriends(student, event);
+        Activities.meetFriends(student);
         assertEquals(90, student.getStats().getSocial());
         assertEquals(92, student.getStats().getHunger());
         assertEquals(60, student.getStats().getStress());
@@ -265,14 +265,14 @@ public class ActivitiesTest {
         student.getStats().setEnergy(100);
         student.getStats().setStress(50);
 
-        Activities.sports(student, event);
+        Activities.sports(student);
         assertEquals(97, student.getStats().getSocial());
         assertEquals(97, student.getStats().getHunger());
         assertEquals(65, student.getStats().getStress());
         assertEquals(90, student.getStats().getEnergy());
         assertEquals(19, student.getTime().getTimeUnit());
 
-        Activities.sports(student, event);
+        Activities.sports(student);
         assertEquals(94, student.getStats().getSocial());
         assertEquals(94, student.getStats().getHunger());
         assertEquals(80, student.getStats().getStress());
@@ -284,7 +284,7 @@ public class ActivitiesTest {
     public void snackTest() throws Exception {
         student.getStats().setHunger(50);
 
-        Activities.snack(student, event);
+        Activities.snack(student);
         assertEquals(99, student.getStats().getSocial());
         assertEquals(57, student.getStats().getHunger());
         assertEquals(99, student.getStats().getStress());
@@ -292,7 +292,7 @@ public class ActivitiesTest {
         assertEquals(17, student.getTime().getTimeUnit());
         assertEquals(180, student.getCash());
 
-        Activities.snack(student, event);
+        Activities.snack(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(64, student.getStats().getHunger());
         assertEquals(98, student.getStats().getStress());
@@ -306,7 +306,7 @@ public class ActivitiesTest {
         student.getStats().setHunger(50);
         student.getStats().setHunger_multiplicator(2.0);
 
-        Activities.snack(student, event);
+        Activities.snack(student);
         assertEquals(99, student.getStats().getSocial());
         assertEquals(65, student.getStats().getHunger());
         assertEquals(99, student.getStats().getStress());
@@ -314,7 +314,7 @@ public class ActivitiesTest {
         assertEquals(17, student.getTime().getTimeUnit());
         assertEquals(180, student.getCash());
 
-        Activities.snack(student, event);
+        Activities.snack(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(80, student.getStats().getHunger());
         assertEquals(98, student.getStats().getStress());
@@ -330,7 +330,7 @@ public class ActivitiesTest {
         student.getStats().setEnergy_multiplicator(2.0);
         student.getStats().setSocial_multiplicator(0.7);
 
-        Activities.partying(student, event);
+        Activities.partying(student);
         assertEquals(41, student.getStats().getSocial());
         assertEquals(88, student.getStats().getHunger());
         assertEquals(88, student.getStats().getStress());
@@ -340,7 +340,7 @@ public class ActivitiesTest {
 
         student.getStats().setEnergy_multiplicator(0.5);
 
-        Activities.partying(student, event);
+        Activities.partying(student);
         assertEquals(72, student.getStats().getSocial());
         assertEquals(76, student.getStats().getHunger());
         assertEquals(76, student.getStats().getStress());
@@ -353,14 +353,14 @@ public class ActivitiesTest {
         student.getStats().setStress(50);
         student.getStats().setStress_multiplicator(1.5);
 
-        Activities.readingBook(student, event);
+        Activities.readingBook(student);
         assertEquals(99, student.getStats().getSocial());
         assertEquals(99, student.getStats().getHunger());
         assertEquals(58, student.getStats().getStress());
         assertEquals(99, student.getStats().getEnergy());
         assertEquals(17, student.getTime().getTimeUnit());
 
-        Activities.readingBook(student, event);
+        Activities.readingBook(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(98, student.getStats().getHunger());
         assertEquals(66, student.getStats().getStress());

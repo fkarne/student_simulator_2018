@@ -3,6 +3,7 @@ package at.tugraz.morning08.a_students_life;
 import org.junit.Before;
 import org.junit.Test;
 
+import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Stats;
 import at.tugraz.morning08.a_students_life.data.Student;
 import at.tugraz.morning08.a_students_life.data.Time;
@@ -18,6 +19,7 @@ public class StudentTest {
     Student student;
     Stats stats;
     Time time;
+    Event event;
 
     @Before
     public void beforeTest() throws Exception {
@@ -39,6 +41,9 @@ public class StudentTest {
         time.setTimeUnit(16);
         time.setDay(1);
         student.setTime(time);
+
+        event = new Event("Test", new Time(1, 32), Event.Type.Exam, 20);
+        student.clearEventList();
     }
 
     @Test
@@ -150,5 +155,40 @@ public class StudentTest {
         assertEquals(98, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void addEventTest() {
+        student.addEvent(event);
+        assertEquals(1, student.getEventList().size());
+    }
+
+    @Test
+    public void deleteEventTest() {
+        student.addEvent(event);
+        assertEquals(1, student.getEventList().size());
+        student.deleteEvent(event);
+        assert(student.getEventList().size() == 0);
+    }
+
+    @Test
+    public void getNextExamTest() {
+        Event exam1 = new Event("Prüfung1", new Time(1, 32), Event.Type.Exam, 20);
+        Event lecture = new Event("Vorlesung", new Time(1, 32), Event.Type.Lecture, 20);
+        Event exam2 = new Event("Prüfung2", new Time(1, 40), Event.Type.Exam, 20);
+
+        student.addEvent(exam1);
+        student.addEvent(lecture);
+        student.addEvent(exam2);
+
+        assertEquals(exam1, student.getNextExam());
+
+        student.clearEventList();
+
+        student.addEvent(lecture);
+        student.addEvent(exam2);
+        student.addEvent(exam1);
+
+        assertEquals(exam1, student.getNextExam());
     }
 }

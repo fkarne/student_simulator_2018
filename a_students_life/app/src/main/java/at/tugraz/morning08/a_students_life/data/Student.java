@@ -1,5 +1,9 @@
 package at.tugraz.morning08.a_students_life.data;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 //Singelton
 public class Student {
     static private Student student;
@@ -10,6 +14,8 @@ public class Student {
 
     private Stats stats = new Stats();
     private Time time = new Time();
+
+    private List<Event> eventList = new ArrayList<>();
 
     private int cash = 0;
     private int ects = 0;
@@ -93,5 +99,35 @@ public class Student {
         stats.decreaseEnergy(timeUnitsToAdd);
         stats.decreaseSocial(timeUnitsToAdd);
         stats.decreaseHunger(timeUnitsToAdd);
+    }
+
+    public void addEvent(Event event) {
+        eventList.add(event);
+        Collections.sort(eventList);
+    }
+
+    public void deleteEvent(Event event) {
+        if(eventList.contains(event)) {
+            eventList.remove(event);
+        }
+    }
+
+    public void clearEventList() {
+        eventList.clear();
+    }
+
+    public List<Event> getEventList() {
+        return eventList;
+    }
+
+    public Event getNextExam() {
+        Event event = null;
+        for(Event e : eventList) {
+         if(e.getType() == Event.Type.Exam) {
+             event = e;
+             break;
+         }
+        }
+        return event;
     }
 }

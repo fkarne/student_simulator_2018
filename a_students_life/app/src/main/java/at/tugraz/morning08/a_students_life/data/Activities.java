@@ -32,7 +32,7 @@ public final class Activities
     }
 
     //Main Stress
-    public static void watchTV(Student student, Event event) {
+    public static void watchTV(Student student) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -44,7 +44,7 @@ public final class Activities
     }
 
     //Main Social
-    public static void phoneCall(Student student, Event event) {
+    public static void phoneCall(Student student) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -55,7 +55,7 @@ public final class Activities
     }
 
     //Main Hunger
-    public static void eat(Student student, Event event) {
+    public static void eat(Student student) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -66,7 +66,7 @@ public final class Activities
     }
 
     //Main Energy
-    public static void sleep(Student student, Event event) {
+    public static void sleep(Student student) {
         student.addTimeUnits(16);
         checkBorderMultiplicators(student);
 
@@ -77,12 +77,13 @@ public final class Activities
     }
 
     //Main Study
-    public static void learn(Student student, Event event) {
+    public static void learn(Student student) {
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
         //TODO probability depends on event difficulty
 
+        Event event = student.getNextExam();
         event.increaseProbability(20);
         event.checkBorderProbability();
 
@@ -97,7 +98,7 @@ public final class Activities
     }
 
     //Sub Energy
-    public static void nap(Student student, Event event) {
+    public static void nap(Student student) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -108,7 +109,7 @@ public final class Activities
     }
 
     //Sub Hunger
-    public static void goingOutToEat(Student student, Event event) {
+    public static void goingOutToEat(Student student) {
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
@@ -122,7 +123,7 @@ public final class Activities
     }
 
     //Sub Stress
-    public static void readingBook(Student student, Event event) {
+    public static void readingBook(Student student) {
         student.addTimeUnits(1);
         checkBorderMultiplicators(student);
 
@@ -133,7 +134,7 @@ public final class Activities
     }
 
     //Sub Social
-    public static void partying(Student student, Event event) {
+    public static void partying(Student student) {
         student.addTimeUnits(12);
         checkBorderMultiplicators(student);
 
@@ -147,7 +148,7 @@ public final class Activities
     }
 
     //Sub Social
-    public static void meetFriends(Student student, Event event) {
+    public static void meetFriends(Student student) {
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
@@ -160,7 +161,7 @@ public final class Activities
     }
 
     //Sub Stress
-    public static void sports(Student student, Event event) {
+    public static void sports(Student student) {
         student.addTimeUnits(3);
         checkBorderMultiplicators(student);
 
@@ -174,7 +175,7 @@ public final class Activities
     }
 
     //Sub Hunger
-    public static void snack(Student student, Event event) {
+    public static void snack(Student student) {
         student.addTimeUnits(1);
         checkBorderMultiplicators(student);
 

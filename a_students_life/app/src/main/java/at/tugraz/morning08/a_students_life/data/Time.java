@@ -1,6 +1,8 @@
 package at.tugraz.morning08.a_students_life.data;
 
-public class Time {
+import android.support.annotation.NonNull;
+
+public class Time implements Comparable {
     private static int MAX_TIMEUNITS = 48; //One TimeUnit is 30 mins
 
     private int day = 1;
@@ -49,5 +51,20 @@ public class Time {
         hour = ("0" + hour).substring(hour.length() - 1);
         return hour + ":" + minutes;
 
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        Time compare = (Time)o;
+        if (this.getDay() < compare.getDay()) {
+            return -1;
+        } else if (this.getDay() > compare.getDay()) {
+            return 1;
+        } else if(this.getTimeUnit() < compare.getTimeUnit()) {
+            return -1;
+        } else if(this.getTimeUnit() > compare.getTimeUnit()) {
+            return 1;
+        }
+        return 0;
     }
 }
