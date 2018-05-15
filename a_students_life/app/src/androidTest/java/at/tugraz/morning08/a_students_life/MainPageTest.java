@@ -37,8 +37,8 @@ public class MainPageTest {
     public void openLoseConditionDialogTest()
     {
         Student.getInstance().getStats().setHunger(5);
-        Espresso.onView(withId(R.id.energy)).perform(click());
-        Espresso.onView(withId(R.id.sleep_button)).perform(click());
+        Espresso.onView(withId(R.id.energy_img_btn)).perform(click());
+        Espresso.onView(withId(R.id.sleep_btn)).perform(click());
         //Espresso.onView(withId(R.id.popUp_eneregy_ll)).check(matches(isDisplayed()));
         //Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
         assertEquals(0, Student.getInstance().getStats().getHunger());
@@ -48,10 +48,10 @@ public class MainPageTest {
     @Test
     public void openWinConditionDialogTest()
     {
-        Espresso.onView(withId(R.id.energy)).perform(click());
+        Espresso.onView(withId(R.id.energy_img_btn)).perform(click());
         Student.getInstance().setEcts(180);
         Student.getInstance().setStudie("Informatics");
-        Espresso.onView(withId(R.id.sleep_button)).perform(click());
+        Espresso.onView(withId(R.id.sleep_btn)).perform(click());
         //assertEquals(180, Student.getInstance().getEcts());
         Espresso.onView(withText(R.string.win_congrats)).check(matches(isDisplayed()));
     }
@@ -59,8 +59,8 @@ public class MainPageTest {
     @Test
     public void activityHungerButtonTest() throws Exception {
         Student.getInstance().getStats().setHunger(50);
-        Espresso.onView(withId(R.id.hunger)).perform(click());
-        Espresso.onView(withId(R.id.eat_button)).perform(click());
+        Espresso.onView(withId(R.id.hunger_img_btn)).perform(click());
+        Espresso.onView(withId(R.id.eat_btn)).perform(click());
         Espresso.onView(withId(R.id.popUp_hunger_ll)).check(matches(isDisplayed()));
         assertEquals(60, Student.getInstance().getStats().getHunger());
     }
@@ -68,8 +68,8 @@ public class MainPageTest {
     @Test
     public void activityEnergyButtonTest() throws Exception {
         Student.getInstance().getStats().setEnergy(50);
-        Espresso.onView(withId(R.id.energy)).perform(click());
-        Espresso.onView(withId(R.id.sleep_button)).perform(click());
+        Espresso.onView(withId(R.id.energy_img_btn)).perform(click());
+        Espresso.onView(withId(R.id.sleep_btn)).perform(click());
         Espresso.onView(withId(R.id.popUp_eneregy_ll)).check(matches(isDisplayed()));
         assertEquals(100, Student.getInstance().getStats().getEnergy());
     }
@@ -77,8 +77,8 @@ public class MainPageTest {
     @Test
     public void activityStressButtonTest() throws Exception {
         Student.getInstance().getStats().setStress(50);
-        Espresso.onView(withId(R.id.stress)).perform(click());
-        Espresso.onView(withId(R.id.watchTV_button)).perform(click());
+        Espresso.onView(withId(R.id.stress_img_btn)).perform(click());
+        Espresso.onView(withId(R.id.watchTV_btn)).perform(click());
         Espresso.onView(withId(R.id.popUp_stress_ll)).check(matches(isDisplayed()));
         assertEquals(60, Student.getInstance().getStats().getStress());
     }
@@ -86,8 +86,8 @@ public class MainPageTest {
     @Test
     public void activitySocialButtonTest() throws Exception {
         Student.getInstance().getStats().setSocial(50);
-        Espresso.onView(withId(R.id.social)).perform(click());
-        Espresso.onView(withId(R.id.phoneCall_button)).perform(click());
+        Espresso.onView(withId(R.id.social_img_btn)).perform(click());
+        Espresso.onView(withId(R.id.phoneCall_btn)).perform(click());
         Espresso.onView(withId(R.id.popUp_social_ll)).check(matches(isDisplayed()));
         assertEquals(60, Student.getInstance().getStats().getSocial());
     }
@@ -95,8 +95,8 @@ public class MainPageTest {
     @Test
     public void activityMoneyButtonTest() throws Exception {
         Student.getInstance().setCash(200);
-        Espresso.onView(withId(R.id.money)).perform(click());
-        Espresso.onView(withId(R.id.askForMoney_button)).perform(click());
+        Espresso.onView(withId(R.id.money_img_btn)).perform(click());
+        Espresso.onView(withId(R.id.askForMoney_btn)).perform(click());
         Espresso.onView(withId(R.id.popUp_money_ll)).check(matches(isDisplayed()));
         assertEquals(300, Student.getInstance().getCash());
     }
@@ -105,8 +105,8 @@ public class MainPageTest {
     public void activityStudyButtonTest() throws Exception {
         //TODO set probability for event
 
-        Espresso.onView(withId(R.id.study)).perform(click());
-        Espresso.onView(withId(R.id.learning_button)).perform(click());
+        Espresso.onView(withId(R.id.study_img_btn)).perform(click());
+        Espresso.onView(withId(R.id.learning_btn)).perform(click());
         Espresso.onView(withId(R.id.popUp_study_ll)).check(matches(isDisplayed()));
 
         //TODO check if probability increased
@@ -114,13 +114,13 @@ public class MainPageTest {
 
     @Test
     public void calendarButtonTest() throws Exception {
-        Espresso.onView(withId(R.id.btnCalendar)).perform(click());
+        Espresso.onView(withId(R.id.calender_img_btn)).perform(click());
         Espresso.onView(withId(R.id.calendarPage)).check(matches(isDisplayed()));
     }
 
     @Test
     public void calendarBackButtonTest() throws Exception {
-        Espresso.onView(withId(R.id.btnCalendar)).perform(click());
+        Espresso.onView(withId(R.id.calender_img_btn)).perform(click());
         Espresso.pressBack();
         Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
     }

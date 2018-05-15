@@ -81,8 +81,8 @@
 
 
     <!-- Back btn pressed -->
-    <string name="exit_game">Spiel zurücksetzen</string>
-    <string name="exit_game_question">Sicher, dass du das Spiel zurücksetzen möchtest?</string>
+    <string name="exit_game">Spiel beenden</string>
+    <string name="exit_game_question">Sicher, dass du das Spiel beenden möchtest?</string>
 
     <!-- Symbols -->
     <string name="sign_money">€</string>

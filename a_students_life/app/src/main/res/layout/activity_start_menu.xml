@@ -43,7 +43,7 @@
 
             <Button
                 android:id="@id/load_btn"
-                android:enabled="false"
+                android:enabled="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -51,6 +51,7 @@
                 android:layout_marginRight="70dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
+                android:onClick="load_game"
                 android:text="@string/load_btn" />
 
             <Button

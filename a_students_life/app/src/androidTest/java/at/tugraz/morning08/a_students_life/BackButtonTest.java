@@ -61,6 +61,6 @@ public class BackButtonTest {
     {
         Espresso.pressBack();
         mRule.getActivity().getBackPressedAlert().getButton(AlertDialog.BUTTON_POSITIVE).callOnClick();
-        Espresso.onView(withId(R.id.startPage)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.startPage_fl)).check(matches(isDisplayed()));
     }
 }
