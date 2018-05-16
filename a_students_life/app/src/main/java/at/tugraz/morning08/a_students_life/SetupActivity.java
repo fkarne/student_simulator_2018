@@ -51,15 +51,12 @@ public class SetupActivity extends AppCompatActivity {
     }
 
     public void saveCharacter(String name, String gender, String study) {
-        String name_name = "name";
-        String gender_name = "gender";
-        String study_name = "study";
         SharedPreferences prefs = getSharedPreferences("CommonPrefs",
                 Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(name_name, name);
-        editor.putString(gender_name, gender);
-        editor.putString(study_name, study);
+        editor.putString("name", name);
+        editor.putString("gender", gender);
+        editor.putString("study", study);
         editor.commit();
     }
 
