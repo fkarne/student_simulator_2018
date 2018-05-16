@@ -147,9 +147,14 @@ public class StartMenuActivity extends AppCompatActivity {
             student.getTime().setTimeUnit(prefs.getInt("time", 16));
             student.getTime().setDay(prefs.getInt("day", 1));
             student.getStats().setEnergy(prefs.getInt("energy", 100));
+            student.getStats().setEnergy_multiplicator(prefs.getFloat("energy_mul", 1));
             student.getStats().setStress(prefs.getInt("stress", 100));
+            student.getStats().setStress_multiplicator(prefs.getFloat("stress_mul", 1));
             student.getStats().setHunger(prefs.getInt("hunger", 100));
+            student.getStats().setHunger_multiplicator(prefs.getFloat("hunger_mul", 1));
             student.getStats().setSocial(prefs.getInt("social", 100));
+            student.getStats().setSocial_multiplicator(prefs.getFloat("social_mul", 1));
+
 
             startActivity(new Intent(StartMenuActivity.this, MainPageActivity.class));
         }
