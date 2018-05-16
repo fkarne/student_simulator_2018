@@ -8,17 +8,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.net.ssl.ExtendedSSLSession;
-
 import at.tugraz.morning08.a_students_life.data.Student;
 
 import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static android.support.test.espresso.action.ViewActions.openLink;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -59,7 +55,7 @@ public class StartMenuTest {
         Espresso.onView(withId(R.id.options_btn)).perform(click());
         Espresso.onView(withId(R.id.lang_de_radio)).perform(click());
         Espresso.onView(withId(R.id.cancel_lang_btn)).perform(click());
-        Espresso.onView(withId(R.id.options_btn)).check(matches(withText("Options")));
+        Espresso.onView(withId(R.id.options_btn)).check(matches(withText("Optionen")));
     }
 
     @Test
@@ -83,7 +79,5 @@ public class StartMenuTest {
         Espresso.onView(withText(R.string.yes_btn)).perform(click());
         Espresso.onView(withId(R.id.load_btn)).perform(click());
         assertEquals(28, Student.getInstance().getTime().getTimeUnit());
-
-
     }
 }

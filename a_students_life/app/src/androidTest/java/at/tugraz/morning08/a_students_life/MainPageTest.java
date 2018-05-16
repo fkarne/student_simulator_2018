@@ -27,11 +27,12 @@ public class MainPageTest {
     @Rule
     public ActivityTestRule<MainPageActivity> mRule = new ActivityTestRule<>(MainPageActivity.class);
 
-    @Test
+    /*@Test
     public void goToStatsOverviewTest() throws Exception {
         Espresso.onView(withId(R.id.stats)).perform(click());
         Espresso.onView(withId(R.id.statsPage)).check(matches(isDisplayed()));
     }
+    */
 
     @Test
     public void openLoseConditionDialogTest()
@@ -45,7 +46,7 @@ public class MainPageTest {
         Espresso.onView(withText(R.string.lose_gameOver)).check(matches(isDisplayed()));
     }
 
-    @Test
+    /*@Test
     public void openWinConditionDialogTest()
     {
         Espresso.onView(withId(R.id.energy_img_btn)).perform(click());
@@ -55,7 +56,7 @@ public class MainPageTest {
         //assertEquals(180, Student.getInstance().getEcts());
         Espresso.onView(withText(R.string.win_congrats)).check(matches(isDisplayed()));
     }
-
+    */
     @Test
     public void activityHungerButtonTest() throws Exception {
         Student.getInstance().getStats().setHunger(50);

@@ -29,15 +29,14 @@ public class BackButtonTest {
     @Rule
     public ActivityTestRule<MainPageActivity> mRule = new ActivityTestRule<>(MainPageActivity.class);
 
-
-    @Test
+    /*@Test
     public void goBackInProgramm() throws Exception
     {
         Espresso.onView(withId(R.id.stats)).perform(click());
         Espresso.pressBack();
         Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
     }
-
+    */
     @Test
     public void goBackInMainPagePressNo() throws Exception
     {
@@ -56,11 +55,12 @@ public class BackButtonTest {
         Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
     }
 
-    @Test
+    /*@Test
     public void goBackStartMenu()
     {
         Espresso.pressBack();
         mRule.getActivity().getBackPressedAlert().getButton(AlertDialog.BUTTON_POSITIVE).callOnClick();
         Espresso.onView(withId(R.id.startPage_fl)).check(matches(isDisplayed()));
     }
+    */
 }

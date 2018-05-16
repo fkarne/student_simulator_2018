@@ -6,7 +6,8 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-import at.tugraz.morning08.a_students_life.components.MyButton;
+import at.tugraz.morning08.a_students_life.R;
+import at.tugraz.morning08.a_students_life.components.ButtonInfo;
 
 public final class Activities
 {
@@ -15,12 +16,12 @@ public final class Activities
     private static double MAX_MULT = 2.0;
     private static double MIN_MULT = 0.5;
 
-    public static List<MyButton> energy = new ArrayList<>();
-    public static List<MyButton> stress = new ArrayList<>();
-    public static List<MyButton> hunger = new ArrayList<>();
-    public static List<MyButton> money = new ArrayList<>();
-    public static List<MyButton> social = new ArrayList<>();
-    public static List<MyButton> study = new ArrayList<>();
+    public static List<ButtonInfo> energy = new ArrayList<>();
+    public static List<ButtonInfo> stress = new ArrayList<>();
+    public static List<ButtonInfo> hunger = new ArrayList<>();
+    public static List<ButtonInfo> money = new ArrayList<>();
+    public static List<ButtonInfo> social = new ArrayList<>();
+    public static List<ButtonInfo> study = new ArrayList<>();
 
     private static boolean init = false;
 
@@ -211,21 +212,21 @@ public final class Activities
         return multiplicator > MAX_MULT ? MAX_MULT : (multiplicator < MIN_MULT ? MIN_MULT : multiplicator);
     }
 
-    public static void createButtons(Context context) {
+    public static void createButtonInfo() {
         if(!init) {
-            energy.add(new MyButton(context, "sleep", "@string/activity_sleep"));
-            energy.add(new MyButton(context, "nap", "@string/activity_powerNap"));
-            hunger.add(new MyButton(context, "eat", "@string/activity_eat"));
-            hunger.add(new MyButton(context, "goingOutToEat", "@string/activity_eatOutside"));
-            hunger.add(new MyButton(context, "snack", "@string/activity_snack"));
-            money.add(new MyButton(context, "askForMoney", "@string/activity_askForMoney"));
-            social.add(new MyButton(context, "phoneCall", "@string/activity_callFriends"));
-            social.add(new MyButton(context, "partying", "@string/activity_party"));
-            social.add(new MyButton(context, "meetFriends", "@string/activity_meetFriends"));
-            stress.add(new MyButton(context, "watchTV", "@string/activity_watchTv"));
-            stress.add(new MyButton(context, "readingBook", "@string/activity_readBook"));
-            stress.add(new MyButton(context, "sports", "@string/activity_doSports"));
-            study.add(new MyButton(context, "learn", "@string/activity_study"));
+            energy.add(new ButtonInfo("sleep", R.string.activity_sleep));
+            energy.add(new ButtonInfo("nap", R.string.activity_powerNap));
+            hunger.add(new ButtonInfo("eat", R.string.activity_eat));
+            hunger.add(new ButtonInfo("goingOutToEat", R.string.activity_eatOutside));
+            hunger.add(new ButtonInfo("snack", R.string.activity_snack));
+            money.add(new ButtonInfo("askForMoney", R.string.activity_askForMoney));
+            social.add(new ButtonInfo("phoneCall", R.string.activity_powerNap));
+            social.add(new ButtonInfo("partying", R.string.activity_party));
+            social.add(new ButtonInfo("meetFriends", R.string.activity_meetFriends));
+            stress.add(new ButtonInfo("watchTV", R.string.activity_watchTv));
+            stress.add(new ButtonInfo("readingBook", R.string.activity_readBook));
+            stress.add(new ButtonInfo("sports", R.string.activity_doSports));
+            study.add(new ButtonInfo("learn", R.string.activity_study));
             init = true;
         }
     }
