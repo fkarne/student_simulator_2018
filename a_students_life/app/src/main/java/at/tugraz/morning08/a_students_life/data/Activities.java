@@ -12,8 +12,8 @@ public final class Activities
 {
     private static int MAX = 100;
     private static int MIN = 0;
-    private static double MAX_MULT = 2.0;
-    private static double MIN_MULT = 0.5;
+    private static float MAX_MULT = 2;
+    private static float MIN_MULT = 0.5f;
 
     public static List<MyButton> energy = new ArrayList<>();
     public static List<MyButton> stress = new ArrayList<>();
@@ -37,7 +37,7 @@ public final class Activities
         checkBorderMultiplicators(student);
 
         // TODO: round?
-        double stress = 12.0 *student.getStats().getStress_multiplicator();
+        float stress = 12 *student.getStats().getStress_multiplicator();
 
         student.getStats().increaseStress((int) stress);
         checkBorder(student);
@@ -48,7 +48,7 @@ public final class Activities
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
-        double social = 12.0 *student.getStats().getSocial_multiplicator();
+        float social = 12 *student.getStats().getSocial_multiplicator();
 
         student.getStats().increaseSocial((int) social);
         checkBorder(student);
@@ -59,7 +59,7 @@ public final class Activities
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
-        double hunger = 12.0 *student.getStats().getHunger_multiplicator();
+        float hunger = 12 *student.getStats().getHunger_multiplicator();
 
         student.getStats().increaseHunger((int) hunger);
         checkBorder(student);
@@ -70,7 +70,7 @@ public final class Activities
         student.addTimeUnits(16);
         checkBorderMultiplicators(student);
 
-        double energy = 66.0 *student.getStats().getEnergy_multiplicator();
+        float energy = 66 *student.getStats().getEnergy_multiplicator();
 
         student.getStats().increaseEnergy((int) energy);
         checkBorder(student);
@@ -87,10 +87,10 @@ public final class Activities
             event.increaseProbability(20);
             event.checkBorderProbability();
 
-            double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
-            double energy = 4.0 * energy_conjugated;
+            float energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+            float energy = 4 * energy_conjugated;
 
-            double stress = 7.0 * student.getStats().getStress_multiplicator();
+            float stress = 7 * student.getStats().getStress_multiplicator();
 
             student.getStats().decreaseEnergy((int) energy);
             student.getStats().increaseStress((int) stress);
@@ -103,7 +103,7 @@ public final class Activities
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
-        double energy = 12.0 *student.getStats().getEnergy_multiplicator();
+        float energy = 12 *student.getStats().getEnergy_multiplicator();
 
         student.getStats().increaseEnergy((int) energy);
         checkBorder(student);
@@ -114,8 +114,8 @@ public final class Activities
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
-        double social = 9.0 *student.getStats().getSocial_multiplicator();
-        double hunger = 19.0 *student.getStats().getHunger_multiplicator();
+        float social = 9 *student.getStats().getSocial_multiplicator();
+        float hunger = 19 *student.getStats().getHunger_multiplicator();
 
         student.getStats().increaseHunger((int) hunger);
         student.getStats().increaseSocial((int)social);
@@ -128,7 +128,7 @@ public final class Activities
         student.addTimeUnits(1);
         checkBorderMultiplicators(student);
 
-        double stress = 6.0 *student.getStats().getStress_multiplicator();
+        float stress = 6 *student.getStats().getStress_multiplicator();
 
         student.getStats().increaseStress((int)stress);
         checkBorder(student);
@@ -139,9 +139,9 @@ public final class Activities
         student.addTimeUnits(12);
         checkBorderMultiplicators(student);
 
-        double social = 62.0 *student.getStats().getSocial_multiplicator();
-        double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
-        double energy = 18.0 * energy_conjugated;
+        float social = 62 *student.getStats().getSocial_multiplicator();
+        float energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+        float energy = 18 * energy_conjugated;
 
         student.getStats().increaseSocial((int)social);
         student.getStats().decreaseEnergy((int)energy);
@@ -153,8 +153,8 @@ public final class Activities
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
-        double social = 24.0 *student.getStats().getSocial_multiplicator();
-        double stress = 9.0 *student.getStats().getStress_multiplicator();
+        float social = 24 *student.getStats().getSocial_multiplicator();
+        float stress = 9 *student.getStats().getStress_multiplicator();
 
         student.getStats().increaseSocial((int) social);
         student.getStats().increaseStress((int)stress);
@@ -166,9 +166,9 @@ public final class Activities
         student.addTimeUnits(3);
         checkBorderMultiplicators(student);
 
-        double stress = 18.0 *student.getStats().getStress_multiplicator();
-        double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
-        double energy = 7.0 * energy_conjugated;
+        float stress = 18 *student.getStats().getStress_multiplicator();
+        float energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+        float energy = 7 * energy_conjugated;
 
         student.getStats().increaseStress((int)stress);
         student.getStats().decreaseEnergy((int)energy);
@@ -180,7 +180,7 @@ public final class Activities
         student.addTimeUnits(1);
         checkBorderMultiplicators(student);
 
-        double hunger = 8.0 *student.getStats().getHunger_multiplicator();
+        float hunger = 8 *student.getStats().getHunger_multiplicator();
 
         student.getStats().increaseHunger((int) hunger);
         student.addCash(-20);
@@ -207,7 +207,7 @@ public final class Activities
         student.getStats().setSocial_multiplicator(checkBorderMults(student.getStats().getSocial_multiplicator()));
     }
 
-    private static double checkBorderMults(double multiplicator) {
+    private static float checkBorderMults(float multiplicator) {
         return multiplicator > MAX_MULT ? MAX_MULT : (multiplicator < MIN_MULT ? MIN_MULT : multiplicator);
     }
 

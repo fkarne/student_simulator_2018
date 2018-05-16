@@ -304,7 +304,7 @@ public class ActivitiesTest {
     @Test
     public void multiplicator1Test() throws Exception {
         student.getStats().setHunger(50);
-        student.getStats().setHunger_multiplicator(2.0);
+        student.getStats().setHunger_multiplicator(2);
 
         Activities.snack(student);
         assertEquals(99, student.getStats().getSocial());
@@ -327,8 +327,8 @@ public class ActivitiesTest {
     public void multiplicator2Test() throws Exception {
         student.getStats().setEnergy(100);
         student.getStats().setSocial(10);
-        student.getStats().setEnergy_multiplicator(2.0);
-        student.getStats().setSocial_multiplicator(0.7);
+        student.getStats().setEnergy_multiplicator(2);
+        student.getStats().setSocial_multiplicator(0.7f);
 
         Activities.partying(student);
         assertEquals(41, student.getStats().getSocial());
@@ -338,7 +338,7 @@ public class ActivitiesTest {
         assertEquals(28, student.getTime().getTimeUnit());
 
 
-        student.getStats().setEnergy_multiplicator(0.5);
+        student.getStats().setEnergy_multiplicator(0.5f);
 
         Activities.partying(student);
         assertEquals(72, student.getStats().getSocial());
@@ -351,7 +351,7 @@ public class ActivitiesTest {
     @Test
     public void multiplicator3Test() throws Exception {
         student.getStats().setStress(50);
-        student.getStats().setStress_multiplicator(1.5);
+        student.getStats().setStress_multiplicator(1.5f);
 
         Activities.readingBook(student);
         assertEquals(99, student.getStats().getSocial());
