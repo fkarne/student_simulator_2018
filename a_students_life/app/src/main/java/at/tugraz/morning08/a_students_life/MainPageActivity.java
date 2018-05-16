@@ -273,6 +273,7 @@ public class MainPageActivity extends AppCompatActivity
                     setContentView(R.layout.activity_start_menu);
                     startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
                     MainPageActivity.this.finish();
+                    resetSave();
                     //System.exit(0);
                 }
             });
@@ -310,6 +311,7 @@ public class MainPageActivity extends AppCompatActivity
                     setContentView(R.layout.activity_start_menu);
                     startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
                     MainPageActivity.this.finish();
+                    resetSave();
                     //System.exit(0);
                 }
             });
@@ -339,5 +341,27 @@ public class MainPageActivity extends AppCompatActivity
     protected void onStop() {
         super.onStop();
         saveStats();
+    }
+
+    public void resetSave(){
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs",
+                Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("name", "");
+        editor.putString("gender", "");
+        editor.putString("study", "");
+        editor.putInt("energy", 0);
+        //editor.putFloat("energy_mul", student.getStats().getEnergy_multiplicator());
+        editor.putInt("stress", 0);
+        //editor.putInt("stress_mul", student.getStats().getStress_multiplicator());
+        editor.putInt("hunger", 0);
+        //editor.putInt("hunger_mul", student.getStats().getHunger_multiplicator());
+        editor.putInt("social", 0);
+        //editor.putInt("social_mul", student.getStats().getSocial_multiplicator());
+        editor.putInt("money", 0);
+        editor.putInt("ects", 0);
+        editor.putInt("time", 0);
+        editor.putInt("day", 0);
+        editor.commit();
     }
 }
