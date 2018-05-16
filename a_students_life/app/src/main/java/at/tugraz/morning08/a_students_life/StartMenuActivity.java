@@ -136,20 +136,29 @@ public class StartMenuActivity extends AppCompatActivity {
 
     public void load_game(View view) {
         SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
-        Student student = Student.getInstance();
-        student.setName(prefs.getString("name", ""));
-        student.setGender(prefs.getString("gender", ""));
-        student.setStudie(prefs.getString("study", ""));
-        student.setEcts(prefs.getInt("ects",0));
-        student.setCash(prefs.getInt("money",0));
-        student.getTime().setTimeUnit(prefs.getInt("time",16));
-        student.getTime().setDay(prefs.getInt("day",1));
-        student.getStats().setEnergy(prefs.getInt("energy",100));
-        student.getStats().setStress(prefs.getInt("stress",100));
-        student.getStats().setHunger(prefs.getInt("hunger",100));
-        student.getStats().setSocial(prefs.getInt("social",100));
+        String name = prefs.getString("name","");
+        if(name.length() > 0) {
+            Student student = Student.getInstance();
+            student.setName(prefs.getString("name", ""));
+            student.setGender(prefs.getString("gender", ""));
+            student.setStudie(prefs.getString("study", ""));
+            student.setEcts(prefs.getInt("ects", 0));
+            student.setCash(prefs.getInt("money", 0));
+            student.getTime().setTimeUnit(prefs.getInt("time", 16));
+            student.getTime().setDay(prefs.getInt("day", 1));
+            student.getStats().setEnergy(prefs.getInt("energy", 100));
+            student.getStats().setStress(prefs.getInt("stress", 100));
+            student.getStats().setHunger(prefs.getInt("hunger", 100));
+            student.getStats().setSocial(prefs.getInt("social", 100));
 
-        startActivity(new Intent(StartMenuActivity.this, MainPageActivity.class));
+            startActivity(new Intent(StartMenuActivity.this, MainPageActivity.class));
+        }
+        else
+        {
+            startActivity(new Intent(StartMenuActivity.this, SetupActivity.class));
+
+        }
         StartMenuActivity.this.finish();
+
     }
 }
