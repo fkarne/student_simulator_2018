@@ -34,7 +34,6 @@ import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
 public class MainPageActivity extends AppCompatActivity
 {
     private LinearLayout student_graphic;
-    private int top;
     private AlertDialog backPressedAlert;
 
     @Override
@@ -154,15 +153,9 @@ public class MainPageActivity extends AppCompatActivity
             mPopupWindow.setElevation(5.0f);
         }
 
-        setHeight(mPopupWindow);
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
-    }
-
-    public void setHeight(PopupWindow pop){
-        top = findViewById(R.id.stats).getHeight() + findViewById(R.id.ll_stats).getHeight();
-
-        pop.setHeight(student_graphic.getHeight());
-        pop.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, (top));
+        int top = findViewById(R.id.stats).getHeight() + findViewById(R.id.ll_stats).getHeight();
+        mPopupWindow.setHeight(student_graphic.getHeight());
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, top);
     }
 
     public void showStatsPage(View view)    {
