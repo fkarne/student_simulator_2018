@@ -18,13 +18,13 @@ public final class LoadSaveHandler {
                     Activity.MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putInt("energy", student.getStats().getEnergy());
-            //editor.putFloat("energy_mul", student.getStats().getEnergy_multiplicator());
+            editor.putFloat("energy_mul", student.getStats().getEnergy_multiplicator());
             editor.putInt("stress", student.getStats().getStress());
-            //editor.putInt("stress_mul", student.getStats().getStress_multiplicator());
+            editor.putFloat("stress_mul", student.getStats().getStress_multiplicator());
             editor.putInt("hunger", student.getStats().getHunger());
-            //editor.putInt("hunger_mul", student.getStats().getHunger_multiplicator());
+            editor.putFloat("hunger_mul", student.getStats().getHunger_multiplicator());
             editor.putInt("social", student.getStats().getSocial());
-            //editor.putInt("social_mul", student.getStats().getSocial_multiplicator());
+            editor.putFloat("social_mul", student.getStats().getSocial_multiplicator());
             editor.putInt("money", student.getCash());
             editor.putInt("ects", student.getEcts());
             editor.putInt("time", student.getTime().getTimeUnit());
