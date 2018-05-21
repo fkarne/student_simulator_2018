@@ -18,7 +18,6 @@ import at.tugraz.morning08.a_students_life.handler.LoadSaveHandler;
  * status bar and navigation/system bar) with user interaction.
  */
 public class StartMenuActivity extends AppCompatActivity {
-    //TODO: load-button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,17 +127,17 @@ public class StartMenuActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    public void load_game(View view) {
+    public void loadGame(View view) {
         SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
         String name = prefs.getString("name","");
+        Class goTo = SetupActivity.class;
+
         if(name.length() > 0) {
             LoadSaveHandler.loadGame(view);
-            startActivity(new Intent(StartMenuActivity.this, MainPageActivity.class));
+            goTo = MainPageActivity.class;
         }
-        else
-        {
-            startActivity(new Intent(StartMenuActivity.this, SetupActivity.class));
-        }
+
+        startActivity(new Intent(StartMenuActivity.this, goTo));
         StartMenuActivity.this.finish();
     }
 }
