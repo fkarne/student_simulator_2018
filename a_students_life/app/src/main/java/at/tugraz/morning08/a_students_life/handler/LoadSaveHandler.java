@@ -60,4 +60,26 @@ public final class LoadSaveHandler {
             student.getStats().setSocial(prefs.getInt("social", 100));
         }
     }
+
+    public static void resetSave(View view) {
+        SharedPreferences prefs = view.getContext().getSharedPreferences("CommonPrefs",
+                Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("name", "");
+        editor.putString("gender", "");
+        editor.putString("study", "");
+        editor.putInt("energy", 0);
+        editor.putFloat("energy_mul", 0);
+        editor.putInt("stress", 0);
+        editor.putInt("stress_mul", 0);
+        editor.putInt("hunger", 0);
+        editor.putInt("hunger_mul", 0);
+        editor.putInt("social", 0);
+        editor.putInt("social_mul", 0);
+        editor.putInt("money", 0);
+        editor.putInt("ects", 0);
+        editor.putInt("time", 0);
+        editor.putInt("day", 0);
+        editor.commit();
+    }
 }
