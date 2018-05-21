@@ -2,7 +2,6 @@ package at.tugraz.morning08.a_students_life.data;
 
 import java.math.BigDecimal;
 
-
 public class Stats {
     private static int MAX = 100;
 

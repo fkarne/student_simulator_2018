@@ -1,20 +1,17 @@
 package at.tugraz.morning08.a_students_life.components;
 
-import android.content.Context;
-import android.support.v7.widget.AppCompatButton;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import at.tugraz.morning08.a_students_life.data.Student;
 
-public class MyButton extends AppCompatButton {
-    private  String method;
+public class ButtonInfo {
+    private String method;
+    private int infoKey;
 
-    public MyButton(Context context, String method, String infoKey) {
-        super(context);
+    public ButtonInfo(String method, int infoKey) {
         this.method = method;
-        this.setText(infoKey);
+        this.infoKey = infoKey;
     }
 
     public void invokeMethod(){
@@ -25,5 +22,9 @@ public class MyButton extends AppCompatButton {
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getInfoKey() {
+        return infoKey;
     }
 }

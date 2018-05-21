@@ -18,7 +18,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class ActivitiesTest {
     Student student;
-    Event event;
 
     @Before
     public void beforeTest() throws Exception {
