@@ -134,15 +134,16 @@ public class StatsTest {
 
     @Test
     public void getConjucatedMultiplicatorTest() throws Exception {
-        double result = stats.getConjugatedMultiplicator(0.5);
-        assertEquals(2.00, result, 0.00);
+        float result = stats.getConjugatedMultiplicator(0.5f);
+        assertEquals(2.00, result, 0.001);
 
 
-        result = stats.getConjugatedMultiplicator(0.7);
-        assertEquals(1.43, result, 0.00);
+        result = stats.getConjugatedMultiplicator(0.7f);
+        System.out.println(result);
+        assertEquals(1.43, result, 0.001);
 
-        result = stats.getConjugatedMultiplicator(1.5);
-        assertEquals(0.67, result, 0.00);
+        result = stats.getConjugatedMultiplicator(1.5f);
+        assertEquals(0.67, result, 0.001);
     }
 
     @Test

@@ -129,9 +129,16 @@ public class StartMenuActivity extends AppCompatActivity {
     }
 
     public void load_game(View view) {
-        LoadSaveHandler.loadGame(view);
-
-        startActivity(new Intent(StartMenuActivity.this, MainPageActivity.class));
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
+        String name = prefs.getString("name","");
+        if(name.length() > 0) {
+            LoadSaveHandler.loadGame(view);
+            startActivity(new Intent(StartMenuActivity.this, MainPageActivity.class));
+        }
+        else
+        {
+            startActivity(new Intent(StartMenuActivity.this, SetupActivity.class));
+        }
         StartMenuActivity.this.finish();
     }
 }
