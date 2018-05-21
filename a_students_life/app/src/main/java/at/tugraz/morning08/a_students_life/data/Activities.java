@@ -1,8 +1,5 @@
 package at.tugraz.morning08.a_students_life.data;
 
-
-import android.content.Context;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -216,16 +213,21 @@ public final class Activities
         if(!init) {
             energy.add(new ButtonInfo("sleep", R.string.activity_sleep));
             energy.add(new ButtonInfo("nap", R.string.activity_powerNap));
+
             hunger.add(new ButtonInfo("eat", R.string.activity_eat));
             hunger.add(new ButtonInfo("goingOutToEat", R.string.activity_eatOutside));
             hunger.add(new ButtonInfo("snack", R.string.activity_snack));
+
             money.add(new ButtonInfo("askForMoney", R.string.activity_askForMoney));
-            social.add(new ButtonInfo("phoneCall", R.string.activity_powerNap));
+
+            social.add(new ButtonInfo("phoneCall", R.string.activity_callFriends));
             social.add(new ButtonInfo("partying", R.string.activity_party));
             social.add(new ButtonInfo("meetFriends", R.string.activity_meetFriends));
+
             stress.add(new ButtonInfo("watchTV", R.string.activity_watchTv));
             stress.add(new ButtonInfo("readingBook", R.string.activity_readBook));
             stress.add(new ButtonInfo("sports", R.string.activity_doSports));
+
             study.add(new ButtonInfo("learn", R.string.activity_study));
             init = true;
         }

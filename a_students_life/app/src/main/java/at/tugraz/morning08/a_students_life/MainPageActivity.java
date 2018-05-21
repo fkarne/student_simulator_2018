@@ -76,7 +76,7 @@ public class MainPageActivity extends AppCompatActivity
         else
         {
             setContentView(R.layout.activity_main_page);
-            updateMainPage(view);
+            updateMainPage(findViewById(R.id.mainPage));
         }
     }
 

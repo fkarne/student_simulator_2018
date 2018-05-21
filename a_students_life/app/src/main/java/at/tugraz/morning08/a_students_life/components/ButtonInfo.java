@@ -1,6 +1,5 @@
 package at.tugraz.morning08.a_students_life.components;
 
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -23,7 +22,6 @@ public class ButtonInfo {
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
-
     }
 
     public int getInfoKey() {

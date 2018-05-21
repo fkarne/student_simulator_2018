@@ -22,8 +22,6 @@
     <item type="id" name="money_img_btn" />
     <item type="id" name="study_img_btn" />
 
-
-
     <!-- Setup Buttons -->
     <item type="id" name="gender_male_radio" />
     <item type="id" name="gender_female_radio" />
@@ -31,6 +29,7 @@
     <item type="id" name="next02_btn" />
 
     <!-- Pop up: Activities-->
+    <item type="id" name="popUp_activity_ll" />
     <item type="id" name="sleep_btn" />
     <item type="id" name="powernap_btn" />
 

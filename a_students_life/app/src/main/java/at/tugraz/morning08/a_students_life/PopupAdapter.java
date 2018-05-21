@@ -35,6 +35,7 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
         String text = view.getContext().getString(activity_list.get(position).getInfoKey());
 
         holder.activity.setText(text);
+        holder.activity.setId(position);
 
         holder.activity.setOnClickListener(new View.OnClickListener() {
             @Override
