@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:weightSum="10"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
 
     <LinearLayout
@@ -174,8 +175,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/student" />
+                android:layout_weight="1"/>
         </LinearLayout>
 
        <!-- <LinearLayout
@@ -199,8 +199,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight = "4.5"
-            android:background="#FFFF">
+            android:layout_weight = "4.5">
 
             <ImageButton
                 android:id="@id/calender_img_btn"

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="@drawable/background"
     tools:context="at.tugraz.morning08.a_students_life.StartMenuActivity">
 
 
@@ -14,7 +14,7 @@
         android:gravity="top|center_horizontal"
         android:keepScreenOn="true"
         android:text="@string/options_btn"
-        android:textColor="#33b5e5"
+        android:textColor="#001090"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -41,7 +41,8 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:checkedButton="@id/lang_en_radio">
 
             <RadioButton
                 android:id="@id/lang_en_radio"
@@ -50,7 +51,6 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:onClick="onRadioButtonClicked"
                 android:padding="10dp"
                 android:text="@string/lang_en"
                 android:textIsSelectable="true"
@@ -71,6 +71,8 @@
 
         <Button
             android:id="@id/save_lang_btn"
+            android:textSize="25dp"
+            android:background="@drawable/start_menu_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
@@ -83,6 +85,8 @@
 
         <Button
             android:id="@id/cancel_lang_btn"
+            android:textSize="25dp"
+            android:background="@drawable/start_menu_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
