@@ -62,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:onClick="onRadioButtonClicked"
                 android:padding="10dp"
                 android:text="@string/lang_de"
                 android:textIsSelectable="true"

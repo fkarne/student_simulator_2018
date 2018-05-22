@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
@@ -182,6 +184,15 @@ public class MainPageActivity extends AppCompatActivity
     }
 
     public void updateMainPage(View view) {
+        ImageView student_pic = findViewById(R.id.student_pic);
+        if(Student.getInstance().getGender().equals("female"))
+        {
+            student_pic.setBackgroundResource(R.drawable.female);
+        }
+        else
+        {
+            student_pic.setBackgroundResource(R.drawable.male);
+        }
         MainPageHandler.updateMainPage(view);
         showLoseCondition(view);
         showWinCondition(view);
