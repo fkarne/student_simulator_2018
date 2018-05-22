@@ -187,6 +187,28 @@ public final class Activities
         checkBorder(student);
     }
 
+    public static void visitLecture(Student student, Event lecture) {
+        if(lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
+                lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
+                lecture.getType() == Event.Type.Lecture) {
+
+            student.addTimeUnits(4);
+            checkBorderMultiplicators(student);
+
+            lecture.getExam().increaseProbability(20);
+            lecture.getExam().checkBorderProbability();
+
+            double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+            double energy = 4.0 * energy_conjugated;
+
+            double stress = 7.0 * student.getStats().getStress_multiplicator();
+
+            student.getStats().decreaseEnergy((int) energy);
+            student.getStats().increaseStress((int) stress);
+            checkBorder(student);
+        }
+    }
+
     private static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
         student.getStats().setHunger(checkBorderStat(student.getStats().getHunger()));

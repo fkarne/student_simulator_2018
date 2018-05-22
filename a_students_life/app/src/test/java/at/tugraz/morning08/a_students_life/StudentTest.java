@@ -42,7 +42,7 @@ public class StudentTest {
         time.setDay(1);
         student.setTime(time);
 
-        event = new Event("Test", new Time(1, 32), Event.Type.Exam, 20);
+        event = new Event("Test", new Time(1, 32), Event.Type.Exam, 20, null);
         student.clearEventList();
     }
 
@@ -173,9 +173,9 @@ public class StudentTest {
 
     @Test
     public void getNextExamTest() {
-        Event exam1 = new Event("Prüfung1", new Time(1, 32), Event.Type.Exam, 20);
-        Event lecture = new Event("Vorlesung", new Time(1, 32), Event.Type.Lecture, 20);
-        Event exam2 = new Event("Prüfung2", new Time(1, 40), Event.Type.Exam, 20);
+        Event exam1 = new Event("Prüfung1", new Time(1, 32), Event.Type.Exam, 20, null);
+        Event lecture = new Event("Vorlesung", new Time(1, 32), Event.Type.Lecture, 20, exam1);
+        Event exam2 = new Event("Prüfung2", new Time(1, 40), Event.Type.Exam, 20, null);
 
         student.addEvent(exam1);
         student.addEvent(lecture);
