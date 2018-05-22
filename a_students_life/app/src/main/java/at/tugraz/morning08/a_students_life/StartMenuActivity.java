@@ -75,29 +75,6 @@ public class StartMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_menu);
     }
 
-    public void onRadioButtonClicked(View view) {
-        RadioButton rb_en = findViewById(R.id.lang_en_radio);
-        RadioButton rb_de = findViewById(R.id.lang_de_radio);
-
-        boolean  checked = ((RadioButton) view).isChecked();
-
-        switch(view.getId()) {
-            case R.id.lang_en_radio:
-                if (checked)
-                    rb_en.setTypeface(null, Typeface.BOLD_ITALIC);
-                    //set the other two radio buttons text style to default
-                    rb_de.setTypeface(null, Typeface.NORMAL);
-                break;
-
-            case R.id.lang_de_radio:
-                if (checked)
-                    rb_de.setTypeface(null, Typeface.BOLD_ITALIC);
-                    //set the other two radio buttons text style to default
-                    rb_en.setTypeface(null, Typeface.NORMAL);
-                break;
-        }
-    }
-
     
     public void loadLocale() {
         String lang = "Language";

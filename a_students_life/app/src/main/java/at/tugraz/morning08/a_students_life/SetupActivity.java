@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,11 +28,15 @@ public class SetupActivity extends AppCompatActivity {
      */
     public void setup01_next(View view) {
         Student student = Student.getInstance();
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.gender_radio_group);
+        RadioButton radioButton;
 
         EditText name = findViewById(R.id.user_name_tf);
         if(name != null && !name.getText().toString().isEmpty()) {
             student.setName(name.getText().toString());
-            student.setGender(findViewById(R.id.gender_male_radio).isSelected() ? "male" : "female");
+            int selectedId = radioGroup.getCheckedRadioButtonId();
+            radioButton = (RadioButton) findViewById(selectedId);
+            student.setGender(radioButton.getText().equals("female") ? "female" : "male");
             setContentView(R.layout.activity_setup02);
         }
         else {
