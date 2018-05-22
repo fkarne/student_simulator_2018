@@ -28,15 +28,19 @@ public class SetupActivity extends AppCompatActivity {
      */
     public void setup01_next(View view) {
         Student student = Student.getInstance();
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.gender_radio_group);
-        RadioButton radioButton;
 
         EditText name = findViewById(R.id.user_name_tf);
         if(name != null && !name.getText().toString().isEmpty()) {
             student.setName(name.getText().toString());
-            int selectedId = radioGroup.getCheckedRadioButtonId();
-            radioButton = (RadioButton) findViewById(selectedId);
-            student.setGender(radioButton.getText().equals("female") ? "female" : "male");
+
+            if(((RadioButton)findViewById(R.id.gender_female_radio)).isChecked())
+            {
+                student.setGender("female");
+            }
+            else
+            {
+                student.setGender("male");
+            }
             setContentView(R.layout.activity_setup02);
         }
         else {
