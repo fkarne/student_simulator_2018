@@ -274,17 +274,4 @@
         app:layout_constraintTop_toBottomOf="@+id/view4"
         app:srcCompat="@drawable/money_btn" />
 
-    <at.tugraz.morning08.a_students_life.components.MyProgressBar
-        android:id="@+id/socialProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="128dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="50dp"
-        android:max="100"
-        android:progress="100"
-        android:progressDrawable="@drawable/progress_bar_horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/socialLabel"/>
-
-
 </android.support.constraint.ConstraintLayout>
