@@ -14,6 +14,10 @@ public class Calendar
         return instance;
     }
 
+    public ArrayList<Event> getEventList() {
+        return event_list;
+    }
+
     public Event getNextEvent()
     {
         Event event = null;

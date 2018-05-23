@@ -3,7 +3,6 @@ package at.tugraz.morning08.a_students_life;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -61,6 +60,7 @@ public class StartMenuActivity extends AppCompatActivity {
     public void save_options_language(View view) {
         RadioButton rdb_en = findViewById(R.id.lang_en_radio);
         RadioButton rdb_de = findViewById(R.id.lang_de_radio);
+
 
         if(rdb_en.isChecked()){
             setLocale((String) getText(R.string.lang_en_short));
