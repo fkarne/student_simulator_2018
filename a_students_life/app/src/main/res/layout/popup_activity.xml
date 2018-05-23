@@ -3,7 +3,7 @@
     android:id="@id/popUp_activity_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eeeeee"
+    android:background="@color/transparent"
     android:baselineAligned="false"
     android:orientation="vertical"
     android:weightSum="10"
@@ -14,5 +14,5 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/popup_activity_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 </LinearLayout>
