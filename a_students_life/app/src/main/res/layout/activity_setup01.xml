@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background_2"
     tools:context="at.tugraz.morning08.a_students_life.SetupActivity"
     android:onClick="hideVirtualKeyboard">
 
@@ -21,25 +21,17 @@
             android:orientation="vertical"
             android:onClick="hideVirtualKeyboard">
 
-            <ScrollView
-                android:id="@+id/scrollView_setup"
-                android:layout_width="wrap_content"
-                android:layout_height="75dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="30dp"
-                android:fillViewport="true"
-                android:scrollbars="vertical"
-                android:onClick="hideVirtualKeyboard">
-
-                <TextView
-                    android:id="@+id/introduction_tv"
-                    android:textSize="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:onClick="hideVirtualKeyboard"
-                    android:text="@string/introduction_tv" />
-            </ScrollView>
+            <TextView
+                android:id="@+id/introduction_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="hideVirtualKeyboard"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:paddingTop="30dp"
+                android:text="@string/introduction_tv"
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
 
             <EditText
@@ -52,6 +44,7 @@
                 android:layout_marginTop="30dp"
                 android:ems="10"
                 android:hint="@string/name_ph"
+                android:textColorHint="@color/black"
                 android:inputType="text"
                 android:textSize="16dp" />
 
@@ -64,7 +57,8 @@
                 android:layout_marginTop="10dp"
                 android:onClick="hideVirtualKeyboard"
                 android:text="@string/gender_ph"
-                android:textSize="16dp"/>
+                android:textSize="16dp"
+                android:textStyle="bold"/>
 
             <RadioGroup
                 android:id="@+id/gender_radio_group"

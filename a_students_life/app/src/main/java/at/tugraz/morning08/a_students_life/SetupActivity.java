@@ -44,7 +44,7 @@ public class SetupActivity extends AppCompatActivity {
             setContentView(R.layout.activity_setup02);
         }
         else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Name eingeben!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.name_ph, Toast.LENGTH_SHORT);
             toast.show();
         }
     }

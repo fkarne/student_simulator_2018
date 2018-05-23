@@ -91,7 +91,9 @@ public class MainPageActivity extends AppCompatActivity
         popup(view);
     }
 
-    public void stress_popup(View view) {popup(view); }
+    public void stress_popup(View view) {
+        popup(view);
+    }
 
     public void hunger_popup(View view) {
         popup(view);
@@ -110,6 +112,10 @@ public class MainPageActivity extends AppCompatActivity
     }
 
     public void popup(View view) {
+        //TODO [CS, LR]
+        ImageView student_pic = findViewById(R.id.student_pic);
+        student_pic.setVisibility(View.INVISIBLE);
+
         List<ButtonInfo> activity_list = new ArrayList<>();
         RecyclerView recycler_view;
         PopupAdapter popup_adapter;
