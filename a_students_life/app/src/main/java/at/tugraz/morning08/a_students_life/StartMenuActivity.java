@@ -53,7 +53,27 @@ public class StartMenuActivity extends AppCompatActivity {
 
     // call options file
     public void show_options(View view) {
+        Locale locale;
+        String lang = "Language";
+        SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
+        String language = prefs.getString(lang, "");
+
         setContentView(R.layout.activity_start_menu_options);
+
+       if(language.length() < 1) {
+            locale = Locale.getDefault();
+            language = getResources().getConfiguration().locale.getLanguage();
+        }
+
+        RadioButton lang_de_radio = findViewById(R.id.lang_de_radio);
+        RadioButton lang_en_radio = findViewById(R.id.lang_en_radio);
+
+        if (language.equals("en")) {
+            lang_en_radio.setChecked(true);
+        }
+        else if (language.equals("de")) {
+            lang_de_radio.setChecked(true);
+        }
     }
 
 
