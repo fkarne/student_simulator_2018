@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +8,7 @@
     android:layout_height="match_parent"
     android:weightSum="10"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
 
     <LinearLayout
@@ -72,13 +74,35 @@
             android:orientation="horizontal">
 
             <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/energy_btn" />
+
+                <at.tugraz.morning08.a_students_life.components.MyProgressBar
+                    android:id="@+id/progressBarEnergyMainPage"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressDrawable="@drawable/progress_bar_circular" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/stress_btn"/>
 
@@ -99,30 +123,8 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/energy_btn"/>
-
-                <at.tugraz.morning08.a_students_life.components.MyProgressBar
-                    android:id="@+id/progressBarEnergyMainPage"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:max="100"
-                    android:progress="100"
-                    android:progressDrawable="@drawable/progress_bar_circular" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/hunger_btn"/>
 
@@ -131,6 +133,8 @@
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
                     android:max="100"
                     android:progress="100"
                     android:progressDrawable="@drawable/progress_bar_circular" />
@@ -142,8 +146,8 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/social_btn"/>
 
@@ -165,22 +169,38 @@
             android:id="@+id/student_graphic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.5">
+            android:layout_weight="1.5"
+            android:visibility="visible">
 
             <ImageView
+                android:id="@+id/student_pic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/student" />
+                android:layout_weight="1"/>
         </LinearLayout>
+
+       <!-- <LinearLayout
+            android:id="@+id/popUp_panel"
+            android:visibility="invisible"
+            android:layout_height="0dp"
+            android:layout_width="match_parent">
+
+            <include
+                android:id="@+id/container"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:srcCompat="@layout/popup_activity"
+                />
+        </LinearLayout> -->
+
+
 
         <LinearLayout
             android:id="@+id/buttons"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight = "4.5"
-            android:background="#FFFF">
+            android:layout_weight = "4.5">
 
             <ImageButton
                 android:id="@id/calender_img_btn"

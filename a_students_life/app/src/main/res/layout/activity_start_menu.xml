@@ -1,70 +1,78 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/startPage_fl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="@drawable/background"
+    android:orientation="vertical"
     tools:context="at.tugraz.morning08.a_students_life.StartMenuActivity">
 
 
     <TextView
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="top|center_horizontal"
         android:keepScreenOn="true"
         android:text="@string/app_name"
-        android:textColor="#33b5e5"
+        android:textColor="#001090"
         android:textSize="40sp"
         android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@id/start_btn"
+            android:textSize="25dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:gravity="bottom"
-            android:orientation="vertical"
-            tools:ignore="UselessParent">
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/start_menu_btn"
+            android:elevation="30dp"
+            android:onClick="start_game"
+            android:text="@string/start_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@id/start_btn"
-                android:onClick="start_game"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="@string/start_btn" />
+        <Button
+            android:id="@id/load_btn"
+            android:textSize="25dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="250dp"
+            android:background="@drawable/start_menu_btn"
+            android:elevation="30dp"
+            android:onClick="loadGame"
+            android:text="@string/load_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@id/load_btn"
-                android:enabled="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:onClick="load_game"
-                android:text="@string/load_btn" />
+        <ImageButton
+            android:id="@+id/options_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/start_menu_btn"
+            android:elevation="30dp"
+            android:onClick="show_options"
+            android:padding="3dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/settings_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <Button
-                android:id="@id/options_btn"
-                android:enabled="true"
-                android:onClick="show_options"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="@string/options_btn" />
-        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
 </FrameLayout>

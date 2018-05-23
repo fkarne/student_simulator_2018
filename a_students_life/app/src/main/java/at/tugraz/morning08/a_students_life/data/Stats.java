@@ -1,8 +1,6 @@
 package at.tugraz.morning08.a_students_life.data;
 
-import java.text.DecimalFormat;
-
-import static java.lang.Double.parseDouble;
+import java.math.BigDecimal;
 
 public class Stats {
     private static int MAX = 100;
@@ -13,10 +11,10 @@ public class Stats {
     private int social = MAX;
 
     // [0.5 ; 2.0]
-    private double energy_multiplicator = 1.0;
-    private double stress_multiplicator = 1.0;
-    private double hunger_multiplicator = 1.0;
-    private double social_multiplicator = 1.0;
+    private float energy_multiplicator = 1;
+    private float stress_multiplicator = 1;
+    private float hunger_multiplicator = 1;
+    private float social_multiplicator = 1;
 
     public void initializeStudent(){
         energy = MAX;
@@ -28,10 +26,10 @@ public class Stats {
         Student.getInstance().getTime().setDay(1);
         Student.getInstance().getTime().setTimeUnit(16);
 
-        energy_multiplicator = 1.0;
-        stress_multiplicator = 1.0;
-        hunger_multiplicator = 1.0;
-        social_multiplicator = 1.0;
+        energy_multiplicator = 1;
+        stress_multiplicator = 1;
+        hunger_multiplicator = 1;
+        social_multiplicator = 1;
     }
 
     public int getEnergy() {
@@ -98,42 +96,43 @@ public class Stats {
         social -= socialChange;
     }
 
-    public double getEnergy_multiplicator() {
+    public float getEnergy_multiplicator() {
         return energy_multiplicator;
     }
 
-    public void setEnergy_multiplicator(double energy_multiplicator) {
+    public void setEnergy_multiplicator(float energy_multiplicator) {
         this.energy_multiplicator = energy_multiplicator;
     }
 
-    public double getStress_multiplicator() {
+    public float getStress_multiplicator() {
         return stress_multiplicator;
     }
 
-    public void setStress_multiplicator(double stress_multiplicator) {
+    public void setStress_multiplicator(float stress_multiplicator) {
         this.stress_multiplicator = stress_multiplicator;
     }
 
-    public double getHunger_multiplicator() {
+    public float getHunger_multiplicator() {
         return hunger_multiplicator;
     }
 
-    public void setHunger_multiplicator(double hunger_multiplicator) {
+    public void setHunger_multiplicator(float hunger_multiplicator) {
         this.hunger_multiplicator = hunger_multiplicator;
     }
 
-    public double getSocial_multiplicator() {
+    public float getSocial_multiplicator() {
         return social_multiplicator;
     }
 
-    public void setSocial_multiplicator(double social_multiplicator) {
+    public void setSocial_multiplicator(float social_multiplicator) {
         this.social_multiplicator = social_multiplicator;
     }
 
 
-    public double getConjugatedMultiplicator(double multiplicator){
-        double result = 1/multiplicator;
-        return Math.round(result*1e2)/1e2;
+    public float getConjugatedMultiplicator(float multiplicator){
+        float result = 1/multiplicator;
+        result = result * 100;
+        return ((float) ( (int) ((result - (int) result) >= 0.5f ? result + 1 : result))) / 100;
     }
 
 }

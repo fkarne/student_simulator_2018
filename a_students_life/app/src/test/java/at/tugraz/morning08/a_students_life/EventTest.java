@@ -19,7 +19,7 @@ public class EventTest {
 
     @Before
     public void beforeTest() throws Exception {
-        event = new Event("SA-Prüfung", new Time(1, 32), Event.Type.Exam, 20);
+        event = new Event("SA-Prüfung", new Time(1, 32), Event.Type.Exam, 20, null);
     }
 
     @Test
@@ -30,11 +30,11 @@ public class EventTest {
     @Test
     public void getTimeTest() throws Exception {
         Time time2 = new Time();
-        Event event2 = new Event("3. Prüfung", time2, Event.Type.Exam, 20);
+        Event event2 = new Event("3. Prüfung", time2, Event.Type.Exam, 20, null);
         assertEquals(time2, event2.getTime());
 
         Time time3 = new Time(1, 1);
-        Event event3 = new Event("3. Prüfung", time3, Event.Type.Exam, 20);
+        Event event3 = new Event("3. Prüfung", time3, Event.Type.Exam, 20, null);
         assertEquals(time3, event3.getTime());
     }
 
@@ -64,6 +64,22 @@ public class EventTest {
     public void setProbabilityPercentageTest() throws Exception {
         event.setProbabilityPercentage(50);
         assertEquals(50, event.getProbabilityPercentage());
+    }
+
+    @Test
+    public void getExamTest() throws Exception {
+        assertEquals(null, event.getExam());
+
+        Event exam = new Event("SA-Exam", new Time(2, 32), Event.Type.Exam, 50, null);
+        Event lecture = new Event("SA-Lecture", new Time(2, 10), Event.Type.Lecture, 20, exam);
+        assertEquals(exam, lecture.getExam());
+    }
+
+    @Test
+    public void setExamTest() throws  Exception {
+        Event exam = new Event("SA-Exam", new Time(2, 32), Event.Type.Exam, 50, null);
+        event.setExam(exam);
+        assertEquals(exam, event.getExam());
     }
 
     @Test

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Calendar
 {
     private static Calendar instance = null;
+    private ArrayList<Event> event_list = new ArrayList<>();
 
     public static Calendar getInstance() {
         if (instance == null) {
@@ -12,9 +13,6 @@ public class Calendar
         }
         return instance;
     }
-
-    public ArrayList<Event> event_list = new ArrayList<>();
-
 
     public Event getNextEvent()
     {

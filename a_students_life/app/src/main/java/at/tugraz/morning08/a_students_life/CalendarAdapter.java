@@ -13,8 +13,10 @@ import at.tugraz.morning08.a_students_life.data.Event;
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>{
 
     private ArrayList<Event> event_list;
+    private CalendarRecyclerViewClickListener listener;
 
-    public CalendarAdapter(ArrayList<Event> event_list) {
+    public CalendarAdapter(ArrayList<Event> event_list)
+    {
         this.event_list = event_list;
     }
 
@@ -23,7 +25,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         View item_view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.calender_item_row, parent, false);
 
-        return new CalendarViewHolder(item_view);
+        return new CalendarViewHolder(item_view, listener);
     }
 
     @Override
@@ -39,16 +41,24 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         return event_list.size();
     }
 
-    public class CalendarViewHolder extends RecyclerView.ViewHolder {
+    public void setClickListener(CalendarRecyclerViewClickListener listener) {this.listener = listener;}
+
+    public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView title;
         public TextView day;
         public TextView time;
 
-        public CalendarViewHolder(View view) {
+        public CalendarViewHolder(View view, CalendarRecyclerViewClickListener listener) {
             super(view);
             title = view.findViewById(R.id.tvEventTitle);
             time = view.findViewById(R.id.tvEventTime);
             day = view.findViewById(R.id.tvEventDay);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            listener.onClick(view, getAdapterPosition());
         }
     }
 }

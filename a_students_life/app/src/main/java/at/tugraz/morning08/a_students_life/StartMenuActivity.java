@@ -1,30 +1,23 @@
 package at.tugraz.morning08.a_students_life;
 
-import android.content.DialogInterface;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.app.Activity;
 import android.widget.RadioButton;
 
 import java.util.Locale;
 
-import at.tugraz.morning08.a_students_life.data.Student;
+import at.tugraz.morning08.a_students_life.handler.LoadSaveHandler;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
 public class StartMenuActivity extends AppCompatActivity {
-    //TODO: load-button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,29 +75,6 @@ public class StartMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_menu);
     }
 
-    public void onRadioButtonClicked(View view) {
-        RadioButton rb_en = findViewById(R.id.lang_en_radio);
-        RadioButton rb_de = findViewById(R.id.lang_de_radio);
-
-        boolean  checked = ((RadioButton) view).isChecked();
-
-        switch(view.getId()) {
-            case R.id.lang_en_radio:
-                if (checked)
-                    rb_en.setTypeface(null, Typeface.BOLD_ITALIC);
-                    //set the other two radio buttons text style to default
-                    rb_de.setTypeface(null, Typeface.NORMAL);
-                break;
-
-            case R.id.lang_de_radio:
-                if (checked)
-                    rb_de.setTypeface(null, Typeface.BOLD_ITALIC);
-                    //set the other two radio buttons text style to default
-                    rb_en.setTypeface(null, Typeface.NORMAL);
-                break;
-        }
-    }
-
     
     public void loadLocale() {
         String lang = "Language";
@@ -134,22 +104,17 @@ public class StartMenuActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    public void load_game(View view) {
+    public void loadGame(View view) {
         SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
-        Student student = Student.getInstance();
-        student.setName(prefs.getString("name", ""));
-        student.setGender(prefs.getString("gender", ""));
-        student.setStudie(prefs.getString("study", ""));
-        student.setEcts(prefs.getInt("ects",0));
-        student.setCash(prefs.getInt("money",0));
-        student.getTime().setTimeUnit(prefs.getInt("time",16));
-        student.getTime().setDay(prefs.getInt("day",1));
-        student.getStats().setEnergy(prefs.getInt("energy",100));
-        student.getStats().setStress(prefs.getInt("stress",100));
-        student.getStats().setHunger(prefs.getInt("hunger",100));
-        student.getStats().setSocial(prefs.getInt("social",100));
+        String name = prefs.getString("name","");
+        Class goTo = SetupActivity.class;
 
-        startActivity(new Intent(StartMenuActivity.this, MainPageActivity.class));
+        if(name.length() > 0) {
+            LoadSaveHandler.loadGame(view);
+            goTo = MainPageActivity.class;
+        }
+
+        startActivity(new Intent(StartMenuActivity.this, goTo));
         StartMenuActivity.this.finish();
     }
 }

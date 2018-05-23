@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/background"
     tools:context="at.tugraz.morning08.a_students_life.SetupActivity">
 
     <FrameLayout
@@ -46,6 +46,8 @@
 
             <Button
                 android:id="@id/next02_btn"
+                android:textSize="25dp"
+                android:background="@drawable/start_menu_btn"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="bottom"

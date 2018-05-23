@@ -18,7 +18,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class ActivitiesTest {
     Student student;
-    Event event;
 
     @Before
     public void beforeTest() throws Exception {
@@ -140,7 +139,7 @@ public class ActivitiesTest {
     @Test
     public void learnTest() throws Exception
     {
-        student.addEvent(new Event("exam 01", new Time(10, 16), Event.Type.Exam, 20));
+        student.addEvent(new Event("exam 01", new Time(10, 16), Event.Type.Exam, 20, null));
         student.getStats().setStress(10);
 
         Activities.learn(student);
@@ -302,9 +301,46 @@ public class ActivitiesTest {
     }
 
     @Test
+    public void visitLectureTest() throws Exception
+    {
+        Event exam = new Event("exam 01", new Time(5, 20), Event.Type.Exam, 20, null);
+        Event lecture = new Event("lecture 01", new Time(1, 16), Event.Type.Lecture, 100, exam);
+        student.getStats().setStress(10);
+
+        Activities.visitLecture(student, lecture);
+        assertEquals(96, student.getStats().getSocial());
+        assertEquals(96, student.getStats().getHunger());
+        assertEquals(13, student.getStats().getStress());
+        assertEquals(92, student.getStats().getEnergy());
+        assertEquals(20, student.getTime().getTimeUnit());
+        assertEquals(1, student.getTime().getDay());
+        assertEquals(40, lecture.getExam().getProbabilityPercentage());
+
+        Activities.visitLecture(student, lecture);
+        assertEquals(96, student.getStats().getSocial());
+        assertEquals(96, student.getStats().getHunger());
+        assertEquals(13, student.getStats().getStress());
+        assertEquals(92, student.getStats().getEnergy());
+        assertEquals(20, student.getTime().getTimeUnit());
+        assertEquals(1, student.getTime().getDay());
+        assertEquals(40, lecture.getExam().getProbabilityPercentage());
+
+
+        lecture.setTime(new Time(1, 20));
+        Activities.visitLecture(student, lecture);
+        assertEquals(92, student.getStats().getSocial());
+        assertEquals(92, student.getStats().getHunger());
+        assertEquals(16, student.getStats().getStress());
+        assertEquals(84, student.getStats().getEnergy());
+        assertEquals(24, student.getTime().getTimeUnit());
+        assertEquals(1, student.getTime().getDay());
+        assertEquals(60, lecture.getExam().getProbabilityPercentage());
+    }
+
+    @Test
     public void multiplicator1Test() throws Exception {
         student.getStats().setHunger(50);
-        student.getStats().setHunger_multiplicator(2.0);
+        student.getStats().setHunger_multiplicator(2);
 
         Activities.snack(student);
         assertEquals(99, student.getStats().getSocial());
@@ -327,8 +363,8 @@ public class ActivitiesTest {
     public void multiplicator2Test() throws Exception {
         student.getStats().setEnergy(100);
         student.getStats().setSocial(10);
-        student.getStats().setEnergy_multiplicator(2.0);
-        student.getStats().setSocial_multiplicator(0.7);
+        student.getStats().setEnergy_multiplicator(2);
+        student.getStats().setSocial_multiplicator(0.7f);
 
         Activities.partying(student);
         assertEquals(41, student.getStats().getSocial());
@@ -338,7 +374,7 @@ public class ActivitiesTest {
         assertEquals(28, student.getTime().getTimeUnit());
 
 
-        student.getStats().setEnergy_multiplicator(0.5);
+        student.getStats().setEnergy_multiplicator(0.5f);
 
         Activities.partying(student);
         assertEquals(72, student.getStats().getSocial());
@@ -351,7 +387,7 @@ public class ActivitiesTest {
     @Test
     public void multiplicator3Test() throws Exception {
         student.getStats().setStress(50);
-        student.getStats().setStress_multiplicator(1.5);
+        student.getStats().setStress_multiplicator(1.5f);
 
         Activities.readingBook(student);
         assertEquals(99, student.getStats().getSocial());
