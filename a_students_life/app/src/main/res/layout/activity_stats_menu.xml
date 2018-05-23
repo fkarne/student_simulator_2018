@@ -7,17 +7,18 @@
     tools:layout_editor_absoluteY="81dp"
     android:id="@+id/statsPage">
 
-    <ProgressBar
+    <at.tugraz.morning08.a_students_life.components.MyProgressBar
         android:id="@+id/energyProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="128dp"
         android:layout_height="17dp"
         android:layout_marginStart="50dp"
-        android:indeterminate="false"
-        android:indeterminateTint="@android:color/holo_green_light"
-        android:progressTint="@android:color/holo_green_dark"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/progress_bar_horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/energyLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/energyLabel"
+        />
 
     <TextView
         android:id="@+id/energyLabel"
@@ -63,15 +64,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/energyProgressBar" />
 
-    <ProgressBar
+
+    <at.tugraz.morning08.a_students_life.components.MyProgressBar
         android:id="@+id/stressProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="128dp"
-        android:layout_height="wrap_content"
+        android:layout_height="17dp"
         android:layout_marginStart="50dp"
-        android:progressTint="@android:color/holo_red_dark"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/progress_bar_horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stressLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/stressLabel"/>
 
     <TextView
         android:id="@+id/hungerLabel"
@@ -130,25 +134,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studyProgressBar" />
 
-    <ProgressBar
+
+    <at.tugraz.morning08.a_students_life.components.MyProgressBar
         android:id="@+id/hungerProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="128dp"
-        android:layout_height="wrap_content"
+        android:layout_height="17dp"
         android:layout_marginStart="50dp"
-        android:progressTint="@android:color/holo_orange_dark"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/progress_bar_horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hungerLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/hungerLabel"/>
 
-    <ProgressBar
-        android:id="@+id/socialProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:progressTint="@android:color/holo_blue_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/socialLabel" />
 
     <ProgressBar
         android:id="@+id/studyProgressBar"
@@ -164,6 +162,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/moneyLabel"
@@ -187,5 +186,18 @@
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/moneyLabel"
         app:layout_constraintTop_toBottomOf="@+id/socialProgressBar" />
+
+    <at.tugraz.morning08.a_students_life.components.MyProgressBar
+        android:id="@+id/socialProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="128dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="50dp"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/progress_bar_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/socialLabel"/>
+
 
 </android.support.constraint.ConstraintLayout>
