@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".SetupActivity"
                   android:configChanges="orientation"
-                  android:screenOrientation="portrait"/>
+                  android:screenOrientation="portrait"
+                  android:windowSoftInputMode="stateVisible|adjustPan"/>
         <activity android:name=".CalendarActivity"
                   android:configChanges="orientation"
                   android:screenOrientation="portrait"/>
