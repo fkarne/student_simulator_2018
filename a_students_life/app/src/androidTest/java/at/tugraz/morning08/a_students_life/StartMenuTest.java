@@ -32,13 +32,13 @@ public class StartMenuTest {
         Espresso.onView(withId(R.id.options_btn)).perform(click());
         Espresso.onView(withId(R.id.lang_en_radio)).perform(click());
         Espresso.onView(withId(R.id.save_lang_btn)).perform(click());
-        Espresso.onView(withId(R.id.options_btn)).check(matches(withText("Options")));
+        Espresso.onView(withId(R.id.load_btn)).check(matches(withText("Load")));
 
-        //change to english
+        //change to german
         Espresso.onView(withId(R.id.options_btn)).perform(click());
         Espresso.onView(withId(R.id.lang_de_radio)).perform(click());
         Espresso.onView(withId(R.id.save_lang_btn)).perform(click());
-        Espresso.onView(withId(R.id.options_btn)).check(matches(withText("Optionen")));
+        Espresso.onView(withId(R.id.load_btn)).check(matches(withText("Laden")));
     }
 
     @Test
@@ -47,6 +47,13 @@ public class StartMenuTest {
         Espresso.onView(withId(R.id.user_name_tf)).perform(click());
         Espresso.onView(withId(R.id.introduction_tv)).perform(click());
         Espresso.onView(withId(R.id.next01_btn)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void goBackFromOptions(){
+        Espresso.onView(withId(R.id.options_btn)).perform(click());
+        Espresso.pressBack();
+        Espresso.onView(withText(R.string.load_btn)).check(matches(isDisplayed()));
     }
 
     /*
