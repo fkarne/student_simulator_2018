@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +28,8 @@ import at.tugraz.morning08.a_students_life.data.Activities;
 import at.tugraz.morning08.a_students_life.data.Student;
 import at.tugraz.morning08.a_students_life.handler.LoadSaveHandler;
 import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
+import at.tugraz.morning08.a_students_life.components.MyProgressBar;
+
 
 /**
  * Created by Jeremias and Laura on 11.04.18.
