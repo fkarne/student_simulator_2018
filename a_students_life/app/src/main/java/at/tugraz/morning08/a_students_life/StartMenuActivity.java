@@ -1,6 +1,8 @@
 package at.tugraz.morning08.a_students_life;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -33,7 +35,7 @@ public class StartMenuActivity extends AppCompatActivity {
      * changes to SetupActivity
      * @param view  current View
      */
-    public void start_game(View view) {
+    public void startGame(View view) {
         startActivity(new Intent(StartMenuActivity.this, SetupActivity.class));
         StartMenuActivity.this.finish();
     }
@@ -52,7 +54,7 @@ public class StartMenuActivity extends AppCompatActivity {
     }
 
     // call options file
-    public void show_options(View view) {
+    public void showOptions(View view) {
         Locale locale;
         String lang = "Language";
         SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
@@ -77,7 +79,7 @@ public class StartMenuActivity extends AppCompatActivity {
     }
 
 
-    public void save_options_language(View view) {
+    public void saveOptionsLanguage(View view) {
         RadioButton rdb_en = findViewById(R.id.lang_en_radio);
         RadioButton rdb_de = findViewById(R.id.lang_de_radio);
 
@@ -91,7 +93,7 @@ public class StartMenuActivity extends AppCompatActivity {
     }
 
     //reset xml
-    public void cancel_options_language(View view) {
+    public void cancelOptionsLanguage(View view) {
         setContentView(R.layout.activity_start_menu);
     }
 
@@ -136,5 +138,11 @@ public class StartMenuActivity extends AppCompatActivity {
 
         startActivity(new Intent(StartMenuActivity.this, goTo));
         StartMenuActivity.this.finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        View view = findViewById(R.id.optionsMenu);
+        cancelOptionsLanguage(view);
     }
 }
