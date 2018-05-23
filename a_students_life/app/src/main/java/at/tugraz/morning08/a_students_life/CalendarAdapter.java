@@ -33,7 +33,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         holder.title.setText(event_list.get(position).getName());
         holder.time.setText(event_list.get(position).getTime().getTimeString());
         holder.day.setText("Day: " + String.valueOf(event_list.get(position).getTime().getDay()));
-
     }
 
     @Override

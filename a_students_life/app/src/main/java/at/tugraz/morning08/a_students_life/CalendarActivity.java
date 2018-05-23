@@ -23,8 +23,6 @@ import at.tugraz.morning08.a_students_life.data.Time;
  * status bar and navigation/system bar) with user interaction.
  */
 public class CalendarActivity extends AppCompatActivity implements CalendarRecyclerViewClickListener {
-
-    private ArrayList<Event> event_list = Calendar.getInstance().event_list;
     private RecyclerView recycler_view;
     private CalendarAdapter calendar_adapter;
 
@@ -34,7 +32,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
         setContentView(R.layout.activity_calendar);
         recycler_view = findViewById(R.id.rvCalenderView);
 
-        calendar_adapter = new CalendarAdapter(event_list);
+        calendar_adapter = new CalendarAdapter(Calendar.getInstance().getEventList());
         LinearLayoutManager calendar_layout_manager = new LinearLayoutManager(getApplicationContext());
         recycler_view.setLayoutManager(calendar_layout_manager);
         recycler_view.setItemAnimator(new DefaultItemAnimator());
@@ -49,6 +47,6 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
 
     @Override
     public void onClick(View view, int position) {
-        Activities.visitLecture(Student.getInstance(), event_list.get(position));
+        Activities.visitLecture(Student.getInstance(), Calendar.getInstance().getEventAt(position));
     }
 }

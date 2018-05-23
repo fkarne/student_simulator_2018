@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.testng.annotations.BeforeTest;
 
 import at.tugraz.morning08.a_students_life.data.Student;
 
