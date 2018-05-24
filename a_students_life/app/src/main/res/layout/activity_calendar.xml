@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:maxHeight="30dp"
         android:orientation="horizontal"
+        android:paddingTop="15dp"
         app:layout_constraintBottom_toTopOf="@+id/rvCalenderView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

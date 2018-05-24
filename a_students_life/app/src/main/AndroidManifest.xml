@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:configChanges="locale|orientation"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".StartMenuActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
