@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Calendar
 {
     private static Calendar instance = null;
-    private ArrayList<Event> event_list = new ArrayList<>();
+    public ArrayList<Event> event_list = new ArrayList<>();
 
     public static Calendar getInstance() {
         if (instance == null) {

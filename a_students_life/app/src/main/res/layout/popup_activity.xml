@@ -3,12 +3,14 @@
     android:id="@id/popUp_activity_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent"
+    android:background="#CCFFFFFF"
     android:baselineAligned="false"
     android:orientation="vertical"
     android:weightSum="10"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
     tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
-
+    <!-- android:background="#555b9ec6" -->
     <!-- TODO: add static buttons -->
 
     <android.support.v7.widget.RecyclerView
