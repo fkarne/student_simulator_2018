@@ -45,6 +45,7 @@ public final class EventActions {
         student.addCash(cash);
     }
 
+    //Random Events Hunger
     public static void foundCerealBar (Student student){
         checkBorderMultiplicators(student);
         float hunger = 5 *student.getStats().getHunger_multiplicator();
@@ -80,6 +81,51 @@ public final class EventActions {
         float hunger = 17 *student.getStats().getHunger_multiplicator();
 
         student.getStats().increaseHunger((int) hunger);
+        checkBorder(student);
+    }
+
+    //Random Events Social
+    public static void meetOldFriend (Student student) {
+        student.addTimeUnits(2);
+        checkBorderMultiplicators(student);
+
+        float social = 22 *student.getStats().getSocial_multiplicator();
+
+        student.getStats().increaseSocial((int) social);
+        checkBorder(student);
+    }
+
+    public static void blindDate (Student student) {
+        student.addTimeUnits(6);
+        checkBorderMultiplicators(student);
+
+        float social = 36 *student.getStats().getSocial_multiplicator();
+        float stress_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getStress_multiplicator());
+        float stress = 14 * stress_conjugated;
+
+        student.getStats().increaseSocial((int) social);
+        student.getStats().decreaseStress((int) stress);
+        checkBorder(student);
+    }
+
+    public static void onACoffeeWithParents (Student student) {
+        student.addTimeUnits(4);
+        checkBorderMultiplicators(student);
+
+        float social = 14 *student.getStats().getSocial_multiplicator();
+
+        student.getStats().increaseSocial((int) social);
+        checkBorder(student);
+    }
+
+    public static void installedWorldOfWarcraft (Student student) {
+        student.addTimeUnits(10);
+        checkBorderMultiplicators(student);
+
+        float social_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getSocial_multiplicator());
+        float social = 30 * social_conjugated;
+
+        student.getStats().decreaseSocial((int) social);
         checkBorder(student);
     }
 
