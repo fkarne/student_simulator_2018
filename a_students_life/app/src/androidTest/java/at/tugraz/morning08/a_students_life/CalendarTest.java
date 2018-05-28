@@ -37,16 +37,32 @@ public class CalendarTest {
         Espresso.onView(withText(R.string.introduction_tv)).perform(doubleClick());
         Espresso.onView(withId(R.id.next01_btn)).perform(click());
         Espresso.onView(withId(R.id.next02_btn)).perform(click());
+        Espresso.onView(withId(R.id.calender_img_btn)).perform(click());
     }
 
+
+    // calls valid lecture (student time == event time)
     @Test
     public void visitLectureTest()
     {
-        Espresso.onView(withId(R.id.calender_img_btn)).perform(click());
-        /*Time system_time = Student.getInstance().getTime();
-        Espresso.onView(withId(0)).perform(click());
-        assertNotEquals(system_time, Student.getInstance().getTime());*/
+        Time system_time = new Time(Student.getInstance().getTime().getDay(), Student.getInstance().getTime().getTimeUnit());
+        Espresso.onView(withText(R.string.lv_analysis_t1)).perform(click());
+        assertNotEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
     }
 
+    // calls invalid lecture
+    @Test
+    public void visitLectureNotTest()
+    {
+        Time system_time = new Time(Student.getInstance().getTime().getDay(), Student.getInstance().getTime().getTimeUnit());
+        Espresso.onView(withText(R.string.lv_foundations_computer_science)).perform(click());
+        assertEquals(system_time.getDay(), Student.getInstance().getTime().getDay());
+        assertEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
+    }
 
+    @Test
+    public void testButton(){
+        Espresso.pressBack();
+        Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
+    }
 }

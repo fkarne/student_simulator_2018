@@ -1,5 +1,6 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -17,6 +18,7 @@ import at.tugraz.morning08.a_students_life.data.Calendar;
 import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
 import at.tugraz.morning08.a_students_life.data.Time;
+import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -58,5 +60,15 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
         tv_day.setText(view.getContext().getText(R.string.sign_day) + " " + String.valueOf(Student.getInstance().getTime().getDay()));
         TextView tv_time = findViewById(R.id.tvTime);
         tv_time.setText(Student.getInstance().getTime().getTimeString());
+    }
+
+    @Override
+    public void onBackPressed() {
+        View view = findViewById(R.id.calendarPage);
+        if(view != null){
+            setContentView(R.layout.activity_main_page);
+            startActivity(new Intent(CalendarActivity.this, MainPageActivity.class));
+            CalendarActivity.this.finish();
+        }
     }
 }
