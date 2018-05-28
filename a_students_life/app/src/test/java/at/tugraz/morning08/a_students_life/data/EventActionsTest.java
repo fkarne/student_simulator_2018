@@ -58,4 +58,53 @@ public class EventActionsTest {
         assertTrue(1700 <= student.getCash() && student.getCash() <= 2700);
     }
 
+    @Test
+    public void foundCerealBarTest() throws Exception {
+        student.getStats().setHunger(50);
+
+        EventActions.foundCerealBar(student);
+        assertEquals(100, student.getStats().getSocial());
+        assertEquals(55, student.getStats().getHunger());
+        assertEquals(100, student.getStats().getStress());
+        assertEquals(100, student.getStats().getEnergy());
+        assertEquals(16, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void invitedToEat() throws Exception {
+        student.getStats().setHunger(50);
+
+        EventActions.invitedToEat(student);
+        assertEquals(96, student.getStats().getSocial());
+        assertEquals(75, student.getStats().getHunger());
+        assertEquals(96, student.getStats().getStress());
+        assertEquals(96, student.getStats().getEnergy());
+        assertEquals(20, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void visitFastFoodRestaurant() throws Exception {
+        student.getStats().setHunger(50);
+
+        EventActions.visitFastFoodRestaurant(student);
+        assertEquals(99, student.getStats().getSocial());
+        assertEquals(65, student.getStats().getHunger());
+        assertEquals(99, student.getStats().getStress());
+        assertEquals(99, student.getStats().getEnergy());
+        assertEquals(17, student.getTime().getTimeUnit());
+    }
+
+
+    @Test
+    public void freeFoodDayAtUniCampus() throws Exception {
+        student.getStats().setHunger(50);
+
+        EventActions.freeFoodDayAtUniCampus(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(65, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+    }
+    
 }
