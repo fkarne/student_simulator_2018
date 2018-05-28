@@ -58,6 +58,7 @@ public class EventActionsTest {
         assertTrue(1700 <= student.getCash() && student.getCash() <= 2700);
     }
 
+
     @Test
     public void foundCerealBarTest() throws Exception {
         student.getStats().setHunger(50);
@@ -106,5 +107,52 @@ public class EventActionsTest {
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
     }
-    
+
+    @Test
+    public void meetOldFriend() throws Exception {
+        student.getStats().setSocial(50);
+
+        EventActions.meetOldFriend(student);
+        assertEquals(70, student.getStats().getSocial());
+        assertEquals(98, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void blindDate() throws Exception {
+        student.getStats().setSocial(50);
+
+        EventActions.blindDate(student);
+        assertEquals(80, student.getStats().getSocial());
+        assertEquals(94, student.getStats().getHunger());
+        assertEquals(80, student.getStats().getStress());
+        assertEquals(94, student.getStats().getEnergy());
+        assertEquals(22, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void onACoffeeWithParents() throws Exception {
+        student.getStats().setSocial(50);
+
+        EventActions.onACoffeeWithParents(student);
+        assertEquals(60, student.getStats().getSocial());
+        assertEquals(96, student.getStats().getHunger());
+        assertEquals(96, student.getStats().getStress());
+        assertEquals(96, student.getStats().getEnergy());
+        assertEquals(20, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void installedWorldOfWarcraft() throws Exception {
+        student.getStats().setSocial(50);
+
+        EventActions.installedWorldOfWarcraft(student);
+        assertEquals(10, student.getStats().getSocial());
+        assertEquals(90, student.getStats().getHunger());
+        assertEquals(90, student.getStats().getStress());
+        assertEquals(90, student.getStats().getEnergy());
+        assertEquals(26, student.getTime().getTimeUnit());
+    }
 }
