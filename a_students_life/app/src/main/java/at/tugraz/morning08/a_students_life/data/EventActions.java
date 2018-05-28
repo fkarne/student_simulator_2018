@@ -170,6 +170,46 @@ public final class EventActions {
         checkBorder(student);
     }
 
+    //Random Events Stress
+    public static void meditate (Student student) {
+        student.addTimeUnits(2);
+        checkBorderMultiplicators(student);
+
+        float stress = 17 *student.getStats().getStress_multiplicator();
+
+        student.getStats().increaseStress((int) stress);
+        checkBorder(student);
+    }
+
+    public static void familyProblems (Student student) {
+        checkBorderMultiplicators(student);
+
+        float stress_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getStress_multiplicator());
+        float stress = 20 * stress_conjugated;
+
+        student.getStats().decreaseStress((int) stress);
+        checkBorder(student);
+    }
+
+    public static void someoneWithAnOpenEar (Student student) {
+        student.addTimeUnits(3);
+        checkBorderMultiplicators(student);
+
+        float stress = 23 *student.getStats().getStress_multiplicator();
+
+        student.getStats().increaseStress((int) stress);
+        checkBorder(student);
+    }
+
+    public static void goForAWalk (Student student) {
+        student.addTimeUnits(2);
+        checkBorderMultiplicators(student);
+
+        float stress = 32 *student.getStats().getStress_multiplicator();
+
+        student.getStats().increaseStress((int) stress);
+        checkBorder(student);
+    }
 
     private static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
@@ -177,8 +217,6 @@ public final class EventActions {
         student.getStats().setStress(checkBorderStat(student.getStats().getStress()));
         student.getStats().setSocial(checkBorderStat(student.getStats().getSocial()));
     }
-
-
 
     private static int checkBorderStat(int stat) {
         return stat > MAX ? MAX : (stat < MIN ? MIN : stat);

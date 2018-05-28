@@ -72,7 +72,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void invitedToEat() throws Exception {
+    public void invitedToEatTest() throws Exception {
         student.getStats().setHunger(50);
 
         EventActions.invitedToEat(student);
@@ -84,7 +84,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void visitFastFoodRestaurant() throws Exception {
+    public void visitFastFoodRestaurantTest() throws Exception {
         student.getStats().setHunger(50);
 
         EventActions.visitFastFoodRestaurant(student);
@@ -97,7 +97,7 @@ public class EventActionsTest {
 
 
     @Test
-    public void freeFoodDayAtUniCampus() throws Exception {
+    public void freeFoodDayAtUniCampusTest() throws Exception {
         student.getStats().setHunger(50);
 
         EventActions.freeFoodDayAtUniCampus(student);
@@ -109,7 +109,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void meetOldFriend() throws Exception {
+    public void meetOldFriendTest() throws Exception {
         student.getStats().setSocial(50);
 
         EventActions.meetOldFriend(student);
@@ -121,7 +121,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void blindDate() throws Exception {
+    public void blindDateTest() throws Exception {
         student.getStats().setSocial(50);
 
         EventActions.blindDate(student);
@@ -133,7 +133,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void onACoffeeWithParents() throws Exception {
+    public void onACoffeeWithParentsTest() throws Exception {
         student.getStats().setSocial(50);
 
         EventActions.onACoffeeWithParents(student);
@@ -145,7 +145,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void installedWorldOfWarcraft() throws Exception {
+    public void installedWorldOfWarcraftTest() throws Exception {
         student.getStats().setSocial(50);
 
         EventActions.installedWorldOfWarcraft(student);
@@ -157,7 +157,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void fellAsleepDuringLearning() throws Exception {
+    public void fellAsleepDuringLearningTest() throws Exception {
         student.getStats().setEnergy(50);
 
         EventActions.fellAsleepDuringLearning(student);
@@ -169,7 +169,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void invitedToWorkOut() throws Exception {
+    public void invitedToWorkOutTest() throws Exception {
         student.getStats().setEnergy(50);
 
         EventActions.invitedToWorkOut(student);
@@ -181,7 +181,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void youCanDoThis() throws Exception {
+    public void youCanDoThisTest() throws Exception {
         student.getStats().setEnergy(50);
 
         EventActions.youCanDoThis(student);
@@ -193,7 +193,7 @@ public class EventActionsTest {
     }
 
     @Test
-    public void sleeptVeryWellToday() throws Exception {
+    public void sleeptVeryWellTodayTest() throws Exception {
         student.getStats().setEnergy(50);
 
         EventActions.sleeptVeryWellToday(student);
@@ -202,5 +202,53 @@ public class EventActionsTest {
         assertEquals(100, student.getStats().getStress());
         assertEquals(60, student.getStats().getEnergy());
         assertEquals(16, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void meditateTest() throws Exception {
+        student.getStats().setStress(50);
+
+        EventActions.meditate(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(98, student.getStats().getHunger());
+        assertEquals(65, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void familyProblemsTest() throws Exception {
+        student.getStats().setStress(50);
+
+        EventActions.familyProblems(student);
+        assertEquals(100, student.getStats().getSocial());
+        assertEquals(100, student.getStats().getHunger());
+        assertEquals(30, student.getStats().getStress());
+        assertEquals(100, student.getStats().getEnergy());
+        assertEquals(16, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void someoneWithAnOpenEarTest() throws Exception {
+        student.getStats().setStress(50);
+
+        EventActions.someoneWithAnOpenEar(student);
+        assertEquals(97, student.getStats().getSocial());
+        assertEquals(97, student.getStats().getHunger());
+        assertEquals(70, student.getStats().getStress());
+        assertEquals(97, student.getStats().getEnergy());
+        assertEquals(19, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void goForAWalkTest() throws Exception {
+        student.getStats().setStress(50);
+
+        EventActions.goForAWalk(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(98, student.getStats().getHunger());
+        assertEquals(80, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
     }
 }
