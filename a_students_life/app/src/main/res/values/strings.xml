@@ -93,4 +93,13 @@
     <string name="lang_de">German</string>
     <string name="lang_de_short">de</string>
 
+    <!-- curriculum - computer science -->
+    <string name="lv_analysis_t1">Analysis T1</string>
+    <string name="lv_introduction_computer_science">Introduction to Computer Science</string>
+    <string name="lv_programming_0">Programming 0</string>
+    <string name="lv_foundations_computer_science">Foundations of Computer Science</string>
+    <string name="lv_numerical_computing_linear_algebra">Numerical Computing and Linear Algebra</string>
+    <string name="lv_computer_mathematics_1">Computer Mathematics 1</string>
+    <string name="lv_introduction_structured_programming">Introduction to Structured Programming</string>
+
 </resources>

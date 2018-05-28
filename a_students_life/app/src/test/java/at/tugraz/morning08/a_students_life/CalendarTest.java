@@ -28,11 +28,11 @@ public class CalendarTest {
 
         assertEquals(null, calendar.getNextEvent());
 
-        Event event = new Event("SA-Prüfung", new Time(1, 32), Event.Type.Exam, 20, null);
+        Event event = new Event(1, new Time(1, 32), Event.Type.Exam, 20, 3);
         calendar.addEvent(event);
         assertEquals(event, calendar.getNextEvent());
 
-        Event event2 = new Event("SW-Deadline", new Time(5, 16), Event.Type.Other, 20, null);
+        Event event2 = new Event(2, new Time(5, 16), Event.Type.Exam, 20, 4);
         calendar.addEvent(event2);
         assertEquals(event, calendar.getNextEvent());
     }
@@ -42,12 +42,12 @@ public class CalendarTest {
 
         assertEquals(null, calendar.getEventAt(0));
 
-        Event event = new Event("SA-Prüfung", new Time(1, 32), Event.Type.Exam, 20, null);
+        Event event = new Event(1, new Time(1, 32), Event.Type.Exam, 20, 3);
         calendar.addEvent(event);
 
         assertEquals(event, calendar.getEventAt(0));
 
-        Event event2 = new Event("SA-Vorlesung", new Time(1, 32), Event.Type.Exam, 20, null);
+        Event event2 = new Event(2, new Time(1, 32), Event.Type.Exam, 20, 4);
         calendar.addEvent(event2);
 
         assertEquals(event2, calendar.getEventAt(1));

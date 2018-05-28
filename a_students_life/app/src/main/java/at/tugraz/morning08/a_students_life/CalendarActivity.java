@@ -32,7 +32,8 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
         setContentView(R.layout.activity_calendar);
         recycler_view = findViewById(R.id.rvCalenderView);
 
-        calendar_adapter = new CalendarAdapter(Calendar.getInstance().getEventList());
+        Calendar.getInstance().sortEvents();
+        calendar_adapter = new CalendarAdapter(getBaseContext(), Calendar.getInstance().getEventList());
         LinearLayoutManager calendar_layout_manager = new LinearLayoutManager(getApplicationContext());
         recycler_view.setLayoutManager(calendar_layout_manager);
         recycler_view.setItemAnimator(new DefaultItemAnimator());
@@ -48,5 +49,14 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
     @Override
     public void onClick(View view, int position) {
         Activities.visitLecture(Student.getInstance(), Calendar.getInstance().getEventAt(position));
+        updateCalendarPage(view);
+    }
+
+    private void updateCalendarPage(View view)
+    {
+        TextView tv_day = findViewById(R.id.tvDay);
+        tv_day.setText(view.getContext().getText(R.string.sign_day) + " " + String.valueOf(Student.getInstance().getTime().getDay()));
+        TextView tv_time = findViewById(R.id.tvTime);
+        tv_time.setText(Student.getInstance().getTime().getTimeString());
     }
 }

@@ -95,4 +95,13 @@
     <string name="lang_de">Deutsch</string>
     <string name="lang_de_short">de</string>
 
+    <!-- curriculum - computer science -->
+    <string name="lv_analysis_t1">Analysis T1</string>
+    <string name="lv_introduction_computer_science">Einführung in das Studium der Informatik</string>
+    <string name="lv_programming_0">Programmieren 0</string>
+    <string name="lv_foundations_computer_science">Grundlagen der Informatik</string>
+    <string name="lv_numerical_computing_linear_algebra">Numerisches Rechnen und lineare Algebra</string>
+    <string name="lv_computer_mathematics_1">Computermathematik 1</string>
+    <string name="lv_introduction_structured_programming">Einführung in die strukturierte Programmierung</string>
+
 </resources>

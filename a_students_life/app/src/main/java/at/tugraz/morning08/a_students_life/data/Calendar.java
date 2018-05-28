@@ -1,6 +1,7 @@
 package at.tugraz.morning08.a_students_life.data;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Calendar
 {
@@ -45,4 +46,6 @@ public class Calendar
     {
         event_list.clear();
     }
+
+    public void sortEvents() { Collections.sort(event_list); }
 }
