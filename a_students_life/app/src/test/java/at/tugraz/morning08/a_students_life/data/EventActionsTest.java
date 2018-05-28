@@ -155,4 +155,52 @@ public class EventActionsTest {
         assertEquals(90, student.getStats().getEnergy());
         assertEquals(26, student.getTime().getTimeUnit());
     }
+
+    @Test
+    public void fellAsleepDuringLearning() throws Exception {
+        student.getStats().setEnergy(50);
+
+        EventActions.fellAsleepDuringLearning(student);
+        assertEquals(94, student.getStats().getSocial());
+        assertEquals(94, student.getStats().getHunger());
+        assertEquals(94, student.getStats().getStress());
+        assertEquals(70, student.getStats().getEnergy());
+        assertEquals(22, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void invitedToWorkOut() throws Exception {
+        student.getStats().setEnergy(50);
+
+        EventActions.invitedToWorkOut(student);
+        assertEquals(97, student.getStats().getSocial());
+        assertEquals(97, student.getStats().getHunger());
+        assertEquals(97, student.getStats().getStress());
+        assertEquals(30, student.getStats().getEnergy());
+        assertEquals(19, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void youCanDoThis() throws Exception {
+        student.getStats().setEnergy(50);
+
+        EventActions.youCanDoThis(student);
+        assertEquals(100, student.getStats().getSocial());
+        assertEquals(100, student.getStats().getHunger());
+        assertEquals(100, student.getStats().getStress());
+        assertEquals(70, student.getStats().getEnergy());
+        assertEquals(16, student.getTime().getTimeUnit());
+    }
+
+    @Test
+    public void sleeptVeryWellToday() throws Exception {
+        student.getStats().setEnergy(50);
+
+        EventActions.sleeptVeryWellToday(student);
+        assertEquals(100, student.getStats().getSocial());
+        assertEquals(100, student.getStats().getHunger());
+        assertEquals(100, student.getStats().getStress());
+        assertEquals(60, student.getStats().getEnergy());
+        assertEquals(16, student.getTime().getTimeUnit());
+    }
 }

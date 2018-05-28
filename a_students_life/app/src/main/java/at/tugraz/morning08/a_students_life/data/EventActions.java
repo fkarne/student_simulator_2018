@@ -129,6 +129,47 @@ public final class EventActions {
         checkBorder(student);
     }
 
+    //Random Events Energy
+    public static void fellAsleepDuringLearning (Student student) {
+        student.addTimeUnits(6);
+        checkBorderMultiplicators(student);
+
+        float energy = 26 *student.getStats().getEnergy_multiplicator();
+
+        student.getStats().increaseEnergy((int) energy);
+        checkBorder(student);
+    }
+
+    public static void invitedToWorkOut (Student student) {
+        student.addTimeUnits(3);
+        checkBorderMultiplicators(student);
+
+        float energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+        float energy = 17 * energy_conjugated;
+
+        student.getStats().decreaseEnergy((int) energy);
+        checkBorder(student);
+    }
+
+    //Pop-Up says something along the lines of: Your Mum wishes you all the best for your next exam
+    public static void youCanDoThis (Student student) {
+        checkBorderMultiplicators(student);
+
+        float energy = 20 *student.getStats().getEnergy_multiplicator();
+
+        student.getStats().increaseEnergy((int) energy);
+        checkBorder(student);
+    }
+
+    public static void sleeptVeryWellToday (Student student) {
+        checkBorderMultiplicators(student);
+
+        float energy = 10 *student.getStats().getEnergy_multiplicator();
+
+        student.getStats().increaseEnergy((int) energy);
+        checkBorder(student);
+    }
+
 
     private static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
