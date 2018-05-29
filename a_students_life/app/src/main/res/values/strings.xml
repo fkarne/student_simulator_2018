@@ -15,7 +15,7 @@
 
 
     <!-- Placeholder -->
-    <string name="name_ph">Name</string>
+    <string name="name_ph">Enter name</string>
     <string name="gender_ph">Gender</string>
     <string name="studies_ph">Field of Study</string>
 

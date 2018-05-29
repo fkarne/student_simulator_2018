@@ -93,7 +93,9 @@ public class MainPageActivity extends AppCompatActivity
         popup(view);
     }
 
-    public void stress_popup(View view) {popup(view); }
+    public void stress_popup(View view) {
+        popup(view);
+    }
 
     public void hunger_popup(View view) {
         popup(view);
@@ -112,6 +114,10 @@ public class MainPageActivity extends AppCompatActivity
     }
 
     public void popup(View view) {
+        //TODO [CS, LR]
+        //ImageView student_pic = findViewById(R.id.student_pic);
+        //student_pic.setVisibility(View.INVISIBLE);
+
         List<ButtonInfo> activity_list = new ArrayList<>();
         RecyclerView recycler_view;
         PopupAdapter popup_adapter;
@@ -155,12 +161,13 @@ public class MainPageActivity extends AppCompatActivity
         recycler_view.setAdapter(popup_adapter);
 
         if(Build.VERSION.SDK_INT>=21){
-            mPopupWindow.setElevation(5.0f);
+            mPopupWindow.setElevation(25.0f);
         }
 
-        int top = findViewById(R.id.stats).getHeight() + findViewById(R.id.ll_stats).getHeight();
-        mPopupWindow.setHeight(student_graphic.getHeight());
-        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,0, top);
+        int top = findViewById(R.id.stats).getHeight();
+        mPopupWindow.setHeight((int)(student_graphic.getHeight() * 0.9));
+        mPopupWindow.setWidth((int)(student_graphic.getWidth() * 0.8));
+        mPopupWindow.showAtLocation(student_graphic, Gravity.NO_GRAVITY,(int)((student_graphic.getWidth() * 0.2)/2), top);
     }
 
     public void showStatsPage(View view)    {

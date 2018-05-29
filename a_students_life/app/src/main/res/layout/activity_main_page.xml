@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:weightSum="10"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/background_2"
     tools:context="at.tugraz.morning08.a_students_life.MainPageActivity">
 
     <LinearLayout
@@ -19,59 +19,81 @@
         android:clickable="true"
         android:onClick="showStatsPage"
         android:orientation="vertical"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:paddingTop="15dp">
 
         <LinearLayout
             android:id="@+id/ll_money"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/text_money"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:inputType="textPersonName"
-                android:textSize="25dp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvDayMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/tvDayMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPersonName"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:paddingLeft="15dp"/>
 
-            <TextView
-                android:id="@+id/tvTimeMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/tvTimeMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="textPersonName"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:paddingLeft="15dp"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/ects_text"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="right"
-                android:inputType="textPersonName"
-                android:text="180"
-                android:textSize="25dp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:inputType="textPersonName"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:paddingRight="15dp"/>
+
+                <TextView
+                    android:id="@+id/ects_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:inputType="textPersonName"
+                    android:text="180"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:paddingRight="15dp"/>
+            </LinearLayout>
+
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/ll_stats"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:weightSum="4"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="4">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -104,7 +126,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/stress_btn"/>
+                    android:src="@drawable/stress_btn" />
 
                 <at.tugraz.morning08.a_students_life.components.MyProgressBar
                     android:id="@+id/progressBarStressMainPage"
@@ -126,7 +148,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/hunger_btn"/>
+                    android:src="@drawable/hunger_btn" />
 
                 <at.tugraz.morning08.a_students_life.components.MyProgressBar
                     android:id="@+id/progressBarHungerMainPage"
@@ -149,7 +171,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/social_btn"/>
+                    android:src="@drawable/social_btn" />
 
                 <at.tugraz.morning08.a_students_life.components.MyProgressBar
                     android:id="@+id/progressBarSocialMainPage"
@@ -165,19 +187,20 @@
 
     </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/student_graphic"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"
-            android:visibility="visible">
+    <LinearLayout
+        android:id="@+id/student_graphic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:visibility="visible">
 
-            <ImageView
-                android:id="@+id/student_pic"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/student_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
 
        <!-- <LinearLayout
             android:id="@+id/popUp_panel"

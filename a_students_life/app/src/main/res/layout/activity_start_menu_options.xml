@@ -1,5 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/optionsMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
@@ -36,13 +37,13 @@
             android:textSize="25sp"
             android:gravity="top|center_horizontal"
             android:text="@string/choose_lang_text"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"/>
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:checkedButton="@id/lang_en_radio">
+            android:gravity="center_horizontal">
 
             <RadioButton
                 android:id="@id/lang_en_radio"
@@ -75,7 +76,7 @@
             android:layout_marginTop="30dp"
             android:layout_weight="1"
             android:enabled="true"
-            android:onClick="save_options_language"
+            android:onClick="saveOptionsLanguage"
             android:text="@string/save_btn" />
 
         <Button
@@ -90,7 +91,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:enabled="true"
-            android:onClick="cancel_options_language"
+            android:onClick="cancelOptionsLanguage"
             android:text="@string/cancel_btn" />
 
     </LinearLayout>
