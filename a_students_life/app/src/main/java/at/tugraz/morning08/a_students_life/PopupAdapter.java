@@ -1,15 +1,15 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.List;
 
 import at.tugraz.morning08.a_students_life.components.ButtonInfo;
-import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
 
 public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHolder>{
     private List<ButtonInfo> activity_list;
@@ -34,7 +34,8 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
     public void onBindViewHolder(PopupViewHolder holder, final int position) {
         String text = view.getContext().getString(activity_list.get(position).getInfoKey());
 
-        holder.activity.setText(text);
+        holder.title.setText(text);
+        holder.info.setText("asdf");
         holder.activity.setId(position);
 
         holder.activity.setOnClickListener(new View.OnClickListener() {
@@ -52,11 +53,15 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
     }
 
     public class PopupViewHolder extends RecyclerView.ViewHolder {
-        public Button activity;
+        public ConstraintLayout activity;
+        public TextView title;
+        public TextView info;
 
         public PopupViewHolder(View view) {
             super(view);
-            activity = view.findViewById(R.id.btn_activity_recycle);
+            activity = view.findViewById(R.id.rlActivity);
+            title = view.findViewById(R.id.tvActivityTitle);
+            info = view.findViewById(R.id.tvActivityInfo);
         }
     }
 }

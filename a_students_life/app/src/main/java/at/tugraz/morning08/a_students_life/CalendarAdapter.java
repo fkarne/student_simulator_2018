@@ -49,9 +49,9 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
 
         public CalendarViewHolder(View view, CalendarRecyclerViewClickListener listener) {
             super(view);
-            title = view.findViewById(R.id.tvEventTitle);
+            title = view.findViewById(R.id.tvActivityTitle);
             time = view.findViewById(R.id.tvEventTime);
-            day = view.findViewById(R.id.tvEventDay);
+            day = view.findViewById(R.id.tvActivityInfo);
             view.setOnClickListener(this);
         }
 
