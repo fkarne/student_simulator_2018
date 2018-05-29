@@ -27,7 +27,7 @@
         app:srcCompat="?android:attr/actionModePasteDrawable" />
 
     <TextView
-        android:id="@+id/tvActivityTitle"
+        android:id="@+id/tvEventTitle"
         android:layout_width="0dp"
         android:layout_height="23dp"
         android:layout_marginEnd="8dp"
@@ -53,11 +53,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvActivityInfo"
-        app:layout_constraintTop_toBottomOf="@+id/tvActivityTitle" />
+        app:layout_constraintStart_toEndOf="@+id/tvEventDay"
+        app:layout_constraintTop_toBottomOf="@+id/tvEventTitle" />
 
     <TextView
-        android:id="@+id/tvActivityInfo"
+        android:id="@+id/tvEventDay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -69,6 +69,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvEventTime"
         app:layout_constraintStart_toEndOf="@+id/ivEventIcon"
-        app:layout_constraintTop_toBottomOf="@+id/tvActivityTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEventTitle" />
 
 </android.support.constraint.ConstraintLayout>
