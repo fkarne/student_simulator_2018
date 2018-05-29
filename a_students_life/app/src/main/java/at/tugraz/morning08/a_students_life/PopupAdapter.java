@@ -32,10 +32,49 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
 
     @Override
     public void onBindViewHolder(PopupViewHolder holder, final int position) {
-        String text = view.getContext().getString(activity_list.get(position).getInfoKey());
-
-        holder.title.setText(text);
-        holder.info.setText("asdf");
+        holder.title.setText(view.getContext().getString(activity_list.get(position).getInfoKey()));
+        switch (activity_list.get(position).getActivity())
+        {
+            case SLEEP:
+                holder.info.setText("SLEEP");
+                break;
+            case NAP:
+                holder.info.setText("NAP");
+                break;
+            case EAT:
+                holder.info.setText("EAT");
+                break;
+            case GOINGOUTTOEAT:
+                holder.info.setText("GOINGOUTTOEAT");
+                break;
+            case SNACK:
+                holder.info.setText("SNACK");
+                break;
+            case ASKFORMONEY:
+                holder.info.setText("ASKFORMONEY");
+                break;
+            case PHONECALL:
+                holder.info.setText("PHONECALL");
+                break;
+            case PARTYING:
+                holder.info.setText("PARTYING");
+                break;
+            case MEETFRIENDS:
+                holder.info.setText("MEETFRIENDS");
+                break;
+            case WATCHTV:
+                holder.info.setText("WATCHTV");
+                break;
+            case READINGBOOK:
+                holder.info.setText("READINGBOOK");
+                break;
+            case SPORTS:
+                holder.info.setText("SPORTS");
+                break;
+            case LEARN:
+                holder.info.setText("LEARN");
+                break;
+        }
         holder.activity.setId(position);
 
         holder.activity.setOnClickListener(new View.OnClickListener() {
