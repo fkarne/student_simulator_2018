@@ -25,6 +25,7 @@ import java.util.List;
 
 import at.tugraz.morning08.a_students_life.components.ButtonInfo;
 import at.tugraz.morning08.a_students_life.data.Activities;
+import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
 import at.tugraz.morning08.a_students_life.handler.LoadSaveHandler;
 import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
@@ -45,6 +46,7 @@ public class MainPageActivity extends AppCompatActivity
         setContentView(R.layout.activity_main_page);
 
         Activities.createButtonInfo();
+        Event.createLectureList();
 
         student_graphic = findViewById(R.id.student_graphic);
         updateMainPage(findViewById(R.id.mainPage));

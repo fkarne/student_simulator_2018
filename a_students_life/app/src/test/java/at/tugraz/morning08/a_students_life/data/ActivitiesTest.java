@@ -139,7 +139,7 @@ public class ActivitiesTest {
     @Test
     public void learnTest() throws Exception
     {
-        student.addEvent(new Event("exam 01", new Time(10, 16), Event.Type.Exam, 20, null));
+        student.addEvent(new Event(1, new Time(10, 16), Event.Type.Exam, 20, 3));
         student.getStats().setStress(10);
 
         Activities.learn(student);
@@ -303,8 +303,8 @@ public class ActivitiesTest {
     @Test
     public void visitLectureTest() throws Exception
     {
-        Event exam = new Event("exam 01", new Time(5, 20), Event.Type.Exam, 20, null);
-        Event lecture = new Event("lecture 01", new Time(1, 16), Event.Type.Lecture, 100, exam);
+        Event exam = new Event(2, new Time(5, 20), Event.Type.Exam, 20, 4);
+        Event lecture = new Event(2, new Time(1, 16), Event.Type.Lecture, exam);
         student.getStats().setStress(10);
 
         Activities.visitLecture(student, lecture);

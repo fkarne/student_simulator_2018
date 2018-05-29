@@ -19,22 +19,22 @@ public class EventTest {
 
     @Before
     public void beforeTest() throws Exception {
-        event = new Event("SA-Prüfung", new Time(1, 32), Event.Type.Exam, 20, null);
+        event = new Event(1, new Time(1, 32), Event.Type.Exam, 20, 3);
     }
 
     @Test
     public void getNameTest() throws Exception {
-        assertEquals("SA-Prüfung", event.getName());
+        assertEquals(1, event.getNameKey());
     }
 
     @Test
     public void getTimeTest() throws Exception {
         Time time2 = new Time();
-        Event event2 = new Event("3. Prüfung", time2, Event.Type.Exam, 20, null);
+        Event event2 = new Event(2, time2, Event.Type.Exam, 20, 4);
         assertEquals(time2, event2.getTime());
 
         Time time3 = new Time(1, 1);
-        Event event3 = new Event("3. Prüfung", time3, Event.Type.Exam, 20, null);
+        Event event3 = new Event(3, time3, Event.Type.Exam, 20, 5);
         assertEquals(time3, event3.getTime());
     }
 
@@ -45,8 +45,8 @@ public class EventTest {
 
     @Test
     public void setNameTest() throws Exception {
-        event.setName("SA-Vorlesung");
-        assertEquals("SA-Vorlesung", event.getName());
+        event.setNameKey(4);
+        assertEquals(4, event.getNameKey());
     }
 
     @Test
@@ -70,14 +70,14 @@ public class EventTest {
     public void getExamTest() throws Exception {
         assertEquals(null, event.getExam());
 
-        Event exam = new Event("SA-Exam", new Time(2, 32), Event.Type.Exam, 50, null);
-        Event lecture = new Event("SA-Lecture", new Time(2, 10), Event.Type.Lecture, 20, exam);
+        Event exam = new Event(5, new Time(2, 32), Event.Type.Exam, 50, 3);
+        Event lecture = new Event(5, new Time(2, 10), Event.Type.Lecture, exam);
         assertEquals(exam, lecture.getExam());
     }
 
     @Test
     public void setExamTest() throws  Exception {
-        Event exam = new Event("SA-Exam", new Time(2, 32), Event.Type.Exam, 50, null);
+        Event exam = new Event(1, new Time(2, 32), Event.Type.Exam, 50, 3);
         event.setExam(exam);
         assertEquals(exam, event.getExam());
     }
