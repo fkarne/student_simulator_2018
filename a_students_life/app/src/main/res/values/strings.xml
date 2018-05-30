@@ -102,4 +102,8 @@
     <string name="lv_computer_mathematics_1">Computer Mathematics 1</string>
     <string name="lv_introduction_structured_programming">Introduction to Structured Programming</string>
 
+    <!-- Toast Messages -->
+    <string name="tst_visited">Visited</string>
+    <string name="tst_error_msg">Keep track of the time!</string>
+
 </resources>
