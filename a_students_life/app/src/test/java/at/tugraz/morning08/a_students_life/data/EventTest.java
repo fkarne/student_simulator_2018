@@ -3,10 +3,6 @@ package at.tugraz.morning08.a_students_life.data;
 import org.junit.Before;
 import org.junit.Test;
 
-
-import at.tugraz.morning08.a_students_life.data.Event;
-import at.tugraz.morning08.a_students_life.data.Time;
-
 import static org.junit.Assert.assertEquals;
 
 /**

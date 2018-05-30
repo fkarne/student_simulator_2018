@@ -62,4 +62,10 @@ public class SetupActivity extends AppCompatActivity {
         InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         im.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(SetupActivity.this, StartMenuActivity.class));
+        SetupActivity.this.finish();
+    }
 }
