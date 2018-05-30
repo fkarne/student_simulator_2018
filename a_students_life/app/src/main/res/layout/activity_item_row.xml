@@ -39,9 +39,9 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:maxWidth="25dp"
+        android:minWidth="25dp"
+        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvActivityTitle" />
 
 
