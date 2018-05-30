@@ -66,7 +66,6 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
     public void onBackPressed() {
         View view = findViewById(R.id.calendarPage);
         if(view != null){
-            setContentView(R.layout.activity_main_page);
             startActivity(new Intent(CalendarActivity.this, MainPageActivity.class));
             CalendarActivity.this.finish();
         }
