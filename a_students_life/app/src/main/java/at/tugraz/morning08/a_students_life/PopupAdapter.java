@@ -1,5 +1,7 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -38,43 +40,56 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
         switch (activity_list.get(position).getActivity())
         {
             case SLEEP:
-                holder.info.setImageDrawable(null);
+                //3
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.energy_btn));
                 break;
             case NAP:
-                holder.info.setImageDrawable(null);
+                //1
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.energy_btn));
                 break;
             case EAT:
+                //2
                 holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_btn));
                 break;
             case GOINGOUTTOEAT:
-                holder.info.setImageDrawable(null);
+                //3
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_btn));
                 break;
             case SNACK:
-                holder.info.setImageDrawable(null);
+                //1
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_btn));
                 break;
             case ASKFORMONEY:
-                holder.info.setImageDrawable(null);
+                //3
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.money_btn));
                 break;
             case PHONECALL:
-                holder.info.setImageDrawable(null);
+                //1
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_btn));
                 break;
             case PARTYING:
-                holder.info.setImageDrawable(null);
+                //3
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_btn));
                 break;
             case MEETFRIENDS:
-                holder.info.setImageDrawable(null);
+                //2
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_btn));
                 break;
             case WATCHTV:
-                holder.info.setImageDrawable(null);
+                //2
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_btn));
                 break;
             case READINGBOOK:
-                holder.info.setImageDrawable(null);
+                //1
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_btn));
                 break;
             case SPORTS:
-                holder.info.setImageDrawable(null);
+                //3
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_btn));
                 break;
             case LEARN:
-                holder.info.setImageDrawable(null);
+                //3
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.study_btn));
                 break;
         }
         holder.activity.setId(position);
