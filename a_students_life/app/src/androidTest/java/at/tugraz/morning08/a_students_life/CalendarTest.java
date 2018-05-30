@@ -9,7 +9,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import at.tugraz.morning08.a_students_life.data.Calendar;
 import at.tugraz.morning08.a_students_life.data.Student;
 import at.tugraz.morning08.a_students_life.data.Time;
 

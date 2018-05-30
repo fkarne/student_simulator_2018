@@ -97,7 +97,6 @@ public class StartMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_menu);
     }
 
-    
     public void loadLocale() {
         String lang = "Language";
         SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
@@ -142,7 +141,6 @@ public class StartMenuActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        View view = findViewById(R.id.optionsMenu);
-        cancelOptionsLanguage(view);
+        cancelOptionsLanguage(null);
     }
 }
