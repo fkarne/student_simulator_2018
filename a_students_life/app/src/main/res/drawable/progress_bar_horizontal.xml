@@ -3,15 +3,15 @@
     <item android:id="@android:id/progress">
         <shape android:shape="line">
             <stroke
-                android:width="3dp"
-                android:color="#686867" />
+                android:width="5dp"
+                android:color="#dddddd" />
         </shape>
     </item>
     <item android:id="@android:id/secondaryProgress">
         <clip>
             <shape android:shape="line">
                 <stroke
-                    android:width="3dp"
+                    android:width="5dp"
                     android:color="#ff0300" />
             </shape>
         </clip>
