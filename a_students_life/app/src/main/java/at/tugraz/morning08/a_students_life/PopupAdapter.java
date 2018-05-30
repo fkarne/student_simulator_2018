@@ -1,8 +1,5 @@
 package at.tugraz.morning08.a_students_life;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -40,56 +37,43 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
         switch (activity_list.get(position).getActivity())
         {
             case SLEEP:
-                //3
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.energy_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.energy_info_3));
                 break;
             case NAP:
-                //1
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.energy_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.energy_info_1));
                 break;
             case EAT:
-                //2
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_info_2));
                 break;
             case GOINGOUTTOEAT:
-                //3
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_info_3));
                 break;
             case SNACK:
-                //1
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_info_1));
                 break;
             case ASKFORMONEY:
-                //3
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.money_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.money_info_3));
                 break;
             case PHONECALL:
-                //1
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_info_1));
                 break;
             case PARTYING:
-                //3
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_info_3));
                 break;
             case MEETFRIENDS:
-                //2
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_info_2));
                 break;
             case WATCHTV:
-                //2
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_info_2));
                 break;
             case READINGBOOK:
-                //1
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_info_1));
                 break;
             case SPORTS:
-                //3
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_info_3));
                 break;
             case LEARN:
-                //3
-                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.study_btn));
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.study_info_3));
                 break;
         }
         holder.activity.setId(position);

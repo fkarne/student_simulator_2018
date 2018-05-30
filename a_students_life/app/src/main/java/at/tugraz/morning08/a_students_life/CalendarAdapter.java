@@ -28,7 +28,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         View item_view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.calender_item_row, parent, false);
 
-        return new CalendarViewHolder(item_view, listener);
+        return new CalendarViewHolder(item_view);
     }
 
     @Override
@@ -50,11 +50,11 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         public TextView day;
         public TextView time;
 
-        public CalendarViewHolder(View view, CalendarRecyclerViewClickListener listener) {
+        public CalendarViewHolder(View view) {
             super(view);
-            title = view.findViewById(R.id.tvActivityTitle);
+            title = view.findViewById(R.id.tvEventTitle);
             time = view.findViewById(R.id.tvEventTime);
-            day = view.findViewById(R.id.tvActivityInfo);
+            day = view.findViewById(R.id.tvEventDay);
             view.setOnClickListener(this);
         }
 
