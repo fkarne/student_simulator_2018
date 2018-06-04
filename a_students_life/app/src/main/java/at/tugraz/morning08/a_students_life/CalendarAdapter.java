@@ -5,11 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import at.tugraz.morning08.a_students_life.data.Event;
+
+import static at.tugraz.morning08.a_students_life.R.attr.actionModePasteDrawable;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>{
 
@@ -36,6 +39,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         holder.title.setText(context.getString(event_list.get(position).getNameKey()));
         holder.time.setText(event_list.get(position).getTime().getTimeString());
         holder.day.setText("Day: " + String.valueOf(event_list.get(position).getTime().getDay()));
+
     }
 
     @Override
@@ -49,12 +53,14 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         public TextView title;
         public TextView day;
         public TextView time;
+        public ImageView picture;
 
         public CalendarViewHolder(View view) {
             super(view);
             title = view.findViewById(R.id.tvEventTitle);
             time = view.findViewById(R.id.tvEventTime);
             day = view.findViewById(R.id.tvEventDay);
+            picture = view.findViewById(R.id.ivEventIcon);
             view.setOnClickListener(this);
         }
 
