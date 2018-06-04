@@ -3,10 +3,6 @@ package at.tugraz.morning08.a_students_life.data;
 import org.junit.Before;
 import org.junit.Test;
 
-
-import at.tugraz.morning08.a_students_life.data.Event;
-import at.tugraz.morning08.a_students_life.data.Time;
-
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -64,6 +60,17 @@ public class EventTest {
     public void setProbabilityPercentageTest() throws Exception {
         event.setProbabilityPercentage(50);
         assertEquals(50, event.getProbabilityPercentage());
+    }
+
+    @Test
+    public void getEctsTest() throws Exception {
+        assertEquals(3, event.getEcts());
+    }
+
+    @Test
+    public void setEctsTest() throws Exception {
+        event.setEcts(123);
+        assertEquals(123, event.getEcts());
     }
 
     @Test

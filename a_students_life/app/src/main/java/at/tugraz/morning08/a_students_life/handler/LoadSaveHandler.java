@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.view.View;
 
+import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
+import at.tugraz.morning08.a_students_life.data.Time;
 
 /**
  * Created by aless on 16.05.2018.
@@ -29,8 +31,29 @@ public final class LoadSaveHandler {
             editor.putInt("ects", student.getEcts());
             editor.putInt("time", student.getTime().getTimeUnit());
             editor.putInt("day", student.getTime().getDay());
+
+            saveEvents(editor);
+
             editor.commit();
         }
+    }
+
+    private static void saveEvents(SharedPreferences.Editor editor) {
+        Student student = Student.getInstance();
+        int eventcount = 0;
+        for(; eventcount < student.getEventList().size(); eventcount++) {
+            Event event = student.getEventList().get(eventcount);
+            editor.putInt("nameE" + eventcount, event.getNameKey());
+            editor.putInt("timeE" + eventcount, event.getTime().getTimeUnit());
+            editor.putInt("dayE" + eventcount, event.getTime().getDay());
+            editor.putString("typeE" + eventcount, event.getType().toString());
+            editor.putInt("prob_perE" + eventcount, event.getProbabilityPercentage());
+            if(event.getExam() != null) {
+                editor.putInt("examKeyE" + eventcount, event.getExam().getNameKey());
+            }
+            editor.putInt("ectsE" + eventcount, event.getEcts());
+        }
+        editor.putInt("eventcount", eventcount);
     }
 
     public static void saveCharacter(View view) {
@@ -52,12 +75,39 @@ public final class LoadSaveHandler {
             student.setStudie(prefs.getString("study", ""));
             student.setEcts(prefs.getInt("ects", 0));
             student.setCash(prefs.getInt("money", 0));
-            student.getTime().setTimeUnit(prefs.getInt("time", 16));
+            student.getTime().setTimeUnit(prefs.getInt("time",16));
             student.getTime().setDay(prefs.getInt("day", 1));
             student.getStats().setEnergy(prefs.getInt("energy", 100));
             student.getStats().setStress(prefs.getInt("stress", 100));
             student.getStats().setHunger(prefs.getInt("hunger", 100));
             student.getStats().setSocial(prefs.getInt("social", 100));
+
+            loadEvent(prefs);
+        }
+    }
+
+    private static void loadEvent(SharedPreferences prefs) {
+        Student student = Student.getInstance();
+        for(int eventcount = 0; eventcount < prefs.getInt("eventcount", 7); eventcount++) {
+            int name = prefs.getInt("nameE" + eventcount, -1);
+            int time = prefs.getInt("timeE" + eventcount, -1);
+            int day = prefs.getInt("dayE" + eventcount, -1);
+
+            Event.Type type = Event.Type.valueOf(prefs.getString("typeE" + eventcount, "Default"));
+
+            if(type == Event.Type.Lecture) {
+                int examKey = prefs.getInt("examKeyE" + eventcount, -1);
+                for(Event event : student.getEventList()) {
+                    if(event.getNameKey() == examKey) {
+                        student.addEvent(new Event(name, new Time(day, time), type, event));
+                        break;
+                    }
+                }
+            } else {
+                int prob_per = prefs.getInt("prob_perE" + eventcount, -1);
+                int ects = prefs.getInt("ectsE" + eventcount, -1);
+                student.addEvent(new Event(name, new Time(day, time), type, prob_per, ects));
+            }
         }
     }
 

@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -61,5 +60,11 @@ public class SetupActivity extends AppCompatActivity {
     public void hideVirtualKeyboard(View view) {
         InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         im.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(SetupActivity.this, StartMenuActivity.class));
+        SetupActivity.this.finish();
     }
 }

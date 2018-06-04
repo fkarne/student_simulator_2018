@@ -1,8 +1,6 @@
 package at.tugraz.morning08.a_students_life;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -97,7 +95,6 @@ public class StartMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_menu);
     }
 
-    
     public void loadLocale() {
         String lang = "Language";
         SharedPreferences prefs = getSharedPreferences("CommonPrefs", Activity.MODE_PRIVATE);
@@ -142,7 +139,6 @@ public class StartMenuActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        View view = findViewById(R.id.optionsMenu);
-        cancelOptionsLanguage(view);
+        cancelOptionsLanguage(null);
     }
 }

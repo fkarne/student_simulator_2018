@@ -3,12 +3,6 @@ package at.tugraz.morning08.a_students_life.data;
 import org.junit.Before;
 import org.junit.Test;
 
-import at.tugraz.morning08.a_students_life.data.Activities;
-import at.tugraz.morning08.a_students_life.data.Event;
-import at.tugraz.morning08.a_students_life.data.Stats;
-import at.tugraz.morning08.a_students_life.data.Student;
-import at.tugraz.morning08.a_students_life.data.Time;
-
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -198,6 +192,15 @@ public class ActivitiesTest {
         assertEquals(92, student.getStats().getEnergy());
         assertEquals(24, student.getTime().getTimeUnit());
         assertEquals(100, student.getCash());
+
+        student.setCash(49);
+        Activities.goingOutToEat(student);
+        assertEquals(60, student.getStats().getSocial());
+        assertEquals(80, student.getStats().getHunger());
+        assertEquals(92, student.getStats().getStress());
+        assertEquals(92, student.getStats().getEnergy());
+        assertEquals(24, student.getTime().getTimeUnit());
+        assertEquals(49, student.getCash());
     }
 
     @Test
@@ -298,6 +301,15 @@ public class ActivitiesTest {
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
         assertEquals(160, student.getCash());
+
+        student.setCash(19);
+        Activities.snack(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(64, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
+        assertEquals(19, student.getCash());
     }
 
     @Test
