@@ -77,7 +77,7 @@ public class Event implements Comparable
             Calendar.getInstance().addEvent(analysis_exam);
             Calendar.getInstance().addEvent(analysis_lecture);
 
-            Event programming_0_exam = new Event(R.string.lv_programming_0, new Time(3, 24), Type.Exam, 60, 1.5);
+            Event programming_0_exam = new Event(R.string.lv_programming_0, new Time(3, 24), Type.Exam, 75, 1.5);
             Event programming_0_lecture = new Event(R.string.lv_programming_0, new Time(1, 16), Type.Lecture, programming_0_exam);
             Calendar.getInstance().addEvent(programming_0_exam);
             Calendar.getInstance().addEvent(programming_0_lecture);

@@ -39,6 +39,26 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         holder.title.setText(context.getString(event_list.get(position).getNameKey()));
         holder.time.setText(event_list.get(position).getTime().getTimeString());
         holder.day.setText("Day: " + String.valueOf(event_list.get(position).getTime().getDay()));
+        if(event_list.get(position).getType() == Event.Type.Lecture) {
+            holder.picture.setImageResource(R.drawable.lecture);
+            holder.picture.setTag(R.drawable.lecture);
+        }
+        else
+        {
+            if(event_list.get(position).getProbabilityPercentage() > 70) {
+                holder.picture.setImageResource(R.drawable.certificate_green);
+                holder.picture.setTag(R.drawable.certificate_green);
+            }
+            else if(event_list.get(position).getProbabilityPercentage() > 30) {
+                holder.picture.setImageResource(R.drawable.certificate_yellow);
+                holder.picture.setTag(R.drawable.certificate_yellow);
+            }
+            else {
+                holder.picture.setImageResource(R.drawable.certificate_red);
+                holder.picture.setTag(R.drawable.certificate_red);
+            }
+        }
+        holder.picture.setAlpha(0.5f);
 
     }
 
