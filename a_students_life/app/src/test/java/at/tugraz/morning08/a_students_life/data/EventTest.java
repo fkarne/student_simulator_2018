@@ -63,6 +63,17 @@ public class EventTest {
     }
 
     @Test
+    public void getEctsTest() throws Exception {
+        assertEquals(3, event.getEcts());
+    }
+
+    @Test
+    public void setEctsTest() throws Exception {
+        event.setEcts(123);
+        assertEquals(123, event.getEcts());
+    }
+
+    @Test
     public void getExamTest() throws Exception {
         assertEquals(null, event.getExam());
 

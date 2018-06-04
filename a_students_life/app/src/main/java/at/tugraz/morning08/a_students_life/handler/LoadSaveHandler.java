@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.view.View;
 
+import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
 
 /**
@@ -29,7 +30,26 @@ public final class LoadSaveHandler {
             editor.putInt("ects", student.getEcts());
             editor.putInt("time", student.getTime().getTimeUnit());
             editor.putInt("day", student.getTime().getDay());
+
+            saveEvents(editor);
+
             editor.commit();
+        }
+    }
+
+    private static void saveEvents(SharedPreferences.Editor editor) {
+        Student student = Student.getInstance();
+        for(int i = 0; i < student.getEventList().size(); i++) {
+            Event event = student.getEventList().get(i);
+            editor.putInt("nameE" + i, event.getNameKey());
+            editor.putInt("timeE" + i, event.getTime().getTimeUnit());
+            editor.putInt("dayE" + i, event.getTime().getDay());
+            editor.putString("typeE" + i, event.getType().toString());
+            editor.putInt("prob_perE" + i, event.getProbabilityPercentage());
+            if(event.getExam() != null) {
+                editor.putInt("examKey" + i, event.getExam().getNameKey());
+            }
+            editor.putInt("ects" + i, event.getEcts());
         }
     }
 
