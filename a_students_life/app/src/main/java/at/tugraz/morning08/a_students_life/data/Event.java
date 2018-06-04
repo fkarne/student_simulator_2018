@@ -16,7 +16,7 @@ public class Event implements Comparable
     private Type type;
     private int probability_percentage; // [0; 100]
     private Event exam;
-    private double ects;
+    private int ects;
     private static Boolean init = false;
 
     //LV Contructor
@@ -28,7 +28,7 @@ public class Event implements Comparable
     }
 
     //Exam Contructor
-    public Event(int name_key, Time time, Type type, int probability_percentage, double ects) {
+    public Event(int name_key, Time time, Type type, int probability_percentage, int ects) {
         this.name_key = name_key;
         this.time = time;
         this.type = type;
@@ -70,6 +70,14 @@ public class Event implements Comparable
         return this.getTime().compareTo(((Event)o).getTime());
     }
 
+    public int getEcts() {
+        return ects;
+    }
+
+    public void setEcts(int ects) {
+        this.ects = ects;
+    }
+
     public static void createLectureList() {
         if(!init) {
             Event analysis_exam = new Event(R.string.lv_analysis_t1, new Time(10, 24), Type.Exam, 20, 7);
@@ -77,7 +85,7 @@ public class Event implements Comparable
             Calendar.getInstance().addEvent(analysis_exam);
             Calendar.getInstance().addEvent(analysis_lecture);
 
-            Event programming_0_exam = new Event(R.string.lv_programming_0, new Time(3, 24), Type.Exam, 60, 1.5);
+            Event programming_0_exam = new Event(R.string.lv_programming_0, new Time(3, 24), Type.Exam, 60, 1);
             Event programming_0_lecture = new Event(R.string.lv_programming_0, new Time(1, 16), Type.Lecture, programming_0_exam);
             Calendar.getInstance().addEvent(programming_0_exam);
             Calendar.getInstance().addEvent(programming_0_lecture);
@@ -87,12 +95,12 @@ public class Event implements Comparable
             Calendar.getInstance().addEvent(foundations_computer_science_exam);
             Calendar.getInstance().addEvent(foundations_computer_science_lecture);
 
-            Event computer_mathematics_1_exam = new Event(R.string.lv_computer_mathematics_1, new Time(6, 30), Type.Exam, 50, 1.5);
+            Event computer_mathematics_1_exam = new Event(R.string.lv_computer_mathematics_1, new Time(6, 30), Type.Exam, 50, 1);
             Event computer_mathematics_1_lecture = new Event(R.string.lv_computer_mathematics_1, new Time(3, 10), Type.Lecture, programming_0_exam);
             Calendar.getInstance().addEvent(computer_mathematics_1_exam);
             Calendar.getInstance().addEvent(computer_mathematics_1_lecture);
 
-            Event numerical_computing_linear_algebra_exam = new Event(R.string.lv_numerical_computing_linear_algebra, new Time(12, 26), Type.Exam, 30, 4.5);
+            Event numerical_computing_linear_algebra_exam = new Event(R.string.lv_numerical_computing_linear_algebra, new Time(12, 26), Type.Exam, 30, 4);
             Event numerical_computing_linear_algebra_lecture = new Event(R.string.lv_numerical_computing_linear_algebra, new Time(2, 40), Type.Lecture, numerical_computing_linear_algebra_exam);
             Calendar.getInstance().addEvent(numerical_computing_linear_algebra_exam);
             Calendar.getInstance().addEvent(numerical_computing_linear_algebra_lecture);
