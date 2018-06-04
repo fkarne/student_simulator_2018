@@ -46,6 +46,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
         day_view.setText(getText(R.string.sign_day) + " " + String.valueOf(Student.getInstance().getTime().getDay()));
         TextView time_view = findViewById(R.id.tvTime);
         time_view.setText(Student.getInstance().getTime().getTimeString());
+
     }
 
     @Override
