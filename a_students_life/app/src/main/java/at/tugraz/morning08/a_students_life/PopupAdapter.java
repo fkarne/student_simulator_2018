@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import at.tugraz.morning08.a_students_life.components.ButtonInfo;
+import at.tugraz.morning08.a_students_life.data.Student;
 
 public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHolder>{
     private List<ButtonInfo> activity_list;

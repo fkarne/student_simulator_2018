@@ -110,16 +110,19 @@ public final class Activities
 
     //Sub Hunger
     public static void goingOutToEat(Student student) {
-        student.addTimeUnits(4);
-        checkBorderMultiplicators(student);
+        int cost = 50;
+        if(checkMoney(student, cost)) {
+            student.addTimeUnits(4);
+            checkBorderMultiplicators(student);
 
-        float social = 9 *student.getStats().getSocial_multiplicator();
-        float hunger = 19 *student.getStats().getHunger_multiplicator();
+            float social = 9 * student.getStats().getSocial_multiplicator();
+            float hunger = 19 * student.getStats().getHunger_multiplicator();
 
-        student.getStats().increaseHunger((int) hunger);
-        student.getStats().increaseSocial((int)social);
-        student.addCash(-50);
-        checkBorder(student);
+            student.getStats().increaseHunger((int) hunger);
+            student.getStats().increaseSocial((int) social);
+            student.addCash(-cost);
+            checkBorder(student);
+        }
     }
 
     //Sub Stress
@@ -176,14 +179,17 @@ public final class Activities
 
     //Sub Hunger
     public static void snack(Student student) {
-        student.addTimeUnits(1);
-        checkBorderMultiplicators(student);
+        int cost = 20;
+        if(checkMoney(student, cost)) {
+            student.addTimeUnits(1);
+            checkBorderMultiplicators(student);
 
-        float hunger = 8 *student.getStats().getHunger_multiplicator();
+            float hunger = 8 * student.getStats().getHunger_multiplicator();
 
-        student.getStats().increaseHunger((int) hunger);
-        student.addCash(-20);
-        checkBorder(student);
+            student.getStats().increaseHunger((int) hunger);
+            student.addCash(-cost);
+            checkBorder(student);
+        }
     }
 
     public static void visitLecture(Student student, Event lecture) {
@@ -215,8 +221,6 @@ public final class Activities
         student.getStats().setSocial(checkBorderStat(student.getStats().getSocial()));
     }
 
-
-
     private static int checkBorderStat(int stat) {
         return stat > MAX ? MAX : (stat < MIN ? MIN : stat);
     }
@@ -230,6 +234,10 @@ public final class Activities
 
     private static float checkBorderMults(float multiplicator) {
         return multiplicator > MAX_MULT ? MAX_MULT : (multiplicator < MIN_MULT ? MIN_MULT : multiplicator);
+    }
+
+    private static boolean checkMoney(Student student, int money) {
+        return student.getCash() >= money;
     }
 
     public static void createButtonInfo() {
