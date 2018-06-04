@@ -1,5 +1,6 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.app.AlertDialog;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import at.tugraz.morning08.a_students_life.components.ButtonInfo;
-import at.tugraz.morning08.a_students_life.data.Student;
 
 public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHolder>{
     private List<ButtonInfo> activity_list;
@@ -82,8 +82,18 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
         holder.activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_list.get(position).invokeMethod();
-                mainPageActivity.updateMainPage(view);
+                if(activity_list.get(position).invokeMethod()) {
+                    mainPageActivity.updateMainPage(view);
+                }
+                else
+                {
+                     new AlertDialog.Builder(view.getContext())
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle(view.getContext().getText(R.string.less_money))
+                            .setMessage(view.getContext().getText(R.string.less_money_msg))
+                            .setPositiveButton(view.getContext().getText(R.string.ok_btn), null)
+                            .show();
+                }
             }
         });
     }
