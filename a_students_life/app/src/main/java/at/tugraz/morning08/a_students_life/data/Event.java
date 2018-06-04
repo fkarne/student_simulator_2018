@@ -2,10 +2,6 @@ package at.tugraz.morning08.a_students_life.data;
 
 import android.support.annotation.NonNull;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import at.tugraz.morning08.a_students_life.R;
 
 public class Event implements Comparable
