@@ -15,14 +15,15 @@ public class ButtonInfo {
         this.infoKey = infoKey;
     }
 
-    public void invokeMethod(){
+    public boolean invokeMethod(){
         try {
             Class c = Class.forName("at.tugraz.morning08.a_students_life.data.Activities");
             Method method = c.getDeclaredMethod(this.activity.toString(), Student.class);
-            method.invoke(c, Student.getInstance());
+            return (boolean) method.invoke(c, Student.getInstance());
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     public int getInfoKey() {

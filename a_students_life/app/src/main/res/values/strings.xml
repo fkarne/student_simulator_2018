@@ -12,7 +12,11 @@
     <string name="back_btn">Back</string>
     <string name="no_btn">No</string>
     <string name="yes_btn">Yes</string>
+    <string name="ok_btn">Okay</string>
 
+    <!-- MoneyAlert -->
+    <string name="less_money">Too less money!</string>
+    <string name="less_money_msg">Seems like you spent a little bit to much on bullshit!</string>
 
     <!-- Placeholder -->
     <string name="name_ph">Enter name</string>
