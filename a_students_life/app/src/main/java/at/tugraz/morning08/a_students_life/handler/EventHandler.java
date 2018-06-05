@@ -22,6 +22,7 @@ import at.tugraz.morning08.a_students_life.data.Time;
 public final class EventHandler {
     private static List<Event> exam_list = new ArrayList<>();
     private static int MAX_DAY = 0;
+    private static int MAX_EXAMS = 3;
 
     public List<Event> getExam_list() {
         return exam_list;
@@ -31,60 +32,157 @@ public final class EventHandler {
     }
     public static int getMaxDay() { return MAX_DAY; }
 
-    public static void createNewExams(){
-        List<Event> current_exams = new ArrayList<>();
+    private static int nrOfUncompletedExam()
+    {
+        int count = 0;
+        for(Event e:exam_list)
+        {
+            if(!e.isCompleted())
+            {
+                count++; //wenn noch nicht abgeschlossene Exam vorhanden
+            }
+        }
+        return count;
+    }
+
+    private static Event getNewExam() {
         List<Integer> lectures = Arrays.asList(R.array.lecures_informatics);
+
+        System.out.println("************* lectures: "+lectures.size());
+        //System.out.println("************* inhalt: "+lectures.get(0)+", "+lectures.get(1)+", "+lectures.get(2)+"...");
+
+
         int min = Student.getInstance().getTime().getDay() +2;
         MAX_DAY = Student.getInstance().getTime().getDay() +9;
+
+        Random randi = new Random();
+        int day = randi.nextInt((MAX_DAY-min)+1)+min;
+        int ects = randi.nextInt(20-10+1)+10;
+
+        for (int l = 0; l < lectures.size(); l++) {
+            for (Event e : exam_list) {
+                if(e.getNameKey() == lectures.get(l) && !e.isCompleted())
+                {
+                    System.out.println("found exam with same name key....");
+                    Event exam = new Event(lectures.get(l), new Time(day, 24), Event.Type.Exam, 20, ects);
+                    return exam;
+                }
+            }
+        }
+        return null;
+    }
+
+    public static void createNewExams(){
+        List<Event> current_exams = new ArrayList<>();
+        /*List<Integer> lectures = Arrays.asList(R.array.lecures_informatics);
+
+        int min = Student.getInstance().getTime().getDay() +2;
+        MAX_DAY = Student.getInstance().getTime().getDay() +9;
+
         Random randi = new Random();
         int day = randi.nextInt((MAX_DAY-min)+1)+min;
         int index = randi.nextInt(lectures.size());
         int ects = randi.nextInt(20-10+1)+10;
-        boolean found_element = false;
 
-        if(exam_list.size() > 0){
-            found_element = false;
+        boolean found_element = false;
+        */
+
+        if(nrOfUncompletedExam() >= MAX_EXAMS) {
+            //find element with random index and check if completed --> add to curr_exams
+
+            //finding uncompleted Element
             for (Event exam: exam_list) {
-                    if(exam.getNameKey() == lectures.get(index)){
-                        if(!exam.isCompleted()) {
-                            current_exams.add(exam);
-                        }
-                        found_element = true;
-                    }
-                }
-                if(!found_element) {
-                    // create new exam
-                    Event exam = new Event(lectures.get(index), new Time(day, 24), Event.Type.Exam, 20, ects);
-                    exam_list.add(exam);
+                if(exam.getType() == Event.Type.Exam && !exam.isCompleted() && current_exams.size() < MAX_EXAMS){
                     current_exams.add(exam);
                 }
-        }
-        else {
-            for(int i = 0; i < 3; i++){
+            }
+
+
+            //create new exam to add
+            //System.out.println("kein brauchbares element gefunden... exam erzeugen...");
+
+            /*for (int l = 0; l < lectures.size(); l++) {
+                for (Event e:exam_list) {
+                    if(e.getNameKey()==)
+                }
+            }
+
+            Event exam = new Event(lectures.get(index), new Time(day, 24), Event.Type.Exam, 20, ects);
+            exam_list.add(exam);
+            current_exams.add(exam);*/
+
+            /*if(!found_element) {
+                // create new exam
+                System.out.println("kein brauchbares element gefunden... exam erzeugen...");
                 Event exam = new Event(lectures.get(index), new Time(day, 24), Event.Type.Exam, 20, ects);
                 exam_list.add(exam);
                 current_exams.add(exam);
-                ects = randi.nextInt(20-10+1)+10;
-                day = randi.nextInt((MAX_DAY-min)+1)+min;
+            }*/
+        }
+        else if(nrOfUncompletedExam()>0) {
+            int remaining = MAX_EXAMS - nrOfUncompletedExam();
 
-
-                do {
-                    found_element = false;
-                    index = randi.nextInt(lectures.size());
-
-                    for (Event e : exam_list) {
-                        if (e.getNameKey() == lectures.get(index)) {
-                            found_element = true;
-                        }
-                    }
-                }while(found_element);
+            //add uncompleted elements
+            for (Event e:exam_list) {
+                if(e.getType() == Event.Type.Exam && !e.isCompleted()){
+                    current_exams.add(e);
+                }
             }
 
+            //create remaining elements
+            for(int i = 0; i < remaining; i++)
+            {
+                Event exam = getNewExam();
+                if(exam!=null) {
+                    exam_list.add(exam);
+                    current_exams.add(exam);
+                }
+                else {
+                    System.out.println("HILFE KEINE EXAMEN MEHR VORHANDEN!");
+                    break;
+                }
+            }
+        }
+        else {
+            //no uncompleted Exams in exam_list left
+            //creating 3 new exams...
+            System.out.println("exam wird erzeugt...");
+            for(int i = 0; i < MAX_EXAMS; i++){
+
+                Event exam = getNewExam();
+                if(exam!=null) {
+                    exam_list.add(exam);
+                    current_exams.add(exam);
+                }
+                else {
+                    System.out.println("HILFE!!! KEINE EXAMEN MEHR VORHANDEN!");
+                    break;
+                }
+            }
+
+
+            /*Event exam = new Event(lectures.get(index), new Time(day, 24), Event.Type.Exam, 20, ects);
+            exam_list.add(exam);
+            current_exams.add(exam);
+            ects = randi.nextInt(20-10+1)+10;
+            day = randi.nextInt((MAX_DAY-min)+1)+min;
+
+
+            do {
+                found_element = false;
+                index = randi.nextInt(lectures.size());
+
+                for (Event e : exam_list) {
+                    if (e.getNameKey() == lectures.get(index)) {
+                        found_element = true;
+                    }
+                }
+            }while(found_element);*/
         }
 
         for(Event exam: current_exams) {
 //            System.out.println("exam: " + Resources.getSystem().getResourceEntryName(exam.getNameKey()));
-            System.out.println("for each..."+exam.getNameKey());
+            System.out.println("exam wird an Student übergeben..."+exam.getNameKey());
             Student.getInstance().addEvent(exam);
         }
     }
