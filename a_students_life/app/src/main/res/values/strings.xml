@@ -25,6 +25,7 @@
     <string name="gender_male_li">male</string>
     <string name="studies_inf_li">Informatics</string>
     <string name="studies_bwl_li">Business Studies</string>
+    <string name="studies_phi_li">Philosophy</string>
 
     <!-- Text Content -->
     <string name="introduction_tv">
@@ -93,7 +94,7 @@
     <string name="lang_de">German</string>
     <string name="lang_de_short">de</string>
 
-    <!-- curriculum - computer science -->
+    <!-- curriculum - computer science: 25 ~ 7,2 ECTS/lv -->
     <string name="lv_analysis_t1">Analysis T1</string>
     <string name="lv_introduction_computer_science">Introduction to Computer Science</string>
     <string name="lv_programming_0">Programming 0</string>
@@ -101,6 +102,80 @@
     <string name="lv_numerical_computing_linear_algebra">Numerical Computing and Linear Algebra</string>
     <string name="lv_computer_mathematics_1">Computer Mathematics 1</string>
     <string name="lv_introduction_structured_programming">Introduction to Structured Programming</string>
+    <string name="lv_discrete_mathematics">Discrete Mathematics</string>
+    <string name="lv_human_computer_interaction">Human Computer Interaction</string>
+    <string name="lv_software_development_laboratory">Softwaredevelopment Laboratory</string>
+    <string name="lv_computer_association">Computer Association</string>
+    <string name="lv_databases">Databases</string>
+    <string name="lv_computational_intelligence">Computational Intelligence</string>
+    <string name="lv_web_science">Web Science</string>
+    <string name="lv_microcontroller">Microcontroller</string>
+    <string name="lv_computer_vision_1">Computer Vision 1</string>
+    <string name="lv_computer_graphics_1">Computer Graphics 1</string>
+    <string name="lv_technical_informatics">Technical Informatics</string>
+    <string name="lv_geometrical_algorithms">Geometrical Algorithms</string>
+    <string name="lv_operation_systems">Operating Systems</string>
+    <string name="lv_software_paradigm">Softwareparadigm</string>
+    <string name="lv_statistics_for_info">Statistics for computer science students</string>
+    <string name="lv_theorie_of_probabilities">Theory of Orobabilities for computer science students</string>
+    <string name="lv_software_maintenance">Software-Maintenance</string>
+    <string name="lv_objectoriented_analysis_design">Objectoriented Analysis and Design</string>
+
+
+    <!-- curriculum - BWL: 25 ~ 7,2 ECTS/lv -->
+    <string name="lv_introduction_to_business_administration">Introduction to Business Administration</string>
+    <string name="lv_introduction_to_sociology">Introduction to Sociology</string>
+    <string name="lv_introduction_to_political_economics">Introduction to Political Economics</string>
+    <string name="lv_accounting_basics">Basics: Accounting</string>
+    <string name="lv_finance_basics">Basics: Finance</string>
+    <string name="lv_marketing_basics">Basics: Marketing</string>
+    <string name="lv_production_and_logistics_basics">Basics: Production and Logistics</string>
+    <string name="lv_management_basics">Basics: Management</string>
+    <string name="lv_business_arithmetics">Business Arithmetics</string>
+    <string name="lv_statistics">Statistics</string>
+    <string name="lv_accounting">Accounting</string>
+    <string name="lv_information_management_basics">Basics: Information Management</string>
+    <string name="lv_business_plan_and_entrepreneurship">Business Plan und Entrepreneurship</string>
+    <string name="lv_budgeting">Budgeting</string>
+    <string name="lv_strategic_controlling">Strategic Controlling</string>
+    <string name="lv_tax_planning">Tax Planning and Tax Effects Doctrine</string>
+    <string name="lv_corporate_financial_management">Corporate Financial Management 1</string>
+    <string name="lv_capital_budgeting">Capital Budgeting</string>
+    <string name="lv_advanced_marketing_research">Advanced Marketing Research</string>
+    <string name="lv_quantitative_planning_systems">Quantitative Planningsystems</string>
+    <string name="lv_business_models">Business models 1</string>
+    <string name="lv_human_resource_research">Human Resource Research</string>
+    <string name="lv_business_law">Business Law</string>
+    <string name="lv_financial_law">Financial Law</string>
+    <string name="lv_eu_community_law">European Community Law</string>
+
+
+    <string name="lv_introduction_to_philosophy">Introduction to Philosophy</string>
+    <string name="lv_introduction_to_history_of_philosophy">Introduction to the History of Philosophy</string>
+    <string name="lv_elemental_logic">Elemental Logic</string>
+    <string name="lv_introduction_to_ethics">Introduction to Ethics</string>
+    <string name="lv_introduction_to_cognitive_science">Introduction to Cognitive Science</string>
+    <string name="lv_introduction_to_philosophy_of_logic">Introduction to Philosophy of Logic</string>
+    <string name="lv_introduction_to_philosophy_of_language">Introduction to Philosophy of Languages</string>
+    <string name="lv_introduction_to_metaphysics">Introduction to Metaphysics/Ontology</string>
+    <string name="lv_introduction_to_philosophy_of_spirit">Introduction to Philosophy of the Spirit</string>
+    <string name="lv_introduction_to_philosophy_of_science">Introduction to Philosophy of Science</string>
+    <string name="lv_expansion_of_theoretical_philosophy">Expansion of Theoretical Philosophy</string>
+    <string name="lv_expansion_of_practical_philosophy">Expansion Practical Philosophy</string>
+    <string name="lv_feministic_philosophy">Feminist Philosophy</string>
+    <string name="lv_cultural_philosophy">Philosophy of Culture</string>
+    <string name="lv_religious_philosophy">Philosophy of Religion</string>
+    <string name="lv_metaethics">Metaethics</string>
+    <string name="lv_value_theory">Value Theory</string>
+    <string name="lv_philosophy_of_history">Philosophy of History</string>
+    <string name="lv_philosophical_anthropology">Philosophical Anthropology</string>
+    <string name="lv_political_philosophy">Political Philosophy</string>
+    <string name="lv_ideological_critiques">Ideological Critiques</string>
+    <string name="lv_aesthetics">Aesthetics</string>
+    <string name="lv_nature_philosophy">Philosophy of Nature</string>
+    <string name="lv_gender_studies">Gender Studies</string>
+    <string name="lv_history_of_science">History of Science</string>
+
 
     <!-- Toast Messages -->
     <string name="tst_visited">Visited</string>

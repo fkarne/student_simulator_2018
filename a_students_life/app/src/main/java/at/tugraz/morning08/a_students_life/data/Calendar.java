@@ -49,7 +49,5 @@ public class Calendar
 
     public void sortEvents() { Collections.sort(event_list); }
 
-    public void removeEvent(Event event){
-        event_list.remove(event);
-    }
+    public void removeEvent(Event event){ event_list.remove(event); }
 }

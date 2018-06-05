@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -35,13 +33,29 @@ public final class EventHandler {
 
     public static void createNewExams(Context context){
         List<Event> current_exams = new ArrayList<>();
-        TypedArray lectures = context.getResources().obtainTypedArray(R.array.lectures_informatics);
+        TypedArray lectures;
+        int probability = 0;
+
+        // set studies & difficulty
+        if(Student.getInstance().getStudie().equals(context.getString(R.string.studies_inf_li))){
+           lectures = context.getResources().obtainTypedArray(R.array.lectures_informatics);
+           probability = 20;
+        }
+        else if(Student.getInstance().getStudie().equals(context.getString(R.string.studies_bwl_li))){
+            lectures = context.getResources().obtainTypedArray(R.array.lectures_bwl);
+            probability = 35;
+        }
+        else{
+            lectures = context.getResources().obtainTypedArray(R.array.lectures_philosophy);
+            probability = 50;
+        }
+
         int min = Student.getInstance().getTime().getDay() +2;
         MAX_DAY = Student.getInstance().getTime().getDay() +9;
         Random randi = new Random();
         int day = randi.nextInt((MAX_DAY-min)+1)+min;
         int index = randi.nextInt(lectures.length());
-        int ects = randi.nextInt(20-10+1)+10;
+        int ects = randi.nextInt(10-6+1)+6;
         boolean found_element = false;
 
         if(exam_list.size() > 0){
@@ -56,16 +70,14 @@ public final class EventHandler {
                 }
                 if(!found_element) {
                     // create new exam
-                    Event exam = new Event(lectures.getResourceId(index, 0), new Time(day, 24), Event.Type.Exam, 20, ects);
+                    Event exam = new Event(lectures.getResourceId(index, 0), new Time(day, 24), Event.Type.Exam, probability, ects);
                     exam_list.add(exam);
                     current_exams.add(exam);
                 }
         }
         else {
             for(int i = 0; i < 3; i++){
-                //System.out.println("event name: " + lectures.getString(index));
-                Event exam = new Event(lectures.getResourceId(index, 0) , new Time(day, 24), Event.Type.Exam, 20, ects);
-                //System.out.println("event name: " + lectures.getString(index) + ", id: " + exam.getNameKey());
+                Event exam = new Event(lectures.getResourceId(index, 0) , new Time(day, 24), Event.Type.Exam, probability, ects);
                 exam_list.add(exam);
                 current_exams.add(exam);
                 ects = randi.nextInt(20-10+1)+10;
@@ -83,12 +95,9 @@ public final class EventHandler {
                     }
                 }while(found_element);
             }
-
         }
 
         for(Event exam: current_exams) {
-//            System.out.println("exam: " + Resources.getSystem().getResourceEntryName(exam.getNameKey()));
-            System.out.println("for each..."+exam.getNameKey());
             Student.getInstance().addEvent(exam);
         }
     }
@@ -158,15 +167,13 @@ public final class EventHandler {
             }
             else{
                 if(e.getTime().getDay() >= Student.getInstance().getTime().getDay()){
-                        //e.getTime().getDay() <= Student.getInstance().getTime().getDay() &&
-                        //e.getTime().getTimeUnit() >= Student.getInstance().getTime().getTimeUnit()){
                     Calendar.getInstance().addEvent(e);
                 }
             }
         }
 
-        System.out.println("events in student: " + Student.getInstance().getEventList().size());
-        System.out.println("events in calendar: " + Calendar.getInstance().getEventList().size());
+        //System.out.println("events in student: " + Student.getInstance().getEventList().size());
+        //System.out.println("events in calendar: " + Calendar.getInstance().getEventList().size());
         Calendar.getInstance().sortEvents();
     }
 

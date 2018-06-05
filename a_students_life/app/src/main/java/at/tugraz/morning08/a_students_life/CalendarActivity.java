@@ -4,22 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
-import at.tugraz.morning08.a_students_life.data.Activities;
 import at.tugraz.morning08.a_students_life.data.Calendar;
 import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
-import at.tugraz.morning08.a_students_life.data.Time;
 import at.tugraz.morning08.a_students_life.handler.EventHandler;
-import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.

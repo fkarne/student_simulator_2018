@@ -3,15 +3,90 @@
     <string-array name="studies_arr">
         <item>@string/studies_inf_li</item>
         <item>@string/studies_bwl_li</item>
+        <item>@string/studies_phi_li</item>
     </string-array>
 
     <array name="lectures_informatics">
         <item>@string/lv_analysis_t1</item>
-        <item>@string/lv_programming_0</item>
-        <item>@string/lv_computer_mathematics_1</item>
-        <item>@string/lv_foundations_computer_science</item>
         <item>@string/lv_introduction_computer_science</item>
-        <item>@string/lv_introduction_structured_programming</item>
+        <item>@string/lv_programming_0</item>
+        <item>@string/lv_foundations_computer_science</item>
         <item>@string/lv_numerical_computing_linear_algebra</item>
+        <item>@string/lv_computer_mathematics_1</item>
+        <item>@string/lv_introduction_structured_programming</item>
+        <item>@string/lv_discrete_mathematics</item>
+        <item>@string/lv_human_computer_interaction</item>
+        <item>@string/lv_software_development_laboratory</item>
+        <item>@string/lv_computer_association</item>
+        <item>@string/lv_databases</item>
+        <item>@string/lv_computational_intelligence</item>
+        <item>@string/lv_web_science</item>
+        <item>@string/lv_microcontroller</item>
+        <item>@string/lv_computer_vision_1</item>
+        <item>@string/lv_computer_graphics_1</item>
+        <item>@string/lv_technical_informatics</item>
+        <item>@string/lv_geometrical_algorithms</item>
+        <item>@string/lv_operation_systems</item>
+        <item>@string/lv_software_paradigm</item>
+        <item>@string/lv_statistics_for_info</item>
+        <item>@string/lv_theorie_of_probabilities</item>
+        <item>@string/lv_software_maintenance</item>
+        <item>@string/lv_objectoriented_analysis_design</item>
+    </array>
+
+    <array name="lectures_bwl">
+        <item>@string/lv_introduction_to_business_administration</item>
+        <item>@string/lv_introduction_to_sociology</item>
+        <item>@string/lv_introduction_to_political_economics</item>
+        <item>@string/lv_accounting_basics</item>
+        <item>@string/lv_finance_basics</item>
+        <item>@string/lv_marketing_basics</item>
+        <item>@string/lv_production_and_logistics_basics</item>
+        <item>@string/lv_management_basics</item>
+        <item>@string/lv_business_arithmetics</item>
+        <item>@string/lv_statistics</item>
+        <item>@string/lv_accounting</item>
+        <item>@string/lv_information_management_basics</item>
+        <item>@string/lv_business_plan_and_entrepreneurship</item>
+        <item>@string/lv_budgeting</item>
+        <item>@string/lv_strategic_controlling</item>
+        <item>@string/lv_tax_planning</item>
+        <item>@string/lv_corporate_financial_management</item>
+        <item>@string/lv_capital_budgeting</item>
+        <item>@string/lv_advanced_marketing_research</item>
+        <item>@string/lv_quantitative_planning_systems</item>
+        <item>@string/lv_business_models</item>
+        <item>@string/lv_human_resource_research</item>
+        <item>@string/lv_business_law</item>
+        <item>@string/lv_financial_law</item>
+        <item>@string/lv_eu_community_law</item>
+    </array>
+
+    <array name="lectures_philosophy">
+        <item>@string/lv_introduction_to_philosophy</item>
+        <item>@string/lv_introduction_to_history_of_philosophy</item>
+        <item>@string/lv_elemental_logic</item>
+        <item>@string/lv_introduction_to_ethics</item>
+        <item>@string/lv_introduction_to_cognitive_science</item>
+        <item>@string/lv_introduction_to_philosophy_of_logic</item>
+        <item>@string/lv_introduction_to_philosophy_of_language</item>
+        <item>@string/lv_introduction_to_metaphysics</item>
+        <item>@string/lv_introduction_to_philosophy_of_spirit</item>
+        <item>@string/lv_introduction_to_philosophy_of_science</item>
+        <item>@string/lv_expansion_of_theoretical_philosophy</item>
+        <item>@string/lv_expansion_of_practical_philosophy</item>
+        <item>@string/lv_feministic_philosophy</item>
+        <item>@string/lv_cultural_philosophy</item>
+        <item>@string/lv_religious_philosophy</item>
+        <item>@string/lv_metaethics</item>
+        <item>@string/lv_value_theory</item>
+        <item>@string/lv_philosophy_of_history</item>
+        <item>@string/lv_philosophical_anthropology</item>
+        <item>@string/lv_political_philosophy</item>
+        <item>@string/lv_ideological_critiques</item>
+        <item>@string/lv_aesthetics</item>
+        <item>@string/lv_nature_philosophy</item>
+        <item>@string/lv_gender_studies</item>
+        <item>@string/lv_history_of_science</item>
     </array>
 </resources>
