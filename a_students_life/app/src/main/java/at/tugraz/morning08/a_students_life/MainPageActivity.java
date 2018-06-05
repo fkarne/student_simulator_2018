@@ -49,8 +49,10 @@ public class MainPageActivity extends AppCompatActivity
         Activities.createButtonInfo();
 
 //        Student.getInstance().clearEventList();
-        EventHandler.createNewExams();
-        EventHandler.createLectures();
+        if(Student.getInstance().getEventList().size() < 1) {
+            EventHandler.createNewExams(getBaseContext());
+            EventHandler.createLectures();
+        }
 
         student_graphic = findViewById(R.id.student_graphic);
         updateMainPage(findViewById(R.id.mainPage));
@@ -222,7 +224,7 @@ public class MainPageActivity extends AppCompatActivity
         // creates new events after last day of intervall
         if(Student.getInstance().getTime().getDay() > EventHandler.getMaxDay()){
             Student.getInstance().clearEventList();
-            EventHandler.createNewExams();
+            EventHandler.createNewExams(view.getContext());
             EventHandler.createLectures();
         }
 

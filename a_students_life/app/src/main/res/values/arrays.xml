@@ -5,7 +5,7 @@
         <item>@string/studies_bwl_li</item>
     </string-array>
 
-    <string-array name="lecures_informatics">
+    <array name="lectures_informatics">
         <item>@string/lv_analysis_t1</item>
         <item>@string/lv_programming_0</item>
         <item>@string/lv_computer_mathematics_1</item>
@@ -13,5 +13,5 @@
         <item>@string/lv_introduction_computer_science</item>
         <item>@string/lv_introduction_structured_programming</item>
         <item>@string/lv_numerical_computing_linear_algebra</item>
-    </string-array>
+    </array>
 </resources>

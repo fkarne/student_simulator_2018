@@ -1,6 +1,8 @@
 package at.tugraz.morning08.a_students_life.handler;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -31,21 +33,21 @@ public final class EventHandler {
     }
     public static int getMaxDay() { return MAX_DAY; }
 
-    public static void createNewExams(){
+    public static void createNewExams(Context context){
         List<Event> current_exams = new ArrayList<>();
-        List<Integer> lectures = Arrays.asList(R.array.lecures_informatics);
+        TypedArray lectures = context.getResources().obtainTypedArray(R.array.lectures_informatics);
         int min = Student.getInstance().getTime().getDay() +2;
         MAX_DAY = Student.getInstance().getTime().getDay() +9;
         Random randi = new Random();
         int day = randi.nextInt((MAX_DAY-min)+1)+min;
-        int index = randi.nextInt(lectures.size());
+        int index = randi.nextInt(lectures.length());
         int ects = randi.nextInt(20-10+1)+10;
         boolean found_element = false;
 
         if(exam_list.size() > 0){
             found_element = false;
             for (Event exam: exam_list) {
-                    if(exam.getNameKey() == lectures.get(index)){
+                    if(Resources.getSystem().getText(exam.getNameKey()).equals(lectures.getString(index))){
                         if(!exam.isCompleted()) {
                             current_exams.add(exam);
                         }
@@ -54,14 +56,16 @@ public final class EventHandler {
                 }
                 if(!found_element) {
                     // create new exam
-                    Event exam = new Event(lectures.get(index), new Time(day, 24), Event.Type.Exam, 20, ects);
+                    Event exam = new Event(lectures.getResourceId(index, 0), new Time(day, 24), Event.Type.Exam, 20, ects);
                     exam_list.add(exam);
                     current_exams.add(exam);
                 }
         }
         else {
             for(int i = 0; i < 3; i++){
-                Event exam = new Event(lectures.get(index), new Time(day, 24), Event.Type.Exam, 20, ects);
+                //System.out.println("event name: " + lectures.getString(index));
+                Event exam = new Event(lectures.getResourceId(index, 0) , new Time(day, 24), Event.Type.Exam, 20, ects);
+                //System.out.println("event name: " + lectures.getString(index) + ", id: " + exam.getNameKey());
                 exam_list.add(exam);
                 current_exams.add(exam);
                 ects = randi.nextInt(20-10+1)+10;
@@ -70,10 +74,10 @@ public final class EventHandler {
 
                 do {
                     found_element = false;
-                    index = randi.nextInt(lectures.size());
+                    index = randi.nextInt(lectures.length());
 
                     for (Event e : exam_list) {
-                        if (e.getNameKey() == lectures.get(index)) {
+                        if (e.getNameKey() == lectures.getResourceId(index,0)) {
                             found_element = true;
                         }
                     }
@@ -91,19 +95,24 @@ public final class EventHandler {
 
 
     public static void createLectures(){
-        List<Event> current_exams = new ArrayList<>();
-        current_exams = Student.getInstance().getEventList();
+        List<Event> current_exams = Student.getInstance().getEventList();
+        List<Event> current_lectures = new ArrayList<>();
         Random randi = new Random();
         int timeunit;
         int max_count;
         int day = Student.getInstance().getTime().getDay();
-        //System.out.println("list size: "+current_exams.size());
+
+        System.out.println("list size: "+current_exams.size());
         for(Event exam : current_exams){
             timeunit = randi.nextInt((40-16)+1)+16;
             max_count = exam.getTime().getDay() - Student.getInstance().getTime().getDay();
             max_count /= 2;
             Event lecture = new Event(exam.getNameKey(), new Time(day, timeunit), Event.Type.Lecture, exam, 0, max_count);
-            Student.getInstance().addEvent(lecture);
+            current_lectures.add(lecture);
+        }
+
+        for(Event lect : current_lectures){
+            Student.getInstance().addEvent(lect);
         }
     }
 
