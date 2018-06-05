@@ -208,10 +208,11 @@ public final class Activities
 
     public static void visitLecture(Student student, Event lecture) {
         if(lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
-                lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
+                Student.getInstance().getTime().getTimeUnit() >= lecture.getTime().getTimeUnit() - 4  &&
+                Student.getInstance().getTime().getTimeUnit() <= lecture.getTime().getTimeUnit() &&
                 lecture.getType() == Event.Type.Lecture) {
 
-            student.addTimeUnits(4);
+            student.addTimeUnits(4 + (lecture.getTime().getTimeUnit() - student.getTime().getTimeUnit()));
             checkBorderMultiplicators(student);
 
             lecture.getExam().increaseProbability(20);

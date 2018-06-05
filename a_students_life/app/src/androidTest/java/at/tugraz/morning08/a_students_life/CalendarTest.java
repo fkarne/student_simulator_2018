@@ -64,4 +64,31 @@ public class CalendarTest {
         Espresso.pressBack();
         Espresso.onView(withId(R.id.mainPage)).check(matches(isDisplayed()));
     }
+
+    // calls valid lecture (student time == event time with 2h buffer)
+    @Test
+    public void visitLectureEarlyTest()
+    {
+        Student.getInstance().setTime(new Time(2, 16));
+        Time system_time = new Time(Student.getInstance().getTime().getDay(), Student.getInstance().getTime().getTimeUnit());
+        Espresso.onView(withText(R.string.lv_foundations_computer_science)).perform(click());
+        assertNotEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
+
+        Student.getInstance().setTime(new Time(2, 17));
+        system_time.setDay(Student.getInstance().getTime().getDay());
+        system_time.setTimeUnit(Student.getInstance().getTime().getTimeUnit());
+        Espresso.onView(withText(R.string.lv_foundations_computer_science)).perform(click());
+        assertNotEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
+    }
+
+    // calls invalid lecture
+    @Test
+    public void visitLectureEarlyNotTest()
+    {
+        Student.getInstance().setTime(new Time(2, 14));
+        Time system_time = new Time(Student.getInstance().getTime().getDay(), Student.getInstance().getTime().getTimeUnit());
+        Espresso.onView(withText(R.string.lv_foundations_computer_science)).perform(click());
+        assertEquals(system_time.getDay(), Student.getInstance().getTime().getDay());
+        assertEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
+    }
 }
