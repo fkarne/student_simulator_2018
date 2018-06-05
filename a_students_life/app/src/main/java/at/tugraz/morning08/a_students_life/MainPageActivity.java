@@ -27,6 +27,7 @@ import at.tugraz.morning08.a_students_life.components.ButtonInfo;
 import at.tugraz.morning08.a_students_life.data.Activities;
 import at.tugraz.morning08.a_students_life.data.Event;
 import at.tugraz.morning08.a_students_life.data.Student;
+import at.tugraz.morning08.a_students_life.handler.EventHandler;
 import at.tugraz.morning08.a_students_life.handler.LoadSaveHandler;
 import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
 import at.tugraz.morning08.a_students_life.components.MyProgressBar;
@@ -46,7 +47,10 @@ public class MainPageActivity extends AppCompatActivity
         setContentView(R.layout.activity_main_page);
 
         Activities.createButtonInfo();
-        Event.createLectureList();
+
+//        Student.getInstance().clearEventList();
+        EventHandler.createNewExams();
+        EventHandler.createLectures();
 
         student_graphic = findViewById(R.id.student_graphic);
         updateMainPage(findViewById(R.id.mainPage));
@@ -215,6 +219,13 @@ public class MainPageActivity extends AppCompatActivity
         MainPageHandler.updateMainPage(view);
         showLoseCondition(view);
         showWinCondition(view);
+        // creates new events after last day of intervall
+        if(Student.getInstance().getTime().getDay() > EventHandler.getMaxDay()){
+            Student.getInstance().clearEventList();
+            EventHandler.createNewExams();
+            EventHandler.createLectures();
+        }
+
         LoadSaveHandler.saveGame(view);
     }
 
