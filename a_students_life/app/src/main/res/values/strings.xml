@@ -106,4 +106,8 @@
     <string name="tst_visited">Visited</string>
     <string name="tst_error_msg">Keep track of the time!</string>
 
+    <string name="tst_took_exam">Wrote exam</string>
+    <string name="tst_exam_positive">You passed the exam!</string>
+    <string name="tst_exam_negative">You failed the exam...</string>
+
 </resources>

@@ -117,10 +117,18 @@ public final class EventHandler {
     }
 
 
-    public static boolean visitLecture(Event lecture){
+    public static boolean goToUniversity(Event lecture){
         if(lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
                 lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
                 lecture.getType() == Event.Type.Lecture) {
+            Activities.visitLecture(Student.getInstance(), lecture);
+            return true;
+        }
+        else  if(lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
+                lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
+                lecture.getType() == Event.Type.Exam) {
+            // TODO: write method for writing an exam; visit is called to set new time & change stats
+            //Activities.writeExam(Student.getInstance(), lecture);
             Activities.visitLecture(Student.getInstance(), lecture);
             return true;
         }
@@ -142,23 +150,49 @@ public final class EventHandler {
                     Random rm = new Random();
                     int visiblity_of_lecture = rm.nextInt(2);
 
-                    //System.out.println("visibility: " + visiblity_of_lecture);
                     if (visiblity_of_lecture == 1) {
                         e.setTime(new Time(Student.getInstance().getTime().getDay(), e.getTime().getTimeUnit()));
                         Calendar.getInstance().addEvent(e);
-                        //   System.out.println("blalbalalblafmaldfgknaslkdfharsmk");
                     }
                 }
             }
             else{
-                if(e.getTime().getDay() >= Student.getInstance().getTime().getDay() &&
+                if(e.getTime().getDay() >= Student.getInstance().getTime().getDay()){
                         //e.getTime().getDay() <= Student.getInstance().getTime().getDay() &&
-                        e.getTime().getTimeUnit() >= Student.getInstance().getTime().getTimeUnit()){
+                        //e.getTime().getTimeUnit() >= Student.getInstance().getTime().getTimeUnit()){
                     Calendar.getInstance().addEvent(e);
                 }
             }
         }
 
+        System.out.println("events in student: " + Student.getInstance().getEventList().size());
+        System.out.println("events in calendar: " + Calendar.getInstance().getEventList().size());
+        Calendar.getInstance().sortEvents();
+    }
+
+    // delete old Events
+    public static void reloadCalendarElements(){
+        List<Event> toBeRemoved = new ArrayList<>();
+
+        for (Event e: Calendar.getInstance().getEventList()) {
+            if (e.getType() == Event.Type.Lecture) {
+                if (e.getTime().getDay() < Student.getInstance().getTime().getDay() ||
+                        e.getTime().getTimeUnit() < Student.getInstance().getTime().getTimeUnit() ||
+                        e.getLv_visited_count() >= e.getLv_max_count()) {
+                    toBeRemoved.add(e);
+                }
+            }
+            else{
+                if(e.getTime().getDay() <= Student.getInstance().getTime().getDay() &&
+                    e.getTime().getTimeUnit() < Student.getInstance().getTime().getTimeUnit()){
+                    toBeRemoved.add(e);
+                }
+            }
+        }
+
+        for(Event e : toBeRemoved){
+            Calendar.getInstance().removeEvent(e);
+        }
         Calendar.getInstance().sortEvents();
     }
 }

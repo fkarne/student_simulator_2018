@@ -109,5 +109,8 @@
     <string name="tst_visited">Besucht</string>
     <string name="tst_error_msg">Achte auf die Zeit!</string>
 
+    <string name="tst_took_exam">Prüfung geschrieben</string>
+    <string name="tst_exam_positive">Du hast die Prüfung bestanden!</string>
+    <string name="tst_exam_negative">Du hast die Prüfung nicht geschafft...</string>
 
 </resources>

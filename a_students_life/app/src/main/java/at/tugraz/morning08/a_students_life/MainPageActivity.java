@@ -40,6 +40,7 @@ public class MainPageActivity extends AppCompatActivity
 {
     private LinearLayout student_graphic;
     private AlertDialog backPressedAlert;
+    private int current_day = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -227,6 +228,9 @@ public class MainPageActivity extends AppCompatActivity
             EventHandler.createNewExams(view.getContext());
             EventHandler.createLectures();
         }
+        else {
+            reloadEventsOnNewDay();
+        }
 
         LoadSaveHandler.saveGame(view);
     }
@@ -293,5 +297,12 @@ public class MainPageActivity extends AppCompatActivity
     protected void onStop() {
         super.onStop();
         LoadSaveHandler.saveGame(findViewById(R.id.mainPage));
+    }
+
+    private void reloadEventsOnNewDay(){
+        if(current_day != Student.getInstance().getTime().getDay()){
+            EventHandler.updateCalendarList();
+            current_day = Student.getInstance().getTime().getDay();
+        }
     }
 }

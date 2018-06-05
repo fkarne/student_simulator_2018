@@ -46,13 +46,17 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
 
     @Override
     public void onClick(View view, int position) {
-        boolean valid_visit = EventHandler.visitLecture(Calendar.getInstance().getEventAt(position));
-        //Activities.visitLecture(Student.getInstance(), Calendar.getInstance().getEventAt(position));
+        boolean valid_visit = EventHandler.goToUniversity(Calendar.getInstance().getEventAt(position));
 
         StringBuilder output = new StringBuilder();
 
-        if(valid_visit) {
+        if(valid_visit && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Lecture) {
             output.append(getText(R.string.tst_visited));
+            output.append(": ");
+            output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
+        }
+        else if(valid_visit && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Exam) {
+            output.append(getText(R.string.tst_took_exam));
             output.append(": ");
             output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
         }
@@ -62,7 +66,8 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
         Toast toast = Toast.makeText(getApplicationContext(),output.toString(), Toast.LENGTH_SHORT);
         toast.show();
 
-        EventHandler.updateCalendarList();
+        //only delete old events
+        EventHandler.reloadCalendarElements();
         updateCalendarPage(view);
     }
 
