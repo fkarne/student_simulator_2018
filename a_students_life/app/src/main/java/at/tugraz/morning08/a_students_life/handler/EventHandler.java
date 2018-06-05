@@ -22,94 +22,90 @@ import at.tugraz.morning08.a_students_life.data.Time;
 public final class EventHandler {
     private static List<Event> exam_list = new ArrayList<>();
     private static int MAX_DAY = 0;
+
     public List<Event> getExam_list() {
         return exam_list;
     }
+
     public static void addExam(Event exam) {
         exam_list.add(exam);
     }
-    public static int getMaxDay() { return MAX_DAY; }
 
-    public static void createNewExams(Context context){
+    public static int getMaxDay() {
+        return MAX_DAY;
+    }
+
+    public static void createNewExams(Context context) {
         List<Event> current_exams = new ArrayList<>();
         TypedArray lectures;
         int probability = 0;
 
         // set studies & difficulty
-        if(Student.getInstance().getStudie().equals(context.getString(R.string.studies_inf_li))){
-           lectures = context.getResources().obtainTypedArray(R.array.lectures_informatics);
-           probability = 20;
-        }
-        else if(Student.getInstance().getStudie().equals(context.getString(R.string.studies_bwl_li))){
+        if (Student.getInstance().getStudie().equals(context.getString(R.string.studies_inf_li))) {
+            lectures = context.getResources().obtainTypedArray(R.array.lectures_informatics);
+            probability = 20;
+        } else if (Student.getInstance().getStudie().equals(context.getString(R.string.studies_bwl_li))) {
             lectures = context.getResources().obtainTypedArray(R.array.lectures_bwl);
             probability = 35;
-        }
-        else{
+        } else {
             lectures = context.getResources().obtainTypedArray(R.array.lectures_philosophy);
             probability = 50;
         }
 
-        int min = Student.getInstance().getTime().getDay() +2;
-        MAX_DAY = Student.getInstance().getTime().getDay() +9;
+        int min = Student.getInstance().getTime().getDay() + 2;
+        MAX_DAY = Student.getInstance().getTime().getDay() + 9;
         Random randi = new Random();
-        int day = randi.nextInt((MAX_DAY-min)+1)+min;
+        int day = randi.nextInt((MAX_DAY - min) + 1) + min;
         int index = randi.nextInt(lectures.length());
-        int ects = randi.nextInt(10-6+1)+6;
+        int ects = randi.nextInt(10 - 6 + 1) + 6;
 
         boolean found_element = false;
-
-            for (Event exam: exam_list) {
-                    if(Resources.getSystem().getText(exam.getNameKey()).equals(lectures.getString(index))){
-                        if(!exam.isCompleted()) {
-                            current_exams.add(exam);
-                        }
-                        found_element = true;
+        if (exam_list.size() > 0) {
+            for (Event exam : exam_list) {
+                if (Resources.getSystem().getText(exam.getNameKey()).equals(lectures.getString(index))) {
+                    if (!exam.isCompleted()) {
+                        current_exams.add(exam);
                     }
+                    found_element = true;
                 }
+            }
 
-                if(!found_element) {
-                    // create new exam
-                    Event exam = new Event(lectures.getResourceId(index, 0), new Time(day, 24), Event.Type.Exam, probability, ects);
-                    exam_list.add(exam);
-                    current_exams.add(exam);
-                }
-
-        }
-        else {
-
-            for(int i = 0; i < 3; i++){
-                Event exam = new Event(lectures.getResourceId(index, 0) , new Time(day, 24), Event.Type.Exam, probability, ects);
+            if (!found_element) {
+                // create new exam
+                Event exam = new Event(lectures.getResourceId(index, 0), new Time(day, 24), Event.Type.Exam, probability, ects);
                 exam_list.add(exam);
                 current_exams.add(exam);
-                ects = randi.nextInt(20-10+1)+10;
-                day = randi.nextInt((MAX_DAY-min)+1)+min;
+            }
+        } else {
 
-
+            for (int i = 0; i < 3; i++) {
+                Event exam = new Event(lectures.getResourceId(index, 0), new Time(day, 24), Event.Type.Exam, probability, ects);
+                exam_list.add(exam);
+                current_exams.add(exam);
+                ects = randi.nextInt(20 - 10 + 1) + 10;
+                day = randi.nextInt((MAX_DAY - min) + 1) + min;
 
 
                 do {
                     found_element = false;
                     index = randi.nextInt(lectures.length());
 
-
                     for (Event e : exam_list) {
-                        if (e.getNameKey() == lectures.getResourceId(index,0)) {
+                        if (e.getNameKey() == lectures.getResourceId(index, 0)) {
                             found_element = true;
                         }
                     }
-
-                }while(found_element);
+                } while (found_element);
             }
         }
 
-        for(Event exam: current_exams) {
-
+        for (Event exam : current_exams) {
             Student.getInstance().addEvent(exam);
         }
     }
 
 
-    public static void createLectures(){
+    public static void createLectures() {
 
         List<Event> current_exams = Student.getInstance().getEventList();
         List<Event> current_lectures = new ArrayList<>();
@@ -119,9 +115,8 @@ public final class EventHandler {
         int day = Student.getInstance().getTime().getDay();
 
 
-
-        for(Event exam : current_exams){
-            timeunit = randi.nextInt((40-16)+1)+16;
+        for (Event exam : current_exams) {
+            timeunit = randi.nextInt((40 - 16) + 1) + 16;
             max_count = exam.getTime().getDay() - Student.getInstance().getTime().getDay();
             max_count /= 2;
             Event lecture = new Event(exam.getNameKey(), new Time(day, timeunit), Event.Type.Lecture, exam, 0, max_count);
@@ -129,20 +124,19 @@ public final class EventHandler {
             current_lectures.add(lecture);
         }
 
-        for(Event lect : current_lectures){
+        for (Event lect : current_lectures) {
             Student.getInstance().addEvent(lect);
         }
     }
 
 
-    public static boolean goToUniversity(Event lecture){
-        if(lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
+    public static boolean goToUniversity(Event lecture) {
+        if (lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
                 lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
                 lecture.getType() == Event.Type.Lecture) {
             Activities.visitLecture(Student.getInstance(), lecture);
             return true;
-        }
-        else  if(lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
+        } else if (lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
                 lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
                 lecture.getType() == Event.Type.Exam) {
             // TODO: write method for writing an exam; visit is called to set new time & change stats
@@ -153,11 +147,11 @@ public final class EventHandler {
         return false;
     }
 
-    public static void updateCalendarList(){
+    public static void updateCalendarList() {
         Calendar.getInstance().clear();
 
-        for (Event e: Student.getInstance().getEventList()) {
-            if(e.getType() == Event.Type.Lecture) {
+        for (Event e : Student.getInstance().getEventList()) {
+            if (e.getType() == Event.Type.Lecture) {
                 if (e.getTime().getDay() == Student.getInstance().getTime().getDay() &&
                         e.getTime().getTimeUnit() >= Student.getInstance().getTime().getTimeUnit() &&
                         e.getLv_visited_count() < e.getLv_max_count()) {
@@ -175,10 +169,9 @@ public final class EventHandler {
 
                     }
                 }
-            }
-            else{
+            } else {
 
-                if(e.getTime().getDay() >= Student.getInstance().getTime().getDay()){
+                if (e.getTime().getDay() >= Student.getInstance().getTime().getDay()) {
                     Calendar.getInstance().addEvent(e);
                 }
             }
@@ -190,26 +183,25 @@ public final class EventHandler {
     }
 
     // delete old Events
-    public static void reloadCalendarElements(){
+    public static void reloadCalendarElements() {
         List<Event> toBeRemoved = new ArrayList<>();
 
-        for (Event e: Calendar.getInstance().getEventList()) {
+        for (Event e : Calendar.getInstance().getEventList()) {
             if (e.getType() == Event.Type.Lecture) {
                 if (e.getTime().getDay() < Student.getInstance().getTime().getDay() ||
                         e.getTime().getTimeUnit() < Student.getInstance().getTime().getTimeUnit() ||
                         e.getLv_visited_count() >= e.getLv_max_count()) {
                     toBeRemoved.add(e);
                 }
-            }
-            else{
-                if(e.getTime().getDay() <= Student.getInstance().getTime().getDay() &&
-                    e.getTime().getTimeUnit() < Student.getInstance().getTime().getTimeUnit()){
+            } else {
+                if (e.getTime().getDay() <= Student.getInstance().getTime().getDay() &&
+                        e.getTime().getTimeUnit() < Student.getInstance().getTime().getTimeUnit()) {
                     toBeRemoved.add(e);
                 }
             }
         }
 
-        for(Event e : toBeRemoved){
+        for (Event e : toBeRemoved) {
             Calendar.getInstance().removeEvent(e);
         }
         Calendar.getInstance().sortEvents();
