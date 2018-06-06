@@ -57,7 +57,6 @@ public class StartMenuTest {
         Espresso.onView(withText(R.string.load_btn)).check(matches(isDisplayed()));
     }
 
-
     @Test
     public void loadTest() throws Exception {
         Espresso.onView(withId(R.id.load_btn)).perform(click());

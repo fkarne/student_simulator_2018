@@ -1,7 +1,6 @@
 package at.tugraz.morning08.a_students_life.data;
 
 import android.support.annotation.NonNull;
-import at.tugraz.morning08.a_students_life.R;
 
 public class Event implements Comparable
 {
@@ -13,7 +12,6 @@ public class Event implements Comparable
     private Event exam;
     private int ects;
     private boolean completed = false;
-    private static Boolean init = false;
     private int lv_visited_count;
     private int lv_max_count;
 
@@ -84,6 +82,10 @@ public class Event implements Comparable
 
     public int getEcts() {
         return ects;
+    }
+
+    public void setEcts(int ects) {
+        this.ects = ects;
     }
 
     @Override

@@ -108,15 +108,32 @@ public class CalendarTest {
     @Test
     public void visitLectureEarlyTest()
     {
-        Student.getInstance().setTime(new Time(2, 16));
+        Espresso.pressBack();
+        Student.getInstance().clearEventList();
+        Calendar.getInstance().clear();
+        EventHandler.updateCalendarList();
+        Espresso.onView(withId(R.id.calender_img_btn)).perform(click());
+
+        Event exam = new Event(R.string.lv_analysis_t1, new Time(2, 17), Event.Type.Exam, 20, 4);
+        Event lecture = new Event(R.string.lv_analysis_t1, new Time(2, 16), Event.Type.Lecture, exam, 0, 3);
+
+        Student.getInstance().addEvent(exam);
+        Student.getInstance().addEvent(lecture);
+
+        Espresso.pressBack();
+        EventHandler.updateCalendarList();
+        Calendar.getInstance().sortEvents();
+        Espresso.onView(withId(R.id.calender_img_btn)).perform(click());
+
+        Student.getInstance().setTime(new Time(2, 15));
         Time system_time = new Time(Student.getInstance().getTime().getDay(), Student.getInstance().getTime().getTimeUnit());
-        Espresso.onView(withText(R.string.lv_foundations_computer_science)).perform(click());
-        assertNotEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
+        Espresso.onView(withId(0)).perform(click());
+        assertEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
 
         Student.getInstance().setTime(new Time(2, 17));
         system_time.setDay(Student.getInstance().getTime().getDay());
         system_time.setTimeUnit(Student.getInstance().getTime().getTimeUnit());
-        Espresso.onView(withText(R.string.lv_foundations_computer_science)).perform(click());
+        Espresso.onView(withId(0)).perform(click());
         assertNotEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
     }
 
@@ -124,9 +141,26 @@ public class CalendarTest {
     @Test
     public void visitLectureEarlyNotTest()
     {
+        Espresso.pressBack();
+        Student.getInstance().clearEventList();
+        Calendar.getInstance().clear();
+        EventHandler.updateCalendarList();
+        Espresso.onView(withId(R.id.calender_img_btn)).perform(click());
+
+        Event exam = new Event(R.string.lv_analysis_t1, new Time(5, 20), Event.Type.Exam, 20, 4);
+        Event lecture = new Event(R.string.lv_analysis_t1, new Time(1, 20), Event.Type.Lecture, exam, 0, 3);
+
+        Student.getInstance().addEvent(exam);
+        Student.getInstance().addEvent(lecture);
+
+        Espresso.pressBack();
+        EventHandler.updateCalendarList();
+        Calendar.getInstance().sortEvents();
+        Espresso.onView(withId(R.id.calender_img_btn)).perform(click());
+
         Student.getInstance().setTime(new Time(2, 14));
         Time system_time = new Time(Student.getInstance().getTime().getDay(), Student.getInstance().getTime().getTimeUnit());
-        Espresso.onView(withText(R.string.lv_foundations_computer_science)).perform(click());
+        Espresso.onView(withId(0)).perform(click());
         assertEquals(system_time.getDay(), Student.getInstance().getTime().getDay());
         assertEquals(system_time.getTimeUnit(), Student.getInstance().getTime().getTimeUnit());
     }
