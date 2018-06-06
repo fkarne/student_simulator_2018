@@ -58,11 +58,16 @@ public final class EventActions {
     public static void visitFastFoodRestaurant (Student student) {
         student.addTimeUnits(1);
         Activities.checkBorderMultiplicators(student);
+        int cost = 25;
+        if(Activities.checkMoney(student, cost)) {
+            student.addTimeUnits(1);
+            Activities.checkBorderMultiplicators(student);
 
-        float hunger = 16 *student.getStats().getHunger_multiplicator();
-
-        student.getStats().increaseHunger((int) hunger);
-        Activities.checkBorder(student);
+            float hunger = 16 * student.getStats().getHunger_multiplicator();
+            student.getStats().increaseHunger((int) hunger);
+            student.addCash(-cost);
+            Activities.checkBorder(student);
+        }
     }
 
     public static void freeFoodDayAtUniCampus (Student student) {

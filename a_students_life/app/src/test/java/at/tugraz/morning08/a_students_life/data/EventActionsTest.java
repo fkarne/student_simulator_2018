@@ -93,6 +93,7 @@ public class EventActionsTest {
         assertEquals(99, student.getStats().getStress());
         assertEquals(99, student.getStats().getEnergy());
         assertEquals(17, student.getTime().getTimeUnit());
+        assertEquals(175, student.getCash());
     }
 
 

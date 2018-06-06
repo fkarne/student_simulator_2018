@@ -64,7 +64,7 @@ public class MainPageTest {
         Espresso.onView(withId(R.id.hunger_img_btn)).perform(click());
         Espresso.onView(withId(0)).perform(click());
         Espresso.onView(withId(R.id.popUp_activity_ll)).check(matches(isDisplayed()));
-        assertEquals(60, Student.getInstance().getStats().getHunger());
+        assertEquals(65, Student.getInstance().getStats().getHunger());
     }
 
     @Test
