@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import at.tugraz.morning08.a_students_life.CalendarActivity;
 import at.tugraz.morning08.a_students_life.R;
 import at.tugraz.morning08.a_students_life.data.Activities;
 import at.tugraz.morning08.a_students_life.data.Calendar;
@@ -65,7 +66,7 @@ public final class EventHandler {
             do {
 
                 for (Event exam : exam_list) {
-                    if (Resources.getSystem().getText(exam.getNameKey()).equals(lectures.getString(index))) {
+                    if (context.getResources().getText(exam.getNameKey()).equals(lectures.getString(index))) {
                         if (!exam.isCompleted()) {
                             current_exams.add(exam);
                             added_element = true;
@@ -219,5 +220,10 @@ public final class EventHandler {
 
     public List<Event> getExam_list() {
         return exam_list;
+    }
+
+    public void redrawCalendarList()
+    {
+
     }
 }
