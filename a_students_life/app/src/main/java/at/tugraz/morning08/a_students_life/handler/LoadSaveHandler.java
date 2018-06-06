@@ -50,6 +50,10 @@ public final class LoadSaveHandler {
             editor.putInt("prob_perE" + eventcount, event.getProbabilityPercentage());
             if(event.getExam() != null) {
                 editor.putInt("examKeyE" + eventcount, event.getExam().getNameKey());
+                editor.putInt("lv_visitedE" + eventcount, event.getLv_visited_count());
+                editor.putInt("lv_maxE" + eventcount, event.getLv_max_count());
+            } else {
+                editor.putBoolean("completeE" + eventcount, event.isCompleted());
             }
             editor.putInt("ectsE" + eventcount, event.getEcts());
         }
@@ -97,16 +101,22 @@ public final class LoadSaveHandler {
 
             if(type == Event.Type.Lecture) {
                 int examKey = prefs.getInt("examKeyE" + eventcount, -1);
+                int lv_visited = prefs.getInt("lv_visitedE" + eventcount, -1);
+                int lv_max = prefs.getInt("lv_maxE" + eventcount, -1);
+
                 for(Event event : student.getEventList()) {
                     if(event.getNameKey() == examKey) {
-                        student.addEvent(new Event(name, new Time(day, time), type, event));
+                        student.addEvent(new Event(name, new Time(day, time), type, event, lv_visited, lv_max));
                         break;
                     }
                 }
             } else {
                 int prob_per = prefs.getInt("prob_perE" + eventcount, -1);
                 int ects = prefs.getInt("ectsE" + eventcount, -1);
-                student.addEvent(new Event(name, new Time(day, time), type, prob_per, ects));
+                boolean completed = prefs.getBoolean("completeE" + eventcount, false);
+                Event event = new Event(name, new Time(day, time), type, prob_per, ects);
+                event.setCompleted(completed);
+                student.addEvent(event);
             }
         }
     }

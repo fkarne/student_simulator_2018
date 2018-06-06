@@ -331,6 +331,7 @@ public class ActivitiesTest {
         assertEquals(1, student.getTime().getDay());
         assertEquals(40, lecture.getExam().getProbabilityPercentage());
 
+        lecture.setTime(new Time(1, 20));
         Activities.visitLecture(student, lecture);
         assertEquals(92, student.getStats().getSocial());
         assertEquals(92, student.getStats().getHunger());
@@ -341,11 +342,11 @@ public class ActivitiesTest {
         assertEquals(60, lecture.getExam().getProbabilityPercentage());
 
 
-        lecture.setTime(new Time(1, 20));
+        lecture.setTime(new Time(1, 24));
         Activities.visitLecture(student, lecture);
         assertEquals(88, student.getStats().getSocial());
         assertEquals(88, student.getStats().getHunger());
-        assertEquals(19, student.getStats().getStress());
+        assertEquals(25, student.getStats().getStress());
         assertEquals(76, student.getStats().getEnergy());
         assertEquals(28, student.getTime().getTimeUnit());
         assertEquals(1, student.getTime().getDay());
