@@ -178,7 +178,7 @@ public class ActivitiesTest {
         student.getStats().setSocial(50);
 
         Activities.goingOutToEat(student);
-        assertEquals(55, student.getStats().getSocial());
+        assertEquals(60, student.getStats().getSocial());
         assertEquals(75, student.getStats().getHunger());
         assertEquals(96, student.getStats().getStress());
         assertEquals(96, student.getStats().getEnergy());
@@ -186,7 +186,7 @@ public class ActivitiesTest {
         assertEquals(150, student.getCash());
 
         Activities.goingOutToEat(student);
-        assertEquals(60, student.getStats().getSocial());
+        assertEquals(70, student.getStats().getSocial());
         assertEquals(100, student.getStats().getHunger());
         assertEquals(92, student.getStats().getStress());
         assertEquals(92, student.getStats().getEnergy());
@@ -195,7 +195,7 @@ public class ActivitiesTest {
 
         student.setCash(49);
         Activities.goingOutToEat(student);
-        assertEquals(60, student.getStats().getSocial());
+        assertEquals(70, student.getStats().getSocial());
         assertEquals(100, student.getStats().getHunger());
         assertEquals(92, student.getStats().getStress());
         assertEquals(92, student.getStats().getEnergy());

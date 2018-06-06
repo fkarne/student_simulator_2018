@@ -121,7 +121,7 @@ public final class Activities
             student.addTimeUnits(4);
             checkBorderMultiplicators(student);
 
-            float social = 9 * student.getStats().getSocial_multiplicator();
+            float social = 14 * student.getStats().getSocial_multiplicator();
             float hunger = 29 * student.getStats().getHunger_multiplicator();
 
             student.getStats().increaseHunger((int) hunger);
