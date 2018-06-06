@@ -2,6 +2,7 @@ package at.tugraz.morning08.a_students_life.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import at.tugraz.morning08.a_students_life.R;
 import at.tugraz.morning08.a_students_life.components.ButtonInfo;
@@ -201,7 +202,33 @@ public final class Activities
         student.getStats().decreaseEnergy((int) energy);
         student.getStats().increaseStress((int) stress);
         checkBorder(student);
-}
+    }
+
+    public static boolean takeExam(Student student, Event exam) {
+        student.addTimeUnits(4);
+        checkBorderMultiplicators(student);
+
+        Random randi = new Random();
+
+
+        if(exam.getProbabilityPercentage() > 70) {
+
+        }
+        else if(exam.getProbabilityPercentage() > 40) {
+            int prob = randi.nextInt(2);
+            if(prob == 1) {
+                exam.setCompleted(true);
+                student.addEcts(exam.getEcts());
+            }
+            else {
+                exam.setCompleted(false);
+            }
+        }
+        else {
+            exam.setCompleted(false);
+        }
+        return exam.isCompleted();
+    }
 
     private static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));

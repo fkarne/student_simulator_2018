@@ -50,9 +50,19 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
             output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
         }
         else if(valid_visit && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Exam) {
+
+            System.out.println("visited exam.....");
             output.append(getText(R.string.tst_took_exam));
             output.append(": ");
             output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
+            output.append("\n"+getText(R.string.tst_exam_negative));
+        }
+        else if(!valid_visit && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Exam) {
+            System.out.println("visited exam!!!!!!");
+            output.append(getText(R.string.tst_took_exam));
+            output.append(": ");
+            output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
+            output.append("\n"+getText(R.string.tst_exam_negative));
         }
         else{
             output.append(getText(R.string.tst_error_msg));

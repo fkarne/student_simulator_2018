@@ -81,6 +81,10 @@ public class Event implements Comparable
             probability_percentage = 100;
     }
 
+    public int getEcts() {
+        return ects;
+    }
+
     @Override
     public int compareTo(@NonNull Object o) {
         return this.getTime().compareTo(((Event)o).getTime());
