@@ -40,7 +40,7 @@ public final class EventActions {
     public static void helpedAFriend (Student student){
 
         Random random = new Random();
-        int cash = (random.nextInt(3) + 3) * 500; //1500-2500
+        int cash = (random.nextInt(3) + 3) * 300; //900-1500
 
         student.addCash(cash);
     }
