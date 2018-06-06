@@ -96,14 +96,14 @@ public class ActivitiesTest {
 
         Activities.eat(student);
         assertEquals(98, student.getStats().getSocial());
-        assertEquals(60, student.getStats().getHunger());
+        assertEquals(65, student.getStats().getHunger());
         assertEquals(98, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
 
         Activities.eat(student);
         assertEquals(96, student.getStats().getSocial());
-        assertEquals(70, student.getStats().getHunger());
+        assertEquals(80, student.getStats().getHunger());
         assertEquals(96, student.getStats().getStress());
         assertEquals(96, student.getStats().getEnergy());
         assertEquals(20, student.getTime().getTimeUnit());
@@ -179,7 +179,7 @@ public class ActivitiesTest {
 
         Activities.goingOutToEat(student);
         assertEquals(55, student.getStats().getSocial());
-        assertEquals(65, student.getStats().getHunger());
+        assertEquals(75, student.getStats().getHunger());
         assertEquals(96, student.getStats().getStress());
         assertEquals(96, student.getStats().getEnergy());
         assertEquals(20, student.getTime().getTimeUnit());
@@ -187,7 +187,7 @@ public class ActivitiesTest {
 
         Activities.goingOutToEat(student);
         assertEquals(60, student.getStats().getSocial());
-        assertEquals(80, student.getStats().getHunger());
+        assertEquals(100, student.getStats().getHunger());
         assertEquals(92, student.getStats().getStress());
         assertEquals(92, student.getStats().getEnergy());
         assertEquals(24, student.getTime().getTimeUnit());
@@ -196,7 +196,7 @@ public class ActivitiesTest {
         student.setCash(49);
         Activities.goingOutToEat(student);
         assertEquals(60, student.getStats().getSocial());
-        assertEquals(80, student.getStats().getHunger());
+        assertEquals(100, student.getStats().getHunger());
         assertEquals(92, student.getStats().getStress());
         assertEquals(92, student.getStats().getEnergy());
         assertEquals(24, student.getTime().getTimeUnit());
@@ -292,24 +292,24 @@ public class ActivitiesTest {
         assertEquals(99, student.getStats().getStress());
         assertEquals(99, student.getStats().getEnergy());
         assertEquals(17, student.getTime().getTimeUnit());
+        assertEquals(190, student.getCash());
+
+        Activities.snack(student);
+        assertEquals(98, student.getStats().getSocial());
+        assertEquals(64, student.getStats().getHunger());
+        assertEquals(98, student.getStats().getStress());
+        assertEquals(98, student.getStats().getEnergy());
+        assertEquals(18, student.getTime().getTimeUnit());
         assertEquals(180, student.getCash());
 
+        student.setCash(9);
         Activities.snack(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(64, student.getStats().getHunger());
         assertEquals(98, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
-        assertEquals(160, student.getCash());
-
-        student.setCash(19);
-        Activities.snack(student);
-        assertEquals(98, student.getStats().getSocial());
-        assertEquals(64, student.getStats().getHunger());
-        assertEquals(98, student.getStats().getStress());
-        assertEquals(98, student.getStats().getEnergy());
-        assertEquals(18, student.getTime().getTimeUnit());
-        assertEquals(19, student.getCash());
+        assertEquals(9, student.getCash());
     }
 
     @Test
@@ -360,7 +360,7 @@ public class ActivitiesTest {
         assertEquals(99, student.getStats().getStress());
         assertEquals(99, student.getStats().getEnergy());
         assertEquals(17, student.getTime().getTimeUnit());
-        assertEquals(180, student.getCash());
+        assertEquals(190, student.getCash());
 
         Activities.snack(student);
         assertEquals(98, student.getStats().getSocial());
@@ -368,7 +368,7 @@ public class ActivitiesTest {
         assertEquals(98, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
-        assertEquals(160, student.getCash());
+        assertEquals(180, student.getCash());
     }
 
     @Test
