@@ -55,7 +55,7 @@ public class EventActionsTest {
     @Test
     public void helpedAFriendTest() throws Exception {
         EventActions.helpedAFriend(student);
-        assertTrue(1700 <= student.getCash() && student.getCash() <= 2700);
+        assertTrue(1100 <= student.getCash() && student.getCash() <= 1700);
     }
 
 
