@@ -202,7 +202,7 @@ public final class EventActions {
         student.addTimeUnits(2);
         Activities.checkBorderMultiplicators(student);
 
-        float stress = 32 *student.getStats().getStress_multiplicator();
+        float stress = 12 *student.getStats().getStress_multiplicator();
 
         student.getStats().increaseStress((int) stress);
         Activities.checkBorder(student);
