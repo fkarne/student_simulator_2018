@@ -25,6 +25,10 @@ public final class EventHandler {
     private static int MAX_DAY = 0;
     private static int MAX_EXAMS = 3;
 
+    private static int TOO_EARLY = 1;
+    private static int VISITED_LECTURE = 1;
+    private static int TOOK_EXAM = 1;
+
     public static void addExam(Event exam) {
         exam_list.add(exam);
     }
@@ -143,19 +147,17 @@ public final class EventHandler {
     }
 
     public static int goToUniversity(Event lecture) {
-        //return value 1 = too early; 2 = visited lecture; 3 = took exam
-        if (lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
-                lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
-                lecture.getType() == Event.Type.Lecture) {
+        int eventTime = lecture.getTime().getTimeUnit() + lecture.getTime().getDay()*48;
+        int studentTime = Student.getInstance().getTime().getTimeUnit() + Student.getInstance().getTime().getDay()*48;
+
+        if (studentTime >= eventTime - 4  && lecture.getType() == Event.Type.Lecture) {
             Activities.visitLecture(Student.getInstance(), lecture);
-            return 2;
-        } else if (lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
-                lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
-                lecture.getType() == Event.Type.Exam) {
+            return VISITED_LECTURE;
+        } else if (studentTime >= eventTime - 2 && lecture.getType() == Event.Type.Exam) {
             Activities.takeExam(Student.getInstance(), lecture);
-            return 3;
+            return TOOK_EXAM;
         }
-        return 1;
+        return TOO_EARLY;
     }
 
     public static void updateCalendarList() {
