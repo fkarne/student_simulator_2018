@@ -60,7 +60,7 @@ public final class Activities
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
-        float hunger = 12 *student.getStats().getHunger_multiplicator();
+        float hunger = 17 *student.getStats().getHunger_multiplicator();
 
         student.getStats().increaseHunger((int) hunger);
         checkBorder(student);
@@ -122,7 +122,7 @@ public final class Activities
             checkBorderMultiplicators(student);
 
             float social = 9 * student.getStats().getSocial_multiplicator();
-            float hunger = 19 * student.getStats().getHunger_multiplicator();
+            float hunger = 29 * student.getStats().getHunger_multiplicator();
 
             student.getStats().increaseHunger((int) hunger);
             student.getStats().increaseSocial((int) social);
@@ -191,7 +191,7 @@ public final class Activities
 
     //Sub Hunger
     public static boolean snack(Student student) {
-        int cost = 20;
+        int cost = 10;
         if(checkMoney(student, cost)) {
             student.addTimeUnits(1);
             checkBorderMultiplicators(student);
@@ -251,7 +251,7 @@ public final class Activities
         return multiplicator > MAX_MULT ? MAX_MULT : (multiplicator < MIN_MULT ? MIN_MULT : multiplicator);
     }
 
-    private static boolean checkMoney(Student student, int money) {
+    public static boolean checkMoney(Student student, int money) {
         return student.getCash() >= money;
     }
 
