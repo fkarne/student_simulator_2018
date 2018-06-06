@@ -1,15 +1,17 @@
 package at.tugraz.morning08.a_students_life;
 
+import android.app.AlertDialog;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.List;
 
 import at.tugraz.morning08.a_students_life.components.ButtonInfo;
-import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
 
 public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHolder>{
     private List<ButtonInfo> activity_list;
@@ -32,16 +34,66 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
 
     @Override
     public void onBindViewHolder(PopupViewHolder holder, final int position) {
-        String text = view.getContext().getString(activity_list.get(position).getInfoKey());
-
-        holder.activity.setText(text);
+        holder.title.setText(view.getContext().getString(activity_list.get(position).getInfoKey()));
+        switch (activity_list.get(position).getActivity())
+        {
+            case SLEEP:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.energy_info_3));
+                break;
+            case NAP:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.energy_info_1));
+                break;
+            case EAT:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_info_2));
+                break;
+            case GOINGOUTTOEAT:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_info_3));
+                break;
+            case SNACK:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.hunger_info_1));
+                break;
+            case ASKFORMONEY:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.money_info_3));
+                break;
+            case PHONECALL:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_info_1));
+                break;
+            case PARTYING:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_info_3));
+                break;
+            case MEETFRIENDS:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.social_info_2));
+                break;
+            case WATCHTV:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_info_2));
+                break;
+            case READINGBOOK:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_info_1));
+                break;
+            case SPORTS:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.stress_info_3));
+                break;
+            case LEARN:
+                holder.info.setImageDrawable(view.getContext().getDrawable(R.drawable.study_info_3));
+                break;
+        }
         holder.activity.setId(position);
 
         holder.activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_list.get(position).invokeMethod();
-                mainPageActivity.updateMainPage(view);
+                if(activity_list.get(position).invokeMethod()) {
+                    mainPageActivity.updateMainPage(view);
+                }
+                else
+                {
+                     new AlertDialog.Builder(view.getContext())
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle(view.getContext().getText(R.string.less_money))
+                            .setMessage(view.getContext().getText(R.string.less_money_msg))
+                            .setPositiveButton(view.getContext().getText(R.string.ok_btn), null)
+                            .show();
+                }
             }
         });
     }
@@ -52,11 +104,15 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.PopupViewHol
     }
 
     public class PopupViewHolder extends RecyclerView.ViewHolder {
-        public Button activity;
+        public ConstraintLayout activity;
+        public TextView title;
+        public ImageView info;
 
         public PopupViewHolder(View view) {
             super(view);
-            activity = view.findViewById(R.id.btn_activity_recycle);
+            activity = view.findViewById(R.id.rlActivity);
+            title = view.findViewById(R.id.tvActivityTitle);
+            info = view.findViewById(R.id.tvActivityInfo);
         }
     }
 }

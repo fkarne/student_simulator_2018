@@ -75,7 +75,6 @@ public class MainPageActivity extends AppCompatActivity
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
                         {
-                            setContentView(R.layout.activity_start_menu);
                             startActivity(new Intent(MainPageActivity.this, StartMenuActivity.class));
                             MainPageActivity.this.finish();
                             //System.exit(0);
@@ -89,11 +88,6 @@ public class MainPageActivity extends AppCompatActivity
             setContentView(R.layout.activity_main_page);
             updateMainPage(findViewById(R.id.mainPage));
         }
-    }
-
-    public AlertDialog getBackPressedAlert()
-    {
-        return backPressedAlert;
     }
 
     public void energy_popup(View view) {
@@ -121,10 +115,6 @@ public class MainPageActivity extends AppCompatActivity
     }
 
     public void popup(View view) {
-        //TODO [CS, LR]
-        //ImageView student_pic = findViewById(R.id.student_pic);
-        //student_pic.setVisibility(View.INVISIBLE);
-
         List<ButtonInfo> activity_list = new ArrayList<>();
         RecyclerView recycler_view;
         PopupAdapter popup_adapter;

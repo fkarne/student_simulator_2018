@@ -55,7 +55,7 @@ public class EventActionsTest {
     @Test
     public void helpedAFriendTest() throws Exception {
         EventActions.helpedAFriend(student);
-        assertTrue(1700 <= student.getCash() && student.getCash() <= 2700);
+        assertTrue(1100 <= student.getCash() && student.getCash() <= 1700);
     }
 
 
@@ -93,6 +93,7 @@ public class EventActionsTest {
         assertEquals(99, student.getStats().getStress());
         assertEquals(99, student.getStats().getEnergy());
         assertEquals(17, student.getTime().getTimeUnit());
+        assertEquals(175, student.getCash());
     }
 
 
@@ -163,7 +164,7 @@ public class EventActionsTest {
         EventActions.fellAsleepDuringLearning(student);
         assertEquals(94, student.getStats().getSocial());
         assertEquals(94, student.getStats().getHunger());
-        assertEquals(94, student.getStats().getStress());
+        assertEquals(84, student.getStats().getStress());
         assertEquals(70, student.getStats().getEnergy());
         assertEquals(22, student.getTime().getTimeUnit());
     }
@@ -176,7 +177,7 @@ public class EventActionsTest {
         assertEquals(97, student.getStats().getSocial());
         assertEquals(97, student.getStats().getHunger());
         assertEquals(97, student.getStats().getStress());
-        assertEquals(30, student.getStats().getEnergy());
+        assertEquals(40, student.getStats().getEnergy());
         assertEquals(19, student.getTime().getTimeUnit());
     }
 
@@ -247,7 +248,7 @@ public class EventActionsTest {
         EventActions.goForAWalk(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(98, student.getStats().getHunger());
-        assertEquals(80, student.getStats().getStress());
+        assertEquals(60, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
     }

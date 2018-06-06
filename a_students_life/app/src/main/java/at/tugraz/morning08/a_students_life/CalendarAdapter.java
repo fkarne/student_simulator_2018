@@ -5,11 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import at.tugraz.morning08.a_students_life.data.Event;
+
+import static at.tugraz.morning08.a_students_life.R.attr.actionModePasteDrawable;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>{
 
@@ -28,7 +31,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         View item_view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.calender_item_row, parent, false);
 
-        return new CalendarViewHolder(item_view, listener);
+        return new CalendarViewHolder(item_view);
     }
 
     @Override
@@ -37,6 +40,27 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         holder.title.setText(context.getString(event_list.get(position).getNameKey()));
         holder.time.setText(event_list.get(position).getTime().getTimeString());
         holder.day.setText("Day: " + String.valueOf(event_list.get(position).getTime().getDay()));
+        if(event_list.get(position).getType() == Event.Type.Lecture) {
+            holder.picture.setImageResource(R.drawable.lecture);
+            holder.picture.setTag(R.drawable.lecture);
+        }
+        else
+        {
+            if(event_list.get(position).getProbabilityPercentage() > 70) {
+                holder.picture.setImageResource(R.drawable.certificate_green);
+                holder.picture.setTag(R.drawable.certificate_green);
+            }
+            else if(event_list.get(position).getProbabilityPercentage() > 30) {
+                holder.picture.setImageResource(R.drawable.certificate_yellow);
+                holder.picture.setTag(R.drawable.certificate_yellow);
+            }
+            else {
+                holder.picture.setImageResource(R.drawable.certificate_red);
+                holder.picture.setTag(R.drawable.certificate_red);
+            }
+        }
+        holder.picture.setAlpha(0.5f);
+
     }
 
     @Override
@@ -50,12 +74,14 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         public TextView title;
         public TextView day;
         public TextView time;
+        public ImageView picture;
 
-        public CalendarViewHolder(View view, CalendarRecyclerViewClickListener listener) {
+        public CalendarViewHolder(View view) {
             super(view);
             title = view.findViewById(R.id.tvEventTitle);
             time = view.findViewById(R.id.tvEventTime);
             day = view.findViewById(R.id.tvEventDay);
+            picture = view.findViewById(R.id.ivEventIcon);
             view.setOnClickListener(this);
         }
 

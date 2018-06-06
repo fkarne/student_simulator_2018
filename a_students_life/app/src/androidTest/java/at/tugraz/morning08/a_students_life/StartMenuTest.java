@@ -8,8 +8,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import at.tugraz.morning08.a_students_life.data.Student;
+
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.doubleClick;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -50,26 +51,16 @@ public class StartMenuTest {
     }
 
     @Test
-    public void goBackFromOptions(){
+    public void goBackFromOptions() throws Exception {
         Espresso.onView(withId(R.id.options_btn)).perform(click());
         Espresso.pressBack();
         Espresso.onView(withText(R.string.load_btn)).check(matches(isDisplayed()));
     }
 
-    /*
+
     @Test
-    public void SaveLoadTest() throws Exception {
-        Espresso.onView(withId(R.id.start_btn)).perform(click());
-        Espresso.onView(withId(R.id.user_name_tf)).perform(clearText(), typeText("Name")).perform(closeSoftKeyboard());
-        Espresso.onView(withId(R.id.next01_btn)).perform(click());
-        Espresso.onView(withId(R.id.next02_btn)).perform(click());
-        Espresso.onView(withId(R.id.social_img_btn)).perform(click());
-        Espresso.onView(withId(R.id.partying_btn)).perform(click());
-        Espresso.pressBack();
-        Espresso.pressBack();
-        Espresso.onView(withText(R.string.yes_btn)).perform(click());
+    public void loadTest() throws Exception {
         Espresso.onView(withId(R.id.load_btn)).perform(click());
-        assertEquals(28, Student.getInstance().getTime().getTimeUnit());
+        Espresso.onView(withId(R.id.calender_img_btn)).check(matches(isDisplayed()));
     }
-    */
 }

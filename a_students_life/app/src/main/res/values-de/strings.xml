@@ -13,6 +13,9 @@
     <string name="no_btn">Nein</string>
     <string name="yes_btn">Ja</string>
 
+    <!-- MoneyAlert -->
+    <string name="less_money">Zu wenig Geld!</string>
+    <string name="less_money_msg">Wieder mal zu viel Blödsinn gekauft?</string>
 
     <!-- Placeholder -->
     <string name="name_ph">Name eingeben</string>

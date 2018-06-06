@@ -25,14 +25,15 @@ public final class Activities
     private static boolean init = false;
 
     //Main Money
-    public static void askForMoney(Student student) {
+    public static boolean askForMoney(Student student) {
         student.addTimeUnits(2); // !!! Has to be made first at every Activities!!!
         student.addCash(100);
         checkBorder(student);
+        return true;
     }
 
     //Main Stress
-    public static void watchTV(Student student) {
+    public static boolean watchTV(Student student) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -41,10 +42,11 @@ public final class Activities
 
         student.getStats().increaseStress((int) stress);
         checkBorder(student);
+        return true;
     }
 
     //Main Social
-    public static void phoneCall(Student student) {
+    public static boolean phoneCall(Student student) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -52,21 +54,23 @@ public final class Activities
 
         student.getStats().increaseSocial((int) social);
         checkBorder(student);
+        return true;
     }
 
     //Main Hunger
-    public static void eat(Student student) {
+    public static boolean eat(Student student) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
-        float hunger = 12 *student.getStats().getHunger_multiplicator();
+        float hunger = 17 *student.getStats().getHunger_multiplicator();
 
         student.getStats().increaseHunger((int) hunger);
         checkBorder(student);
+        return true;
     }
 
     //Main Energy
-    public static void sleep(Student student) {
+    public static boolean sleep(Student student) {
         student.addTimeUnits(16);
         checkBorderMultiplicators(student);
 
@@ -74,10 +78,11 @@ public final class Activities
 
         student.getStats().increaseEnergy((int) energy);
         checkBorder(student);
+        return true;
     }
 
     //Main Study
-    public static void learn(Student student) {
+    public static boolean learn(Student student) {
         Event event = student.getNextExam();
         if(event != null) {
             student.addTimeUnits(4);
@@ -89,17 +94,17 @@ public final class Activities
 
             float energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
             float energy = 4 * energy_conjugated;
-
-            float stress = 7 * student.getStats().getStress_multiplicator();
+            float stress = 14 * student.getStats().getStress_multiplicator();
 
             student.getStats().decreaseEnergy((int) energy);
             student.getStats().increaseStress((int) stress);
             checkBorder(student);
         }
+        return true;
     }
 
     //Sub Energy
-    public static void nap(Student student) {
+    public static boolean nap(Student student) {
         student.addTimeUnits(2);
         checkBorderMultiplicators(student);
 
@@ -107,24 +112,30 @@ public final class Activities
 
         student.getStats().increaseEnergy((int) energy);
         checkBorder(student);
+        return true;
     }
 
     //Sub Hunger
-    public static void goingOutToEat(Student student) {
-        student.addTimeUnits(4);
-        checkBorderMultiplicators(student);
+    public static boolean goingOutToEat(Student student) {
+        int cost = 50;
+        if(checkMoney(student, cost)) {
+            student.addTimeUnits(4);
+            checkBorderMultiplicators(student);
 
-        float social = 9 *student.getStats().getSocial_multiplicator();
-        float hunger = 19 *student.getStats().getHunger_multiplicator();
+            float social = 9 * student.getStats().getSocial_multiplicator();
+            float hunger = 29 * student.getStats().getHunger_multiplicator();
 
-        student.getStats().increaseHunger((int) hunger);
-        student.getStats().increaseSocial((int)social);
-        student.addCash(-50);
-        checkBorder(student);
+            student.getStats().increaseHunger((int) hunger);
+            student.getStats().increaseSocial((int) social);
+            student.addCash(-cost);
+            checkBorder(student);
+            return true;
+        }
+        return false;
     }
 
     //Sub Stress
-    public static void readingBook(Student student) {
+    public static boolean readingBook(Student student) {
         student.addTimeUnits(1);
         checkBorderMultiplicators(student);
 
@@ -132,10 +143,11 @@ public final class Activities
 
         student.getStats().increaseStress((int)stress);
         checkBorder(student);
+        return true;
     }
 
     //Sub Social
-    public static void partying(Student student) {
+    public static boolean partying(Student student) {
         student.addTimeUnits(12);
         checkBorderMultiplicators(student);
 
@@ -146,23 +158,25 @@ public final class Activities
         student.getStats().increaseSocial((int)social);
         student.getStats().decreaseEnergy((int)energy);
         checkBorder(student);
+        return true;
     }
 
     //Sub Social
-    public static void meetFriends(Student student) {
+    public static boolean meetFriends(Student student) {
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
         float social = 24 *student.getStats().getSocial_multiplicator();
-        float stress = 9 *student.getStats().getStress_multiplicator();
+        float stress = 19 *student.getStats().getStress_multiplicator();
 
         student.getStats().increaseSocial((int) social);
         student.getStats().increaseStress((int)stress);
         checkBorder(student);
+        return true;
     }
 
     //Sub Stress
-    public static void sports(Student student) {
+    public static boolean sports(Student student) {
         student.addTimeUnits(3);
         checkBorderMultiplicators(student);
 
@@ -173,31 +187,36 @@ public final class Activities
         student.getStats().increaseStress((int)stress);
         student.getStats().decreaseEnergy((int)energy);
         checkBorder(student);
+        return true;
     }
 
     //Sub Hunger
-    public static void snack(Student student) {
-        student.addTimeUnits(1);
-        checkBorderMultiplicators(student);
+    public static boolean snack(Student student) {
+        int cost = 10;
+        if(checkMoney(student, cost)) {
+            student.addTimeUnits(1);
+            checkBorderMultiplicators(student);
 
-        float hunger = 8 *student.getStats().getHunger_multiplicator();
+            float hunger = 8 * student.getStats().getHunger_multiplicator();
 
-        student.getStats().increaseHunger((int) hunger);
-        student.addCash(-20);
-        checkBorder(student);
+            student.getStats().increaseHunger((int) hunger);
+            student.addCash(-cost);
+            checkBorder(student);
+            return true;
+        }
+        return false;
     }
 
     public static void visitLecture(Student student, Event lecture) {
-        student.addTimeUnits(4);
+        student.addTimeUnits(4 + (lecture.getTime().getTimeUnit() - student.getTime().getTimeUnit()));
         checkBorderMultiplicators(student);
-
+      
         lecture.getExam().increaseProbability(20);
         lecture.getExam().checkBorderProbability();
 
         double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
         double energy = 4.0 * energy_conjugated;
-
-        double stress = 7.0 * student.getStats().getStress_multiplicator();
+        double stress = 9.0 * student.getStats().getStress_multiplicator();
 
         student.getStats().decreaseEnergy((int) energy);
         student.getStats().increaseStress((int) stress);
@@ -230,20 +249,18 @@ public final class Activities
         return exam.isCompleted();
     }
 
-    private static void checkBorder(Student student) {
+    public static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
         student.getStats().setHunger(checkBorderStat(student.getStats().getHunger()));
         student.getStats().setStress(checkBorderStat(student.getStats().getStress()));
         student.getStats().setSocial(checkBorderStat(student.getStats().getSocial()));
     }
 
-
-
     private static int checkBorderStat(int stat) {
         return stat > MAX ? MAX : (stat < MIN ? MIN : stat);
     }
 
-    private static void checkBorderMultiplicators(Student student) {
+    public static void checkBorderMultiplicators(Student student) {
         student.getStats().setEnergy_multiplicator(checkBorderMults(student.getStats().getEnergy_multiplicator()));
         student.getStats().setHunger_multiplicator(checkBorderMults(student.getStats().getHunger_multiplicator()));
         student.getStats().setStress_multiplicator(checkBorderMults(student.getStats().getStress_multiplicator()));
@@ -254,26 +271,30 @@ public final class Activities
         return multiplicator > MAX_MULT ? MAX_MULT : (multiplicator < MIN_MULT ? MIN_MULT : multiplicator);
     }
 
+    public static boolean checkMoney(Student student, int money) {
+        return student.getCash() >= money;
+    }
+
     public static void createButtonInfo() {
         if(!init) {
-            energy.add(new ButtonInfo("sleep", R.string.activity_sleep));
-            energy.add(new ButtonInfo("nap", R.string.activity_powerNap));
+            energy.add(new ButtonInfo(ActivityEnum.SLEEP, R.string.activity_sleep));
+            energy.add(new ButtonInfo(ActivityEnum.NAP, R.string.activity_powerNap));
 
-            hunger.add(new ButtonInfo("eat", R.string.activity_eat));
-            hunger.add(new ButtonInfo("goingOutToEat", R.string.activity_eatOutside));
-            hunger.add(new ButtonInfo("snack", R.string.activity_snack));
+            hunger.add(new ButtonInfo(ActivityEnum.EAT, R.string.activity_eat));
+            hunger.add(new ButtonInfo(ActivityEnum.GOINGOUTTOEAT, R.string.activity_eatOutside));
+            hunger.add(new ButtonInfo(ActivityEnum.SNACK, R.string.activity_snack));
 
-            money.add(new ButtonInfo("askForMoney", R.string.activity_askForMoney));
+            money.add(new ButtonInfo(ActivityEnum.ASKFORMONEY, R.string.activity_askForMoney));
 
-            social.add(new ButtonInfo("phoneCall", R.string.activity_callFriends));
-            social.add(new ButtonInfo("partying", R.string.activity_party));
-            social.add(new ButtonInfo("meetFriends", R.string.activity_meetFriends));
+            social.add(new ButtonInfo(ActivityEnum.PHONECALL, R.string.activity_callFriends));
+            social.add(new ButtonInfo(ActivityEnum.PARTYING, R.string.activity_party));
+            social.add(new ButtonInfo(ActivityEnum.MEETFRIENDS, R.string.activity_meetFriends));
 
-            stress.add(new ButtonInfo("watchTV", R.string.activity_watchTv));
-            stress.add(new ButtonInfo("readingBook", R.string.activity_readBook));
-            stress.add(new ButtonInfo("sports", R.string.activity_doSports));
+            stress.add(new ButtonInfo(ActivityEnum.WATCHTV, R.string.activity_watchTv));
+            stress.add(new ButtonInfo(ActivityEnum.READINGBOOK, R.string.activity_readBook));
+            stress.add(new ButtonInfo(ActivityEnum.SPORTS, R.string.activity_doSports));
 
-            study.add(new ButtonInfo("learn", R.string.activity_study));
+            study.add(new ButtonInfo(ActivityEnum.LEARN, R.string.activity_study));
             init = true;
         }
     }
