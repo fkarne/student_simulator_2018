@@ -92,8 +92,7 @@ public final class Activities
 
             float energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
             float energy = 4 * energy_conjugated;
-
-            float stress = 7 * student.getStats().getStress_multiplicator();
+            float stress = 14 * student.getStats().getStress_multiplicator();
 
             student.getStats().decreaseEnergy((int) energy);
             student.getStats().increaseStress((int) stress);
@@ -166,7 +165,7 @@ public final class Activities
         checkBorderMultiplicators(student);
 
         float social = 24 *student.getStats().getSocial_multiplicator();
-        float stress = 9 *student.getStats().getStress_multiplicator();
+        float stress = 19 *student.getStats().getStress_multiplicator();
 
         student.getStats().increaseSocial((int) social);
         student.getStats().increaseStress((int)stress);
@@ -221,7 +220,7 @@ public final class Activities
             double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
             double energy = 4.0 * energy_conjugated;
 
-            double stress = 7.0 * student.getStats().getStress_multiplicator();
+            double stress = 9.0 * student.getStats().getStress_multiplicator();
 
             student.getStats().decreaseEnergy((int) energy);
             student.getStats().increaseStress((int) stress);

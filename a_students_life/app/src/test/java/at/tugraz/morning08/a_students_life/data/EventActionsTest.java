@@ -248,7 +248,7 @@ public class EventActionsTest {
         EventActions.goForAWalk(student);
         assertEquals(98, student.getStats().getSocial());
         assertEquals(98, student.getStats().getHunger());
-        assertEquals(80, student.getStats().getStress());
+        assertEquals(60, student.getStats().getStress());
         assertEquals(98, student.getStats().getEnergy());
         assertEquals(18, student.getTime().getTimeUnit());
     }
