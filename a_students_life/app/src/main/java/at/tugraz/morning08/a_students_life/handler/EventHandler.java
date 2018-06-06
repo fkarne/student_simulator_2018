@@ -1,14 +1,12 @@
 package at.tugraz.morning08.a_students_life.handler;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import at.tugraz.morning08.a_students_life.CalendarActivity;
 import at.tugraz.morning08.a_students_life.R;
 import at.tugraz.morning08.a_students_life.data.Activities;
 import at.tugraz.morning08.a_students_life.data.Calendar;
@@ -25,13 +23,9 @@ public final class EventHandler {
     private static int MAX_DAY = 0;
     private static int MAX_EXAMS = 3;
 
-    private static int TOO_EARLY = 1;
-    private static int VISITED_LECTURE = 1;
-    private static int TOOK_EXAM = 1;
-
-    public static void addExam(Event exam) {
-        exam_list.add(exam);
-    }
+    public static int TOO_EARLY = 1;
+    public static int VISITED_LECTURE = 2;
+    public static int TOOK_EXAM = 3;
 
     public static int getMaxDay() {
         return MAX_DAY;
@@ -123,7 +117,6 @@ public final class EventHandler {
     }
 
     public static void createLectures() {
-
         List<Event> current_exams = Student.getInstance().getEventList();
         List<Event> current_lectures = new ArrayList<>();
         Random randi = new Random();

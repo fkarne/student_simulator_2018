@@ -45,12 +45,12 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
 
         StringBuilder output = new StringBuilder();
 
-        if(retval==2 && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Lecture) {
+        if(retval == EventHandler.VISITED_LECTURE && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Lecture) {
             output.append(getText(R.string.tst_visited));
             output.append(": ");
             output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
         }
-        else if(retval==3 && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Exam) {
+        else if(retval == EventHandler.TOOK_EXAM && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Exam) {
             output.append(getText(R.string.tst_took_exam));
             output.append(": ");
             output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
