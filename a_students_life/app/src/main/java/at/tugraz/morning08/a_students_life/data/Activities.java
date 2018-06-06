@@ -229,7 +229,7 @@ public final class Activities
         }
     }
 
-    private static void checkBorder(Student student) {
+    public static void checkBorder(Student student) {
         student.getStats().setEnergy(checkBorderStat(student.getStats().getEnergy()));
         student.getStats().setHunger(checkBorderStat(student.getStats().getHunger()));
         student.getStats().setStress(checkBorderStat(student.getStats().getStress()));
@@ -240,7 +240,7 @@ public final class Activities
         return stat > MAX ? MAX : (stat < MIN ? MIN : stat);
     }
 
-    private static void checkBorderMultiplicators(Student student) {
+    public static void checkBorderMultiplicators(Student student) {
         student.getStats().setEnergy_multiplicator(checkBorderMults(student.getStats().getEnergy_multiplicator()));
         student.getStats().setHunger_multiplicator(checkBorderMults(student.getStats().getHunger_multiplicator()));
         student.getStats().setStress_multiplicator(checkBorderMults(student.getStats().getStress_multiplicator()));
