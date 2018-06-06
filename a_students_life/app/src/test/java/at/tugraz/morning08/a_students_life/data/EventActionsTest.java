@@ -150,7 +150,7 @@ public class EventActionsTest {
         student.getStats().setSocial(50);
 
         EventActions.installedWorldOfWarcraft(student);
-        assertEquals(10, student.getStats().getSocial());
+        assertEquals(20, student.getStats().getSocial());
         assertEquals(90, student.getStats().getHunger());
         assertEquals(90, student.getStats().getStress());
         assertEquals(90, student.getStats().getEnergy());

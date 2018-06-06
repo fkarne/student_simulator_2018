@@ -117,7 +117,7 @@ public final class EventActions {
         Activities.checkBorderMultiplicators(student);
 
         float social_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getSocial_multiplicator());
-        float social = 30 * social_conjugated;
+        float social = 20 * social_conjugated;
 
         student.getStats().decreaseSocial((int) social);
         Activities.checkBorder(student);
