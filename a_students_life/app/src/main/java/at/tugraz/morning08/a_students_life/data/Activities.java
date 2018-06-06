@@ -223,15 +223,15 @@ public final class Activities
         checkBorder(student);
     }
 
-    public static boolean takeExam(Student student, Event exam) {
+    public static void takeExam(Student student, Event exam) {
         student.addTimeUnits(4);
         checkBorderMultiplicators(student);
 
         Random randi = new Random();
 
-
         if(exam.getProbabilityPercentage() > 70) {
-
+            exam.setCompleted(true);
+            student.addEcts(exam.getEcts());
         }
         else if(exam.getProbabilityPercentage() > 40) {
             int prob = randi.nextInt(2);
@@ -246,7 +246,6 @@ public final class Activities
         else {
             exam.setCompleted(false);
         }
-        return exam.isCompleted();
     }
 
     public static void checkBorder(Student student) {

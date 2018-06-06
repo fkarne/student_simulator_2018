@@ -40,29 +40,29 @@ public class CalendarActivity extends AppCompatActivity implements CalendarRecyc
 
     @Override
     public void onClick(View view, int position) {
-        boolean valid_visit = EventHandler.goToUniversity(Calendar.getInstance().getEventAt(position));
+        //return value 1 = too early; 2 = visited lecture; 3 = took exam
+        int retval = EventHandler.goToUniversity(Calendar.getInstance().getEventAt(position));
 
         StringBuilder output = new StringBuilder();
 
-        if(valid_visit && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Lecture) {
+        if(retval==2 && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Lecture) {
             output.append(getText(R.string.tst_visited));
             output.append(": ");
             output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
         }
-        else if(valid_visit && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Exam) {
+        else if(retval==3 && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Exam) {
+            output.append(getText(R.string.tst_took_exam));
+            output.append(": ");
+            output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
 
-            System.out.println("visited exam.....");
-            output.append(getText(R.string.tst_took_exam));
-            output.append(": ");
-            output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
-            output.append("\n"+getText(R.string.tst_exam_negative));
-        }
-        else if(!valid_visit && Calendar.getInstance().getEventAt(position).getType() == Event.Type.Exam) {
-            System.out.println("visited exam!!!!!!");
-            output.append(getText(R.string.tst_took_exam));
-            output.append(": ");
-            output.append(getText(Calendar.getInstance().getEventAt(position).getNameKey()));
-            output.append("\n"+getText(R.string.tst_exam_negative));
+            if(Calendar.getInstance().getEventAt(position).isCompleted())
+            {
+                output.append("\n"+getText(R.string.tst_exam_positive));
+            }
+            else
+            {
+                output.append("\n"+getText(R.string.tst_exam_negative));
+            }
         }
         else{
             output.append(getText(R.string.tst_error_msg));

@@ -142,20 +142,20 @@ public final class EventHandler {
         }
     }
 
-    public static boolean goToUniversity(Event lecture) {
+    public static int goToUniversity(Event lecture) {
+        //return value 1 = too early; 2 = visited lecture; 3 = took exam
         if (lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
                 lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
                 lecture.getType() == Event.Type.Lecture) {
             Activities.visitLecture(Student.getInstance(), lecture);
-            return true;
+            return 2;
         } else if (lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
                 lecture.getTime().getTimeUnit() == Student.getInstance().getTime().getTimeUnit() &&
                 lecture.getType() == Event.Type.Exam) {
-            // TODO: write method for writing an exam; visit is called to set new time & change stats
-            boolean completed = Activities.takeExam(Student.getInstance(), lecture);
-            return completed;
+            Activities.takeExam(Student.getInstance(), lecture);
+            return 3;
         }
-        return false;
+        return 1;
     }
 
     public static void updateCalendarList() {
