@@ -3,6 +3,11 @@ package at.tugraz.morning08.a_students_life.data;
 import org.junit.Before;
 import org.junit.Test;
 
+import at.tugraz.morning08.a_students_life.data.Event;
+import at.tugraz.morning08.a_students_life.data.Stats;
+import at.tugraz.morning08.a_students_life.data.Student;
+import at.tugraz.morning08.a_students_life.data.Time;
+import at.tugraz.morning08.a_students_life.handler.EventHandler;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -169,7 +174,7 @@ public class StudentTest {
     @Test
     public void getNextExamTest() {
         Event exam1 = new Event(2, new Time(1, 32), Event.Type.Exam, 20, 3);
-        Event lecture = new Event(2, new Time(1, 32), Event.Type.Lecture, exam1);
+        Event lecture = new Event(2, new Time(1, 32), Event.Type.Lecture, exam1, 0, 3);
         Event exam2 = new Event(3, new Time(1, 40), Event.Type.Exam, 20, 4);
 
         student.addEvent(exam1);

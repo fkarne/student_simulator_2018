@@ -315,8 +315,11 @@ public class ActivitiesTest {
     @Test
     public void visitLectureTest() throws Exception
     {
+        student.clearEventList();
         Event exam = new Event(2, new Time(5, 20), Event.Type.Exam, 20, 4);
-        Event lecture = new Event(2, new Time(1, 16), Event.Type.Lecture, exam);
+        Event lecture = new Event(2, new Time(1, 16), Event.Type.Lecture, exam, 0, 3);
+        student.addEvent(exam);
+        student.addEvent(lecture);
         student.getStats().setStress(10);
 
         Activities.visitLecture(student, lecture);
@@ -329,17 +332,6 @@ public class ActivitiesTest {
         assertEquals(40, lecture.getExam().getProbabilityPercentage());
 
         Activities.visitLecture(student, lecture);
-        assertEquals(96, student.getStats().getSocial());
-        assertEquals(96, student.getStats().getHunger());
-        assertEquals(15, student.getStats().getStress());
-        assertEquals(92, student.getStats().getEnergy());
-        assertEquals(20, student.getTime().getTimeUnit());
-        assertEquals(1, student.getTime().getDay());
-        assertEquals(40, lecture.getExam().getProbabilityPercentage());
-
-
-        lecture.setTime(new Time(1, 20));
-        Activities.visitLecture(student, lecture);
         assertEquals(92, student.getStats().getSocial());
         assertEquals(92, student.getStats().getHunger());
         assertEquals(20, student.getStats().getStress());
@@ -347,6 +339,29 @@ public class ActivitiesTest {
         assertEquals(24, student.getTime().getTimeUnit());
         assertEquals(1, student.getTime().getDay());
         assertEquals(60, lecture.getExam().getProbabilityPercentage());
+
+
+        lecture.setTime(new Time(1, 20));
+        Activities.visitLecture(student, lecture);
+        assertEquals(88, student.getStats().getSocial());
+        assertEquals(88, student.getStats().getHunger());
+        assertEquals(19, student.getStats().getStress());
+        assertEquals(76, student.getStats().getEnergy());
+        assertEquals(28, student.getTime().getTimeUnit());
+        assertEquals(1, student.getTime().getDay());
+        assertEquals(80, lecture.getExam().getProbabilityPercentage());
+    }
+
+    @Test
+    public void takeExamTest() {
+        student.clearEventList();
+        Event exam = new Event(2, new Time(1, 16), Event.Type.Exam, 20, 4);
+        student.addEvent(exam);
+
+        Time system_time = new Time(Student.getInstance().getTime().getDay(), Student.getInstance().getTime().getTimeUnit());
+
+        Activities.takeExam(student, exam);
+        assert(system_time.getTimeUnit() != student.getTime().getTimeUnit());
     }
 
     @Test

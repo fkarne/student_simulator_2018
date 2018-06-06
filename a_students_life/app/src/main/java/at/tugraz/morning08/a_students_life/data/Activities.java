@@ -2,9 +2,11 @@ package at.tugraz.morning08.a_students_life.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import at.tugraz.morning08.a_students_life.R;
 import at.tugraz.morning08.a_students_life.components.ButtonInfo;
+import at.tugraz.morning08.a_students_life.handler.MainPageHandler;
 
 public final class Activities
 {
@@ -206,26 +208,45 @@ public final class Activities
     }
 
     public static void visitLecture(Student student, Event lecture) {
-        if(lecture.getTime().getDay() == Student.getInstance().getTime().getDay() &&
-                Student.getInstance().getTime().getTimeUnit() >= lecture.getTime().getTimeUnit() - 4  &&
-                Student.getInstance().getTime().getTimeUnit() <= lecture.getTime().getTimeUnit() &&
-                lecture.getType() == Event.Type.Lecture) {
+        student.addTimeUnits(4 + (lecture.getTime().getTimeUnit() - student.getTime().getTimeUnit()));
+        checkBorderMultiplicators(student);
+      
+        lecture.getExam().increaseProbability(20);
+        lecture.getExam().checkBorderProbability();
 
-            student.addTimeUnits(4 + (lecture.getTime().getTimeUnit() - student.getTime().getTimeUnit()));
-            checkBorderMultiplicators(student);
+        double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
+        double energy = 4.0 * energy_conjugated;
+        double stress = 9.0 * student.getStats().getStress_multiplicator();
 
-            lecture.getExam().increaseProbability(20);
-            lecture.getExam().checkBorderProbability();
+        student.getStats().decreaseEnergy((int) energy);
+        student.getStats().increaseStress((int) stress);
+        checkBorder(student);
+    }
 
-            double energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
-            double energy = 4.0 * energy_conjugated;
+    public static boolean takeExam(Student student, Event exam) {
+        student.addTimeUnits(4);
+        checkBorderMultiplicators(student);
 
-            double stress = 9.0 * student.getStats().getStress_multiplicator();
+        Random randi = new Random();
 
-            student.getStats().decreaseEnergy((int) energy);
-            student.getStats().increaseStress((int) stress);
-            checkBorder(student);
+
+        if(exam.getProbabilityPercentage() > 70) {
+
         }
+        else if(exam.getProbabilityPercentage() > 40) {
+            int prob = randi.nextInt(2);
+            if(prob == 1) {
+                exam.setCompleted(true);
+                student.addEcts(exam.getEcts());
+            }
+            else {
+                exam.setCompleted(false);
+            }
+        }
+        else {
+            exam.setCompleted(false);
+        }
+        return exam.isCompleted();
     }
 
     public static void checkBorder(Student student) {

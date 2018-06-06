@@ -78,7 +78,7 @@ public class EventTest {
         assertEquals(null, event.getExam());
 
         Event exam = new Event(5, new Time(2, 32), Event.Type.Exam, 50, 3);
-        Event lecture = new Event(5, new Time(2, 10), Event.Type.Lecture, exam);
+        Event lecture = new Event(5, new Time(2, 10), Event.Type.Lecture, exam, 0, 3);
         assertEquals(exam, lecture.getExam());
     }
 

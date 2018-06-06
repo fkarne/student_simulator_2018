@@ -1,26 +1,31 @@
 package at.tugraz.morning08.a_students_life.data;
 
 import android.support.annotation.NonNull;
-
 import at.tugraz.morning08.a_students_life.R;
 
 public class Event implements Comparable
 {
-    public enum Type {Exam, Lecture, Other}
+    public enum Type {Exam, Lecture}
     private int name_key;
     private Time time;
     private Type type;
     private int probability_percentage; // [0; 100]
     private Event exam;
     private int ects;
+    private boolean completed = false;
     private static Boolean init = false;
+    private int lv_visited_count;
+    private int lv_max_count;
+
 
     //LV Contructor
-    public Event(int name_key, Time time, Type type, Event exam) {
+    public Event(int name_key, Time time, Type type, Event exam, int lv_visited_count, int lv_max_count) {
         this.name_key = name_key;
         this.time = time;
         this.type = type;
         this.exam = exam;
+        this.lv_visited_count = lv_visited_count;
+        this.lv_max_count = lv_max_count;
     }
 
     //Exam Contructor
@@ -52,6 +57,22 @@ public class Event implements Comparable
 
     public void setExam(Event exam) { this.exam = exam; }
 
+    public int getLv_visited_count() { return lv_visited_count;}
+
+    public void setLv_visited_count(int lv_visited_count) { this.lv_visited_count = lv_visited_count;   }
+
+    public int getLv_max_count() { return lv_max_count; }
+
+    public void setLv_max_count(int lv_max_count) { this.lv_max_count = lv_max_count; }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
     public void increaseProbability(int probabilityChange){
         probability_percentage += probabilityChange;
     }
@@ -61,58 +82,12 @@ public class Event implements Comparable
             probability_percentage = 100;
     }
 
-    @Override
-    public int compareTo(@NonNull Object o) {
-        return this.getTime().compareTo(((Event)o).getTime());
-    }
-
     public int getEcts() {
         return ects;
     }
 
-    public void setEcts(int ects) {
-        this.ects = ects;
-    }
-
-    public static void createLectureList() {
-        if(!init) {
-            Event analysis_exam = new Event(R.string.lv_analysis_t1, new Time(10, 24), Type.Exam, 20, 7);
-            Event analysis_lecture = new Event(R.string.lv_analysis_t1, new Time(1, 16), Type.Lecture,analysis_exam);
-            Calendar.getInstance().addEvent(analysis_exam);
-            Calendar.getInstance().addEvent(analysis_lecture);
-
-            Event programming_0_exam = new Event(R.string.lv_programming_0, new Time(3, 24), Type.Exam, 60, 1);
-            Event programming_0_lecture = new Event(R.string.lv_programming_0, new Time(1, 16), Type.Lecture, programming_0_exam);
-            Calendar.getInstance().addEvent(programming_0_exam);
-            Calendar.getInstance().addEvent(programming_0_lecture);
-
-            Event foundations_computer_science_exam = new Event(R.string.lv_foundations_computer_science, new Time(7, 32), Type.Exam, 30, 7);
-            Event foundations_computer_science_lecture = new Event(R.string.lv_foundations_computer_science, new Time(2, 20), Type.Lecture,foundations_computer_science_exam);
-            Calendar.getInstance().addEvent(foundations_computer_science_exam);
-            Calendar.getInstance().addEvent(foundations_computer_science_lecture);
-
-            Event computer_mathematics_1_exam = new Event(R.string.lv_computer_mathematics_1, new Time(6, 30), Type.Exam, 50, 1);
-            Event computer_mathematics_1_lecture = new Event(R.string.lv_computer_mathematics_1, new Time(3, 10), Type.Lecture, programming_0_exam);
-            Calendar.getInstance().addEvent(computer_mathematics_1_exam);
-            Calendar.getInstance().addEvent(computer_mathematics_1_lecture);
-
-            Event numerical_computing_linear_algebra_exam = new Event(R.string.lv_numerical_computing_linear_algebra, new Time(12, 26), Type.Exam, 30, 4);
-            Event numerical_computing_linear_algebra_lecture = new Event(R.string.lv_numerical_computing_linear_algebra, new Time(2, 40), Type.Lecture, numerical_computing_linear_algebra_exam);
-            Calendar.getInstance().addEvent(numerical_computing_linear_algebra_exam);
-            Calendar.getInstance().addEvent(numerical_computing_linear_algebra_lecture);
-
-            Event introduction_structured_programming_exam = new Event(R.string.lv_introduction_structured_programming, new Time(12, 24), Type.Exam, 40, 3);
-            Event introduction_structured_programming_lecture = new Event(R.string.lv_introduction_structured_programming, new Time(2, 30), Type.Lecture,introduction_structured_programming_exam);
-            Calendar.getInstance().addEvent(introduction_structured_programming_exam);
-            Calendar.getInstance().addEvent(introduction_structured_programming_lecture);
-
-            Event introduction_computer_science_exam = new Event(R.string.lv_introduction_computer_science, new Time(14, 36), Type.Exam, 65, 1);
-            Event introduction_computer_science_lecture = new Event(R.string.lv_introduction_computer_science, new Time(5, 30), Type.Lecture, introduction_computer_science_exam);
-            Calendar.getInstance().addEvent(introduction_computer_science_exam);
-            Calendar.getInstance().addEvent(introduction_computer_science_lecture);
-
-
-            init = true;
-        }
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return this.getTime().compareTo(((Event)o).getTime());
     }
 }
