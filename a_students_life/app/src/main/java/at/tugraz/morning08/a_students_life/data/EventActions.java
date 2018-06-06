@@ -56,8 +56,6 @@ public final class EventActions {
     }
 
     public static void visitFastFoodRestaurant (Student student) {
-        student.addTimeUnits(1);
-        Activities.checkBorderMultiplicators(student);
         int cost = 25;
         if(Activities.checkMoney(student, cost)) {
             student.addTimeUnits(1);
@@ -131,8 +129,11 @@ public final class EventActions {
         Activities.checkBorderMultiplicators(student);
 
         float energy = 26 *student.getStats().getEnergy_multiplicator();
+        float stress_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getStress_multiplicator());
+        float stress = 10 * stress_conjugated;
 
         student.getStats().increaseEnergy((int) energy);
+        student.getStats().decreaseStress((int) stress);
         Activities.checkBorder(student);
     }
 
@@ -141,7 +142,7 @@ public final class EventActions {
         Activities.checkBorderMultiplicators(student);
 
         float energy_conjugated = student.getStats().getConjugatedMultiplicator(student.getStats().getEnergy_multiplicator());
-        float energy = 17 * energy_conjugated;
+        float energy = 7 * energy_conjugated;
 
         student.getStats().decreaseEnergy((int) energy);
         Activities.checkBorder(student);
@@ -151,7 +152,7 @@ public final class EventActions {
     public static void youCanDoThis (Student student) {
         Activities.checkBorderMultiplicators(student);
 
-        float energy = 20 *student.getStats().getEnergy_multiplicator();
+        float energy = 20 * student.getStats().getEnergy_multiplicator();
 
         student.getStats().increaseEnergy((int) energy);
         Activities.checkBorder(student);

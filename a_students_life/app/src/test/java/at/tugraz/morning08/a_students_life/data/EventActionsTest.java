@@ -164,7 +164,7 @@ public class EventActionsTest {
         EventActions.fellAsleepDuringLearning(student);
         assertEquals(94, student.getStats().getSocial());
         assertEquals(94, student.getStats().getHunger());
-        assertEquals(94, student.getStats().getStress());
+        assertEquals(84, student.getStats().getStress());
         assertEquals(70, student.getStats().getEnergy());
         assertEquals(22, student.getTime().getTimeUnit());
     }
@@ -177,7 +177,7 @@ public class EventActionsTest {
         assertEquals(97, student.getStats().getSocial());
         assertEquals(97, student.getStats().getHunger());
         assertEquals(97, student.getStats().getStress());
-        assertEquals(30, student.getStats().getEnergy());
+        assertEquals(40, student.getStats().getEnergy());
         assertEquals(19, student.getTime().getTimeUnit());
     }
 
